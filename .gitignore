@@ -27,8 +27,8 @@
 # Cypress runs against a real site; the URL and login are per-machine.
 # Copy cypress.env.json.dist and fill it in.
 /cypress.env.json
-/cypress/screenshots/
-/cypress/videos/
+/tests/cypress/screenshots/
+/tests/cypress/videos/
 
 # Test artefacts
 /.phpunit.cache/

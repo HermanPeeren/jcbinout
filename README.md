@@ -205,8 +205,8 @@ tools/
   phpstan-bootstrap.php               Joomla's runtime constants, for analysis
 tests/
   Unit/                               PHPUnit
+  cypress/                            end-to-end specs
   fixtures/                           Hello World blueprint
-cypress/                              end-to-end specs
 ```
 
 ## Development site
@@ -303,8 +303,7 @@ changing them breaks something downstream.
 
 ## Licence
 
-GNU General Public License version 2 or later — the same as Joomla and as JCB,
-whose classes this reads. See [LICENSE](LICENSE).
+GNU General Public License version 3 or later. See [LICENSE](LICENSE).
 
 ## Pinned versions
 

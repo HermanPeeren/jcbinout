@@ -9,6 +9,10 @@ import { defineConfig } from 'cypress';
  * read. The PHPUnit suite deliberately has no Joomla in it, so it can say
  * nothing about any of that.
  *
+ * The specs live under tests/ with everything else that tests something; this
+ * config and cypress.env.json stay at the root, because that is where Cypress
+ * looks for them.
+ *
  * The site and the login come from `cypress.env.json`, which is git-ignored.
  * Copy `cypress.env.json.dist` and fill it in.
  */
@@ -16,8 +20,8 @@ export default defineConfig({
   e2e: {
     // Overridden by `baseUrl` in cypress.env.json.
     baseUrl: 'http://localhost/jcbinout/joomla',
-    supportFile: 'cypress/support/e2e.js',
-    specPattern: 'cypress/e2e/**/*.cy.js',
+    supportFile: 'tests/cypress/support/e2e.js',
+    specPattern: 'tests/cypress/e2e/**/*.cy.js',
     video: false,
     screenshotOnRunFailure: true,
 

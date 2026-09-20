@@ -19,7 +19,7 @@
  *
  * @package    JcbInOut
  * @copyright  Copyright (C) 2026 Herman Peeren. All rights reserved.
- * @license    GNU General Public License version 2 or later
+ * @license    GNU General Public License version 3 or later
  */
 
 // The component classes guard on _JEXEC; this harness is a legitimate caller.

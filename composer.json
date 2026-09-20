@@ -2,7 +2,7 @@
     "name": "yepr/jcbinout",
     "description": "JcbInOut: LionWeb-compatible import and export for Joomla Component Builder blueprints",
     "type": "joomla-component",
-    "license": "GPL-2.0-or-later",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Herman Peeren",

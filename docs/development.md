@@ -32,7 +32,7 @@ src/administrator/components/com_jcbinout/
 build/build.php                       packages build/com_jcbinout-<version>.zip
 tools/                                development scripts
 data/                                 artefacts generated while developing
-tests/ cypress/                       PHPUnit and end-to-end
+tests/                                PHPUnit, Cypress, fixtures
 ```
 
 ## One implementation
@@ -93,6 +93,10 @@ php tools/cli.php roundtrip
 ```bash
 npx cypress run
 ```
+
+Cypress specs live in `tests/cypress/`, with everything else that tests
+something. `cypress.config.js` and `cypress.env.json` stay at the repository
+root, because that is where Cypress looks for them.
 
 CI runs all of them; release runs them and then asserts what the package
 contains. PHPStan is at level 5 and clean — fix findings rather than

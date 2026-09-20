@@ -11,7 +11,7 @@
  *
  * @package    JcbInOut
  * @copyright  Copyright (C) 2026 Herman Peeren. All rights reserved.
- * @license    GNU General Public License version 2 or later
+ * @license    GNU General Public License version 3 or later
  */
 
 $root      = dirname(__DIR__);
