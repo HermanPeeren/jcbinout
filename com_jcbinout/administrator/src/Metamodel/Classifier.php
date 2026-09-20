@@ -11,8 +11,7 @@ namespace Yepr\Component\Jcbinout\Administrator\Metamodel;
 
 final class Classifier
 {
-	/** JCB field types that are scalar regardless of db type. */
-	private const BOOLEAN_TYPES = ['radio', 'checkbox'];
+	/** Field types that are numeric even where no column type says so. */
 	private const NUMERIC_TYPES = ['integer', 'number'];
 
 	/**
@@ -97,17 +96,23 @@ final class Classifier
 	{
 		$dbType = strtoupper((string) ($db['type'] ?? ''));
 
-		if (in_array($type, self::BOOLEAN_TYPES, true))
+		// The column decides, not the widget.
+		//
+		// Nothing here is Boolean. A JCB radio backed by TINYINT(1) looks like
+		// a yes/no and is not one: MySQL's (1) is a display width, the column
+		// holds -128..127, and JCB really does store 2 and 3 in these -
+		// component_router.mode_methods and joomla_component.update_server_target
+		// both do. Calling them Boolean turned a 3 into false.
+		//
+		// Nor is every radio numeric. joomla_component.add_namespace_prefix is
+		// a radio on CHAR(1) whose default is '', and reading that as an
+		// integer loses the empty value the same way.
+		if (preg_match('#^(TINYINT|SMALLINT|MEDIUMINT|INT|BIGINT)#', $dbType))
 		{
-			// radio is only boolean when the column is a narrow int
-			if (preg_match('#^(TINYINT|SMALLINT|INT)#', $dbType))
-			{
-				return 'Boolean';
-			}
+			return 'Integer';
 		}
 
-		if (in_array($type, self::NUMERIC_TYPES, true)
-			|| preg_match('#^(TINYINT|SMALLINT|MEDIUMINT|INT|BIGINT)#', $dbType))
+		if (in_array($type, self::NUMERIC_TYPES, true) && $dbType === '')
 		{
 			return 'Integer';
 		}

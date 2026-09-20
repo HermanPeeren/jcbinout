@@ -414,7 +414,7 @@
                         "version": "dev-1",
                         "key": "admin_view-21eff77d-da38-4ce1-96c5-e6af26463942"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -438,7 +438,7 @@
                         "version": "dev-1",
                         "key": "admin_view-e1bcb366-b7e0-47d7-9a5f-58f8d8d0307d"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -582,7 +582,7 @@
                         "version": "dev-1",
                         "key": "admin_view-a5043582-b29c-4ede-a712-16de9346abed"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -630,7 +630,7 @@
                         "version": "dev-1",
                         "key": "admin_view-7e6e7fa8-d17b-47ae-9a28-b02ea4936b81"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -646,7 +646,7 @@
                         "version": "dev-1",
                         "key": "admin_view-95eb062e-f221-43b4-b4d4-c32e9d70e8a7"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -654,7 +654,7 @@
                         "version": "dev-1",
                         "key": "admin_view-1eecc354-f454-48dd-ab12-4cf85b88f97b"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -662,7 +662,7 @@
                         "version": "dev-1",
                         "key": "6746d3ba-b120-4918-8bba-2a14260e99c8"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -670,7 +670,7 @@
                         "version": "dev-1",
                         "key": "admin_view-4b956c45-bbcd-4d01-82ce-a85270f44c10"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -686,7 +686,7 @@
                         "version": "dev-1",
                         "key": "f2581140-5d9c-4c29-b511-e12a826d15da"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -694,7 +694,7 @@
                         "version": "dev-1",
                         "key": "a2098911-926a-42b6-8498-d8a453c34d93"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -702,7 +702,7 @@
                         "version": "dev-1",
                         "key": "admin_view-562bc505-cc89-4a55-956a-b53e1a87ef46"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -718,7 +718,7 @@
                         "version": "dev-1",
                         "key": "admin_view-cc7954c1-d9f7-4a97-8b71-23f6f694bd6d"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -726,7 +726,7 @@
                         "version": "dev-1",
                         "key": "admin_view-42991cef-d988-4ad9-b3d2-f29d9809f0b3"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -734,7 +734,7 @@
                         "version": "dev-1",
                         "key": "admin_view-5799fcb7-8de8-41bf-9a2a-dcf84cae3949"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -750,7 +750,7 @@
                         "version": "dev-1",
                         "key": "admin_view-45559d2a-7537-4719-8caa-aa99df171000"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -758,7 +758,7 @@
                         "version": "dev-1",
                         "key": "9405da44-900c-4f7c-823d-734a68f5d6f6"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -766,7 +766,7 @@
                         "version": "dev-1",
                         "key": "admin_view-4550b372-974e-432c-8221-69b6fb65fdfd"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -782,7 +782,7 @@
                         "version": "dev-1",
                         "key": "admin_view-30744253-e2cd-44c3-ac86-0de3741b9ce0"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -790,7 +790,7 @@
                         "version": "dev-1",
                         "key": "admin_view-e19c4fa4-804f-488b-90d7-1ea827bba52e"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -798,7 +798,7 @@
                         "version": "dev-1",
                         "key": "admin_view-5b8bfcb4-a2b0-4ee9-931e-474ae9742e76"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -814,7 +814,7 @@
                         "version": "dev-1",
                         "key": "admin_view-1e5269aa-e342-4b63-830e-f0a7acb2dab4"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -822,7 +822,7 @@
                         "version": "dev-1",
                         "key": "70995b9c-d0a9-4a57-b59b-54d39c379e66"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -830,7 +830,7 @@
                         "version": "dev-1",
                         "key": "admin_view-0c7535bd-dbfa-4155-bc06-9ef34bf0f29a"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -846,7 +846,7 @@
                         "version": "dev-1",
                         "key": "admin_view-90c08eb4-3097-4f59-a291-5959bbb174ad"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -854,7 +854,7 @@
                         "version": "dev-1",
                         "key": "ab222d85-e408-44de-a513-d6aeda48b286"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -862,7 +862,7 @@
                         "version": "dev-1",
                         "key": "admin_view-3b02a65c-1a0a-4e04-8306-34cb484c45fe"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -870,7 +870,7 @@
                         "version": "dev-1",
                         "key": "admin_view-3eb7643a-7205-4683-9b8b-80c2d65334eb"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -886,7 +886,7 @@
                         "version": "dev-1",
                         "key": "admin_view-79a25c26-9ea4-481c-b833-6699dd6e34d0"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -902,7 +902,7 @@
                         "version": "dev-1",
                         "key": "admin_view-8272a897-9044-4e62-964f-89cd90e99bbb"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -918,7 +918,7 @@
                         "version": "dev-1",
                         "key": "46fa9c1e-5aa3-41ff-8f02-e9a80252ad9f"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -942,7 +942,7 @@
                         "version": "dev-1",
                         "key": "be1b2132-37bc-4605-93d8-8b0b56b2df9f"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -966,7 +966,7 @@
                         "version": "dev-1",
                         "key": "7c652c71-e00e-45ff-8acb-e1bc0344e4c0"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -974,7 +974,7 @@
                         "version": "dev-1",
                         "key": "admin_view-1907cb23-d18f-4262-be4c-5b939d8fbf44"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -998,7 +998,7 @@
                         "version": "dev-1",
                         "key": "625b65cb-7569-437a-a6dd-b3290c662e18"
                     },
-                    "value": "true"
+                    "value": "1"
                 }
             ],
             "containments": [
@@ -1655,7 +1655,7 @@
                         "version": "dev-1",
                         "key": "custom_code-b4fce451-7c6d-4cf9-8b1c-f8be6dbcec5b"
                     },
-                    "value": "false"
+                    "value": "2"
                 },
                 {
                     "property": {
@@ -1663,7 +1663,7 @@
                         "version": "dev-1",
                         "key": "custom_code-d1c48683-2655-4e49-9f13-6b25f2b0a0d0"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -1671,7 +1671,7 @@
                         "version": "dev-1",
                         "key": "custom_code-176c63c6-65b1-4a91-97f2-db4d1e36911a"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -1827,7 +1827,7 @@
                         "version": "dev-1",
                         "key": "dynamic_get-01ae4944-ceba-4c21-a02d-38222e1a3733"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -1835,7 +1835,7 @@
                         "version": "dev-1",
                         "key": "dynamic_get-d4b30bcc-414d-403b-9627-037bcbbd1c6b"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -1851,7 +1851,7 @@
                         "version": "dev-1",
                         "key": "dynamic_get-b7aaa1d0-4577-46eb-9d09-b4c1104a02a8"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -1859,7 +1859,7 @@
                         "version": "dev-1",
                         "key": "dynamic_get-bd40a792-2b63-446a-af75-0510f8c7cc2c"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -1867,7 +1867,7 @@
                         "version": "dev-1",
                         "key": "dynamic_get-c1754272-da91-4a17-9567-c2566552cdc9"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -1883,7 +1883,7 @@
                         "version": "dev-1",
                         "key": "f2581140-5d9c-4c29-b511-e12a826d15da"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -1891,7 +1891,7 @@
                         "version": "dev-1",
                         "key": "dynamic_get-fbb918ff-70bf-41ee-b1fd-110e38cbdba0"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -1923,7 +1923,7 @@
                         "version": "dev-1",
                         "key": "dynamic_get-b99a8df9-27ce-4502-9f44-863799cd2cc9"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -1955,7 +1955,7 @@
                         "version": "dev-1",
                         "key": "dynamic_get-6e7bb46d-fda5-46b8-b08e-31a2e6884e24"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -2096,7 +2096,7 @@
                         "version": "dev-1",
                         "key": "dynamic_get-01ae4944-ceba-4c21-a02d-38222e1a3733"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -2104,7 +2104,7 @@
                         "version": "dev-1",
                         "key": "dynamic_get-d4b30bcc-414d-403b-9627-037bcbbd1c6b"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -2120,7 +2120,7 @@
                         "version": "dev-1",
                         "key": "dynamic_get-b7aaa1d0-4577-46eb-9d09-b4c1104a02a8"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -2128,7 +2128,7 @@
                         "version": "dev-1",
                         "key": "dynamic_get-bd40a792-2b63-446a-af75-0510f8c7cc2c"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -2136,7 +2136,7 @@
                         "version": "dev-1",
                         "key": "dynamic_get-c1754272-da91-4a17-9567-c2566552cdc9"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -2152,7 +2152,7 @@
                         "version": "dev-1",
                         "key": "f2581140-5d9c-4c29-b511-e12a826d15da"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -2160,7 +2160,7 @@
                         "version": "dev-1",
                         "key": "dynamic_get-fbb918ff-70bf-41ee-b1fd-110e38cbdba0"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -2192,7 +2192,7 @@
                         "version": "dev-1",
                         "key": "dynamic_get-b99a8df9-27ce-4502-9f44-863799cd2cc9"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -2224,7 +2224,7 @@
                         "version": "dev-1",
                         "key": "dynamic_get-6e7bb46d-fda5-46b8-b08e-31a2e6884e24"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -2399,7 +2399,7 @@
                         "version": "dev-1",
                         "key": "6746d3ba-b120-4918-8bba-2a14260e99c8"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -2407,7 +2407,7 @@
                         "version": "dev-1",
                         "key": "a2098911-926a-42b6-8498-d8a453c34d93"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -2415,7 +2415,7 @@
                         "version": "dev-1",
                         "key": "9405da44-900c-4f7c-823d-734a68f5d6f6"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -2423,7 +2423,7 @@
                         "version": "dev-1",
                         "key": "70995b9c-d0a9-4a57-b59b-54d39c379e66"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -2603,7 +2603,7 @@
                         "version": "dev-1",
                         "key": "6746d3ba-b120-4918-8bba-2a14260e99c8"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -2611,7 +2611,7 @@
                         "version": "dev-1",
                         "key": "a2098911-926a-42b6-8498-d8a453c34d93"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -2619,7 +2619,7 @@
                         "version": "dev-1",
                         "key": "9405da44-900c-4f7c-823d-734a68f5d6f6"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -2627,7 +2627,7 @@
                         "version": "dev-1",
                         "key": "70995b9c-d0a9-4a57-b59b-54d39c379e66"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -2799,7 +2799,7 @@
                         "version": "dev-1",
                         "key": "6746d3ba-b120-4918-8bba-2a14260e99c8"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -2807,7 +2807,7 @@
                         "version": "dev-1",
                         "key": "a2098911-926a-42b6-8498-d8a453c34d93"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -2815,7 +2815,7 @@
                         "version": "dev-1",
                         "key": "9405da44-900c-4f7c-823d-734a68f5d6f6"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -2823,7 +2823,7 @@
                         "version": "dev-1",
                         "key": "70995b9c-d0a9-4a57-b59b-54d39c379e66"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -3003,7 +3003,7 @@
                         "version": "dev-1",
                         "key": "6746d3ba-b120-4918-8bba-2a14260e99c8"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -3011,7 +3011,7 @@
                         "version": "dev-1",
                         "key": "a2098911-926a-42b6-8498-d8a453c34d93"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -3019,7 +3019,7 @@
                         "version": "dev-1",
                         "key": "9405da44-900c-4f7c-823d-734a68f5d6f6"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -3027,7 +3027,7 @@
                         "version": "dev-1",
                         "key": "70995b9c-d0a9-4a57-b59b-54d39c379e66"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -3207,7 +3207,7 @@
                         "version": "dev-1",
                         "key": "6746d3ba-b120-4918-8bba-2a14260e99c8"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -3215,7 +3215,7 @@
                         "version": "dev-1",
                         "key": "a2098911-926a-42b6-8498-d8a453c34d93"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -3223,7 +3223,7 @@
                         "version": "dev-1",
                         "key": "9405da44-900c-4f7c-823d-734a68f5d6f6"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -3231,7 +3231,7 @@
                         "version": "dev-1",
                         "key": "70995b9c-d0a9-4a57-b59b-54d39c379e66"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -3645,7 +3645,7 @@
                         "version": "dev-1",
                         "key": "component_router-4582a192-d46e-4dd9-9bbd-ee2e2ddd20e5"
                     },
-                    "value": "false"
+                    "value": "3"
                 },
                 {
                     "property": {
@@ -3653,7 +3653,7 @@
                         "version": "dev-1",
                         "key": "component_router-2b31ca2e-11ff-4f57-8c90-2b9bed743202"
                     },
-                    "value": "false"
+                    "value": "3"
                 },
                 {
                     "property": {
@@ -3661,7 +3661,7 @@
                         "version": "dev-1",
                         "key": "component_router-25fead1f-bb12-40e6-9e03-4e31b236f2e1"
                     },
-                    "value": "false"
+                    "value": "3"
                 },
                 {
                     "property": {
@@ -4060,7 +4060,7 @@
                         "version": "dev-1",
                         "key": "db2835aa-b0c3-4c9a-abe6-5b09568fffda"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4068,7 +4068,7 @@
                         "version": "dev-1",
                         "key": "7c652c71-e00e-45ff-8acb-e1bc0344e4c0"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -4076,7 +4076,7 @@
                         "version": "dev-1",
                         "key": "3c1db8b4-65f2-4f6f-8391-5883f564eabe"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4092,7 +4092,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-2089f202-667a-4fbd-881c-cc0fe1343ce4"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4100,7 +4100,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-991ec7f9-257a-486c-9453-c6b1c3fd5bf0"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4108,7 +4108,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-f5e0c377-6689-4f79-9a35-41a1bfc58ba5"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4116,7 +4116,7 @@
                         "version": "dev-1",
                         "key": "d5d03647-f29e-44a4-9e63-5feb9f4adbae"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4132,7 +4132,7 @@
                         "version": "dev-1",
                         "key": "70a2d820-64af-4f51-8b1a-522aed9572bf"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4188,7 +4188,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-c2afae90-c059-4efb-9705-b7cf161b0c2a"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4196,7 +4196,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-36fc971f-a446-49ae-94d0-2f270e60bd0b"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4220,7 +4220,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-c5cbf873-d13a-4930-9c99-c8b1f03e1a06"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4244,7 +4244,7 @@
                         "version": "dev-1",
                         "key": "365d08ee-fe6e-47c4-b567-a001212f2cb6"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4260,7 +4260,7 @@
                         "version": "dev-1",
                         "key": "22a668bc-d169-4346-9929-3819673c67ac"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4268,7 +4268,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-9ae98a1d-cc61-49d4-8f80-b4e1257fce24"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4276,7 +4276,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-9a825342-c423-42d2-85ad-f74ce9625f99"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4284,7 +4284,7 @@
                         "version": "dev-1",
                         "key": "f22fd59e-4d06-4578-b0bb-a624b8efd145"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -4300,7 +4300,7 @@
                         "version": "dev-1",
                         "key": "b9f98c3d-a93a-4b19-b89e-4c62781f9b99"
                     },
-                    "value": "false"
+                    "value": "2"
                 },
                 {
                     "property": {
@@ -4428,7 +4428,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-05e16c3f-1f5e-4355-a948-5331546f218c"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -4468,7 +4468,7 @@
                         "version": "dev-1",
                         "key": "03de1a61-d639-4d48-8ce6-fcf16c8f6270"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4484,7 +4484,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-ec128453-f0a7-4b20-a109-56d85c6ce213"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -4524,7 +4524,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-b4013eb9-0716-42a5-a479-6c4b53746cd6"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -4532,7 +4532,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-5dabe624-329e-48d6-82cf-1f417df55467"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4556,7 +4556,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-ee10bcf8-50c6-489b-97f8-c0727e73d28b"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4564,7 +4564,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-abc5e604-4a2b-4f4c-9add-9e371249adf8"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4572,7 +4572,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-8402731c-4432-4ac9-ab1d-d21611cb67a7"
                     },
-                    "value": "false"
+                    "value": "2"
                 },
                 {
                     "property": {
@@ -4588,7 +4588,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-f114341a-d271-4917-a5eb-8d5acdf0232d"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4604,7 +4604,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-ff624860-89db-4465-97f1-962bf09dcc9f"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4620,7 +4620,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-8b68326a-0e09-4df9-807e-4c32c3c9600a"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4628,7 +4628,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-288e00d8-7ea3-4bfc-829c-3ab247ca9718"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4652,7 +4652,7 @@
                         "version": "dev-1",
                         "key": "joomla_component-7d31d363-03b6-4ca7-bbf4-df9a879e3006"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4871,7 +4871,7 @@
                         "version": "dev-1",
                         "key": "joomla_module-88d58023-7ee7-46dc-a13e-064fbb3d8dc1"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4887,7 +4887,7 @@
                         "version": "dev-1",
                         "key": "3c1db8b4-65f2-4f6f-8391-5883f564eabe"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4895,7 +4895,7 @@
                         "version": "dev-1",
                         "key": "3bb6d77d-05bf-4447-a6bb-4af197ec9290"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4903,7 +4903,7 @@
                         "version": "dev-1",
                         "key": "365d08ee-fe6e-47c4-b567-a001212f2cb6"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4911,7 +4911,7 @@
                         "version": "dev-1",
                         "key": "b9f98c3d-a93a-4b19-b89e-4c62781f9b99"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4919,7 +4919,7 @@
                         "version": "dev-1",
                         "key": "03de1a61-d639-4d48-8ce6-fcf16c8f6270"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -4927,7 +4927,7 @@
                         "version": "dev-1",
                         "key": "7c652c71-e00e-45ff-8acb-e1bc0344e4c0"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4951,7 +4951,7 @@
                         "version": "dev-1",
                         "key": "joomla_module-d0c24d9d-1ff9-425b-bffb-ba0108b6bfc9"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -4959,7 +4959,7 @@
                         "version": "dev-1",
                         "key": "22a668bc-d169-4346-9929-3819673c67ac"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4967,7 +4967,7 @@
                         "version": "dev-1",
                         "key": "70a2d820-64af-4f51-8b1a-522aed9572bf"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4975,7 +4975,7 @@
                         "version": "dev-1",
                         "key": "f22fd59e-4d06-4578-b0bb-a624b8efd145"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -4983,7 +4983,7 @@
                         "version": "dev-1",
                         "key": "db2835aa-b0c3-4c9a-abe6-5b09568fffda"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -5079,7 +5079,7 @@
                         "version": "dev-1",
                         "key": "joomla_module-d2d81879-9190-45fd-b2a1-9ea6c0b0c12e"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -5127,7 +5127,7 @@
                         "version": "dev-1",
                         "key": "f1deeb63-5df2-45ff-b281-a41d9b2cd122"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -5143,7 +5143,7 @@
                         "version": "dev-1",
                         "key": "d5d03647-f29e-44a4-9e63-5feb9f4adbae"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5362,7 +5362,7 @@
                         "version": "dev-1",
                         "key": "7c652c71-e00e-45ff-8acb-e1bc0344e4c0"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -5370,7 +5370,7 @@
                         "version": "dev-1",
                         "key": "70a2d820-64af-4f51-8b1a-522aed9572bf"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5378,7 +5378,7 @@
                         "version": "dev-1",
                         "key": "22a668bc-d169-4346-9929-3819673c67ac"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5386,7 +5386,7 @@
                         "version": "dev-1",
                         "key": "3c1db8b4-65f2-4f6f-8391-5883f564eabe"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5394,7 +5394,7 @@
                         "version": "dev-1",
                         "key": "db2835aa-b0c3-4c9a-abe6-5b09568fffda"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -5402,7 +5402,7 @@
                         "version": "dev-1",
                         "key": "65341477-33f1-4d58-9b3c-c371168809da"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5410,7 +5410,7 @@
                         "version": "dev-1",
                         "key": "f22fd59e-4d06-4578-b0bb-a624b8efd145"
                     },
-                    "value": "false"
+                    "value": "0"
                 },
                 {
                     "property": {
@@ -5418,7 +5418,7 @@
                         "version": "dev-1",
                         "key": "03de1a61-d639-4d48-8ce6-fcf16c8f6270"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5434,7 +5434,7 @@
                         "version": "dev-1",
                         "key": "b9f98c3d-a93a-4b19-b89e-4c62781f9b99"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5490,7 +5490,7 @@
                         "version": "dev-1",
                         "key": "f1deeb63-5df2-45ff-b281-a41d9b2cd122"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5522,7 +5522,7 @@
                         "version": "dev-1",
                         "key": "d5d03647-f29e-44a4-9e63-5feb9f4adbae"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5554,7 +5554,7 @@
                         "version": "dev-1",
                         "key": "365d08ee-fe6e-47c4-b567-a001212f2cb6"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5570,7 +5570,7 @@
                         "version": "dev-1",
                         "key": "3bb6d77d-05bf-4447-a6bb-4af197ec9290"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5780,7 +5780,7 @@
                         "version": "dev-1",
                         "key": "8b09aaf9-546c-4f03-8b1f-3170ba4b5491"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5796,7 +5796,7 @@
                         "version": "dev-1",
                         "key": "46fa9c1e-5aa3-41ff-8f02-e9a80252ad9f"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5836,7 +5836,7 @@
                         "version": "dev-1",
                         "key": "32564da8-5599-4577-bd93-fd425179612f"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5844,7 +5844,7 @@
                         "version": "dev-1",
                         "key": "6ce6e81e-5cdf-4ea2-83b5-acde779f4297"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5876,7 +5876,7 @@
                         "version": "dev-1",
                         "key": "075b5082-3fb1-46f1-a838-da558b3afb54"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5892,7 +5892,7 @@
                         "version": "dev-1",
                         "key": "f76ffc06-f4c9-417e-8584-bc2f65184d18"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5900,7 +5900,7 @@
                         "version": "dev-1",
                         "key": "4a8003fa-7458-405e-90d3-7728b1af9e86"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5908,7 +5908,7 @@
                         "version": "dev-1",
                         "key": "14c857e3-e684-49a3-8b34-1cf7448ed0c4"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5916,7 +5916,7 @@
                         "version": "dev-1",
                         "key": "625b65cb-7569-437a-a6dd-b3290c662e18"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5924,7 +5924,7 @@
                         "version": "dev-1",
                         "key": "ab222d85-e408-44de-a513-d6aeda48b286"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -5996,7 +5996,7 @@
                         "version": "dev-1",
                         "key": "be1b2132-37bc-4605-93d8-8b0b56b2df9f"
                     },
-                    "value": "true"
+                    "value": "1"
                 }
             ],
             "containments": [],
@@ -6069,7 +6069,7 @@
                         "version": "dev-1",
                         "key": "8b09aaf9-546c-4f03-8b1f-3170ba4b5491"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -6085,7 +6085,7 @@
                         "version": "dev-1",
                         "key": "46fa9c1e-5aa3-41ff-8f02-e9a80252ad9f"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -6125,7 +6125,7 @@
                         "version": "dev-1",
                         "key": "32564da8-5599-4577-bd93-fd425179612f"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -6133,7 +6133,7 @@
                         "version": "dev-1",
                         "key": "6ce6e81e-5cdf-4ea2-83b5-acde779f4297"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -6165,7 +6165,7 @@
                         "version": "dev-1",
                         "key": "075b5082-3fb1-46f1-a838-da558b3afb54"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -6181,7 +6181,7 @@
                         "version": "dev-1",
                         "key": "f76ffc06-f4c9-417e-8584-bc2f65184d18"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -6189,7 +6189,7 @@
                         "version": "dev-1",
                         "key": "4a8003fa-7458-405e-90d3-7728b1af9e86"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -6197,7 +6197,7 @@
                         "version": "dev-1",
                         "key": "14c857e3-e684-49a3-8b34-1cf7448ed0c4"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -6205,7 +6205,7 @@
                         "version": "dev-1",
                         "key": "625b65cb-7569-437a-a6dd-b3290c662e18"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -6213,7 +6213,7 @@
                         "version": "dev-1",
                         "key": "ab222d85-e408-44de-a513-d6aeda48b286"
                     },
-                    "value": "true"
+                    "value": "1"
                 },
                 {
                     "property": {
@@ -6285,7 +6285,7 @@
                         "version": "dev-1",
                         "key": "be1b2132-37bc-4605-93d8-8b0b56b2df9f"
                     },
-                    "value": "true"
+                    "value": "1"
                 }
             ],
             "containments": [],

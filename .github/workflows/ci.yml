@@ -31,6 +31,12 @@ jobs:
       - name: Derive the metamodel and build the language
         run: php tools/cli.php all
 
+      # Export the published Hello World blueprint, import it back and compare
+      # the design. A change that quietly drops a column fails here rather than
+      # on somebody's site.
+      - name: Blueprint round trip
+        run: php tools/cli.php roundtrip
+
       - name: Unit tests
         run: composer test
 

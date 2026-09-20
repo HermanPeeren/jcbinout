@@ -319,6 +319,16 @@ final class LanguageIndex
 		return $this->literals[$enumeration][$rawValue] ?? null;
 	}
 
+	/**
+	 * The raw JCB value behind a literal key: the inverse of literalKey().
+	 */
+	public function rawValueFor(string $enumeration, string $literalKey): ?string
+	{
+		$found = array_search($literalKey, $this->literals[$enumeration] ?? [], true);
+
+		return $found === false ? null : (string) $found;
+	}
+
 	/** Entities the partition holds directly, as name => descriptor. */
 	public function partitionSlots(): array
 	{

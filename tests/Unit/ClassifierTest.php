@@ -94,14 +94,47 @@ final class ClassifierTest extends TestCase
 		$this->assertFalse($r['hasRowShape']);
 	}
 
-	public function testRadioOnANarrowIntIsBoolean(): void
+	/**
+	 * A radio on TINYINT(1) is not a yes/no.
+	 *
+	 * MySQL's (1) is a display width, not a range: the column holds -128..127,
+	 * and JCB really does store 2 and 3 in these - component_router.mode_methods
+	 * and joomla_component.update_server_target both do. Reading them as
+	 * Boolean turned a 3 into false and the round trip brought back 0.
+	 */
+	public function testRadioOnANarrowIntIsAnInteger(): void
 	{
 		$r = $this->classifier->classify([
 			'type' => 'radio',
 			'db'   => ['type' => 'TINYINT(1)'],
 		]);
 
-		$this->assertSame('Boolean', $r['datatype']);
+		$this->assertSame('Integer', $r['datatype']);
+	}
+
+	/**
+	 * Nor is every radio numeric: the column decides, not the widget.
+	 * joomla_component.add_namespace_prefix is a radio on CHAR(1) whose
+	 * default is '', which is not an integer at all.
+	 */
+	public function testRadioOnACharColumnIsAString(): void
+	{
+		$r = $this->classifier->classify([
+			'type' => 'radio',
+			'db'   => ['type' => 'CHAR(1)', 'default' => ''],
+		]);
+
+		$this->assertSame('String', $r['datatype']);
+	}
+
+	public function testAnIntegerColumnIsAnInteger(): void
+	{
+		$r = $this->classifier->classify([
+			'type' => 'number',
+			'db'   => ['type' => 'INT(11)'],
+		]);
+
+		$this->assertSame('Integer', $r['datatype']);
 	}
 
 	public function testBase64StoredColumnRecordsItsEncoding(): void

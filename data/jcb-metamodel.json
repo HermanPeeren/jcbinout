@@ -2,7 +2,7 @@
     "meta": {
         "generator": "jcbinout-metamodel-extractor",
         "generatorVersion": "0.2.0",
-        "extractedAt": "2026-09-20T15:27:15+00:00",
+        "extractedAt": "2026-09-20T16:14:59+00:00",
         "jcbSourcePath": "C:\\wamp\\www\\jcbinout/joomla/libraries/vendor_jcb/VDM.Joomla/src",
         "schemaFingerprint": "c58c8ee2a625c55f2f6869e0a5454d5a480ec539bec2f525610b5149490ef6cf"
     },
@@ -2303,7 +2303,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_sql": {
                     "name": "add_sql",
@@ -2320,7 +2320,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_postflight_install": {
                     "name": "add_php_postflight_install",
@@ -2337,7 +2337,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "mvc_versiondate": {
                     "name": "mvc_versiondate",
@@ -2371,7 +2371,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_placeholders": {
                     "name": "add_placeholders",
@@ -2388,7 +2388,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "debug_linenr": {
                     "name": "debug_linenr",
@@ -2405,7 +2405,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_preflight_install": {
                     "name": "add_php_preflight_install",
@@ -2422,7 +2422,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "description": {
                     "name": "description",
@@ -2456,7 +2456,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "author": {
                     "name": "author",
@@ -2575,7 +2575,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "crowdin_username": {
                     "name": "crowdin_username",
@@ -2610,7 +2610,7 @@
                         "key": false,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "bom": {
                     "name": "bom",
@@ -2661,7 +2661,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "image": {
                     "name": "image",
@@ -2730,7 +2730,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "preferred_joomla_version": {
                     "name": "preferred_joomla_version",
@@ -2764,7 +2764,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_powers": {
                     "name": "add_powers",
@@ -2781,7 +2781,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_method_install": {
                     "name": "add_php_method_install",
@@ -2798,7 +2798,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_sql_uninstall": {
                     "name": "add_sql_uninstall",
@@ -2815,7 +2815,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "readme": {
                     "name": "readme",
@@ -2850,7 +2850,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "update_server": {
                     "name": "update_server",
@@ -3242,7 +3242,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "php_method_install": {
                     "name": "php_method_install",
@@ -3330,7 +3330,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "update_server_url": {
                     "name": "update_server_url",
@@ -3364,7 +3364,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_sales_server": {
                     "name": "add_sales_server",
@@ -3382,7 +3382,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "adduikit": {
                     "name": "adduikit",
@@ -3467,7 +3467,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_helper_both": {
                     "name": "add_php_helper_both",
@@ -3484,7 +3484,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_jcb_powers_path": {
                     "name": "add_jcb_powers_path",
@@ -3536,7 +3536,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_helper_admin": {
                     "name": "add_php_helper_admin",
@@ -3553,7 +3553,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "changelog_server_target": {
                     "name": "changelog_server_target",
@@ -3570,7 +3570,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "php_helper_admin": {
                     "name": "php_helper_admin",
@@ -3605,7 +3605,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "changelog_server": {
                     "name": "changelog_server",
@@ -3658,7 +3658,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "crowdin_project_api_key": {
                     "name": "crowdin_project_api_key",
@@ -3729,7 +3729,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "buildcomp": {
                     "name": "buildcomp",
@@ -3746,7 +3746,7 @@
                         "key": false,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "php_site_event": {
                     "name": "php_site_event",
@@ -3798,7 +3798,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "modified": {
                     "name": "modified",
@@ -3964,7 +3964,7 @@
                         "key": false,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "description": {
                     "name": "description",
@@ -3998,7 +3998,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_preflight_uninstall": {
                     "name": "add_php_preflight_uninstall",
@@ -4015,7 +4015,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_preflight_update": {
                     "name": "add_php_preflight_update",
@@ -4032,7 +4032,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "update_server_target": {
                     "name": "update_server_target",
@@ -4049,7 +4049,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "addreadme": {
                     "name": "addreadme",
@@ -4066,7 +4066,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_sql": {
                     "name": "add_sql",
@@ -4083,7 +4083,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "default": {
                     "name": "default",
@@ -4154,7 +4154,7 @@
                         "key": false,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_postflight_update": {
                     "name": "add_php_postflight_update",
@@ -4171,7 +4171,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_method_uninstall": {
                     "name": "add_php_method_uninstall",
@@ -4188,7 +4188,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_sql_uninstall": {
                     "name": "add_sql_uninstall",
@@ -4205,7 +4205,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_update_server": {
                     "name": "add_update_server",
@@ -4222,7 +4222,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "update_server": {
                     "name": "update_server",
@@ -4509,7 +4509,7 @@
                         "key": false,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "sql_uninstall": {
                     "name": "sql_uninstall",
@@ -4690,7 +4690,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "php_script_construct": {
                     "name": "php_script_construct",
@@ -4726,7 +4726,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_preflight_install": {
                     "name": "add_php_preflight_install",
@@ -4743,7 +4743,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "guid": {
                     "name": "guid",
@@ -4893,7 +4893,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_method_uninstall": {
                     "name": "add_php_method_uninstall",
@@ -4910,7 +4910,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_postflight_update": {
                     "name": "add_php_postflight_update",
@@ -4927,7 +4927,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_postflight_install": {
                     "name": "add_php_postflight_install",
@@ -4944,7 +4944,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "sales_server": {
                     "name": "sales_server",
@@ -4980,7 +4980,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "method_selection": {
                     "name": "method_selection",
@@ -5053,7 +5053,7 @@
                         "key": false,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_sql_uninstall": {
                     "name": "add_sql_uninstall",
@@ -5070,7 +5070,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "addreadme": {
                     "name": "addreadme",
@@ -5087,7 +5087,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "head": {
                     "name": "head",
@@ -5122,7 +5122,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "main_class_code": {
                     "name": "main_class_code",
@@ -5339,7 +5339,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "sql": {
                     "name": "sql",
@@ -5410,7 +5410,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "readme": {
                     "name": "readme",
@@ -5480,7 +5480,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "php_preflight_update": {
                     "name": "php_preflight_update",
@@ -5515,7 +5515,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_sales_server": {
                     "name": "add_sales_server",
@@ -5533,7 +5533,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "php_preflight_uninstall": {
                     "name": "php_preflight_uninstall",
@@ -5941,7 +5941,7 @@
                         "key": false,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "extendsinterfaces_custom": {
                     "name": "extendsinterfaces_custom",
@@ -5975,7 +5975,7 @@
                         "key": false,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "extends": {
                     "name": "extends",
@@ -6206,7 +6206,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "main_class_code": {
                     "name": "main_class_code",
@@ -6511,7 +6511,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "icon": {
                     "name": "icon",
@@ -6563,7 +6563,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "description": {
                     "name": "description",
@@ -6994,7 +6994,7 @@
                         "key": false,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "php_before_publish": {
                     "name": "php_before_publish",
@@ -7120,7 +7120,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "php_ajaxmethod": {
                     "name": "php_ajaxmethod",
@@ -7155,7 +7155,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_getitems": {
                     "name": "add_php_getitems",
@@ -7172,7 +7172,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_css_view": {
                     "name": "add_css_view",
@@ -7189,7 +7189,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_getitems_after_all": {
                     "name": "add_php_getitems_after_all",
@@ -7206,7 +7206,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "css_view": {
                     "name": "css_view",
@@ -7241,7 +7241,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_css_views": {
                     "name": "add_css_views",
@@ -7258,7 +7258,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_getform": {
                     "name": "add_php_getform",
@@ -7275,7 +7275,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "css_views": {
                     "name": "css_views",
@@ -7310,7 +7310,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_javascript_view_file": {
                     "name": "add_javascript_view_file",
@@ -7327,7 +7327,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_save": {
                     "name": "add_php_save",
@@ -7344,7 +7344,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "javascript_view_file": {
                     "name": "javascript_view_file",
@@ -7379,7 +7379,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_javascript_view_footer": {
                     "name": "add_javascript_view_footer",
@@ -7396,7 +7396,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_allowadd": {
                     "name": "add_php_allowadd",
@@ -7413,7 +7413,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "javascript_view_footer": {
                     "name": "javascript_view_footer",
@@ -7448,7 +7448,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_javascript_views_file": {
                     "name": "add_javascript_views_file",
@@ -7465,7 +7465,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_before_cancel": {
                     "name": "add_php_before_cancel",
@@ -7482,7 +7482,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "javascript_views_file": {
                     "name": "javascript_views_file",
@@ -7517,7 +7517,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_javascript_views_footer": {
                     "name": "add_javascript_views_footer",
@@ -7534,7 +7534,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_batchcopy": {
                     "name": "add_php_batchcopy",
@@ -7551,7 +7551,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "javascript_views_footer": {
                     "name": "javascript_views_footer",
@@ -7586,7 +7586,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_custom_button": {
                     "name": "add_custom_button",
@@ -7603,7 +7603,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_before_publish": {
                     "name": "add_php_before_publish",
@@ -7620,7 +7620,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "custom_button": {
                     "name": "custom_button",
@@ -7688,7 +7688,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "php_controller": {
                     "name": "php_controller",
@@ -7723,7 +7723,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "php_model": {
                     "name": "php_model",
@@ -7758,7 +7758,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "php_controller_list": {
                     "name": "php_controller_list",
@@ -7793,7 +7793,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "php_model_list": {
                     "name": "php_model_list",
@@ -7847,7 +7847,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "mysql_table_collate": {
                     "name": "mysql_table_collate",
@@ -7901,7 +7901,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_views_toolbar": {
                     "name": "add_views_toolbar",
@@ -7918,7 +7918,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "addtables": {
                     "name": "addtables",
@@ -8005,7 +8005,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "access": {
                     "name": "access",
@@ -8133,7 +8133,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "javascript_file": {
                     "name": "javascript_file",
@@ -8275,7 +8275,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "context": {
                     "name": "context",
@@ -8309,7 +8309,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "codename": {
                     "name": "codename",
@@ -8361,7 +8361,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "css": {
                     "name": "css",
@@ -8396,7 +8396,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "php_ajaxmethod": {
                     "name": "php_ajaxmethod",
@@ -8431,7 +8431,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_document": {
                     "name": "add_php_document",
@@ -8448,7 +8448,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_css": {
                     "name": "add_css",
@@ -8465,7 +8465,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "libraries": {
                     "name": "libraries",
@@ -8500,7 +8500,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "dynamic_get": {
                     "name": "dynamic_get",
@@ -8616,7 +8616,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "php_view": {
                     "name": "php_view",
@@ -8791,7 +8791,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "access": {
                     "name": "access",
@@ -8917,7 +8917,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "php_ajaxmethod": {
                     "name": "php_ajaxmethod",
@@ -8952,7 +8952,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "javascript_file": {
                     "name": "javascript_file",
@@ -9058,7 +9058,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "custom_get": {
                     "name": "custom_get",
@@ -9093,7 +9093,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "js_document": {
                     "name": "js_document",
@@ -9163,7 +9163,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "css": {
                     "name": "css",
@@ -9198,7 +9198,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "libraries": {
                     "name": "libraries",
@@ -9233,7 +9233,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "dynamic_get": {
                     "name": "dynamic_get",
@@ -9268,7 +9268,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_ajax": {
                     "name": "add_php_ajax",
@@ -9285,7 +9285,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_custom_button": {
                     "name": "add_custom_button",
@@ -9302,7 +9302,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "ajax_input": {
                     "name": "ajax_input",
@@ -9575,7 +9575,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "access": {
                     "name": "access",
@@ -9720,7 +9720,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "template": {
                     "name": "template",
@@ -9954,7 +9954,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "layout": {
                     "name": "layout",
@@ -10151,7 +10151,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_router_parse": {
                     "name": "add_php_router_parse",
@@ -10168,7 +10168,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "view_selection": {
                     "name": "view_selection",
@@ -10202,7 +10202,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_before_getitem": {
                     "name": "add_php_before_getitem",
@@ -10219,7 +10219,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_php_after_getitem": {
                     "name": "add_php_after_getitem",
@@ -10236,7 +10236,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "db_table_main": {
                     "name": "db_table_main",
@@ -10340,7 +10340,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "join_db_table": {
                     "name": "join_db_table",
@@ -10427,7 +10427,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "php_before_getitem": {
                     "name": "php_before_getitem",
@@ -10497,7 +10497,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "php_getlistquery": {
                     "name": "php_getlistquery",
@@ -10691,7 +10691,7 @@
                         "key": false,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "group": {
                     "name": "group",
@@ -10941,7 +10941,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "type": {
                     "name": "type",
@@ -10958,7 +10958,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "comment_type": {
                     "name": "comment_type",
@@ -10975,7 +10975,7 @@
                         "key": false,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "joomla_version": {
                     "name": "joomla_version",
@@ -11744,7 +11744,7 @@
                         "key": false,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "how": {
                     "name": "how",
@@ -11778,7 +11778,7 @@
                         "key": false,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "description": {
                     "name": "description",
@@ -12679,7 +12679,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_css_views": {
                     "name": "add_css_views",
@@ -12696,7 +12696,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_javascript_view_footer": {
                     "name": "add_javascript_view_footer",
@@ -12713,7 +12713,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "add_javascript_views_footer": {
                     "name": "add_javascript_views_footer",
@@ -12730,7 +12730,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "initiator_on_save_model": {
                     "name": "initiator_on_save_model",
@@ -12965,7 +12965,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "properties": {
                     "name": "properties",
@@ -13732,7 +13732,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "write_branch": {
                     "name": "write_branch",
@@ -13927,7 +13927,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "admin_view": {
                     "name": "admin_view",
@@ -14047,7 +14047,7 @@
                         "key": true,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 }
             }
         },
@@ -15391,7 +15391,7 @@
                         "key": false,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "mode_constructor_after_parent": {
                     "name": "mode_constructor_after_parent",
@@ -15408,7 +15408,7 @@
                         "key": false,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "mode_methods": {
                     "name": "mode_methods",
@@ -15425,7 +15425,7 @@
                         "key": false,
                         "uniqueKey": false
                     },
-                    "datatype": "Boolean"
+                    "datatype": "Integer"
                 },
                 "methods_code": {
                     "name": "methods_code",

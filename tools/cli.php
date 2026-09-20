@@ -13,6 +13,7 @@
  *   php tools/cli.php build            build the LionWeb language
  *   php tools/cli.php validate         validate the language
  *   php tools/cli.php export [dir]     export a blueprint to a LionWeb chunk
+ *   php tools/cli.php roundtrip [dir]  export, import, and compare the design
  *   php tools/cli.php report           render METAMODEL.md
  *   php tools/cli.php all              derive, build, validate, report
  *
@@ -424,6 +425,82 @@ function cmdExport(string $data, string $blueprint, string $out): int
 	return 0;
 }
 
+/**
+ * Export a blueprint, import it back, and report every design difference.
+ */
+function cmdRoundtrip(string $data, string $blueprint): int
+{
+	$language = $data . '/jcb-language.lionweb.json';
+
+	if (!is_file($language)) {
+		out('No language found. Run: php tools/cli.php build');
+
+		return 1;
+	}
+
+	$source = new \Yepr\Component\Jcbinout\Administrator\Blueprint\RepositorySource($blueprint);
+
+	if (!$source->exists()) {
+		out("No blueprint at {$blueprint} (expected a src/ directory).");
+
+		return 1;
+	}
+
+	$index = \Yepr\Component\Jcbinout\Administrator\Lionweb\LanguageIndex::fromFiles(
+		$language, $data . '/jcb-enum-values.json'
+	);
+
+	$original = $source->payloads();
+
+	$exporter = new \Yepr\Component\Jcbinout\Administrator\Lionweb\InstanceExporter($index);
+	$chunk    = $exporter->export($original, basename($blueprint));
+
+	$importer = new \Yepr\Component\Jcbinout\Administrator\Lionweb\InstanceImporter($index);
+	$returned = $importer->import($chunk);
+
+	out(sprintf('Round trip: %d payloads out, %d nodes, %d payloads back',
+		count($original), count($chunk['nodes']), count($returned)));
+
+	$projection = \Yepr\Component\Jcbinout\Administrator\Blueprint\DesignProjection::class;
+
+	$before = $projection::of($original, $index);
+	$after  = $projection::of($returned, $index);
+	$diff   = $projection::diff($before, $after);
+
+	foreach ($importer->diagnostics() as $d) {
+		if ($d['severity'] !== 'info') {
+			out(sprintf('  %-7s [%s] %s', strtoupper($d['severity']), $d['code'], $d['message']));
+		}
+	}
+
+	if ($diff === []) {
+		out('');
+		out(sprintf('PASS - design preserved across %d payloads.', count($before)));
+
+		return 0;
+	}
+
+	$byKind = [];
+
+	foreach ($diff as $d) {
+		$byKind[$d['kind']] = ($byKind[$d['kind']] ?? 0) + 1;
+	}
+
+	out('');
+	out(sprintf('FAIL - %d design difference(s): %s', count($diff), json_encode($byKind)));
+
+	foreach (array_slice($diff, 0, 25) as $d) {
+		out("  [{$d['kind']}] {$d['where']}");
+		out("      {$d['detail']}");
+	}
+
+	if (count($diff) > 25) {
+		out('  ... ' . (count($diff) - 25) . ' more');
+	}
+
+	return 1;
+}
+
 // --- dispatch ----------------------------------------------------------------
 
 $cmd = $argv[1] ?? 'all';
@@ -441,6 +518,9 @@ switch ($cmd) {
 
 	case 'validate':
 		exit(cmdValidate($data));
+
+	case 'roundtrip':
+		exit(cmdRoundtrip($data, $argv[2] ?? ($root . '/tests/fixtures/hello-world')));
 
 	case 'export':
 		exit(cmdExport(
@@ -460,6 +540,6 @@ switch ($cmd) {
 		exit($rc);
 
 	default:
-		out("Unknown command '{$cmd}'. Try: fetch, derive, build, validate, export, report, all");
+		out("Unknown command '{$cmd}'. Try: fetch, derive, build, validate, export, roundtrip, report, all");
 		exit(2);
 }

@@ -16,7 +16,9 @@ site, derives an explicit metamodel from it, publishes that metamodel as a
 LionWeb language, and exports a JCB blueprint as a LionWeb instance against it.
 Install it, then *Derive*, *Build*, *Export*.
 
-**Not built yet:** import. A model can leave JCB; it cannot yet come back.
+**Not built yet:** writing an imported model back into JCB. A blueprint can go
+out to LionWeb and come back as blueprint payloads with its design intact; what
+is missing is persisting those payloads into a JCB installation.
 
 | Phase | What | Status |
 |---|---|:---:|
@@ -24,8 +26,8 @@ Install it, then *Derive*, *Build*, *Export*.
 | 2 | LionWeb language definition (M2) | **done** |
 | 6a | Joomla component shell, derive + build in the UI | **done** |
 | 3 | Instance export (M1): blueprint to LionWeb | **done** |
-| 4 | Round-trip against the Hello World fixture | next |
-| 5 | Import, with initialize/reset policy | |
+| 4 | Round-trip against the Hello World fixture | **done** |
+| 5 | Import into JCB, with initialize/reset policy | next |
 | 6b | Export/import UI, progress, diagnostics | |
 | 7 | Exten-gen side | |
 
@@ -107,6 +109,33 @@ What the export preserves:
 - **References outside the blueprint keep their target** as `resolveInfo` with
   no id. Hello World genuinely references field types living in
   `joomengine/joomla-fieldtypes`, and that is not an error.
+
+### The round trip
+
+`Lionweb\InstanceImporter` reads a chunk back into blueprint payloads, and
+`Blueprint\DesignProjection` compares two blueprints under β — the portable
+design projection, not byte equality.
+
+```bash
+php tools/cli.php roundtrip
+```
+
+> `Round trip: 33 payloads out, 53 nodes, 33 payloads back`
+> `PASS - design preserved across 33 payloads.`
+
+**β is published, in `DesignProjection`'s own docblock, and it ignores:**
+`@dependencies` (transport instructions, not design); subform row *keys* (JCB
+regenerates them — row *order* is compared, because an ordered association is
+not a set); absent versus null; scalar type; columns the language does not model
+(anything JCB itself marks installation-local); and JCB's no-value sentinels by
+declared type — `''` in a list column, `'0'` in a reference column.
+
+It does **not** ignore an empty string in a text column. That is a value.
+
+The comparison is only worth something if it can fail, so `RoundTripTest`
+includes negative controls: a changed value, a dropped column, a missing
+payload and a reordered subform must all be reported, while renumbered row keys
+must not.
 
 ### Shared field definitions
 
@@ -219,6 +248,12 @@ Export a blueprint against the built language:
 
 ```bash
 php tools/cli.php export tests/fixtures/hello-world
+```
+
+Export, import, and compare the design:
+
+```bash
+php tools/cli.php roundtrip
 ```
 
 ### Checks
