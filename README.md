@@ -295,6 +295,17 @@ use-sites.
 JCB `bca4a15` so a fresh install has a baseline to compare against, but the
 component always prefers what it derives from the installed JCB.
 
+## Developing
+
+[docs/development.md](docs/development.md) covers the layout, the development
+site, the quality gates, and the decisions that are load-bearing enough that
+changing them breaks something downstream.
+
+## Licence
+
+GNU General Public License version 2 or later — the same as Joomla and as JCB,
+whose classes this reads. See [LICENSE](LICENSE).
+
 ## Pinned versions
 
 | | |
