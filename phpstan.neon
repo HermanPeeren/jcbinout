@@ -1,0 +1,31 @@
+includes:
+    - vendor/phpstan/phpstan-deprecation-rules/rules.neon
+
+parameters:
+    # Level 5 is where findings are about whether the code works. The docblock
+    # levels above it are mostly "array of what?" on code that predates the
+    # analyser being pointed at it.
+    level: 5
+
+    paths:
+        - com_jcbinout/administrator/src
+        - tools
+        - tests
+
+    # Joomla is reference material: it supplies the base classes the component
+    # extends and the constants it reads. Without it every `extends
+    # BaseDatabaseModel` is an unknown class and the analysis says nothing.
+    # /joomla is git-ignored; `composer joomla` fetches it, and CI does the same.
+    #
+    # JCB is scanned for the same reason: the extractor reflects over its
+    # classes, so their signatures have to resolve.
+    scanDirectories:
+        - joomla/libraries
+        - joomla/administrator/components
+
+    # Joomla defines these when an application boots, so they exist at runtime
+    # and in no file an analyser reads.
+    bootstrapFiles:
+        - tools/phpstan-bootstrap.php
+
+    treatPhpDocTypesAsCertain: false

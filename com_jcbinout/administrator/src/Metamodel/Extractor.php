@@ -307,7 +307,7 @@ final class Extractor
 				['entity' => $entity, 'property' => $name]);
 		}
 
-		if (isset($c['target']) && $c['target'] !== null && !isset($this->tables[$c['target']]))
+		if (isset($c['target']) && !isset($this->tables[$c['target']]))
 		{
 			$this->diag('error', 'LINK_TARGET_UNKNOWN',
 				"Property '{$entity}.{$name}' links to unknown entity '{$c['target']}'.",

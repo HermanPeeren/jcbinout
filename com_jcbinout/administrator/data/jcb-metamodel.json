@@ -2,9 +2,8 @@
     "meta": {
         "generator": "jcbinout-metamodel-extractor",
         "generatorVersion": "0.2.0",
-        "extractedAt": "2026-09-20T12:44:54+00:00",
-        "jcbCommit": "bca4a1520484f3e2c2fbd12964a5995b0d058de1",
-        "jcbSourcePath": "C:\\wamp\\www\\jcbinout/vendor-jcb",
+        "extractedAt": "2026-09-20T13:51:14+00:00",
+        "jcbSourcePath": "C:\\wamp\\www\\jcbinout/joomla/libraries/vendor_jcb/VDM.Joomla/src",
         "schemaFingerprint": "c58c8ee2a625c55f2f6869e0a5454d5a480ec539bec2f525610b5149490ef6cf"
     },
     "stats": {

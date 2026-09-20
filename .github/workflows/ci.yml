@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: zip, simplexml
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      # The metamodel has to be derived before anything can be checked against
+      # it. On a runner there is no installed JCB, so the pinned sources are
+      # vendored instead - the same ones the development baseline uses.
+      - name: Vendor JCB sources
+        run: php tools/cli.php fetch
+
+      - name: Derive the metamodel and build the language
+        run: php tools/cli.php all
+
+      - name: Unit tests
+        run: composer test
+
+      # PHPStan resolves the component's base classes against a real Joomla.
+      # Without it every `extends BaseDatabaseModel` is an unknown class and the
+      # analysis says nothing. /joomla is git-ignored, so CI fetches its own.
+      - name: Fetch Joomla for static analysis
+        run: |
+          url="https://github.com/joomla/joomla-cms/releases/download/${JOOMLA_VERSION}/Joomla_${JOOMLA_VERSION}-Stable-Full_Package.tar.gz"
+          curl -sSL -o joomla.tar.gz "$url"
+          mkdir -p joomla
+          tar -xzf joomla.tar.gz -C joomla
+        env:
+          JOOMLA_VERSION: 6.1.3
+
+      - name: Static analysis
+        run: composer analyse
+
+      - name: The package must build
+        run: php tools/build.php

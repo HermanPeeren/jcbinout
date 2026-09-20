@@ -35,14 +35,12 @@ final class LanguageBuilder
 	private array $enumIds = [];        // enum name => node id
 	private array $usedKeys = [];       // key => owner, for collision detection
 	private array $featureKeys = [];    // feature key => {entity, property, guid, kind}
-	private array $guidOwners = [];     // jcb guid => list of entity.property using it
 	private array $guidSites = [];      // jcb guid => [[entity, property], ...]
 	private array $enumCanon = [];      // enum name => canonical enum name
 	private array $rowCanon = [];       // row concept => canonical row concept
 	private array $hoisted = [];        // "entity.property" => interface node id
 	private array $implementsOf = [];   // entity => [interface node id, ...]
 	private array $ifaceNames = [];     // signature => configured name
-	private array $mergedEnums = 0 ? [] : [];
 
 	public function __construct(private array $meta, array $ifaceNames = [])
 	{
@@ -661,11 +659,6 @@ final class LanguageBuilder
 		else
 		{
 			$key = $this->safe($entity . '-' . $guid);
-		}
-
-		if ($guid !== null)
-		{
-			$this->guidOwners[$guid][] = "{$entity}.{$pname}";
 		}
 
 		$key = $this->claimKey($key, "{$entity}.{$pname}");

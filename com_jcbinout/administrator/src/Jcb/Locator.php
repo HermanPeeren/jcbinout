@@ -56,7 +56,7 @@ final class Locator
 			return false;
 		}
 
-		\JLoader::registerNamespace(self::NAMESPACE_PREFIX, $path, false, false, 'psr4');
+		\JLoader::registerNamespace(self::NAMESPACE_PREFIX, $path, false, false);
 
 		if (!$this->classesAvailable())
 		{
@@ -70,6 +70,14 @@ final class Locator
 		return true;
 	}
 
+	/**
+	 * Whether JCB's classes resolve right now.
+	 *
+	 * Deliberately impure: registering the namespace changes the answer, so
+	 * calling this before and after register() is the point, not a mistake.
+	 *
+	 * @phpstan-impure
+	 */
 	public function classesAvailable(): bool
 	{
 		foreach (self::REQUIRED as $class)

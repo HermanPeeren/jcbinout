@@ -1,4 +1,4 @@
-# vendored upstream JCB sources - regenerate with bin/fetch-jcb-sources.sh
+# vendored upstream JCB sources - regenerate with: php tools/cli.php fetch
 /vendor-jcb/
 
 # extracted fixture tree - regenerate from the tarball
@@ -7,9 +7,34 @@
 # vendored LionWeb spec artefacts - refetch from lionweb-io/specification
 /vendor-lionweb/
 
-# Phase 2 encoding experiment output - regenerate with:
-#   python bin/prototype-encodings.py
+# Phase 2 encoding experiment output (the experiment is settled)
 /prototypes/
 
 # packaged component
 /dist/
+
+# Development Joomla site. Downloaded and installed locally; CI fetches its own.
+# PHPStan scans it so `extends AdminModel` resolves to something.
+/joomla/
+
+# Working downloads
+/.tmp/
+
+# Dependencies
+/vendor/
+/node_modules/
+
+# Cypress runs against a real site; the URL and login are per-machine.
+# Copy cypress.env.json.dist and fill it in.
+/cypress.env.json
+/cypress/screenshots/
+/cypress/videos/
+
+# Test artefacts
+/.phpunit.cache/
+/.php-cs-fixer.cache
+
+# IDE state
+/.idea/
+/.vscode/
+/.iml

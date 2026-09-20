@@ -39,12 +39,15 @@ class MetamodelModel extends BaseDatabaseModel
 	}
 
 	/**
-	 * Where derived artefacts live. Writable, outside the component's own
-	 * source, so an update does not discard them.
+	 * Where derived artefacts are written.
+	 *
+	 * Deliberately not the same directory as the shipped reference: if it were,
+	 * deriving would overwrite the baseline and the view would report shipped
+	 * artefacts as though the installed JCB had produced them.
 	 */
 	public function workPath(): string
 	{
-		$path = JPATH_ADMINISTRATOR . '/components/com_jcbinout/data';
+		$path = JPATH_ADMINISTRATOR . '/components/com_jcbinout/data/derived';
 
 		if (!is_dir($path))
 		{
@@ -66,6 +69,21 @@ class MetamodelModel extends BaseDatabaseModel
 	public function artefact(string $file): ?array
 	{
 		$path = $this->workPath() . '/' . $file;
+
+		if (!is_file($path))
+		{
+			return null;
+		}
+
+		$decoded = json_decode((string) file_get_contents($path), true);
+
+		return is_array($decoded) ? $decoded : null;
+	}
+
+	/** The artefact shipped with the package, for comparison. */
+	public function referenceArtefact(string $file): ?array
+	{
+		$path = $this->shippedPath() . '/' . $file;
 
 		if (!is_file($path))
 		{
@@ -250,8 +268,22 @@ class MetamodelModel extends BaseDatabaseModel
 		$metamodel = $this->artefact(self::METAMODEL_FILE);
 		$language  = $this->artefact(self::LANGUAGE_FILE);
 
+		$locator = $this->getLocator();
+
+		// Registering is what makes the classes resolvable, so a status that
+		// reports before trying says "not loaded" about a working JCB.
+		$locator->register();
+
+		$reference = $this->referenceArtefact(self::METAMODEL_FILE);
+
 		return [
-			'jcb'       => $this->getLocator()->report(),
+			'jcb'       => $locator->report(),
+			'reference' => $reference === null ? null : [
+				'jcbVersion' => $reference['meta']['jcbVersion'] ?? $reference['meta']['jcbCommit'] ?? null,
+				'entities'   => $reference['stats']['entitiesTotal'] ?? null,
+				'matches'    => ($reference['meta']['schemaFingerprint'] ?? null)
+					=== $locator->schemaFingerprint(),
+			],
 			'metamodel' => [
 				'info'  => $this->artefactInfo(self::METAMODEL_FILE),
 				'stats' => $metamodel['stats'] ?? null,

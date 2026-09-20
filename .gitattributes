@@ -1,0 +1,8 @@
+# Derived artefacts are compared between a development machine and CI, so line
+# endings must not drift between platforms.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.zip binary
+*.tar.gz binary

@@ -138,9 +138,30 @@ tools/
 tests/fixtures/                   Hello World blueprint, for round-trip tests
 ```
 
+## Development site
+
+The repository carries a git-ignored `/joomla` holding a full Joomla install
+with JCB on it. PHPStan needs it to resolve `extends BaseDatabaseModel`, and
+Cypress needs it because whether a view renders is exactly what unit tests
+cannot tell you.
+
+| | |
+|---|---|
+| Joomla | 6.1.3, in `/joomla` |
+| Admin | `admin` / `adminadminadmin` |
+| Database | `jlatest-jcbinout`, user `root`, empty password |
+| JCB | 6.1.6 |
+| URL | http://localhost/jcbinout/joomla |
+
+To recreate it:
+
+```bash
+php tools/setup-dev-site.php
+```
+
 ## Usage
 
-### As a component
+### Build and install the component
 
 ```bash
 php tools/build.php
@@ -150,21 +171,28 @@ Install `dist/com_jcbinout-0.2.0.zip` on a Joomla site that has JCB, then open
 Components → JcbInOut. The status view reports what it found; the toolbar offers
 *Derive metamodel*, *Build LionWeb language* and *Validate*.
 
-### For development, without Joomla
+### The pipeline, without Joomla
 
-Vendor JCB's sources at the pinned commit:
+`tools/cli.php` runs the component's own classes from the command line. It
+prefers the development site when one is present, and falls back to a vendored
+copy of JCB's sources pinned at a known commit.
 
 ```bash
 php tools/cli.php fetch
 ```
 
-Then derive, build and validate in one go:
-
 ```bash
 php tools/cli.php all
 ```
 
-Requires PHP 8.1+, plus `ext-zip` for packaging. Nothing else.
+### Checks
+
+```bash
+composer test && composer analyse && npx cypress run
+```
+
+Requires PHP 8.3+, `ext-zip`, Node 20+ and MySQL. PHPUnit and PHPStan need no
+running site; Cypress does.
 
 ---
 

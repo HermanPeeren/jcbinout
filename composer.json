@@ -1,0 +1,47 @@
+{
+    "name": "yepr/jcbinout",
+    "description": "JcbInOut: LionWeb-compatible import and export for Joomla Component Builder blueprints",
+    "type": "joomla-component",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Herman Peeren",
+            "email": "herman@yepr.nl",
+            "homepage": "https://yepr.nl"
+        }
+    ],
+    "require": {
+        "php": ">=8.3",
+        "ext-json": "*",
+        "ext-simplexml": "*"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpunit/phpunit": "^11.0",
+        "squizlabs/php_codesniffer": "^3.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Yepr\\Component\\Jcbinout\\Administrator\\": "com_jcbinout/administrator/src/",
+            "Yepr\\Component\\Jcbinout\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "analyse": "phpstan analyse",
+        "cs": "phpcs",
+        "cs-fix": "phpcbf",
+        "joomla": "php tools/fetch-joomla.php",
+        "jcb-sources": "php tools/cli.php fetch",
+        "derive": "php tools/cli.php all",
+        "build": "php tools/build.php",
+        "cypress": "cypress run",
+        "cypress-open": "cypress open"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable"
+}

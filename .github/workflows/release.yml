@@ -1,0 +1,118 @@
+name: Release
+
+# Pushing a tag is the whole release procedure. PhpStorm can create and push a
+# tag from the Git menu, so nothing here needs a terminal.
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: zip, simplexml
+          coverage: none
+
+      # Two versions have to agree and only one of them is edited by hand, so
+      # the tag is checked against the manifest before anything is built.
+      - name: The tag must match the manifest
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          MANIFEST=$(php -r 'echo trim((string) simplexml_load_file("com_jcbinout/jcbinout.xml")->version);')
+          echo "tag: $TAG   manifest: $MANIFEST"
+          if [ "$TAG" != "$MANIFEST" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match the manifest version $MANIFEST. Bump com_jcbinout/jcbinout.xml, or tag the version it already carries."
+            exit 1
+          fi
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Vendor JCB sources
+        run: php tools/cli.php fetch
+
+      - name: Derive the metamodel and build the language
+        run: php tools/cli.php all
+
+      - name: Unit tests
+        run: composer test
+
+      - name: Fetch Joomla for static analysis
+        run: |
+          url="https://github.com/joomla/joomla-cms/releases/download/${JOOMLA_VERSION}/Joomla_${JOOMLA_VERSION}-Stable-Full_Package.tar.gz"
+          curl -sSL -o joomla.tar.gz "$url"
+          mkdir -p joomla
+          tar -xzf joomla.tar.gz -C joomla
+        env:
+          JOOMLA_VERSION: 6.1.3
+
+      - name: Static analysis
+        run: composer analyse
+
+      - name: Build the package
+        run: php tools/build.php
+
+      # The package is what people install, so its contents are asserted once
+      # rather than the build script being trusted forever.
+      - name: The package must be installable and carry nothing it should not
+        run: |
+          php -r '
+            $zip = new ZipArchive();
+            $zip->open(glob("dist/com_jcbinout-*.zip")[0]);
+
+            $names = [];
+            for ($i = 0; $i < $zip->numFiles; $i++) {
+                $names[] = $zip->getNameIndex($i);
+            }
+
+            // Working directories the build has no reason to reach into, and
+            // Windows separators, which unzip on a server as one long filename.
+            $bad = array_values(array_filter($names, static fn (string $n): bool =>
+                str_contains($n, "vendor/")
+                || str_contains($n, "node_modules/")
+                || str_contains($n, "joomla/")
+                || str_contains($n, "\\")));
+
+            if ($bad !== []) {
+                fwrite(STDERR, "Package contains files it should not:\n  " . implode("\n  ", $bad) . "\n");
+                exit(1);
+            }
+
+            // What Joomla needs before it can install anything at all.
+            foreach (["jcbinout.xml", "administrator/services/provider.php"] as $required) {
+                if (!in_array($required, $names, true)) {
+                    fwrite(STDERR, "Package has no {$required}.\n");
+                    exit(1);
+                }
+            }
+
+            // The reference artefacts a fresh install compares against.
+            foreach (["administrator/data/interface-names.json"] as $required) {
+                if (!in_array($required, $names, true)) {
+                    fwrite(STDERR, "Package has no {$required}.\n");
+                    exit(1);
+                }
+            }
+
+            echo "package holds " . count($names) . " files, none of them unwanted\n";
+          '
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            dist/com_jcbinout-*.zip \
+            --title "JcbInOut $GITHUB_REF_NAME" \
+            --generate-notes

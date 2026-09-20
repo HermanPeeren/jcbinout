@@ -9,10 +9,9 @@ namespace Yepr\Component\Jcbinout\Administrator\View\Metamodel;
 
 \defined('_JEXEC') or die;
 
-use Joomla\CMS\Factory;
+use Joomla\CMS\Document\HtmlDocument;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
-use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 
 /**
@@ -37,7 +36,18 @@ class HtmlView extends BaseHtmlView
 	{
 		ToolbarHelper::title(Text::_('COM_JCBINOUT_METAMODEL'), 'puzzle');
 
-		$toolbar  = Toolbar::getInstance('toolbar');
+		$document = $this->getDocument();
+
+		// The document's toolbar is the one the template renders; a toolbar
+		// built from the factory is a new, detached instance whose buttons
+		// never appear. Only an HTML document has one - in a JSON or CLI
+		// context there is nothing to add buttons to.
+		if (!$document instanceof HtmlDocument)
+		{
+			return;
+		}
+
+		$toolbar = $document->getToolbar();
 		$jcbReady = $this->status['jcb']['classesAvailable'] ?? false;
 
 		if ($jcbReady || ($this->status['jcb']['sourcePath'] ?? null) !== null)

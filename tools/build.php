@@ -81,7 +81,12 @@ foreach ($files as $file) {
     $local = str_replace('\\', '/', substr($file->getPathname(), strlen($component) + 1));
 
     // Never ship derived working data - the component regenerates it from the
-    // JCB that is actually installed.
+    // JCB that is actually installed, and shipping it would overwrite a site's
+    // own derivation on every update.
+    if (str_starts_with($local, 'administrator/data/derived/')) {
+        continue;
+    }
+
     if (str_starts_with($local, 'administrator/data/') && !in_array(basename($local), $reference, true)) {
         continue;
     }

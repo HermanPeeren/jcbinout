@@ -28,9 +28,31 @@ $srcDir = $root . '/com_jcbinout/administrator/src';
 $vendor = $root . '/vendor-jcb';
 $data   = $root . '/data';
 
+/**
+ * Prefer the development Joomla site when one is installed: deriving against
+ * the JCB people actually run is the thing the component does, so the harness
+ * should exercise the same path rather than a flattened vendored copy.
+ * JCB_SRC overrides both.
+ */
+$liveJcb   = $root . '/joomla/libraries/vendor_jcb/VDM.Joomla/src';
+$liveAdmin = $root . '/joomla/administrator/components/com_componentbuilder';
+
+$jcbSrc = getenv('JCB_SRC')
+	?: (is_file($liveJcb . '/Componentbuilder/Table.php') ? $liveJcb : $vendor);
+
+$isLive = $jcbSrc !== $vendor;
+
+$formsDir = $isLive && is_dir($liveAdmin . '/forms')
+	? $liveAdmin . '/forms'
+	: $vendor . '/forms';
+
+$iniFile = $isLive && is_file($liveAdmin . '/language/en-GB/en-GB.com_componentbuilder.ini')
+	? $liveAdmin . '/language/en-GB/en-GB.com_componentbuilder.ini'
+	: $vendor . '/en-GB.com_componentbuilder.ini';
+
 // --- autoloading -------------------------------------------------------------
 
-spl_autoload_register(static function (string $class) use ($srcDir, $vendor): void {
+spl_autoload_register(static function (string $class) use ($srcDir, $vendor, $jcbSrc): void {
 	$componentPrefix = 'Yepr\\Component\\Jcbinout\\Administrator\\';
 
 	if (str_starts_with($class, $componentPrefix)) {
@@ -205,11 +227,11 @@ function cmdFetch(string $vendor, string $pin): int
 	return 0;
 }
 
-function cmdDerive(string $vendor, string $data): int
+function cmdDerive(string $jcbSrc, string $formsDir, string $iniFile,
+	string $vendor, string $data): int
 {
 	$harvester = new \Yepr\Component\Jcbinout\Administrator\Metamodel\EnumHarvester(
-		$vendor . '/forms',
-		$vendor . '/en-GB.com_componentbuilder.ini'
+		$formsDir, is_file($iniFile) ? $iniFile : null
 	);
 
 	$extractor = new \Yepr\Component\Jcbinout\Administrator\Metamodel\Extractor($harvester);
@@ -218,11 +240,15 @@ function cmdDerive(string $vendor, string $data): int
 		? trim((string) file_get_contents($vendor . '/PINNED_COMMIT'))
 		: null;
 
+	$live  = $jcbSrc !== $vendor;
+	$table = $live ? $jcbSrc . '/Componentbuilder/Table.php' : $vendor . '/Table.php';
+
+	out('Reading JCB from: ' . $jcbSrc . ($live ? '  (installed site)' : '  (vendored)'));
+
 	$doc = $extractor->document(array_filter([
-		'jcbCommit'         => $pin,
-		'jcbSourcePath'     => $vendor,
-		'schemaFingerprint' => is_file($vendor . '/Table.php')
-			? hash_file('sha256', $vendor . '/Table.php') : null,
+		'jcbCommit'         => $live ? null : $pin,
+		'jcbSourcePath'     => $jcbSrc,
+		'schemaFingerprint' => is_file($table) ? hash_file('sha256', $table) : null,
 	]));
 
 	writeJson($data . '/jcb-metamodel.json', $doc);
@@ -331,7 +357,7 @@ switch ($cmd) {
 		exit(cmdFetch($vendor, $argv[2] ?? 'bca4a1520484f3e2c2fbd12964a5995b0d058de1'));
 
 	case 'derive':
-		exit(cmdDerive($vendor, $data));
+		exit(cmdDerive($jcbSrc, $formsDir, $iniFile, $vendor, $data));
 
 	case 'build':
 		exit(cmdBuild($data));
@@ -344,7 +370,7 @@ switch ($cmd) {
 		exit(0);
 
 	case 'all':
-		$rc = cmdDerive($vendor, $data);
+		$rc = cmdDerive($jcbSrc, $formsDir, $iniFile, $vendor, $data);
 		$rc = $rc ?: cmdBuild($data);
 		$rc = $rc ?: cmdValidate($data);
 		exit($rc);

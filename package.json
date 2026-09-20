@@ -1,0 +1,14 @@
+{
+  "name": "jcbinout",
+  "version": "0.2.0",
+  "description": "LionWeb-compatible import and export for Joomla Component Builder blueprints",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "cypress": "cypress run",
+    "cypress:open": "cypress open"
+  },
+  "devDependencies": {
+    "cypress": "^15.0.0"
+  }
+}
