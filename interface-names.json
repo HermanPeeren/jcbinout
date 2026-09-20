@@ -1,0 +1,280 @@
+{
+  "$comment": [
+    "Names for the interfaces that hold JCB's shared field definitions.",
+    "Keyed by the cluster signature: the sorted list of entities that share the",
+    "definitions, joined by '+'. Edit any name freely - it is data, not code.",
+    "If JCB changes which entities share a definition the signature changes; the",
+    "generator then falls back to a derived name and emits INTERFACE_NAME_DRIFT."
+  ],
+  "interfaces": {
+    "joomla_component+joomla_module+joomla_plugin": {
+      "name": "IInstallableExtension",
+      "properties": [
+        "add_php_method_uninstall",
+        "add_php_postflight_install",
+        "add_php_postflight_update",
+        "add_php_preflight_install",
+        "add_php_preflight_update",
+        "add_sql_uninstall",
+        "add_update_server",
+        "addreadme",
+        "php_method_uninstall",
+        "php_postflight_install",
+        "php_postflight_update",
+        "php_preflight_install",
+        "php_preflight_update",
+        "readme",
+        "sql_uninstall",
+        "update_server_target",
+        "update_server_url"
+      ]
+    },
+    "custom_admin_view+site_view": {
+      "name": "IRenderedView",
+      "properties": [
+        "add_css",
+        "add_css_document",
+        "add_javascript_file",
+        "add_js_document",
+        "add_php_jview",
+        "add_php_jview_display",
+        "codename",
+        "context",
+        "css",
+        "css_document",
+        "dynamic_get",
+        "javascript_file",
+        "js_document",
+        "main_get",
+        "php_jview",
+        "php_jview_display"
+      ]
+    },
+    "admin_view+custom_admin_view+site_view": {
+      "name": "IInteractiveView",
+      "properties": [
+        "add_custom_button",
+        "add_php_ajax",
+        "add_php_document",
+        "add_view_toolbar",
+        "ajax_input",
+        "custom_button",
+        "php_ajaxmethod",
+        "php_controller",
+        "php_document",
+        "php_model",
+        "view_toolbar"
+      ]
+    },
+    "admin_view+field": {
+      "name": "IViewAssets",
+      "properties": [
+        "add_css_view",
+        "add_css_views",
+        "add_javascript_view_footer",
+        "add_javascript_views_footer",
+        "css_view",
+        "css_views",
+        "javascript_view_footer",
+        "javascript_views_footer"
+      ]
+    },
+    "field+fieldtype": {
+      "name": "IColumnStorage",
+      "properties": [
+        "datadefault",
+        "datadefault_other",
+        "datalenght",
+        "datalenght_other",
+        "datatype",
+        "indexes",
+        "null_switch",
+        "store"
+      ]
+    },
+    "component_files_folders+joomla_module_files_folders_urls+joomla_plugin_files_folders_urls+library_files_folders_urls": {
+      "name": "IFilesAndFolders",
+      "properties": [
+        "addfiles",
+        "addfilesfullpath",
+        "addfolders",
+        "addfoldersfullpath"
+      ]
+    },
+    "joomla_module+joomla_plugin": {
+      "name": "IInstallerScriptExtras",
+      "properties": [
+        "add_php_preflight_uninstall",
+        "add_php_script_construct",
+        "php_preflight_uninstall",
+        "php_script_construct"
+      ]
+    },
+    "custom_admin_view+layout+site_view+template": {
+      "name": "IPhpView",
+      "properties": [
+        "add_php_view",
+        "description",
+        "php_view"
+      ]
+    },
+    "class_method+class_property": {
+      "name": "IClassMember",
+      "properties": [
+        "comment",
+        "joomla_plugin_group",
+        "visibility"
+      ]
+    },
+    "custom_admin_view+joomla_module+layout+site_view+template": {
+      "name": "IUsesLibraries",
+      "properties": [
+        "libraries",
+        "snippet"
+      ]
+    },
+    "admin_view+joomla_component+joomla_module+joomla_plugin": {
+      "name": "IHasSql",
+      "properties": [
+        "add_sql",
+        "sql"
+      ]
+    },
+    "custom_admin_view+joomla_module+site_view": {
+      "name": "IUsesCustomGet",
+      "properties": [
+        "custom_get",
+        "default"
+      ]
+    },
+    "admin_view+dynamic_get": {
+      "name": "IHasListQuery",
+      "properties": [
+        "add_php_getlistquery",
+        "php_getlistquery"
+      ]
+    },
+    "joomla_plugin+power": {
+      "name": "IClassBody",
+      "properties": [
+        "add_head",
+        "main_class_code"
+      ]
+    },
+    "layout+template": {
+      "name": "IAliasedPresentation",
+      "properties": [
+        "alias",
+        "dynamic_get"
+      ]
+    },
+    "admin_view+class_extends+class_method+class_property+custom_admin_view+dynamic_get+field+fieldtype+joomla_component+joomla_module+joomla_plugin+joomla_plugin_group+joomla_power+layout+library+power+repository+site_view+snippet+template": {
+      "name": "IPortableIdentity",
+      "properties": [
+        "guid"
+      ]
+    },
+    "class_extends+class_method+class_property+custom_admin_view+dynamic_get+field+fieldtype+joomla_module+joomla_plugin+joomla_plugin_group+layout+library+power+site_view+snippet+template": {
+      "name": "IJcbNamed",
+      "properties": [
+        "name"
+      ]
+    },
+    "component_admin_views+component_config+component_custom_admin_menus+component_custom_admin_views+component_dashboard+component_files_folders+component_modules+component_placeholders+component_plugins+component_router+component_site_views+component_updates": {
+      "name": "IComponentChild",
+      "properties": [
+        "joomla_component"
+      ]
+    },
+    "admin_view+custom_admin_view+custom_code+joomla_component+joomla_module+joomla_plugin+joomla_power+power+repository+site_view": {
+      "name": "ISystemNamed",
+      "properties": [
+        "system_name"
+      ]
+    },
+    "admin_view+fieldtype+joomla_component+joomla_module+joomla_plugin+joomla_power+power+snippet": {
+      "name": "IDescribed",
+      "properties": [
+        "description"
+      ]
+    },
+    "admin_custom_tabs+admin_fields+admin_fields_conditions+admin_fields_relations": {
+      "name": "IAdminViewChild",
+      "properties": [
+        "admin_view"
+      ]
+    },
+    "admin_view+fieldtype+joomla_component+validation_rule": {
+      "name": "IShortDescribed",
+      "properties": [
+        "short_description"
+      ]
+    },
+    "class_extends+class_method+class_property": {
+      "name": "ITargetsExtensionType",
+      "properties": [
+        "extension_type"
+      ]
+    },
+    "class_extends+joomla_plugin+power": {
+      "name": "IHasHead",
+      "properties": [
+        "head"
+      ]
+    },
+    "joomla_module_files_folders_urls+joomla_plugin_files_folders_urls+library_files_folders_urls": {
+      "name": "IHasUrls",
+      "properties": [
+        "addurls"
+      ]
+    },
+    "admin_view+custom_admin_view": {
+      "name": "IHasIcon",
+      "properties": [
+        "icon"
+      ]
+    },
+    "component_config+library_config": {
+      "name": "IHasConfigFields",
+      "properties": [
+        "addconfig"
+      ]
+    },
+    "component_placeholders+repository": {
+      "name": "IHasPlaceholders",
+      "properties": [
+        "addplaceholders"
+      ]
+    },
+    "joomla_module_files_folders_urls+joomla_module_updates": {
+      "name": "IModuleChild",
+      "properties": [
+        "joomla_module"
+      ]
+    },
+    "joomla_module_updates+joomla_plugin_updates": {
+      "name": "IHasVersionUpdates",
+      "properties": [
+        "version_update"
+      ]
+    },
+    "joomla_plugin+joomla_plugin_group": {
+      "name": "IExtendsClass",
+      "properties": [
+        "class_extends"
+      ]
+    },
+    "joomla_plugin_files_folders_urls+joomla_plugin_updates": {
+      "name": "IPluginChild",
+      "properties": [
+        "joomla_plugin"
+      ]
+    },
+    "library_config+library_files_folders_urls": {
+      "name": "ILibraryChild",
+      "properties": [
+        "library"
+      ]
+    }
+  }
+}

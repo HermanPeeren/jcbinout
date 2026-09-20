@@ -56,21 +56,20 @@ See [METAMODEL.md](METAMODEL.md) for the readable report and
 ## Phase 2 - the LionWeb language
 
 `bin/generate-lionweb-language.php` turns the derived metamodel into a LionWeb
-serialisation chunk: **1,422 nodes** — 114 concepts, 720 properties, 79
-references, 112 containments, 18 enumerations with 378 literals.
+serialisation chunk: **1,082 nodes** - 93 concepts, 33 interfaces, 11
+enumerations, 481 properties, 46 references, 91 containments.
 
 Validated three ways:
 
 - against the official `serialization.schema.json` (LionWeb 2024.1)
 - structurally: unique ids, resolvable children, parent/containment agreement,
   single root, every metapointer a real LionCore key
-- **independently**, by loading it in `lionweb-python` 0.1.16
+- **independently**, by loading it in `lionweb-python` with no setup
 
-### Feature keys and shared field identity
+### Shared field definitions
 
-JCB assigns a GUID to every column in `Table.php`. That GUID is **not** a column
-id — it is the portable identity `u = (field, guid, v)` of the JCB *field
-definition* that generated the column.
+A column's GUID in `Table.php` is not a column id. It is the portable identity
+`u = (field, guid, v)` of the JCB *field definition* that generated the column.
 
 This is verifiable in the public trace: the Hello World blueprint references
 field `75e830a6-a3a5-4327-9161-3f774a6f1591` from `admin-fields.json`, and the
@@ -78,31 +77,33 @@ generated component's `Helloworld/Table.php` carries that same GUID on its
 `greeting` column (and again in `db.GUID`). JCB is self-generated, so its own
 `Table.php` is the same artifact for its own blueprint.
 
-The consequence: where one GUID appears on several entities, JCB is asserting
-that those columns are **one reusable field definition used at several
-use-sites** — the definition/occurrence distinction, one level up. 104 of the
-586 feature keys are such shared definitions: `guid` across 20 entities, `name`
-across 16, `system_name` across 10, the parent back-reference
-`joomla_component` across 12.
+So where one GUID appears on several entities, JCB is asserting that those
+columns are **one reusable definition used at several use-sites**. 104 of its
+field definitions are shared that way. The language encodes that directly:
 
-LionWeb requires feature keys to be unique language-wide (LionCore itself
-qualifies: `Concept-extends` vs `Annotation-extends`), so keys are
-`<entity>-<guid>`. The GUID still survives a column rename, which is the point.
+- **Deduplication.** Enumerations and subform row concepts reached through one
+  definition are the same type, so they are emitted once. This removed 7
+  duplicate enumerations and 21 duplicate row concepts - all verified
+  identical, and all artefacts of naming them after their owning entity.
+- **Interfaces.** Each shared definition is declared once, in an interface that
+  every using concept implements. Because it is declared once, its feature key
+  is the **bare GUID** - the identity JCB actually asserts, with no
+  entity qualification needed.
 
-`jcb-feature-keys.json` therefore carries semantics, not bookkeeping: it records
-which properties across the 45 entity types are the same field definition. That
-relation is not recoverable from names — `field.name` and
-`joomla_plugin_group.name` share a definition while other same-named properties
-do not.
+Clusters are formed from the exact set of entities that share a definition, and
+named in `interface-names.json` - plain data, edit any name freely. The largest:
 
-**Open design question.** Two better encodings exist, both deferred because they
-change the language shape:
+| Interface | Entities | Holds |
+|---|---|---|
+| `IPortableIdentity` | 20 | `guid` - the paper's portable identity, as a type |
+| `IInstallableExtension` | component, module, plugin | install scripts, update server, readme |
+| `IRenderedView` | custom_admin_view, site_view | css, js, php_jview, main_get |
+| `IInteractiveView` | admin_view + both custom views | ajax, controller, model, toolbar |
+| `IColumnStorage` | field, fieldtype | datatype, datalenght, indexes, store |
+| `IComponentChild` | 12 `component_*` | back-reference to `joomla_component` |
 
-- a `JcbFieldDefinition` **annotation** carrying the guid, attached to every
-  feature, so the identity lives in the language file rather than a side-car;
-- **interfaces** for shared definitions, which is what "one definition, many
-  occurrences" means at M2 — though 104 single-feature interfaces would want
-  clustering by co-occurrence first.
+Features unique to one entity keep an `<entity>-<guid>` key, since LionWeb
+requires feature keys to be unique language-wide.
 
 ### Outputs
 
@@ -110,7 +111,8 @@ change the language shape:
 |---|---|
 | `jcb-language.lionweb.json` | the LionWeb language (M2) |
 | `jcb-enum-values.json` | enum literal name -> JCB raw value, both directions |
-| `jcb-feature-keys.json` | feature key -> (entity, property, guid) + shared-GUID map |
+| `jcb-feature-keys.json` | feature key -> (entity, property, guid), shared-definition map, hoist map |
+| `interface-names.json` | editable names for the 33 shared-definition interfaces |
 
 ## Usage
 

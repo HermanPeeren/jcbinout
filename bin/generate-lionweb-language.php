@@ -50,8 +50,18 @@ final class LanguageBuilder
 	private array $usedKeys = [];       // key => owner, for collision detection
 	private array $featureKeys = [];    // feature key => {entity, property, guid, kind}
 	private array $guidOwners = [];     // jcb guid => list of entity.property using it
+	private array $guidSites = [];      // jcb guid => [[entity, property], ...]
+	private array $enumCanon = [];      // enum name => canonical enum name
+	private array $rowCanon = [];       // row concept => canonical row concept
+	private array $hoisted = [];        // "entity.property" => interface node id
+	private array $implementsOf = [];   // entity => [interface node id, ...]
+	private array $ifaceNames = [];     // signature => configured name
+	private array $mergedEnums = 0 ? [] : [];
 
-	public function __construct(private array $meta) {}
+	public function __construct(private array $meta, array $ifaceNames = [])
+	{
+		$this->ifaceNames = $ifaceNames;
+	}
 
 	// -- metapointer helpers -------------------------------------------------
 
@@ -126,10 +136,123 @@ final class LanguageBuilder
 
 	// -- build ---------------------------------------------------------------
 
+	/**
+	 * A column's GUID in Table.php is the portable identity of the JCB *field
+	 * definition* that generated it. Where one GUID appears on several
+	 * entities, those columns are one definition used at several use-sites.
+	 *
+	 * That fact drives two decisions:
+	 *   - enumerations and subform row concepts reached through one definition
+	 *     are the same type, so they are emitted once (dedupe);
+	 *   - the definition itself is declared once, in an Interface that every
+	 *     using concept implements, keyed by the bare GUID.
+	 */
+	private function prepare(array $portable): void
+	{
+		$enumByGuid = [];
+		$rowByGuid  = [];
+
+		foreach ($portable as $entity => $e)
+		{
+			foreach ($e['properties'] ?? [] as $pname => $p)
+			{
+				if (empty($p['portable']) || empty($p['guid']))
+				{
+					continue;
+				}
+
+				$g = $p['guid'];
+				$this->guidSites[$g][] = [$entity, $pname];
+
+				if (!empty($p['enumeration']))
+				{
+					$enumByGuid[$g][$p['enumeration']] = true;
+				}
+
+				$row = $p['subform']['rowConcept'] ?? null;
+
+				if ($row !== null)
+				{
+					$rowByGuid[$g][$row] = true;
+				}
+			}
+		}
+
+		foreach ([$enumByGuid, $rowByGuid] as $i => $byGuid)
+		{
+			foreach ($byGuid as $g => $names)
+			{
+				$names = array_keys($names);
+				sort($names);
+				$canon = $names[0];
+
+				foreach ($names as $n)
+				{
+					if ($i === 0)
+					{
+						$this->enumCanon[$n] = $canon;
+					}
+					else
+					{
+						$this->rowCanon[$n] = $canon;
+					}
+				}
+			}
+		}
+
+		// Cluster shared definitions by the exact set of entities using them.
+		$clusters = [];
+
+		foreach ($this->guidSites as $g => $sites)
+		{
+			if (count($sites) < 2)
+			{
+				continue;
+			}
+
+			$ents = array_values(array_unique(array_map(static fn($s) => $s[0], $sites)));
+			sort($ents);
+			$clusters[implode('+', $ents)][] = $g;
+		}
+
+		uasort($clusters, static fn($a, $b) => count($b) <=> count($a));
+
+		foreach ($clusters as $signature => $guids)
+		{
+			$name = $this->ifaceNames[$signature]['name'] ?? null;
+
+			if ($name === null)
+			{
+				$parts = explode('+', $signature);
+				$name  = 'IShared' . $this->pascal($parts[0]) . count($parts) . 'x' . count($guids);
+				$this->diag('warning', 'INTERFACE_NAME_DRIFT',
+					"No configured name for cluster '{$signature}'; derived '{$name}'. "
+					. 'Add it to interface-names.json.');
+			}
+
+			$this->clusterPlan[$signature] = ['name' => $name, 'guids' => $guids];
+		}
+	}
+
+	private array $clusterPlan = [];
+	private array $emittedRows = [];
+
+	private function canonEnum(string $n): string
+	{
+		return $this->enumCanon[$n] ?? $n;
+	}
+
+	private function canonRow(string $n): string
+	{
+		return $this->rowCanon[$n] ?? $n;
+	}
+
 	public function build(string $version): array
 	{
 		$entities = $this->meta['entities'];
 		$portable = array_filter($entities, static fn($e) => $e['portable']);
+
+		$this->prepare($portable);
 
 		// Pass 1: allocate concept ids so features can point at them.
 		foreach ($portable as $name => $_)
@@ -143,7 +266,7 @@ final class LanguageBuilder
 			{
 				if (($p['kind'] ?? '') === 'containment' && !empty($p['subform']['rowConcept']))
 				{
-					$row = $p['subform']['rowConcept'];
+					$row = $this->canonRow($p['subform']['rowConcept']);
 					$this->conceptIds[$row] = 'jcb-' . $this->safe($row);
 				}
 			}
@@ -151,7 +274,8 @@ final class LanguageBuilder
 
 		foreach ($this->meta['enumerations'] ?? [] as $ename => $_)
 		{
-			$this->enumIds[$ename] = 'jcb-enum-' . $this->safe($ename);
+			$canon = $this->canonEnum($ename);
+			$this->enumIds[$ename] = 'jcb-enum-' . $this->safe($canon);
 		}
 
 		// Pass 2: emit.
@@ -159,7 +283,23 @@ final class LanguageBuilder
 
 		foreach ($this->meta['enumerations'] ?? [] as $ename => $enum)
 		{
+			if ($this->canonEnum($ename) !== $ename)
+			{
+				continue;   // same field definition, already emitted
+			}
+
 			$entityNodeIds[] = $this->emitEnumeration($ename, $enum);
+		}
+
+		// Interfaces carry the shared field definitions, declared once each.
+		foreach ($this->clusterPlan as $signature => $plan)
+		{
+			$id = $this->emitInterface($signature, $plan);
+
+			if ($id !== null)
+			{
+				$entityNodeIds[] = $id;
+			}
 		}
 
 		foreach ($portable as $name => $e)
@@ -171,7 +311,17 @@ final class LanguageBuilder
 			{
 				if (($p['kind'] ?? '') === 'containment' && !empty($p['subform']['rowConcept']))
 				{
-					$entityNodeIds[] = $this->emitRowConcept($p['subform'], $name, $pname);
+					$row = $this->canonRow($p['subform']['rowConcept']);
+
+					if (isset($this->emittedRows[$row]))
+					{
+						continue;   // same field definition, already emitted
+					}
+
+					$this->emittedRows[$row] = true;
+					$sub = $p['subform'];
+					$sub['rowConcept'] = $row;
+					$entityNodeIds[] = $this->emitRowConcept($sub, $name, $pname);
 				}
 			}
 		}
@@ -242,6 +392,82 @@ final class LanguageBuilder
 		return $id;
 	}
 
+	/**
+	 * Emit one interface holding the shared field definitions of a cluster.
+	 * A definition is hoistable only when every use-site resolves to the same
+	 * shape; otherwise it stays on each concept and is reported.
+	 */
+	private function emitInterface(string $signature, array $plan): ?string
+	{
+		$entities = $this->meta['entities'];
+		$name     = $plan['name'];
+		$id       = 'jcb-iface-' . $this->safe($name);
+		$features = [];
+
+		foreach ($plan['guids'] as $guid)
+		{
+			$sites  = $this->guidSites[$guid];
+			$shapes = [];
+
+			foreach ($sites as [$entity, $pname])
+			{
+				$p = $entities[$entity]['properties'][$pname];
+				$shapes[json_encode([
+					$p['kind'],
+					$p['datatype'] ?? null,
+					isset($p['enumeration']) ? $this->canonEnum($p['enumeration']) : null,
+					$p['target'] ?? null,
+					isset($p['subform']['rowConcept'])
+						? $this->canonRow($p['subform']['rowConcept']) : null,
+				])] = true;
+			}
+
+			if (count($shapes) !== 1)
+			{
+				$this->diag('warning', 'DEFINITION_NOT_UNIFORM',
+					"Field definition {$guid} resolves to " . count($shapes)
+					. ' different shapes across its use-sites; left on each concept.');
+				continue;
+			}
+
+			[$entity, $pname] = $sites[0];
+			$p = $entities[$entity]['properties'][$pname];
+
+			// Declared once, so the key is the bare GUID: the identity JCB asserts.
+			$featureId = $this->emitFeature($id, $entity, $pname, $p, $guid,
+				'jcb-shared-' . $this->safe($guid));
+
+			if ($featureId === null)
+			{
+				continue;
+			}
+
+			$features[] = $featureId;
+
+			foreach ($sites as [$e, $pn])
+			{
+				$this->hoisted["{$e}.{$pn}"] = $id;
+				$this->implementsOf[$e][$id] = $name;
+			}
+		}
+
+		if ($features === [])
+		{
+			return null;
+		}
+
+		$this->node(
+			$id,
+			$this->mpM3('Interface'),
+			$this->named($name, $this->claimKey($this->safe($name), "interface {$name}")),
+			[['containment' => $this->mpM3('Classifier-features'), 'children' => $features]],
+			[],
+			'jcb-language'
+		);
+
+		return $id;
+	}
+
 	// -- concepts ------------------------------------------------------------
 
 	private function emitConcept(string $entity, array $e): string
@@ -251,6 +477,11 @@ final class LanguageBuilder
 
 		foreach ($e['properties'] ?? [] as $pname => $p)
 		{
+			if (isset($this->hoisted["{$entity}.{$pname}"]))
+			{
+				continue;   // declared once on the interface this concept implements
+			}
+
 			$featureId = $this->emitFeature($id, $entity, $pname, $p);
 
 			if ($featureId !== null)
@@ -304,11 +535,31 @@ final class LanguageBuilder
 				]
 			),
 			[['containment' => $this->mpM3('Classifier-features'), 'children' => $features]],
-			[],
+			$this->implementsRefs($entity),
 			'jcb-language'
 		);
 
 		return $id;
+	}
+
+	/** Concept-implements, one target per interface the entity participates in. */
+	private function implementsRefs(string $entity): array
+	{
+		$ifaces = $this->implementsOf[$entity] ?? [];
+
+		if ($ifaces === [])
+		{
+			return [];
+		}
+
+		$targets = [];
+
+		foreach ($ifaces as $ifaceId => $ifaceName)
+		{
+			$targets[] = ['resolveInfo' => $ifaceName, 'reference' => $ifaceId];
+		}
+
+		return [['reference' => $this->mpM3('Concept-implements'), 'targets' => $targets]];
 	}
 
 	private function emitRowConcept(array $subform, string $owner, string $ownerProp): string
@@ -392,7 +643,8 @@ final class LanguageBuilder
 
 	// -- features ------------------------------------------------------------
 
-	private function emitFeature(string $conceptId, string $entity, string $pname, array $p): ?string
+	private function emitFeature(string $conceptId, string $entity, string $pname, array $p,
+		?string $forceKey = null, ?string $forceId = null): ?string
 	{
 		if (empty($p['portable']))
 		{
@@ -400,7 +652,7 @@ final class LanguageBuilder
 		}
 
 		$kind = $p['kind'];
-		$id   = $conceptId . '-' . $this->safe($pname);
+		$id   = $forceId ?? ($conceptId . '-' . $this->safe($pname));
 
 		// JCB's own property GUID carries the stable identity, but GUIDs are
 		// reused across entities for structurally identical fields, and LionWeb
@@ -409,7 +661,12 @@ final class LanguageBuilder
 		// entity: the GUID still survives a column rename, which is the point.
 		$guid = $p['guid'] ?? null;
 
-		if ($guid === null)
+		if ($forceKey !== null)
+		{
+			// Shared definition declared once on an interface: the bare GUID.
+			$key = $this->safe($forceKey);
+		}
+		elseif ($guid === null)
 		{
 			$key = $this->safe($entity . '-' . $pname);
 			$this->diag('info', 'KEY_SYNTHESISED',
@@ -418,6 +675,10 @@ final class LanguageBuilder
 		else
 		{
 			$key = $this->safe($entity . '-' . $guid);
+		}
+
+		if ($guid !== null)
+		{
 			$this->guidOwners[$guid][] = "{$entity}.{$pname}";
 		}
 
@@ -460,7 +721,8 @@ final class LanguageBuilder
 
 		if ($kind === 'containment')
 		{
-			$row = $p['subform']['rowConcept'] ?? null;
+			$row = isset($p['subform']['rowConcept'])
+				? $this->canonRow($p['subform']['rowConcept']) : null;
 
 			if ($row === null || !isset($this->conceptIds[$row]))
 			{
@@ -496,7 +758,7 @@ final class LanguageBuilder
 		// Plain property: builtin primitive or a harvested enumeration.
 		if (($p['datatype'] ?? null) === 'Enumeration' && !empty($p['enumeration']))
 		{
-			$ename = $p['enumeration'];
+			$ename = $this->canonEnum($p['enumeration']);
 
 			if (!isset($this->enumIds[$ename]))
 			{
@@ -623,13 +885,43 @@ final class LanguageBuilder
 		return $this->featureKeys;
 	}
 
-	/** GUIDs JCB reuses for the same logical field across several entities. */
+	/**
+	 * Field definitions JCB uses at more than one site. Derived from the
+	 * definition graph, not from what happened to be emitted: a hoisted
+	 * definition is declared once but still has every one of its use-sites.
+	 */
 	public function sharedGuids(): array
 	{
-		$shared = array_filter($this->guidOwners, static fn($o) => count($o) > 1);
+		$shared = [];
+
+		foreach ($this->guidSites as $guid => $sites)
+		{
+			if (count($sites) < 2)
+			{
+				continue;
+			}
+
+			$shared[$guid] = array_map(static fn($s) => "{$s[0]}.{$s[1]}", $sites);
+		}
+
 		ksort($shared);
 
 		return $shared;
+	}
+
+	/** entity.property => the interface its definition was hoisted into. */
+	public function hoistedInto(): array
+	{
+		$out = [];
+
+		foreach ($this->hoisted as $site => $ifaceId)
+		{
+			$out[$site] = $ifaceId;
+		}
+
+		ksort($out);
+
+		return $out;
 	}
 }
 
@@ -638,7 +930,12 @@ final class LanguageBuilder
 $commit  = $meta['meta']['jcbCommit'] ?? 'unknown';
 $version = substr($commit, 0, 10) . '-1';
 
-$builder = new LanguageBuilder($meta);
+$namesFile = dirname($outFile) . '/interface-names.json';
+$ifaceNames = is_file($namesFile)
+	? (json_decode((string) file_get_contents($namesFile), true)['interfaces'] ?? [])
+	: [];
+
+$builder = new LanguageBuilder($meta, $ifaceNames);
 $chunk   = $builder->build($version);
 
 file_put_contents($outFile,
@@ -673,8 +970,9 @@ foreach ($chunk['nodes'] as $n)
 // single GUID for the same logical field across several entities.
 $keyFile = dirname($outFile) . '/jcb-feature-keys.json';
 file_put_contents($keyFile, json_encode([
-	'featureKeys' => $builder->featureKeys(),
-	'sharedGuids' => $builder->sharedGuids(),
+	'featureKeys'  => $builder->featureKeys(),
+	'sharedGuids'  => $builder->sharedGuids(),
+	'hoistedInto'  => $builder->hoistedInto(),
 ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "
 ");
 
