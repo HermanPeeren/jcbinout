@@ -24,7 +24,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Yepr\\Component\\Jcbinout\\Administrator\\": "com_jcbinout/administrator/src/",
+            "Yepr\\Component\\Jcbinout\\Administrator\\": "src/administrator/components/com_jcbinout/src/",
             "Yepr\\Component\\Jcbinout\\Tests\\": "tests/"
         }
     },
@@ -36,7 +36,7 @@
         "joomla": "php tools/fetch-joomla.php",
         "jcb-sources": "php tools/cli.php fetch",
         "derive": "php tools/cli.php all",
-        "build": "php tools/build.php",
+        "build": "php build/build.php",
         "cypress": "cypress run",
         "cypress-open": "cypress open"
     },

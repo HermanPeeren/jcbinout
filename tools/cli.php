@@ -5,7 +5,7 @@
  * Runs the *component's own* classes outside Joomla, against a vendored copy of
  * JCB's sources, so the pipeline can be exercised and regression-tested without
  * a Joomla installation. There is deliberately no second implementation: this
- * is a thin harness around com_jcbinout/administrator/src.
+ * is a thin harness around src/administrator/components/com_jcbinout/src.
  *
  * Commands:
  *   php tools/cli.php fetch [commit]   vendor JCB's sources for offline work
@@ -26,7 +26,7 @@
 \define('_JEXEC', 1);
 
 $root   = dirname(__DIR__);
-$srcDir = $root . '/com_jcbinout/administrator/src';
+$srcDir = $root . '/src/administrator/components/com_jcbinout/src';
 $vendor = $root . '/vendor-jcb';
 $data   = $root . '/data';
 

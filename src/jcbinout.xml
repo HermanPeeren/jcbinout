@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" method="upgrade">
+	<name>com_jcbinout</name>
+	<author>Herman Peeren</author>
+	<authorEmail>herman@yepr.nl</authorEmail>
+	<authorUrl>https://yepr.nl</authorUrl>
+	<copyright>Copyright (C) 2026 Herman Peeren. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<version>0.3.0</version>
+	<creationDate>2026-09-20</creationDate>
+	<description>COM_JCBINOUT_XML_DESCRIPTION</description>
+	<namespace path="src">Yepr\Component\Jcbinout</namespace>
+
+	<administration>
+		<menu link="option=com_jcbinout">COM_JCBINOUT</menu>
+
+		<!--
+			The folder mirrors where these files end up, because the package
+			mirrors the install path: everything under src/ in the repository is
+			laid out exactly as Joomla lays it out on disk.
+		-->
+		<files folder="administrator/components/com_jcbinout">
+			<folder>data</folder>
+			<folder>language</folder>
+			<folder>services</folder>
+			<folder>src</folder>
+			<folder>tmpl</folder>
+		</files>
+	</administration>
+</extension>

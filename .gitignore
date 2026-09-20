@@ -11,7 +11,7 @@
 /prototypes/
 
 # packaged component
-/dist/
+/build/*.zip
 
 # Development Joomla site. Downloaded and installed locally; CI fetches its own.
 # PHPStan scans it so `extends AdminModel` resolves to something.
@@ -41,7 +41,7 @@
 
 # Copied into the component at package time by tools/build.php; the source of
 # truth is tests/fixtures/hello-world.
-/com_jcbinout/administrator/data/hello-world/
+/src/administrator/components/com_jcbinout/data/hello-world/
 
 # Artefacts the component derives on a site, never shipped.
-/com_jcbinout/administrator/data/derived/
+/src/administrator/components/com_jcbinout/data/derived/

@@ -55,5 +55,8 @@ jobs:
       - name: Static analysis
         run: composer analyse
 
+      - name: Coding standards
+        run: composer cs
+
       - name: The package must build
-        run: php tools/build.php
+        run: php build/build.php

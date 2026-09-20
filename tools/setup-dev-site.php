@@ -240,7 +240,7 @@ echo <<<TEXT
   URL       http://localhost/{$name}/joomla
 
   Next:
-    php tools/build.php
-    php {$joomla}/cli/joomla.php extension:install --path=dist/com_jcbinout-*.zip
+    php build/build.php
+    php {$joomla}/cli/joomla.php extension:install --path=build/com_jcbinout-*.zip
 
 TEXT;

@@ -29,10 +29,10 @@ jobs:
       - name: The tag must match the manifest
         run: |
           TAG="${GITHUB_REF_NAME#v}"
-          MANIFEST=$(php -r 'echo trim((string) simplexml_load_file("com_jcbinout/jcbinout.xml")->version);')
+          MANIFEST=$(php -r 'echo trim((string) simplexml_load_file("src/jcbinout.xml")->version);')
           echo "tag: $TAG   manifest: $MANIFEST"
           if [ "$TAG" != "$MANIFEST" ]; then
-            echo "::error::Tag $GITHUB_REF_NAME does not match the manifest version $MANIFEST. Bump com_jcbinout/jcbinout.xml, or tag the version it already carries."
+            echo "::error::Tag $GITHUB_REF_NAME does not match the manifest version $MANIFEST. Bump src/jcbinout.xml, or tag the version it already carries."
             exit 1
           fi
 
@@ -66,8 +66,11 @@ jobs:
       - name: Static analysis
         run: composer analyse
 
+      - name: Coding standards
+        run: composer cs
+
       - name: Build the package
-        run: php tools/build.php
+        run: php build/build.php
 
       # The package is what people install, so its contents are asserted once
       # rather than the build script being trusted forever.
@@ -75,7 +78,7 @@ jobs:
         run: |
           php -r '
             $zip = new ZipArchive();
-            $zip->open(glob("dist/com_jcbinout-*.zip")[0]);
+            $zip->open(glob("build/com_jcbinout-*.zip")[0]);
 
             $names = [];
             for ($i = 0; $i < $zip->numFiles; $i++) {
@@ -96,7 +99,7 @@ jobs:
             }
 
             // What Joomla needs before it can install anything at all.
-            foreach (["jcbinout.xml", "administrator/services/provider.php"] as $required) {
+            foreach (["jcbinout.xml", "administrator/components/com_jcbinout/services/provider.php"] as $required) {
                 if (!in_array($required, $names, true)) {
                     fwrite(STDERR, "Package has no {$required}.\n");
                     exit(1);
@@ -104,7 +107,7 @@ jobs:
             }
 
             // The reference artefacts a fresh install compares against.
-            foreach (["administrator/data/interface-names.json"] as $required) {
+            foreach (["administrator/components/com_jcbinout/data/interface-names.json"] as $required) {
                 if (!in_array($required, $names, true)) {
                     fwrite(STDERR, "Package has no {$required}.\n");
                     exit(1);
@@ -119,6 +122,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release create "$GITHUB_REF_NAME" \
-            dist/com_jcbinout-*.zip \
+            build/com_jcbinout-*.zip \
             --title "JcbInOut $GITHUB_REF_NAME" \
             --generate-notes

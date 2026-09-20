@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<ruleset name="jcbinout">
+	<description>
+		PSR-12, minus the rules that contradict Joomla's own conventions.
+
+		Joomla's standard mandates tabs where PSR-12 forbids them, and this is a
+		Joomla extension whose files sit beside core's. Joomla wins.
+	</description>
+
+	<file>src/administrator/components/com_jcbinout/src</file>
+	<file>tests</file>
+	<file>build</file>
+
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/joomla/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<!-- A vendored blueprint, and artefacts this repository generates. -->
+	<exclude-pattern>*/tests/fixtures/*</exclude-pattern>
+	<exclude-pattern>*/data/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+
+	<rule ref="PSR12"/>
+
+	<!--
+		Joomla indents with tabs and PSR-12 forbids them. See the description:
+		this is a Joomla extension.
+	-->
+	<rule ref="Generic.WhiteSpace.DisallowTabIndent">
+		<exclude-pattern>src/*</exclude-pattern>
+	</rule>
+	<rule ref="Generic.WhiteSpace.ScopeIndent">
+		<exclude-pattern>src/*</exclude-pattern>
+	</rule>
+
+	<!--
+		Same reasoning, one rule further: Joomla puts an opening brace on its
+		own line and PSR-12 puts it on the same one. The component's tree
+		follows Joomla; everything outside it - tests, build, tools - is
+		ordinary PHP and follows PSR-12.
+	-->
+	<rule ref="Squiz.ControlStructures.ControlSignature">
+		<exclude-pattern>src/*</exclude-pattern>
+	</rule>
+	<rule ref="Squiz.Functions.MultiLineFunctionDeclaration">
+		<exclude-pattern>src/*</exclude-pattern>
+	</rule>
+	<rule ref="PSR2.Methods.FunctionCallSignature">
+		<exclude-pattern>src/*</exclude-pattern>
+	</rule>
+	<rule ref="PSR12.ControlStructures.ControlStructureSpacing">
+		<exclude-pattern>src/*</exclude-pattern>
+	</rule>
+	<rule ref="Generic.Files.LineEndings">
+		<exclude-pattern>src/*</exclude-pattern>
+	</rule>
+
+	<!--
+		Every Joomla source file opens with `defined('_JEXEC') or die;`. PSR-1
+		calls that a side effect beside a class declaration, and it is - it is
+		also mandatory, and the reason it is mandatory is that without it the
+		file does something when requested directly over the web.
+	-->
+	<rule ref="PSR1.Files.SideEffects">
+		<exclude-pattern>src/*</exclude-pattern>
+	</rule>
+
+	<!--
+		`$_tbl`, `$_tbl_key`, `$_db`: Joomla's Table API names them, and a
+		subclass does not get to rename its parent's properties.
+	-->
+	<rule ref="PSR2.Classes.PropertyDeclaration.Underscore">
+		<exclude-pattern>src/*</exclude-pattern>
+	</rule>
+
+	<!--
+		A build script declares its helpers and then does its work in the same
+		file, which is what a script is.
+	-->
+	<rule ref="PSR1.Files.SideEffects">
+		<exclude-pattern>build/*</exclude-pattern>
+		<exclude-pattern>tools/*</exclude-pattern>
+	</rule>
+
+	<!--
+		The component's own tree keeps the softer limit it was written to. Most
+		of the long lines are generators building a line of code as a string, or
+		a view echoing a paragraph, and breaking those makes the thing being
+		emitted harder to see than the source that emits it. New code - tests,
+		build, everything under the 150 below - stays at 150.
+	-->
+	<rule ref="Generic.Files.LineLength">
+		<exclude-pattern>src/*</exclude-pattern>
+	</rule>
+
+	<rule ref="Generic.Files.LineLength">
+		<properties>
+			<property name="lineLimit" value="150"/>
+			<property name="absoluteLineLimit" value="0"/>
+		</properties>
+	</rule>
+
+	<!--
+		A bootstrap is the one kind of file that legitimately both declares and
+		does: tests/bootstrap.php defines _JEXEC and pulls in the autoloader,
+		which is its entire job.
+	-->
+	<rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+		<exclude-pattern>tests/bootstrap.php</exclude-pattern>
+	</rule>
+</ruleset>

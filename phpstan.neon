@@ -8,7 +8,8 @@ parameters:
     level: 5
 
     paths:
-        - com_jcbinout/administrator/src
+        - src/administrator/components/com_jcbinout/src
+        - build
         - tools
         - tests
 

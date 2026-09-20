@@ -13,7 +13,7 @@
 	</testsuites>
 	<source>
 		<include>
-			<directory suffix=".php">com_jcbinout/administrator/src</directory>
+			<directory suffix=".php">src/administrator/components/com_jcbinout/src</directory>
 		</include>
 	</source>
 </phpunit>

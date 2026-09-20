@@ -173,28 +173,40 @@ Interface names live in `data/interface-names.json`. Plain data — edit freely.
 
 ## Layout
 
+Source lives under `/src`, laid out exactly as Joomla lays it out on disk. The
+package mirrors the install path, so what is in the repository and what ends up
+on a site are the same shape.
+
 ```
-com_jcbinout/                     the installable component
-  jcbinout.xml                    manifest
-  administrator/
-    services/provider.php         DI registration
+src/                                  the extension, as installed
+  jcbinout.xml                        manifest
+  administrator/components/com_jcbinout/
+    services/provider.php             DI registration
     src/
-      Extension/                  component entry
-      Controller/                 Display, Metamodel (derive/build/validate)
-      Model/MetamodelModel.php    orchestration, artefact storage
-      View/Metamodel/             status view
-      Jcb/Locator.php             finds and autoloads the installed JCB
-      Metamodel/                  Extractor, Classifier, EnumHarvester, TableAdapter
-      Lionweb/                    LanguageBuilder, Validator
-    tmpl/metamodel/default.php    status view template
-    data/                         reference artefacts, shipped with the package
+      Extension/                      component entry
+      Controller/                     Display, Metamodel (derive/build/export/validate)
+      Model/MetamodelModel.php        orchestration, artefact storage
+      View/Metamodel/                 status view
+      Jcb/Locator.php                 finds and autoloads the installed JCB
+      Metamodel/                      Extractor, Classifier, EnumHarvester, TableAdapter
+      Blueprint/                      RepositorySource, Payload, DesignProjection
+      Lionweb/                        LanguageBuilder, LanguageIndex,
+                                      InstanceExporter, InstanceImporter, Validator
+    tmpl/metamodel/default.php        status view template
+    data/                             reference artefacts, shipped with the package
     language/en-GB/
-data/                             artefacts generated during development
+build/
+  build.php                           packages build/com_jcbinout-<version>.zip
+data/                                 artefacts generated during development
 tools/
-  cli.php                         dev harness over the component's own classes
-  build.php                       packages the installable zip into dist/
-  report-metamodel.php            renders METAMODEL.md
-tests/fixtures/                   Hello World blueprint, for round-trip tests
+  cli.php                             dev harness over the component's own classes
+  setup-dev-site.php                  creates the development Joomla site
+  report-metamodel.php                renders METAMODEL.md
+  phpstan-bootstrap.php               Joomla's runtime constants, for analysis
+tests/
+  Unit/                               PHPUnit
+  fixtures/                           Hello World blueprint
+cypress/                              end-to-end specs
 ```
 
 ## Development site
@@ -223,10 +235,10 @@ php tools/setup-dev-site.php
 ### Build and install the component
 
 ```bash
-php tools/build.php
+php build/build.php
 ```
 
-Install `dist/com_jcbinout-0.2.0.zip` on a Joomla site that has JCB, then open
+Install `build/com_jcbinout-0.3.0.zip` on a Joomla site that has JCB, then open
 Components → JcbInOut. The status view reports what it found; the toolbar offers
 *Derive metamodel*, *Build LionWeb language* and *Validate*.
 
