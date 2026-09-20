@@ -12,9 +12,13 @@ namespace Yepr\Component\Jcbinout\Administrator\Model;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Model\BaseDatabaseModel;
+use Yepr\Component\Jcbinout\Administrator\Blueprint\ImportPlanner;
 use Yepr\Component\Jcbinout\Administrator\Blueprint\RepositorySource;
+use Yepr\Component\Jcbinout\Administrator\Jcb\LocalStore;
 use Yepr\Component\Jcbinout\Administrator\Jcb\Locator;
+use Yepr\Component\Jcbinout\Administrator\Jcb\Schema;
 use Yepr\Component\Jcbinout\Administrator\Lionweb\InstanceExporter;
+use Yepr\Component\Jcbinout\Administrator\Lionweb\InstanceImporter;
 use Yepr\Component\Jcbinout\Administrator\Lionweb\LanguageBuilder;
 use Yepr\Component\Jcbinout\Administrator\Lionweb\LanguageIndex;
 use Yepr\Component\Jcbinout\Administrator\Lionweb\Validator;
@@ -296,6 +300,77 @@ class MetamodelModel extends BaseDatabaseModel
 			'stats'       => $exporter->stats($chunk),
 			'diagnostics' => $exporter->diagnostics(),
 		];
+	}
+
+	/**
+	 * What importing a LionWeb chunk into this JCB would do.
+	 *
+	 * Planning and writing are separate calls so the candidate list can be
+	 * shown before anything is touched.
+	 */
+	public function planImport(?array $chunk = null, string $mode = ImportPlanner::INITIALIZE): array
+	{
+		$chunk ??= $this->artefact(self::INSTANCE_FILE);
+
+		if ($chunk === null)
+		{
+			throw new \RuntimeException('Export a blueprint before importing one.');
+		}
+
+		$metamodel = $this->artefact(self::METAMODEL_FILE);
+
+		if ($metamodel === null)
+		{
+			throw new \RuntimeException('Derive the metamodel before importing.');
+		}
+
+		$language = $this->artefact(self::LANGUAGE_FILE);
+
+		if ($language === null)
+		{
+			throw new \RuntimeException('Build the LionWeb language before importing.');
+		}
+
+		$index    = new LanguageIndex($language, $this->artefact(self::ENUM_MAP_FILE) ?? []);
+		$importer = new InstanceImporter($index);
+		$payloads = $importer->import($chunk);
+
+		$schema  = new Schema($metamodel);
+		$store   = new LocalStore($schema);
+		$planner = new ImportPlanner($schema);
+
+		$entities = array_map(static fn($p) => $p->entity, $payloads);
+		$existing = $store->existingIdentifiers($entities);
+
+		$plan = $planner->plan($payloads, $existing, $mode);
+
+		return [
+			'plan'        => $plan,
+			'payloads'    => count($payloads),
+			'diagnostics' => array_merge(
+				$importer->diagnostics(),
+				$planner->diagnostics(),
+				$store->diagnostics()
+			),
+		];
+	}
+
+	/**
+	 * Execute a plan against this installation's JCB tables.
+	 */
+	public function applyImport(array $plan, ?callable $progress = null): array
+	{
+		$metamodel = $this->artefact(self::METAMODEL_FILE);
+
+		if ($metamodel === null)
+		{
+			throw new \RuntimeException('Derive the metamodel before importing.');
+		}
+
+		$store  = new LocalStore(new Schema($metamodel));
+		$result = $store->apply($plan, $progress);
+
+		return $result + ['diagnostics' => $store->diagnostics()];
 	}
 
 	private function write(string $file, array $data): void

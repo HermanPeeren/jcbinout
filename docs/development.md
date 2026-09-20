@@ -132,6 +132,23 @@ a LionWeb instance against that language. **Roundtrip** does both and compares.
 
 ## Decisions that are load-bearing
 
+### Planning is separate from writing
+
+`ImportPlanner` decides what an import would do; `LocalStore` does it. The split
+is what makes initialize-versus-reset testable at all — the difference between
+the two modes is entirely a matter of what the plan decides, not of how a row is
+written — and it is what lets the UI show a candidate list before anything is
+touched. If you add a decision, it belongs in the planner.
+
+### The metamodel owns storage, the language owns design
+
+The language says what a column *is*. It says nothing about how JCB writes the
+value, because that is storage and no part of the portable design. `Jcb\Schema`
+answers the storage questions from the derived metamodel: which table, which
+identifying column, and whether the value is base64, JSON or neither. An import
+that skipped the re-encoding would write JSON where JCB expects base64 and
+produce rows the compiler cannot read.
+
 ### The language is the authority, not the metamodel
 
 `LanguageIndex` reads the generated language back rather than re-deriving
@@ -201,8 +218,13 @@ root and the reference artefacts, and nothing from `vendor/`, `node_modules/` or
 
 ## Known limits
 
-- **Import stops at payloads.** A chunk becomes blueprint payloads in memory;
-  nothing writes them into a JCB installation yet.
+- **No progress reporting on a long import.** The callback exists and nothing
+  calls it from the UI; a 33-payload blueprint is instant, a large one will not
+  be.
+- **An import is not transactional.** Each row is its own statement and its own
+  outcome, so a failure part-way leaves what was already written in place, with
+  a list of what failed. That is deliberate, but it means a failed import wants
+  reading rather than re-running blindly.
 - **Row node ids are not stable across a round trip.** Definitions keep their
   GUIDs, but subform row ids derive from JCB's row keys, which the importer
   renumbers from zero. Inside β, but it matters if anything starts diffing

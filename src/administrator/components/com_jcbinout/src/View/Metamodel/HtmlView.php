@@ -10,7 +10,9 @@ namespace Yepr\Component\Jcbinout\Administrator\View\Metamodel;
 
 \defined('_JEXEC') or die;
 
+use Joomla\CMS\Application\CMSApplication;
 use Joomla\CMS\Document\HtmlDocument;
+use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Toolbar\ToolbarHelper;
@@ -28,6 +30,9 @@ class HtmlView extends BaseHtmlView
 	 */
 	protected string $defaultBlueprint = '';
 
+	/** The plan awaiting a decision, if one has been made. */
+	protected ?array $importPlan = null;
+
 	public function display($tpl = null): void
 	{
 		/** @var \Yepr\Component\Jcbinout\Administrator\Model\MetamodelModel $model */
@@ -36,6 +41,13 @@ class HtmlView extends BaseHtmlView
 
 		$fixture = JPATH_ADMINISTRATOR . '/components/com_jcbinout/data/hello-world';
 		$this->defaultBlueprint = is_dir($fixture . '/src') ? $fixture : '';
+
+		$app     = Factory::getApplication();
+		$pending = $app instanceof CMSApplication
+			? $app->getUserState('com_jcbinout.import.plan')
+			: null;
+
+		$this->importPlan = is_array($pending) ? $pending : null;
 
 		$this->addToolbar();
 
@@ -79,6 +91,20 @@ class HtmlView extends BaseHtmlView
 
 			$toolbar->standardButton('upload', 'COM_JCBINOUT_EXPORT', 'metamodel.export')
 				->icon('icon-upload');
+		}
+
+		if ($this->status['instance']['exists'] ?? false)
+		{
+			$toolbar->standardButton('search', 'COM_JCBINOUT_PLAN', 'metamodel.plan')
+				->icon('icon-search');
+		}
+
+		// Applying is offered only once there is something to apply, so the
+		// write is always a decision taken about a plan that was shown.
+		if ($this->importPlan !== null)
+		{
+			$toolbar->standardButton('save', 'COM_JCBINOUT_APPLY', 'metamodel.apply')
+				->icon('icon-save');
 		}
 	}
 }

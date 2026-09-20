@@ -10,11 +10,13 @@ namespace Yepr\Component\Jcbinout\Administrator\Controller;
 
 \defined('_JEXEC') or die;
 
+use Joomla\CMS\Application\CMSApplication;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\Controller\BaseController;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Session\Session;
+use Yepr\Component\Jcbinout\Administrator\Blueprint\ImportPlanner;
 
 /**
  * Actions that derive the metamodel and build the LionWeb language.
@@ -26,6 +28,17 @@ use Joomla\CMS\Session\Session;
  */
 class MetamodelController extends BaseController
 {
+	/**
+	 * User state lives on CMSApplication rather than on the interface the
+	 * controller is handed, so it is asked for explicitly. A console or API
+	 * application has nowhere to keep a pending plan, and saying so is better
+	 * than assuming the web one.
+	 */
+	private function session(): ?CMSApplication
+	{
+		return $this->app instanceof CMSApplication ? $this->app : null;
+	}
+
 	private function done(string $msg, string $type = 'message'): void
 	{
 		$this->app->enqueueMessage($msg, $type);
@@ -159,6 +172,94 @@ class MetamodelController extends BaseController
 			}
 
 			$this->done(Text::_('COM_JCBINOUT_EXPORT_OK'));
+		}
+		catch (\Throwable $e)
+		{
+			$this->done($e->getMessage(), 'error');
+		}
+	}
+
+	/**
+	 * Show what importing the exported blueprint into this JCB would do.
+	 *
+	 * Planning never writes. The plan is a candidate list, and applying it is a
+	 * separate, deliberate action.
+	 */
+	public function plan(): void
+	{
+		Session::checkToken() or jexit(Text::_('JINVALID_TOKEN'));
+
+		/** @var \Yepr\Component\Jcbinout\Administrator\Model\MetamodelModel $model */
+		$model = $this->getModel('Metamodel');
+		$mode  = $this->input->getString('mode', ImportPlanner::INITIALIZE);
+
+		try
+		{
+			$result = $model->planImport(null, $mode);
+			$counts = $result['plan']['counts'];
+
+			$this->session()?->setUserState('com_jcbinout.import.plan', $result['plan']);
+
+			$this->app->enqueueMessage(Text::sprintf(
+				'COM_JCBINOUT_PLANNED_SUMMARY',
+				$result['payloads'],
+				$counts[ImportPlanner::INSERT],
+				$counts[ImportPlanner::UPDATE],
+				$counts[ImportPlanner::SKIP]
+			));
+
+			foreach ($result['diagnostics'] as $d)
+			{
+				if (($d['severity'] ?? '') === 'error')
+				{
+					$this->app->enqueueMessage($d['message'], 'error');
+				}
+			}
+
+			$this->done(Text::_('COM_JCBINOUT_PLAN_OK'));
+		}
+		catch (\Throwable $e)
+		{
+			$this->done($e->getMessage(), 'error');
+		}
+	}
+
+	/**
+	 * Write the planned import into JCB's tables.
+	 */
+	public function apply(): void
+	{
+		Session::checkToken() or jexit(Text::_('JINVALID_TOKEN'));
+
+		/** @var \Yepr\Component\Jcbinout\Administrator\Model\MetamodelModel $model */
+		$model = $this->getModel('Metamodel');
+		$plan  = $this->session()?->getUserState('com_jcbinout.import.plan');
+
+		if (!is_array($plan) || empty($plan['operations']))
+		{
+			$this->done(Text::_('COM_JCBINOUT_NO_PLAN'), 'warning');
+
+			return;
+		}
+
+		try
+		{
+			$result = $model->applyImport($plan);
+
+			$this->app->enqueueMessage(Text::sprintf(
+				'COM_JCBINOUT_APPLIED_SUMMARY',
+				$result['applied'], $result['skipped'], $result['failed']
+			), $result['failed'] > 0 ? 'warning' : 'message');
+
+			foreach (array_slice($result['diagnostics'], 0, 10) as $d)
+			{
+				$this->app->enqueueMessage($d['message'], 'error');
+			}
+
+			// The plan described the installation as it was before the write.
+			$this->session()?->setUserState('com_jcbinout.import.plan', null);
+
+			$this->done(Text::_('COM_JCBINOUT_APPLY_OK'));
 		}
 		catch (\Throwable $e)
 		{

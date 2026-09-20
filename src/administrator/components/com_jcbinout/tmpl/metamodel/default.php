@@ -16,6 +16,7 @@ $jcb       = $status['jcb'];
 $metamodel = $status['metamodel'];
 $language  = $status['language'];
 $instance  = $status['instance'] ?? null;
+$plan      = $this->importPlan;
 
 $badge = static function (bool $ok, string $yes, string $no): string {
 	return '<span class="badge bg-' . ($ok ? 'success' : 'danger') . '">'
@@ -188,6 +189,77 @@ $bytes = static function (int $n): string {
 				</p>
 			<?php else : ?>
 				<p class="mb-0"><?php echo Text::_('COM_JCBINOUT_NOT_EXPORTED_YET'); ?></p>
+			<?php endif; ?>
+		</div>
+	</div>
+
+	<div class="card mb-3">
+		<div class="card-header">
+			<h2 class="card-title h5 mb-0"><?php echo Text::_('COM_JCBINOUT_IMPORT'); ?></h2>
+		</div>
+		<div class="card-body">
+			<p><?php echo Text::_('COM_JCBINOUT_IMPORT_INTRO'); ?></p>
+
+			<div class="mb-3">
+				<label class="form-label" for="mode"><?php echo Text::_('COM_JCBINOUT_IMPORT_MODE'); ?></label>
+				<select class="form-select w-auto" id="mode" name="mode">
+					<option value="initialize"><?php echo Text::_('COM_JCBINOUT_MODE_INITIALIZE'); ?></option>
+					<option value="reset"><?php echo Text::_('COM_JCBINOUT_MODE_RESET'); ?></option>
+				</select>
+				<small class="form-text"><?php echo Text::_('COM_JCBINOUT_IMPORT_MODE_HELP'); ?></small>
+			</div>
+
+			<?php if ($plan === null) : ?>
+				<p class="mb-0"><?php echo Text::_('COM_JCBINOUT_NO_PLAN_YET'); ?></p>
+			<?php else : ?>
+				<?php $counts = $plan['counts']; ?>
+				<div class="alert alert-info">
+					<?php echo Text::sprintf('COM_JCBINOUT_PLAN_PENDING',
+						htmlspecialchars((string) $plan['mode'], ENT_QUOTES, 'UTF-8'),
+						(int) ($counts['insert'] ?? 0),
+						(int) ($counts['update'] ?? 0),
+						(int) ($counts['skip'] ?? 0)); ?>
+				</div>
+
+				<table class="table table-sm">
+					<thead>
+						<tr>
+							<th><?php echo Text::_('COM_JCBINOUT_ACTION'); ?></th>
+							<th><?php echo Text::_('COM_JCBINOUT_ENTITY'); ?></th>
+							<th><?php echo Text::_('COM_JCBINOUT_IDENTIFIER'); ?></th>
+							<th class="text-end"><?php echo Text::_('COM_JCBINOUT_COLUMNS'); ?></th>
+							<th><?php echo Text::_('COM_JCBINOUT_REASON'); ?></th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php foreach (array_slice($plan['operations'], 0, 40) as $operation) : ?>
+							<?php
+								$badge = match ($operation['action']) {
+									'insert' => 'bg-success',
+									'update' => 'bg-warning',
+									default  => 'bg-secondary',
+								};
+							?>
+							<tr>
+								<td><span class="badge <?php echo $badge; ?>">
+									<?php echo htmlspecialchars($operation['action'], ENT_QUOTES, 'UTF-8'); ?>
+								</span></td>
+								<td><code class="small"><?php echo htmlspecialchars(
+									$operation['entity'], ENT_QUOTES, 'UTF-8'); ?></code></td>
+								<td><code class="small"><?php echo htmlspecialchars(
+									substr((string) $operation['value'], 0, 18), ENT_QUOTES, 'UTF-8'); ?></code></td>
+								<td class="text-end"><?php echo count($operation['columns']); ?></td>
+								<td class="small"><?php echo htmlspecialchars(
+									$operation['reason'], ENT_QUOTES, 'UTF-8'); ?></td>
+							</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
+
+				<?php if (count($plan['operations']) > 40) : ?>
+					<p class="small mb-0"><?php echo Text::sprintf('COM_JCBINOUT_AND_MORE',
+						count($plan['operations']) - 40); ?></p>
+				<?php endif; ?>
 			<?php endif; ?>
 		</div>
 	</div>

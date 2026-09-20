@@ -465,6 +465,12 @@ final class Extractor
 		ksort($stats['byKind']);
 		ksort($this->enumerations);
 
+		// The columns Joomla manages on every table. An import has to set them on
+		// an insert and leave them alone on an update; without the list it would
+		// either write nothing valid or trample created/modified on every run.
+		$defaults = array_keys($this->defaults);
+		sort($defaults);
+
 		return [
 			'meta' => array_merge([
 				'generator'        => 'jcbinout-metamodel-extractor',
@@ -472,6 +478,7 @@ final class Extractor
 				'extractedAt'      => gmdate('c'),
 			], $provenance),
 			'stats'        => $stats,
+			'joomlaColumns' => $defaults,
 			'enumerations' => $this->enumerations,
 			'entities'     => $entities,
 			'diagnostics'  => $this->diagnostics,

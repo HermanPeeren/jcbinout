@@ -104,6 +104,55 @@ describe('JcbInOut metamodel view', () => {
       });
   });
 
+  it('plans an import without writing anything, then applies it', () => {
+    // Derive, build and export first: each spec starts from whatever the
+    // previous one left on disk, and a plan needs something to plan.
+    cy.get('#toolbar').contains('Derive metamodel').click();
+    cy.contains('Entity types', { timeout: 60000 }).should('be.visible');
+
+    cy.get('#toolbar').contains('Build LionWeb language').click();
+    cy.contains('td', 'Interface', { timeout: 60000 }).should('be.visible');
+
+    cy.get('#toolbar').contains('Export blueprint').click();
+    cy.get('#blueprint', { timeout: 60000 }).should('exist');
+
+    // Planning must never write. Applying is offered only afterwards, so the
+    // write is always a decision taken about a plan that was shown.
+    cy.get('#toolbar').contains('Apply plan').should('not.exist');
+
+    cy.get('#mode').select('initialize');
+    cy.get('#toolbar').contains('Plan import').click();
+
+    cy.get('joomla-alert, .alert', { timeout: 60000 })
+      .invoke('text')
+      .should('match', /33 payloads/);
+
+    // Scope to the import card: bare text also matches Joomla's <noscript>.
+    cy.get('#mode').closest('.card').within(() => {
+      cy.get('.alert').should('contain.text', 'Nothing has been written yet');
+    });
+
+    cy.get('#toolbar').contains('Apply plan').should('be.visible');
+
+    // The fixture is not in this JCB, so everything plans as an insert.
+    cy.get('table').contains('td', 'insert').should('exist');
+
+    cy.get('#toolbar').contains('Apply plan').click();
+
+    cy.get('joomla-alert, .alert', { timeout: 120000 })
+      .invoke('text')
+      .should('match', /row\(s\) written/);
+
+    // Planning again now finds the definitions present, and initialize leaves
+    // them alone - which is the whole difference between the two modes.
+    cy.get('#mode').select('initialize');
+    cy.get('#toolbar').contains('Plan import').click();
+
+    cy.get('joomla-alert, .alert', { timeout: 60000 })
+      .invoke('text')
+      .should('match', /0 to insert/);
+  });
+
   it('validates the built language', () => {
     cy.get('#toolbar').contains('Validate').click();
 

@@ -16,9 +16,9 @@ site, derives an explicit metamodel from it, publishes that metamodel as a
 LionWeb language, and exports a JCB blueprint as a LionWeb instance against it.
 Install it, then *Derive*, *Build*, *Export*.
 
-**Not built yet:** writing an imported model back into JCB. A blueprint can go
-out to LionWeb and come back as blueprint payloads with its design intact; what
-is missing is persisting those payloads into a JCB installation.
+**Working end to end:** a blueprint goes out to LionWeb, comes back with its
+design intact, and can be written into the JCB on the same site — planned first,
+applied only on a separate decision.
 
 | Phase | What | Status |
 |---|---|:---:|
@@ -27,8 +27,8 @@ is missing is persisting those payloads into a JCB installation.
 | 6a | Joomla component shell, derive + build in the UI | **done** |
 | 3 | Instance export (M1): blueprint to LionWeb | **done** |
 | 4 | Round-trip against the Hello World fixture | **done** |
-| 5 | Import into JCB, with initialize/reset policy | next |
-| 6b | Export/import UI, progress, diagnostics | |
+| 5 | Import into JCB, with initialize/reset policy | **done** |
+| 6b | Progress reporting for large blueprints | next |
 | 7 | Exten-gen side | |
 
 Phase 6 was originally scheduled last. It moved forward because leaving it late
@@ -136,6 +136,37 @@ The comparison is only worth something if it can fail, so `RoundTripTest`
 includes negative controls: a changed value, a dropped column, a missing
 payload and a reordered subform must all be reported, while renumbered row keys
 must not.
+
+### Import
+
+Planning and writing are separate calls, and the UI offers them as separate
+buttons. A plan is a candidate list: it can be shown, counted and argued with
+before a single row is touched, and it can be tested without a database — which
+is why every decision lives in `Blueprint\ImportPlanner` and only the execution
+lives in `Jcb\LocalStore`.
+
+```bash
+php tools/cli.php plan          # what an import would do, no database needed
+php tools/cli.php plan reset
+```
+
+Two modes, and the difference between them is entirely a matter of what the
+plan decides:
+
+| Mode | A definition already here | One that is missing |
+|---|---|---|
+| `initialize` | left alone, so local edits survive | inserted |
+| `reset` | refreshed from the blueprint | inserted |
+
+What the planner does beyond that: drops columns JCB itself marks
+installation-local, leaves Joomla's own columns to the writer (which sets them
+on an insert and never touches them on an update), re-encodes values the way JCB
+stores them — 144 base64 columns and 90 JSON ones — and orders the writes so a
+row is written after whatever it points at.
+
+Verified against the live dev site: the Hello World blueprint imports into JCB
+6.1.6 as real rows, with `datatype` back to `VARCHAR` from its literal key and
+`php_getitem` back to base64 that decodes byte-for-byte to the source.
 
 ### Shared field definitions
 

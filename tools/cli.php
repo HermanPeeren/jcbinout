@@ -14,6 +14,7 @@
  *   php tools/cli.php validate         validate the language
  *   php tools/cli.php export [dir]     export a blueprint to a LionWeb chunk
  *   php tools/cli.php roundtrip [dir]  export, import, and compare the design
+ *   php tools/cli.php plan [mode]      what importing would do (no database)
  *   php tools/cli.php report           render METAMODEL.md
  *   php tools/cli.php all              derive, build, validate, report
  *
@@ -501,6 +502,97 @@ function cmdRoundtrip(string $data, string $blueprint): int
 	return 1;
 }
 
+/**
+ * What importing the exported blueprint would do to a JCB installation.
+ *
+ * A dry run: it plans against an empty installation, because the harness has no
+ * database. That still exercises every decision the planner makes except the
+ * insert-versus-update one, which needs to know what is already there.
+ */
+function cmdPlan(string $data, string $blueprint, string $mode): int
+{
+	$language  = $data . '/jcb-language.lionweb.json';
+	$metamodel = readJson($data . '/jcb-metamodel.json');
+
+	if (!is_file($language) || $metamodel === null) {
+		out('Derive and build first: php tools/cli.php all');
+
+		return 1;
+	}
+
+	$source = new \Yepr\Component\Jcbinout\Administrator\Blueprint\RepositorySource($blueprint);
+
+	if (!$source->exists()) {
+		out("No blueprint at {$blueprint}.");
+
+		return 1;
+	}
+
+	$index = \Yepr\Component\Jcbinout\Administrator\Lionweb\LanguageIndex::fromFiles(
+		$language, $data . '/jcb-enum-values.json'
+	);
+
+	$chunk = (new \Yepr\Component\Jcbinout\Administrator\Lionweb\InstanceExporter($index))
+		->export($source->payloads(), basename($blueprint));
+
+	$importer = new \Yepr\Component\Jcbinout\Administrator\Lionweb\InstanceImporter($index);
+	$payloads = $importer->import($chunk);
+
+	$schema  = new \Yepr\Component\Jcbinout\Administrator\Jcb\Schema($metamodel);
+	$planner = new \Yepr\Component\Jcbinout\Administrator\Blueprint\ImportPlanner($schema);
+
+	// No database here, so nothing is present: every row plans as an insert.
+	$plan = $planner->plan($payloads, [], $mode);
+
+	out(sprintf("Import plan (%s, against an empty installation)
+  payloads: %d
+  %s",
+		$plan['mode'], count($payloads), json_encode($plan['counts'])));
+
+	$byEntity = [];
+
+	foreach ($plan['operations'] as $operation) {
+		$byEntity[$operation['entity']] = ($byEntity[$operation['entity']] ?? 0) + 1;
+	}
+
+	out('');
+	out('  write order:');
+
+	$seen = [];
+
+	foreach ($plan['operations'] as $operation) {
+		if (isset($seen[$operation['entity']])) {
+			continue;
+		}
+
+		$seen[$operation['entity']] = true;
+		out(sprintf('    %-32s %d row(s), %d column(s) each',
+			$operation['entity'], $byEntity[$operation['entity']],
+			count($operation['columns'])));
+	}
+
+	foreach ($planner->diagnostics() as $d) {
+		if ($d['severity'] !== 'info') {
+			out(sprintf('  %-7s [%s] %s', strtoupper($d['severity']), $d['code'], $d['message']));
+		}
+	}
+
+	$notPortable = 0;
+
+	foreach ($planner->diagnostics() as $d) {
+		if ($d['code'] === 'COLUMN_NOT_PORTABLE') {
+			$notPortable += $d['count'];
+		}
+	}
+
+	if ($notPortable > 0) {
+		out('');
+		out("  {$notPortable} column value(s) dropped as installation-local.");
+	}
+
+	return 0;
+}
+
 // --- dispatch ----------------------------------------------------------------
 
 $cmd = $argv[1] ?? 'all';
@@ -518,6 +610,13 @@ switch ($cmd) {
 
 	case 'validate':
 		exit(cmdValidate($data));
+
+	case 'plan':
+		exit(cmdPlan(
+			$data,
+			$argv[3] ?? ($root . '/tests/fixtures/hello-world'),
+			$argv[2] ?? 'initialize'
+		));
 
 	case 'roundtrip':
 		exit(cmdRoundtrip($data, $argv[2] ?? ($root . '/tests/fixtures/hello-world')));
@@ -540,6 +639,6 @@ switch ($cmd) {
 		exit($rc);
 
 	default:
-		out("Unknown command '{$cmd}'. Try: fetch, derive, build, validate, export, roundtrip, report, all");
+		out("Unknown command '{$cmd}'. Try: fetch, derive, build, validate, export, roundtrip, plan, report, all");
 		exit(2);
 }
