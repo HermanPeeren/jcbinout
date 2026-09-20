@@ -11,8 +11,11 @@ namespace Yepr\Component\Jcbinout\Administrator\Model;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Model\BaseDatabaseModel;
+use Yepr\Component\Jcbinout\Administrator\Blueprint\RepositorySource;
 use Yepr\Component\Jcbinout\Administrator\Jcb\Locator;
+use Yepr\Component\Jcbinout\Administrator\Lionweb\InstanceExporter;
 use Yepr\Component\Jcbinout\Administrator\Lionweb\LanguageBuilder;
+use Yepr\Component\Jcbinout\Administrator\Lionweb\LanguageIndex;
 use Yepr\Component\Jcbinout\Administrator\Lionweb\Validator;
 use Yepr\Component\Jcbinout\Administrator\Metamodel\EnumHarvester;
 use Yepr\Component\Jcbinout\Administrator\Metamodel\Extractor;
@@ -30,6 +33,7 @@ class MetamodelModel extends BaseDatabaseModel
 	public const ENUM_MAP_FILE  = 'jcb-enum-values.json';
 	public const KEY_MAP_FILE   = 'jcb-feature-keys.json';
 	public const NAMES_FILE     = 'interface-names.json';
+	public const INSTANCE_FILE  = 'blueprint.instance.lionweb.json';
 
 	private ?Locator $locator = null;
 
@@ -243,6 +247,56 @@ class MetamodelModel extends BaseDatabaseModel
 		];
 	}
 
+	/**
+	 * Export a blueprint repository as a LionWeb instance chunk.
+	 *
+	 * @param callable|null $progress fn(string $stage, int $done, int $total)
+	 */
+	public function exportBlueprint(string $path, ?callable $progress = null): array
+	{
+		$language = $this->artefact(self::LANGUAGE_FILE);
+
+		if ($language === null)
+		{
+			throw new \RuntimeException('Build the LionWeb language before exporting.');
+		}
+
+		$source = new RepositorySource($path);
+
+		if (!$source->exists())
+		{
+			throw new \RuntimeException("No blueprint at {$path}: expected a src/ directory.");
+		}
+
+		$index = new LanguageIndex($language, $this->artefact(self::ENUM_MAP_FILE) ?? []);
+
+		$exporter = new InstanceExporter($index);
+
+		if ($progress !== null)
+		{
+			$exporter->onProgress($progress);
+		}
+
+		$payloads = $source->payloads();
+		$chunk    = $exporter->export($payloads, basename($path));
+
+		$validator = new Validator();
+
+		if (!$validator->validate($chunk))
+		{
+			throw new \RuntimeException('The exported chunk is not valid: '
+				. implode('; ', array_slice($validator->errors(), 0, 3)));
+		}
+
+		$this->write(self::INSTANCE_FILE, $chunk);
+
+		return [
+			'payloads'    => count($payloads),
+			'stats'       => $exporter->stats($chunk),
+			'diagnostics' => $exporter->diagnostics(),
+		];
+	}
+
 	private function write(string $file, array $data): void
 	{
 		$path = $this->workPath() . '/' . $file;
@@ -293,6 +347,7 @@ class MetamodelModel extends BaseDatabaseModel
 				'info'   => $this->artefactInfo(self::LANGUAGE_FILE),
 				'census' => $language ? Validator::census($language) : null,
 			],
+			'instance'  => $this->artefactInfo(self::INSTANCE_FILE),
 			'stale'     => $this->isStale($metamodel),
 		];
 	}

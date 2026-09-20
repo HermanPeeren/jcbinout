@@ -95,9 +95,12 @@ final class LanguageBuilder
 	/** LionWeb ids and keys are restricted to [a-zA-Z0-9_-]. */
 	private function safe(string $s): string
 	{
-		$s = (string) preg_replace('#[^a-zA-Z0-9_-]+#', '-', $s);
+		$s    = (string) preg_replace('#[^a-zA-Z0-9_-]+#', '-', $s);
+		$safe = trim($s, '-');
 
-		return trim($s, '-') ?: 'x';
+		// '0' is a perfectly good key fragment and a falsy string, so ?: would
+		// quietly replace it.
+		return $safe === '' ? 'x' : $safe;
 	}
 
 	private function pascal(string $s): string

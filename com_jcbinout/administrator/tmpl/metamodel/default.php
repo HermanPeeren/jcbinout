@@ -15,6 +15,7 @@ $status    = $this->status;
 $jcb       = $status['jcb'];
 $metamodel = $status['metamodel'];
 $language  = $status['language'];
+$instance  = $status['instance'] ?? null;
 
 $badge = static function (bool $ok, string $yes, string $no): string {
 	return '<span class="badge bg-' . ($ok ? 'success' : 'danger') . '">'
@@ -158,6 +159,35 @@ $bytes = static function (int $n): string {
 						</tr>
 					</tbody>
 				</table>
+			<?php endif; ?>
+		</div>
+	</div>
+
+	<div class="card mb-3">
+		<div class="card-header">
+			<h2 class="card-title h5 mb-0"><?php echo Text::_('COM_JCBINOUT_EXPORT_BLUEPRINT'); ?></h2>
+		</div>
+		<div class="card-body">
+			<p><?php echo Text::_('COM_JCBINOUT_EXPORT_INTRO'); ?></p>
+
+			<div class="mb-3">
+				<label class="form-label" for="blueprint">
+					<?php echo Text::_('COM_JCBINOUT_BLUEPRINT_PATH'); ?>
+				</label>
+				<input type="text" class="form-control" id="blueprint" name="blueprint"
+					value="<?php echo htmlspecialchars($this->defaultBlueprint, ENT_QUOTES, 'UTF-8'); ?>">
+				<small class="form-text"><?php echo Text::_('COM_JCBINOUT_BLUEPRINT_PATH_HELP'); ?></small>
+			</div>
+
+			<?php if ($instance !== null && $instance['exists']) : ?>
+				<p class="mb-0">
+					<span class="badge bg-success"><?php echo Text::_('COM_JCBINOUT_EXPORTED'); ?></span>
+					<?php echo $bytes((int) $instance['size']); ?>
+					&mdash;
+					<?php echo htmlspecialchars((string) $instance['modified'], ENT_QUOTES, 'UTF-8'); ?>
+				</p>
+			<?php else : ?>
+				<p class="mb-0"><?php echo Text::_('COM_JCBINOUT_NOT_EXPORTED_YET'); ?></p>
 			<?php endif; ?>
 		</div>
 	</div>

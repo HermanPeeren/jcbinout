@@ -70,6 +70,40 @@ describe('JcbInOut metamodel view', () => {
     cy.contains('td', 'Interface').should('be.visible');
   });
 
+  it('exports a blueprint as a LionWeb instance', () => {
+    // Derive and build first: export needs a language to export against, and
+    // each spec starts from whatever the previous one left on disk.
+    cy.get('#toolbar').contains('Derive metamodel').click();
+    cy.contains('Entity types', { timeout: 60000 }).should('be.visible');
+
+    cy.get('#toolbar').contains('Build LionWeb language').click();
+    cy.contains('td', 'Interface', { timeout: 60000 }).should('be.visible');
+
+    // The shipped Hello World blueprint is pre-filled, so this is the path a
+    // fresh install would export without being told anything.
+    cy.get('#blueprint').invoke('val').should('not.be.empty');
+
+    cy.get('#toolbar').contains('Export blueprint').click();
+
+    cy.get('joomla-alert, .alert', { timeout: 60000 })
+      .invoke('text')
+      .should('match', /payloads read/);
+
+    // 33 payloads is the published size of the fixture; asserting it means a
+    // silently truncated walk fails here rather than looking like success.
+    cy.get('joomla-alert, .alert')
+      .invoke('text')
+      .should('match', /33 payloads read/);
+
+    // Scope to the export card: "Exported" on its own also matches Joomla's
+    // <noscript> boilerplate elsewhere on the page.
+    cy.get('#blueprint')
+      .closest('.card')
+      .within(() => {
+        cy.get('.badge').should('contain.text', 'Exported');
+      });
+  });
+
   it('validates the built language', () => {
     cy.get('#toolbar').contains('Validate').click();
 

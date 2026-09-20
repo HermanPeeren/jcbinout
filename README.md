@@ -12,19 +12,19 @@ extension generator.
 ## Status
 
 **Working today:** a Joomla component that reads the JCB installed on the same
-site, derives an explicit metamodel from it, and publishes that metamodel as a
-LionWeb language. Install it, click *Derive*, click *Build*.
+site, derives an explicit metamodel from it, publishes that metamodel as a
+LionWeb language, and exports a JCB blueprint as a LionWeb instance against it.
+Install it, then *Derive*, *Build*, *Export*.
 
-**Not built yet:** the actual import and export of blueprints. That is Phase 3
-onward. Today's component establishes the metamodel those phases need.
+**Not built yet:** import. A model can leave JCB; it cannot yet come back.
 
 | Phase | What | Status |
 |---|---|:---:|
 | 1 | Make JCB's implicit metamodel explicit | **done** |
 | 2 | LionWeb language definition (M2) | **done** |
 | 6a | Joomla component shell, derive + build in the UI | **done** |
-| 3 | Instance export (M1): blueprint to LionWeb | next |
-| 4 | Round-trip against the Hello World fixture | |
+| 3 | Instance export (M1): blueprint to LionWeb | **done** |
+| 4 | Round-trip against the Hello World fixture | next |
 | 5 | Import, with initialize/reset policy | |
 | 6b | Export/import UI, progress, diagnostics | |
 | 7 | Exten-gen side | |
@@ -77,6 +77,36 @@ when the installed schema has moved on.
 Validated against the public Hello World blueprint: **33 payloads, 646 keys,
 19 subform rows, zero unexplained.** The language validates structurally and
 loads in `lionweb-python` with no setup.
+
+### Instance export
+
+`Blueprint\RepositorySource` reads a blueprint repository; `Lionweb\LanguageIndex`
+reads the generated language back; `Lionweb\InstanceExporter` turns one into a
+LionWeb instance chunk against the other.
+
+The language is the authority, not the metamodel it came from. Deduplication and
+interface hoisting both change what a column's feature key and type are, so
+re-deriving those decisions at export time would be a second implementation free
+to drift from the first.
+
+Against the Hello World fixture: **33 payloads to 53 nodes**, 595 properties,
+43 references, one partition root, every node reachable from it. The chunk
+validates, and loads in `lionweb-python` once the language is registered.
+
+What the export preserves:
+
+- **Definitions keep their JCB guid as their node id.** That guid is the
+  portable identity the blueprint is built around.
+- **Occurrences are reified, not cloned.** The Greeting field is one `field`
+  node; the view that uses it holds an `AdminFieldsAddfieldsRow` referencing it
+  and carrying `title`, `search`, `sort` — the use-site roles.
+- **Enumerations carry literal keys**, so `VARCHAR` becomes
+  `FieldDatatype-VARCHAR` rather than a raw column value.
+- **Unset is absent.** JCB writes `''` for an unselected list and `'0'` for an
+  unselected reference; neither becomes a property or a dangling target.
+- **References outside the blueprint keep their target** as `resolveInfo` with
+  no id. Hello World genuinely references field types living in
+  `joomengine/joomla-fieldtypes`, and that is not an error.
 
 ### Shared field definitions
 
@@ -183,6 +213,12 @@ php tools/cli.php fetch
 
 ```bash
 php tools/cli.php all
+```
+
+Export a blueprint against the built language:
+
+```bash
+php tools/cli.php export tests/fixtures/hello-world
 ```
 
 ### Checks

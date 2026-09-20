@@ -12,6 +12,7 @@
  *   php tools/cli.php derive           derive the metamodel
  *   php tools/cli.php build            build the LionWeb language
  *   php tools/cli.php validate         validate the language
+ *   php tools/cli.php export [dir]     export a blueprint to a LionWeb chunk
  *   php tools/cli.php report           render METAMODEL.md
  *   php tools/cli.php all              derive, build, validate, report
  *
@@ -347,6 +348,82 @@ function cmdValidate(string $data): int
 	return $ok ? 0 : 1;
 }
 
+/**
+ * Export a blueprint repository as a LionWeb instance chunk.
+ */
+function cmdExport(string $data, string $blueprint, string $out): int
+{
+	$language = $data . '/jcb-language.lionweb.json';
+
+	if (!is_file($language)) {
+		out('No language found. Run: php tools/cli.php build');
+
+		return 1;
+	}
+
+	$source = new \Yepr\Component\Jcbinout\Administrator\Blueprint\RepositorySource($blueprint);
+
+	if (!$source->exists()) {
+		out("No blueprint at {$blueprint} (expected a src/ directory).");
+
+		return 1;
+	}
+
+	$index = \Yepr\Component\Jcbinout\Administrator\Lionweb\LanguageIndex::fromFiles(
+		$language, $data . '/jcb-enum-values.json'
+	);
+
+	$payloads = $source->payloads();
+	out('Blueprint: ' . $blueprint . '  (' . count($payloads) . ' payloads)');
+
+	$exporter = new \Yepr\Component\Jcbinout\Administrator\Lionweb\InstanceExporter($index);
+	$chunk    = $exporter->export($payloads, basename($blueprint));
+
+	writeJson($out, $chunk);
+
+	$stats = $exporter->stats($chunk);
+	$diags = [];
+
+	foreach ($exporter->diagnostics() as $d) {
+		$diags[$d['severity']] = ($diags[$d['severity']] ?? 0) + 1;
+	}
+
+	out(sprintf("Exported
+  nodes: %d
+  properties: %d
+  references: %d
+  diagnostics: %s",
+		$stats['nodes'], $stats['properties'], $stats['references'],
+		json_encode($diags ?: ['none' => 0])));
+
+	// Warnings are the interesting ones here: an export can succeed and still
+	// have carried something through in a shape nobody intended.
+	foreach ($exporter->diagnostics() as $d) {
+		if ($d['severity'] !== 'info') {
+			out(sprintf('  %-7s [%s] %s', strtoupper($d['severity']), $d['code'], $d['message']));
+		}
+	}
+
+	// An export nothing can load is not an export.
+	$validator = new \Yepr\Component\Jcbinout\Administrator\Lionweb\Validator();
+
+	if (!$validator->validate($chunk)) {
+		out('');
+		out('FAIL - the exported chunk is not a valid LionWeb serialisation:');
+
+		foreach (array_slice($validator->errors(), 0, 10) as $e) {
+			out('  ' . $e);
+		}
+
+		return 1;
+	}
+
+	out('');
+	out('PASS - exported chunk is a valid LionWeb serialisation: ' . $out);
+
+	return 0;
+}
+
 // --- dispatch ----------------------------------------------------------------
 
 $cmd = $argv[1] ?? 'all';
@@ -365,6 +442,13 @@ switch ($cmd) {
 	case 'validate':
 		exit(cmdValidate($data));
 
+	case 'export':
+		exit(cmdExport(
+			$data,
+			$argv[2] ?? ($root . '/tests/fixtures/hello-world'),
+			$argv[3] ?? ($data . '/hello-world.instance.lionweb.json')
+		));
+
 	case 'report':
 		require __DIR__ . '/report-metamodel.php';
 		exit(0);
@@ -376,6 +460,6 @@ switch ($cmd) {
 		exit($rc);
 
 	default:
-		out("Unknown command '{$cmd}'. Try: fetch, derive, build, validate, report, all");
+		out("Unknown command '{$cmd}'. Try: fetch, derive, build, validate, export, report, all");
 		exit(2);
 }

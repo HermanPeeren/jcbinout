@@ -38,3 +38,10 @@
 /.idea/
 /.vscode/
 /.iml
+
+# Copied into the component at package time by tools/build.php; the source of
+# truth is tests/fixtures/hello-world.
+/com_jcbinout/administrator/data/hello-world/
+
+# Artefacts the component derives on a site, never shipped.
+/com_jcbinout/administrator/data/derived/

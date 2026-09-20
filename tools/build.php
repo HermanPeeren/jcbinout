@@ -46,6 +46,24 @@ $version = (string) $manifest->version;
 $reference = ['interface-names.json', 'jcb-metamodel.json',
     'jcb-language.lionweb.json', 'jcb-enum-values.json', 'jcb-feature-keys.json'];
 
+// The Hello World blueprint ships too: a fresh install otherwise has nothing to
+// point the exporter at, and this is the blueprint everything else is asserted
+// against.
+$fixture = $root . '/tests/fixtures/hello-world';
+
+if (is_dir($fixture . '/src')) {
+    $target = $component . '/administrator/data/hello-world';
+    $items  = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($fixture, FilesystemIterator::SKIP_DOTS),
+        RecursiveIteratorIterator::SELF_FIRST
+    );
+
+    foreach ($items as $item) {
+        $to = $target . '/' . substr($item->getPathname(), strlen($fixture) + 1);
+        $item->isDir() ? @mkdir($to, 0755, true) : copy($item->getPathname(), $to);
+    }
+}
+
 foreach ($reference as $file) {
     if (is_file($data . '/' . $file)) {
         copy($data . '/' . $file, $component . '/administrator/data/' . $file);
@@ -87,7 +105,9 @@ foreach ($files as $file) {
         continue;
     }
 
-    if (str_starts_with($local, 'administrator/data/') && !in_array(basename($local), $reference, true)) {
+    if (str_starts_with($local, 'administrator/data/')
+        && !str_starts_with($local, 'administrator/data/hello-world/')
+        && !in_array(basename($local), $reference, true)) {
         continue;
     }
 

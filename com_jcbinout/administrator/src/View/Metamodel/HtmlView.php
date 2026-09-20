@@ -21,11 +21,20 @@ class HtmlView extends BaseHtmlView
 {
 	protected array $status = [];
 
+	/**
+	 * A path to start from. The fixture shipped for testing is the only
+	 * blueprint a fresh install is guaranteed to have.
+	 */
+	protected string $defaultBlueprint = '';
+
 	public function display($tpl = null): void
 	{
 		/** @var \Yepr\Component\Jcbinout\Administrator\Model\MetamodelModel $model */
 		$model        = $this->getModel();
 		$this->status = $model->getStatus();
+
+		$fixture = JPATH_ADMINISTRATOR . '/components/com_jcbinout/data/hello-world';
+		$this->defaultBlueprint = is_dir($fixture . '/src') ? $fixture : '';
 
 		$this->addToolbar();
 
@@ -66,6 +75,9 @@ class HtmlView extends BaseHtmlView
 		{
 			$toolbar->standardButton('checkmark', 'COM_JCBINOUT_VALIDATE', 'metamodel.validate')
 				->icon('icon-checkmark');
+
+			$toolbar->standardButton('upload', 'COM_JCBINOUT_EXPORT', 'metamodel.export')
+				->icon('icon-upload');
 		}
 	}
 }

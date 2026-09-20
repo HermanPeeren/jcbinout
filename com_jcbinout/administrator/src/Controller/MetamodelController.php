@@ -116,6 +116,56 @@ class MetamodelController extends BaseController
 	}
 
 	/**
+	 * Export a blueprint repository as a LionWeb instance chunk.
+	 *
+	 * The path comes from the request so a site can point at any blueprint it
+	 * has on disk; it defaults to the fixture shipped for testing.
+	 */
+	public function export(): void
+	{
+		Session::checkToken() or jexit(Text::_('JINVALID_TOKEN'));
+
+		/** @var \Yepr\Component\Jcbinout\Administrator\Model\MetamodelModel $model */
+		$model = $this->getModel('Metamodel');
+
+		$path = (string) $this->input->getString('blueprint', '');
+
+		if ($path === '')
+		{
+			$this->done(Text::_('COM_JCBINOUT_EXPORT_NO_PATH'), 'warning');
+
+			return;
+		}
+
+		try
+		{
+			$result = $model->exportBlueprint($path);
+			$stats  = $result['stats'];
+
+			$this->app->enqueueMessage(Text::sprintf(
+				'COM_JCBINOUT_EXPORTED_SUMMARY',
+				$result['payloads'], $stats['nodes'],
+				$stats['properties'], $stats['references']
+			));
+
+			foreach ($result['diagnostics'] as $d)
+			{
+				if ($d['severity'] !== 'info')
+				{
+					$this->app->enqueueMessage($d['message'],
+						$d['severity'] === 'error' ? 'error' : 'warning');
+				}
+			}
+
+			$this->done(Text::_('COM_JCBINOUT_EXPORT_OK'));
+		}
+		catch (\Throwable $e)
+		{
+			$this->done($e->getMessage(), 'error');
+		}
+	}
+
+	/**
 	 * Re-validate what is already on disk.
 	 */
 	public function validate(): void
