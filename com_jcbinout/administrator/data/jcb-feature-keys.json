@@ -1,0 +1,3056 @@
+{
+    "featureKeys": {
+        "03de1a61-d639-4d48-8ce6-fcf16c8f6270": {
+            "entity": "joomla_component",
+            "property": "addreadme",
+            "guid": "03de1a61-d639-4d48-8ce6-fcf16c8f6270",
+            "kind": "property"
+        },
+        "075b5082-3fb1-46f1-a838-da558b3afb54": {
+            "entity": "custom_admin_view",
+            "property": "add_javascript_file",
+            "guid": "075b5082-3fb1-46f1-a838-da558b3afb54",
+            "kind": "property"
+        },
+        "143f8b3d-5b58-4b26-aaad-a5f14a57865b": {
+            "entity": "component_files_folders",
+            "property": "addfiles",
+            "guid": "143f8b3d-5b58-4b26-aaad-a5f14a57865b",
+            "kind": "containment"
+        },
+        "145966d2-32bf-42a7-8a7b-cc44aa93490d": {
+            "entity": "joomla_plugin",
+            "property": "main_class_code",
+            "guid": "145966d2-32bf-42a7-8a7b-cc44aa93490d",
+            "kind": "property"
+        },
+        "14c857e3-e684-49a3-8b34-1cf7448ed0c4": {
+            "entity": "custom_admin_view",
+            "property": "add_css",
+            "guid": "14c857e3-e684-49a3-8b34-1cf7448ed0c4",
+            "kind": "property"
+        },
+        "18b26be8-1651-4ac3-b8a0-6598e302b192": {
+            "entity": "custom_admin_view",
+            "property": "main_get",
+            "guid": "18b26be8-1651-4ac3-b8a0-6598e302b192",
+            "kind": "reference"
+        },
+        "1ad12721-9ee9-4623-98d2-071ba013a373": {
+            "entity": "admin_view",
+            "property": "css_view",
+            "guid": "1ad12721-9ee9-4623-98d2-071ba013a373",
+            "kind": "property"
+        },
+        "22a668bc-d169-4346-9929-3819673c67ac": {
+            "entity": "joomla_component",
+            "property": "add_php_postflight_update",
+            "guid": "22a668bc-d169-4346-9929-3819673c67ac",
+            "kind": "property"
+        },
+        "25c87995-f58f-4f6a-8f6b-2e462545bdd6": {
+            "entity": "custom_admin_view",
+            "property": "javascript_file",
+            "guid": "25c87995-f58f-4f6a-8f6b-2e462545bdd6",
+            "kind": "property"
+        },
+        "32564da8-5599-4577-bd93-fd425179612f": {
+            "entity": "custom_admin_view",
+            "property": "add_php_jview_display",
+            "guid": "32564da8-5599-4577-bd93-fd425179612f",
+            "kind": "property"
+        },
+        "34bf9926-34a4-49a3-a29e-b602b1e5f9b2": {
+            "entity": "admin_view",
+            "property": "javascript_views_footer",
+            "guid": "34bf9926-34a4-49a3-a29e-b602b1e5f9b2",
+            "kind": "property"
+        },
+        "365d08ee-fe6e-47c4-b567-a001212f2cb6": {
+            "entity": "joomla_component",
+            "property": "add_php_preflight_update",
+            "guid": "365d08ee-fe6e-47c4-b567-a001212f2cb6",
+            "kind": "property"
+        },
+        "3ac1327d-75d6-4a16-913d-ef4fdf54c11c": {
+            "entity": "admin_fields",
+            "property": "admin_view",
+            "guid": "3ac1327d-75d6-4a16-913d-ef4fdf54c11c",
+            "kind": "reference"
+        },
+        "3b731d0a-3205-4409-a9fd-e74d1db25055": {
+            "entity": "admin_view",
+            "property": "icon",
+            "guid": "3b731d0a-3205-4409-a9fd-e74d1db25055",
+            "kind": "property"
+        },
+        "3bb6d77d-05bf-4447-a6bb-4af197ec9290": {
+            "entity": "joomla_module",
+            "property": "add_php_preflight_uninstall",
+            "guid": "3bb6d77d-05bf-4447-a6bb-4af197ec9290",
+            "kind": "property"
+        },
+        "3c1db8b4-65f2-4f6f-8391-5883f564eabe": {
+            "entity": "joomla_component",
+            "property": "add_php_postflight_install",
+            "guid": "3c1db8b4-65f2-4f6f-8391-5883f564eabe",
+            "kind": "property"
+        },
+        "3ca01651-a5c3-46c3-b7a8-bfb0d9f6e105": {
+            "entity": "joomla_component",
+            "property": "php_preflight_install",
+            "guid": "3ca01651-a5c3-46c3-b7a8-bfb0d9f6e105",
+            "kind": "property"
+        },
+        "46503007-43d9-485f-8cd0-8427a6a8bef2": {
+            "entity": "joomla_component",
+            "property": "short_description",
+            "guid": "46503007-43d9-485f-8cd0-8427a6a8bef2",
+            "kind": "property"
+        },
+        "46fa9c1e-5aa3-41ff-8f02-e9a80252ad9f": {
+            "entity": "admin_view",
+            "property": "add_php_document",
+            "guid": "46fa9c1e-5aa3-41ff-8f02-e9a80252ad9f",
+            "kind": "property"
+        },
+        "477832a1-7a25-4774-ad1a-4ff69ed4b374": {
+            "entity": "template",
+            "property": "alias",
+            "guid": "477832a1-7a25-4774-ad1a-4ff69ed4b374",
+            "kind": "property"
+        },
+        "483f2c40-2348-4168-817b-471f5ba96984": {
+            "entity": "component_files_folders",
+            "property": "addfolders",
+            "guid": "483f2c40-2348-4168-817b-471f5ba96984",
+            "kind": "containment"
+        },
+        "48b78ab1-bfb0-44eb-9ec8-4f5cdbf4a32c": {
+            "entity": "field",
+            "property": "store",
+            "guid": "48b78ab1-bfb0-44eb-9ec8-4f5cdbf4a32c",
+            "kind": "property"
+        },
+        "4a8003fa-7458-405e-90d3-7728b1af9e86": {
+            "entity": "custom_admin_view",
+            "property": "add_css_document",
+            "guid": "4a8003fa-7458-405e-90d3-7728b1af9e86",
+            "kind": "property"
+        },
+        "4ece5fde-e910-467b-abba-5596c9bd994a": {
+            "entity": "class_property",
+            "property": "joomla_plugin_group",
+            "guid": "4ece5fde-e910-467b-abba-5596c9bd994a",
+            "kind": "reference"
+        },
+        "5087f379-710b-4e76-9b9d-86b842933991": {
+            "entity": "template",
+            "property": "dynamic_get",
+            "guid": "5087f379-710b-4e76-9b9d-86b842933991",
+            "kind": "reference"
+        },
+        "591df1a2-b685-4378-845a-f8a1d1985548": {
+            "entity": "component_admin_views",
+            "property": "joomla_component",
+            "guid": "591df1a2-b685-4378-845a-f8a1d1985548",
+            "kind": "reference"
+        },
+        "5aa57bbe-7b19-4db9-915c-561863458d2b": {
+            "entity": "joomla_component",
+            "property": "guid",
+            "guid": "5aa57bbe-7b19-4db9-915c-561863458d2b",
+            "kind": "property"
+        },
+        "5d3d34dd-4876-4c6a-86ab-b4e162f22c08": {
+            "entity": "joomla_module",
+            "property": "name",
+            "guid": "5d3d34dd-4876-4c6a-86ab-b4e162f22c08",
+            "kind": "property"
+        },
+        "5e831983-665b-43f2-9786-5e7c9cbb9e96": {
+            "entity": "admin_view",
+            "property": "php_model",
+            "guid": "5e831983-665b-43f2-9786-5e7c9cbb9e96",
+            "kind": "property"
+        },
+        "5eb879c0-f6e3-45b6-b220-cb5131422a83": {
+            "entity": "joomla_component",
+            "property": "sql",
+            "guid": "5eb879c0-f6e3-45b6-b220-cb5131422a83",
+            "kind": "property"
+        },
+        "6049b666-d62b-4791-acd2-4ef414bf29f1": {
+            "entity": "admin_view",
+            "property": "view_toolbar",
+            "guid": "6049b666-d62b-4791-acd2-4ef414bf29f1",
+            "kind": "property"
+        },
+        "625b65cb-7569-437a-a6dd-b3290c662e18": {
+            "entity": "admin_view",
+            "property": "add_php_ajax",
+            "guid": "625b65cb-7569-437a-a6dd-b3290c662e18",
+            "kind": "property"
+        },
+        "628147c3-5f93-4a49-a1bc-ac6685e06b64": {
+            "entity": "joomla_module",
+            "property": "php_preflight_uninstall",
+            "guid": "628147c3-5f93-4a49-a1bc-ac6685e06b64",
+            "kind": "property"
+        },
+        "63d5585f-c9bd-485d-9c1d-4a29a4fbf4b2": {
+            "entity": "admin_view",
+            "property": "css_views",
+            "guid": "63d5585f-c9bd-485d-9c1d-4a29a4fbf4b2",
+            "kind": "property"
+        },
+        "63ff758d-a866-4d37-bc2a-a7432bd9bb44": {
+            "entity": "field",
+            "property": "indexes",
+            "guid": "63ff758d-a866-4d37-bc2a-a7432bd9bb44",
+            "kind": "property"
+        },
+        "65341477-33f1-4d58-9b3c-c371168809da": {
+            "entity": "joomla_plugin",
+            "property": "add_head",
+            "guid": "65341477-33f1-4d58-9b3c-c371168809da",
+            "kind": "property"
+        },
+        "6746d3ba-b120-4918-8bba-2a14260e99c8": {
+            "entity": "admin_view",
+            "property": "add_css_view",
+            "guid": "6746d3ba-b120-4918-8bba-2a14260e99c8",
+            "kind": "property"
+        },
+        "6a3d21ad-7cb1-4456-a623-20aa71ba0b12": {
+            "entity": "field",
+            "property": "null_switch",
+            "guid": "6a3d21ad-7cb1-4456-a623-20aa71ba0b12",
+            "kind": "property"
+        },
+        "6b2277f3-44e1-4bbb-8e55-3315bdba736e": {
+            "entity": "field",
+            "property": "datadefault_other",
+            "guid": "6b2277f3-44e1-4bbb-8e55-3315bdba736e",
+            "kind": "property"
+        },
+        "6ba76a0f-55a4-49ce-911a-0a3f05674bef": {
+            "entity": "field",
+            "property": "datadefault",
+            "guid": "6ba76a0f-55a4-49ce-911a-0a3f05674bef",
+            "kind": "property"
+        },
+        "6ce6e81e-5cdf-4ea2-83b5-acde779f4297": {
+            "entity": "custom_admin_view",
+            "property": "add_php_jview",
+            "guid": "6ce6e81e-5cdf-4ea2-83b5-acde779f4297",
+            "kind": "property"
+        },
+        "6e214a72-6c96-40c0-abf3-5f09116d3018": {
+            "entity": "joomla_module",
+            "property": "default",
+            "guid": "6e214a72-6c96-40c0-abf3-5f09116d3018",
+            "kind": "property"
+        },
+        "70995b9c-d0a9-4a57-b59b-54d39c379e66": {
+            "entity": "admin_view",
+            "property": "add_javascript_views_footer",
+            "guid": "70995b9c-d0a9-4a57-b59b-54d39c379e66",
+            "kind": "property"
+        },
+        "70a2d820-64af-4f51-8b1a-522aed9572bf": {
+            "entity": "joomla_component",
+            "property": "add_php_method_uninstall",
+            "guid": "70a2d820-64af-4f51-8b1a-522aed9572bf",
+            "kind": "property"
+        },
+        "7222c742-0092-439c-84de-1973e4e2b180": {
+            "entity": "class_property",
+            "property": "visibility",
+            "guid": "7222c742-0092-439c-84de-1973e4e2b180",
+            "kind": "property"
+        },
+        "749a9917-90c3-49c4-9e72-aa33b0683a87": {
+            "entity": "joomla_component",
+            "property": "description",
+            "guid": "749a9917-90c3-49c4-9e72-aa33b0683a87",
+            "kind": "property"
+        },
+        "79251a06-b217-4b3a-8485-b7286cb15bf6": {
+            "entity": "joomla_module_updates",
+            "property": "joomla_module",
+            "guid": "79251a06-b217-4b3a-8485-b7286cb15bf6",
+            "kind": "reference"
+        },
+        "7c652c71-e00e-45ff-8acb-e1bc0344e4c0": {
+            "entity": "joomla_component",
+            "property": "add_sql",
+            "guid": "7c652c71-e00e-45ff-8acb-e1bc0344e4c0",
+            "kind": "property"
+        },
+        "7d49445c-4e95-4fd5-a2a4-a20bbcd4d812": {
+            "entity": "joomla_module_updates",
+            "property": "version_update",
+            "guid": "7d49445c-4e95-4fd5-a2a4-a20bbcd4d812",
+            "kind": "containment"
+        },
+        "7d733ad8-a5bf-4e2f-859d-be1251b7d0f1": {
+            "entity": "custom_admin_view",
+            "property": "css",
+            "guid": "7d733ad8-a5bf-4e2f-859d-be1251b7d0f1",
+            "kind": "property"
+        },
+        "7e059ab7-d79b-4218-9488-6f38d85d17a0": {
+            "entity": "class_extends",
+            "property": "extension_type",
+            "guid": "7e059ab7-d79b-4218-9488-6f38d85d17a0",
+            "kind": "property"
+        },
+        "83871f4f-e406-416a-845e-a8257a4a34d3": {
+            "entity": "custom_admin_view",
+            "property": "codename",
+            "guid": "83871f4f-e406-416a-845e-a8257a4a34d3",
+            "kind": "property"
+        },
+        "851d8f15-3ce4-42a3-9041-08c943f61cab": {
+            "entity": "component_config",
+            "property": "addconfig",
+            "guid": "851d8f15-3ce4-42a3-9041-08c943f61cab",
+            "kind": "containment"
+        },
+        "87a4b892-c4cb-4032-8511-e18ba8c8c202": {
+            "entity": "joomla_component",
+            "property": "readme",
+            "guid": "87a4b892-c4cb-4032-8511-e18ba8c8c202",
+            "kind": "property"
+        },
+        "8835dfef-4d87-4104-b93c-47c5e02e4acc": {
+            "entity": "joomla_module",
+            "property": "php_script_construct",
+            "guid": "8835dfef-4d87-4104-b93c-47c5e02e4acc",
+            "kind": "property"
+        },
+        "8b09aaf9-546c-4f03-8b1f-3170ba4b5491": {
+            "entity": "custom_admin_view",
+            "property": "add_php_view",
+            "guid": "8b09aaf9-546c-4f03-8b1f-3170ba4b5491",
+            "kind": "property"
+        },
+        "8d837989-4a21-4943-bb4c-4d4abb9a7a55": {
+            "entity": "joomla_component",
+            "property": "php_postflight_install",
+            "guid": "8d837989-4a21-4943-bb4c-4d4abb9a7a55",
+            "kind": "property"
+        },
+        "9405da44-900c-4f7c-823d-734a68f5d6f6": {
+            "entity": "admin_view",
+            "property": "add_javascript_view_footer",
+            "guid": "9405da44-900c-4f7c-823d-734a68f5d6f6",
+            "kind": "property"
+        },
+        "956a8d9c-7f14-402f-85c9-7cdc4f3c0969": {
+            "entity": "joomla_plugin",
+            "property": "class_extends",
+            "guid": "956a8d9c-7f14-402f-85c9-7cdc4f3c0969",
+            "kind": "reference"
+        },
+        "96963615-e3bb-4d37-83df-4ad3fca74536": {
+            "entity": "custom_admin_view",
+            "property": "php_jview_display",
+            "guid": "96963615-e3bb-4d37-83df-4ad3fca74536",
+            "kind": "property"
+        },
+        "9f9b030b-31ba-4ae9-88da-76efd8a140dc": {
+            "entity": "joomla_component",
+            "property": "php_preflight_update",
+            "guid": "9f9b030b-31ba-4ae9-88da-76efd8a140dc",
+            "kind": "property"
+        },
+        "a2098911-926a-42b6-8498-d8a453c34d93": {
+            "entity": "admin_view",
+            "property": "add_css_views",
+            "guid": "a2098911-926a-42b6-8498-d8a453c34d93",
+            "kind": "property"
+        },
+        "a5ef0756-5ecd-49ae-a36c-058b90758988": {
+            "entity": "custom_admin_view",
+            "property": "description",
+            "guid": "a5ef0756-5ecd-49ae-a36c-058b90758988",
+            "kind": "property"
+        },
+        "a99c1f40-4b41-4167-ad29-85133375aa7a": {
+            "entity": "admin_view",
+            "property": "javascript_view_footer",
+            "guid": "a99c1f40-4b41-4167-ad29-85133375aa7a",
+            "kind": "property"
+        },
+        "ab222d85-e408-44de-a513-d6aeda48b286": {
+            "entity": "admin_view",
+            "property": "add_custom_button",
+            "guid": "ab222d85-e408-44de-a513-d6aeda48b286",
+            "kind": "property"
+        },
+        "acfe906b-6e61-4f94-ae66-359e4bc3e4cc": {
+            "entity": "joomla_component",
+            "property": "system_name",
+            "guid": "acfe906b-6e61-4f94-ae66-359e4bc3e4cc",
+            "kind": "property"
+        },
+        "ade283c3-937e-4502-a040-c69d6ddb3c50": {
+            "entity": "joomla_component",
+            "property": "php_postflight_update",
+            "guid": "ade283c3-937e-4502-a040-c69d6ddb3c50",
+            "kind": "property"
+        },
+        "admin_custom_tabs-4b794f1a-1be4-4804-92e6-bda624f444b4": {
+            "entity": "admin_custom_tabs",
+            "property": "tabs",
+            "guid": "4b794f1a-1be4-4804-92e6-bda624f444b4",
+            "kind": "containment"
+        },
+        "admin_fields-15e1f13d-25db-46a4-ae7c-fb616140338e": {
+            "entity": "admin_fields",
+            "property": "addfields",
+            "guid": "15e1f13d-25db-46a4-ae7c-fb616140338e",
+            "kind": "containment"
+        },
+        "admin_fields_conditions-434a8099-51f0-49d1-bbbb-ed7aa5145a3c": {
+            "entity": "admin_fields_conditions",
+            "property": "addconditions",
+            "guid": "434a8099-51f0-49d1-bbbb-ed7aa5145a3c",
+            "kind": "containment"
+        },
+        "admin_fields_relations-4e87b302-e17f-468e-8934-e5aaf78d6765": {
+            "entity": "admin_fields_relations",
+            "property": "addrelations",
+            "guid": "4e87b302-e17f-468e-8934-e5aaf78d6765",
+            "kind": "containment"
+        },
+        "admin_view-025cfab0-7736-4036-9eec-8f70e53f681b": {
+            "entity": "admin_view",
+            "property": "mysql_table_engine",
+            "guid": "025cfab0-7736-4036-9eec-8f70e53f681b",
+            "kind": "property"
+        },
+        "admin_view-0523633b-2f83-4205-ad7a-f4a77dff3dd0": {
+            "entity": "admin_view",
+            "property": "php_before_cancel",
+            "guid": "0523633b-2f83-4205-ad7a-f4a77dff3dd0",
+            "kind": "property"
+        },
+        "admin_view-0c06ec4b-448e-4c8a-8869-d424b6ab1f4a": {
+            "entity": "admin_view",
+            "property": "addtabs",
+            "guid": "0c06ec4b-448e-4c8a-8869-d424b6ab1f4a",
+            "kind": "containment"
+        },
+        "admin_view-0c7535bd-dbfa-4155-bc06-9ef34bf0f29a": {
+            "entity": "admin_view",
+            "property": "add_php_batchcopy",
+            "guid": "0c7535bd-dbfa-4155-bc06-9ef34bf0f29a",
+            "kind": "property"
+        },
+        "admin_view-0d2bdd49-7559-4cc1-a25b-56aacb830760": {
+            "entity": "admin_view",
+            "property": "icon_category",
+            "guid": "0d2bdd49-7559-4cc1-a25b-56aacb830760",
+            "kind": "property"
+        },
+        "admin_view-0ec2dbcd-8acc-438f-ad28-906fc7b6474e": {
+            "entity": "admin_view",
+            "property": "php_getitems",
+            "guid": "0ec2dbcd-8acc-438f-ad28-906fc7b6474e",
+            "kind": "property"
+        },
+        "admin_view-120e7c82-ff53-44ec-bfa0-a1413d100d18": {
+            "entity": "admin_view",
+            "property": "php_getform",
+            "guid": "120e7c82-ff53-44ec-bfa0-a1413d100d18",
+            "kind": "property"
+        },
+        "admin_view-1907cb23-d18f-4262-be4c-5b939d8fbf44": {
+            "entity": "admin_view",
+            "property": "add_views_toolbar",
+            "guid": "1907cb23-d18f-4262-be4c-5b939d8fbf44",
+            "kind": "property"
+        },
+        "admin_view-1e5269aa-e342-4b63-830e-f0a7acb2dab4": {
+            "entity": "admin_view",
+            "property": "add_php_after_cancel",
+            "guid": "1e5269aa-e342-4b63-830e-f0a7acb2dab4",
+            "kind": "property"
+        },
+        "admin_view-1eecc354-f454-48dd-ab12-4cf85b88f97b": {
+            "entity": "admin_view",
+            "property": "add_php_getitems",
+            "guid": "1eecc354-f454-48dd-ab12-4cf85b88f97b",
+            "kind": "property"
+        },
+        "admin_view-21eff77d-da38-4ce1-96c5-e6af26463942": {
+            "entity": "admin_view",
+            "property": "source",
+            "guid": "21eff77d-da38-4ce1-96c5-e6af26463942",
+            "kind": "property"
+        },
+        "admin_view-29e8af00-5d33-4ddc-8643-9f331da7684e": {
+            "entity": "admin_view",
+            "property": "mysql_table_collate",
+            "guid": "29e8af00-5d33-4ddc-8643-9f331da7684e",
+            "kind": "property"
+        },
+        "admin_view-2f0432b4-e601-474e-9edb-4b438517039b": {
+            "entity": "admin_view",
+            "property": "php_allowadd",
+            "guid": "2f0432b4-e601-474e-9edb-4b438517039b",
+            "kind": "property"
+        },
+        "admin_view-30744253-e2cd-44c3-ac86-0de3741b9ce0": {
+            "entity": "admin_view",
+            "property": "add_php_allowedit",
+            "guid": "30744253-e2cd-44c3-ac86-0de3741b9ce0",
+            "kind": "property"
+        },
+        "admin_view-318d1619-7a9a-4aa5-ad97-ad88a2123aaa": {
+            "entity": "admin_view",
+            "property": "views_toolbar",
+            "guid": "318d1619-7a9a-4aa5-ad97-ad88a2123aaa",
+            "kind": "property"
+        },
+        "admin_view-3b02a65c-1a0a-4e04-8306-34cb484c45fe": {
+            "entity": "admin_view",
+            "property": "add_php_before_publish",
+            "guid": "3b02a65c-1a0a-4e04-8306-34cb484c45fe",
+            "kind": "property"
+        },
+        "admin_view-3eb7643a-7205-4683-9b8b-80c2d65334eb": {
+            "entity": "admin_view",
+            "property": "add_php_after_publish",
+            "guid": "3eb7643a-7205-4683-9b8b-80c2d65334eb",
+            "kind": "property"
+        },
+        "admin_view-42991cef-d988-4ad9-b3d2-f29d9809f0b3": {
+            "entity": "admin_view",
+            "property": "add_javascript_view_file",
+            "guid": "42991cef-d988-4ad9-b3d2-f29d9809f0b3",
+            "kind": "property"
+        },
+        "admin_view-4550b372-974e-432c-8221-69b6fb65fdfd": {
+            "entity": "admin_view",
+            "property": "add_php_allowadd",
+            "guid": "4550b372-974e-432c-8221-69b6fb65fdfd",
+            "kind": "property"
+        },
+        "admin_view-45559d2a-7537-4719-8caa-aa99df171000": {
+            "entity": "admin_view",
+            "property": "add_php_postsavehook",
+            "guid": "45559d2a-7537-4719-8caa-aa99df171000",
+            "kind": "property"
+        },
+        "admin_view-46e5c9d6-6304-4e9f-a582-242308667e2f": {
+            "entity": "admin_view",
+            "property": "php_model_list",
+            "guid": "46e5c9d6-6304-4e9f-a582-242308667e2f",
+            "kind": "property"
+        },
+        "admin_view-4b956c45-bbcd-4d01-82ce-a85270f44c10": {
+            "entity": "admin_view",
+            "property": "add_php_getitems_after_all",
+            "guid": "4b956c45-bbcd-4d01-82ce-a85270f44c10",
+            "kind": "property"
+        },
+        "admin_view-562bc505-cc89-4a55-956a-b53e1a87ef46": {
+            "entity": "admin_view",
+            "property": "add_php_getform",
+            "guid": "562bc505-cc89-4a55-956a-b53e1a87ef46",
+            "kind": "property"
+        },
+        "admin_view-5637623b-c82f-4ce2-be82-e262e9596fa2": {
+            "entity": "admin_view",
+            "property": "php_after_cancel",
+            "guid": "5637623b-c82f-4ce2-be82-e262e9596fa2",
+            "kind": "property"
+        },
+        "admin_view-5799fcb7-8de8-41bf-9a2a-dcf84cae3949": {
+            "entity": "admin_view",
+            "property": "add_php_save",
+            "guid": "5799fcb7-8de8-41bf-9a2a-dcf84cae3949",
+            "kind": "property"
+        },
+        "admin_view-5b8bfcb4-a2b0-4ee9-931e-474ae9742e76": {
+            "entity": "admin_view",
+            "property": "add_php_before_cancel",
+            "guid": "5b8bfcb4-a2b0-4ee9-931e-474ae9742e76",
+            "kind": "property"
+        },
+        "admin_view-5f2ddc22-11f5-49a5-bebf-8313d8006e46": {
+            "entity": "admin_view",
+            "property": "type",
+            "guid": "5f2ddc22-11f5-49a5-bebf-8313d8006e46",
+            "kind": "property"
+        },
+        "admin_view-5f7479f2-b499-4094-8294-d580e51244a1": {
+            "entity": "admin_view",
+            "property": "javascript_view_file",
+            "guid": "5f7479f2-b499-4094-8294-d580e51244a1",
+            "kind": "property"
+        },
+        "admin_view-6336be5a-77e0-46e2-8d1f-9278a4b10080": {
+            "entity": "admin_view",
+            "property": "mysql_table_row_format",
+            "guid": "6336be5a-77e0-46e2-8d1f-9278a4b10080",
+            "kind": "property"
+        },
+        "admin_view-6e7d306a-9210-41bd-b951-6e897fcff773": {
+            "entity": "admin_view",
+            "property": "addpermissions",
+            "guid": "6e7d306a-9210-41bd-b951-6e897fcff773",
+            "kind": "containment"
+        },
+        "admin_view-70c62a1a-a141-4e0e-a271-c606744cb92c": {
+            "entity": "admin_view",
+            "property": "addlinked_views",
+            "guid": "70c62a1a-a141-4e0e-a271-c606744cb92c",
+            "kind": "containment"
+        },
+        "admin_view-7568fcc2-bd06-438c-9666-fe3bde32306f": {
+            "entity": "admin_view",
+            "property": "name_single",
+            "guid": "7568fcc2-bd06-438c-9666-fe3bde32306f",
+            "kind": "property"
+        },
+        "admin_view-77067bb3-3cfa-4042-b3ac-8bdda9d8b492": {
+            "entity": "admin_view",
+            "property": "php_batchcopy",
+            "guid": "77067bb3-3cfa-4042-b3ac-8bdda9d8b492",
+            "kind": "property"
+        },
+        "admin_view-79a25c26-9ea4-481c-b833-6699dd6e34d0": {
+            "entity": "admin_view",
+            "property": "add_php_before_delete",
+            "guid": "79a25c26-9ea4-481c-b833-6699dd6e34d0",
+            "kind": "property"
+        },
+        "admin_view-7dd15ec3-1830-4f4c-9497-d33618702263": {
+            "entity": "admin_view",
+            "property": "php_before_save",
+            "guid": "7dd15ec3-1830-4f4c-9497-d33618702263",
+            "kind": "property"
+        },
+        "admin_view-7e6e7fa8-d17b-47ae-9a28-b02ea4936b81": {
+            "entity": "admin_view",
+            "property": "add_category_submenu",
+            "guid": "7e6e7fa8-d17b-47ae-9a28-b02ea4936b81",
+            "kind": "property"
+        },
+        "admin_view-8272a897-9044-4e62-964f-89cd90e99bbb": {
+            "entity": "admin_view",
+            "property": "add_php_after_delete",
+            "guid": "8272a897-9044-4e62-964f-89cd90e99bbb",
+            "kind": "property"
+        },
+        "admin_view-88173ddb-35c5-49a7-845d-0d4e12119a37": {
+            "entity": "admin_view",
+            "property": "php_allowedit",
+            "guid": "88173ddb-35c5-49a7-845d-0d4e12119a37",
+            "kind": "property"
+        },
+        "admin_view-887264da-8ea1-4333-8a12-de26f6041251": {
+            "entity": "admin_view",
+            "property": "php_getitems_after_all",
+            "guid": "887264da-8ea1-4333-8a12-de26f6041251",
+            "kind": "property"
+        },
+        "admin_view-8ac3beb5-c100-41d6-8d2e-dd3e57f3701a": {
+            "entity": "admin_view",
+            "property": "php_save",
+            "guid": "8ac3beb5-c100-41d6-8d2e-dd3e57f3701a",
+            "kind": "property"
+        },
+        "admin_view-8dfde218-c13c-4e7e-be62-d651cafc9d43": {
+            "entity": "admin_view",
+            "property": "php_after_publish",
+            "guid": "8dfde218-c13c-4e7e-be62-d651cafc9d43",
+            "kind": "property"
+        },
+        "admin_view-8e8e12f8-8d8c-43f1-bbbd-8ef19b4d326e": {
+            "entity": "admin_view",
+            "property": "php_before_delete",
+            "guid": "8e8e12f8-8d8c-43f1-bbbd-8ef19b4d326e",
+            "kind": "property"
+        },
+        "admin_view-90c08eb4-3097-4f59-a291-5959bbb174ad": {
+            "entity": "admin_view",
+            "property": "add_php_batchmove",
+            "guid": "90c08eb4-3097-4f59-a291-5959bbb174ad",
+            "kind": "property"
+        },
+        "admin_view-916b0b6e-b5dc-469e-bc9c-c809471903b4": {
+            "entity": "admin_view",
+            "property": "mysql_table_charset",
+            "guid": "916b0b6e-b5dc-469e-bc9c-c809471903b4",
+            "kind": "property"
+        },
+        "admin_view-92ff3e2c-081b-4b84-a10c-e1a9f3245063": {
+            "entity": "admin_view",
+            "property": "icon_add",
+            "guid": "92ff3e2c-081b-4b84-a10c-e1a9f3245063",
+            "kind": "property"
+        },
+        "admin_view-95eb062e-f221-43b4-b4d4-c32e9d70e8a7": {
+            "entity": "admin_view",
+            "property": "add_php_getitem",
+            "guid": "95eb062e-f221-43b4-b4d4-c32e9d70e8a7",
+            "kind": "property"
+        },
+        "admin_view-a5043582-b29c-4ede-a712-16de9346abed": {
+            "entity": "admin_view",
+            "property": "alias_builder_type",
+            "guid": "a5043582-b29c-4ede-a712-16de9346abed",
+            "kind": "property"
+        },
+        "admin_view-a921c373-45bb-4919-a840-5b13511102cb": {
+            "entity": "admin_view",
+            "property": "php_getitem",
+            "guid": "a921c373-45bb-4919-a840-5b13511102cb",
+            "kind": "property"
+        },
+        "admin_view-b97daa06-7589-43e1-aaf9-c9506756f7b4": {
+            "entity": "admin_view",
+            "property": "php_postsavehook",
+            "guid": "b97daa06-7589-43e1-aaf9-c9506756f7b4",
+            "kind": "property"
+        },
+        "admin_view-c56cf55d-fbc6-4246-b3c3-7810d42710b2": {
+            "entity": "admin_view",
+            "property": "php_batchmove",
+            "guid": "c56cf55d-fbc6-4246-b3c3-7810d42710b2",
+            "kind": "property"
+        },
+        "admin_view-c73c3033-f4d9-475a-977b-9e447b88272f": {
+            "entity": "admin_view",
+            "property": "name_list",
+            "guid": "c73c3033-f4d9-475a-977b-9e447b88272f",
+            "kind": "property"
+        },
+        "admin_view-cc7954c1-d9f7-4a97-8b71-23f6f694bd6d": {
+            "entity": "admin_view",
+            "property": "add_php_before_save",
+            "guid": "cc7954c1-d9f7-4a97-8b71-23f6f694bd6d",
+            "kind": "property"
+        },
+        "admin_view-e19c4fa4-804f-488b-90d7-1ea827bba52e": {
+            "entity": "admin_view",
+            "property": "add_javascript_views_file",
+            "guid": "e19c4fa4-804f-488b-90d7-1ea827bba52e",
+            "kind": "property"
+        },
+        "admin_view-e1bcb366-b7e0-47d7-9a5f-58f8d8d0307d": {
+            "entity": "admin_view",
+            "property": "add_fadein",
+            "guid": "e1bcb366-b7e0-47d7-9a5f-58f8d8d0307d",
+            "kind": "property"
+        },
+        "admin_view-e4b56d60-7171-43c9-89ad-03f04a2cdba1": {
+            "entity": "admin_view",
+            "property": "php_before_publish",
+            "guid": "e4b56d60-7171-43c9-89ad-03f04a2cdba1",
+            "kind": "property"
+        },
+        "admin_view-ec2db8b1-d779-4bf2-b4cd-374a894fdc83": {
+            "entity": "admin_view",
+            "property": "javascript_views_file",
+            "guid": "ec2db8b1-d779-4bf2-b4cd-374a894fdc83",
+            "kind": "property"
+        },
+        "admin_view-f23fc722-e0e2-422f-b0f5-ac17da162a63": {
+            "entity": "admin_view",
+            "property": "php_after_delete",
+            "guid": "f23fc722-e0e2-422f-b0f5-ac17da162a63",
+            "kind": "property"
+        },
+        "admin_view-fe8a8811-1bcd-448a-a111-25e17ac47687": {
+            "entity": "admin_view",
+            "property": "php_controller_list",
+            "guid": "fe8a8811-1bcd-448a-a111-25e17ac47687",
+            "kind": "property"
+        },
+        "b3ea0d94-1029-41d8-9f6b-bcbec6b715f4": {
+            "entity": "field",
+            "property": "datalenght",
+            "guid": "b3ea0d94-1029-41d8-9f6b-bcbec6b715f4",
+            "kind": "property"
+        },
+        "b877b188-693c-43a3-9121-a37a3943d7c1": {
+            "entity": "joomla_component",
+            "property": "sql_uninstall",
+            "guid": "b877b188-693c-43a3-9121-a37a3943d7c1",
+            "kind": "property"
+        },
+        "b9c064cb-4266-4217-95b7-d2956e6bfefb": {
+            "entity": "admin_view",
+            "property": "php_getlistquery",
+            "guid": "b9c064cb-4266-4217-95b7-d2956e6bfefb",
+            "kind": "property"
+        },
+        "b9f98c3d-a93a-4b19-b89e-4c62781f9b99": {
+            "entity": "joomla_component",
+            "property": "update_server_target",
+            "guid": "b9f98c3d-a93a-4b19-b89e-4c62781f9b99",
+            "kind": "property"
+        },
+        "be1b2132-37bc-4605-93d8-8b0b56b2df9f": {
+            "entity": "admin_view",
+            "property": "add_view_toolbar",
+            "guid": "be1b2132-37bc-4605-93d8-8b0b56b2df9f",
+            "kind": "property"
+        },
+        "bed7693b-ccd1-4803-b065-5e20fac13881": {
+            "entity": "joomla_module",
+            "property": "custom_get",
+            "guid": "bed7693b-ccd1-4803-b065-5e20fac13881",
+            "kind": "reference"
+        },
+        "c3474b9a-4677-4574-bda3-a4865569ac18": {
+            "entity": "library_files_folders_urls",
+            "property": "addurls",
+            "guid": "c3474b9a-4677-4574-bda3-a4865569ac18",
+            "kind": "containment"
+        },
+        "c37aa662-719c-4ed5-bbf2-e36672a3ce33": {
+            "entity": "custom_admin_view",
+            "property": "dynamic_get",
+            "guid": "c37aa662-719c-4ed5-bbf2-e36672a3ce33",
+            "kind": "reference"
+        },
+        "c6dddec0-c373-4069-bdcc-66acd474b648": {
+            "entity": "library_config",
+            "property": "library",
+            "guid": "c6dddec0-c373-4069-bdcc-66acd474b648",
+            "kind": "reference"
+        },
+        "c731b5f5-5bd3-4ad3-ac3e-9e0281104121": {
+            "entity": "admin_view",
+            "property": "php_ajaxmethod",
+            "guid": "c731b5f5-5bd3-4ad3-ac3e-9e0281104121",
+            "kind": "property"
+        },
+        "c7b20fcd-0849-49cc-84c2-0dbb73a19fda": {
+            "entity": "custom_admin_view",
+            "property": "context",
+            "guid": "c7b20fcd-0849-49cc-84c2-0dbb73a19fda",
+            "kind": "property"
+        },
+        "ccb3cb86-8403-4494-a284-ce1fb782f0af": {
+            "entity": "custom_admin_view",
+            "property": "js_document",
+            "guid": "ccb3cb86-8403-4494-a284-ce1fb782f0af",
+            "kind": "property"
+        },
+        "class_extends-3d80f045-6262-43c8-9b43-658093f6a057": {
+            "entity": "class_extends",
+            "property": "comment",
+            "guid": "3d80f045-6262-43c8-9b43-658093f6a057",
+            "kind": "property"
+        },
+        "class_method-abaff633-2a9f-4be1-b057-241f657953a1": {
+            "entity": "class_method",
+            "property": "code",
+            "guid": "abaff633-2a9f-4be1-b057-241f657953a1",
+            "kind": "property"
+        },
+        "class_method-d2a2f6cf-1689-438b-b2c2-b244b8cbf078": {
+            "entity": "class_method",
+            "property": "arguments",
+            "guid": "d2a2f6cf-1689-438b-b2c2-b244b8cbf078",
+            "kind": "property"
+        },
+        "class_property-73ef5c00-c8c5-4cb7-9f69-6aed98346818": {
+            "entity": "class_property",
+            "property": "default",
+            "guid": "73ef5c00-c8c5-4cb7-9f69-6aed98346818",
+            "kind": "property"
+        },
+        "component_admin_views-3bac32ec-8dcf-4257-b518-ecaa952140c2": {
+            "entity": "component_admin_views",
+            "property": "addadmin_views",
+            "guid": "3bac32ec-8dcf-4257-b518-ecaa952140c2",
+            "kind": "containment"
+        },
+        "component_custom_admin_menus-60d68340-14c1-45a9-8240-30f6bdf96345": {
+            "entity": "component_custom_admin_menus",
+            "property": "addcustommenus",
+            "guid": "60d68340-14c1-45a9-8240-30f6bdf96345",
+            "kind": "containment"
+        },
+        "component_custom_admin_views-b2423282-c8a8-400e-9ded-fe61cea433f4": {
+            "entity": "component_custom_admin_views",
+            "property": "addcustom_admin_views",
+            "guid": "b2423282-c8a8-400e-9ded-fe61cea433f4",
+            "kind": "containment"
+        },
+        "component_dashboard-e6c421c3-2f37-429a-a8d9-b552bed392a5": {
+            "entity": "component_dashboard",
+            "property": "php_dashboard_methods",
+            "guid": "e6c421c3-2f37-429a-a8d9-b552bed392a5",
+            "kind": "property"
+        },
+        "component_dashboard-fd0cceef-975e-4daa-a529-2c98446b9df3": {
+            "entity": "component_dashboard",
+            "property": "dashboard_tab",
+            "guid": "fd0cceef-975e-4daa-a529-2c98446b9df3",
+            "kind": "containment"
+        },
+        "component_modules-5985271b-0795-4204-8739-ffa3d898bae8": {
+            "entity": "component_modules",
+            "property": "addjoomla_modules",
+            "guid": "5985271b-0795-4204-8739-ffa3d898bae8",
+            "kind": "containment"
+        },
+        "component_plugins-9c787541-ed54-4516-bc21-9b6fe2e2e516": {
+            "entity": "component_plugins",
+            "property": "addjoomla_plugins",
+            "guid": "9c787541-ed54-4516-bc21-9b6fe2e2e516",
+            "kind": "containment"
+        },
+        "component_router-2321b486-80c4-4e24-81c5-6ddd205592ac": {
+            "entity": "component_router",
+            "property": "constructor_before_parent_manual",
+            "guid": "2321b486-80c4-4e24-81c5-6ddd205592ac",
+            "kind": "containment"
+        },
+        "component_router-25fead1f-bb12-40e6-9e03-4e31b236f2e1": {
+            "entity": "component_router",
+            "property": "mode_methods",
+            "guid": "25fead1f-bb12-40e6-9e03-4e31b236f2e1",
+            "kind": "property"
+        },
+        "component_router-2b31ca2e-11ff-4f57-8c90-2b9bed743202": {
+            "entity": "component_router",
+            "property": "mode_constructor_after_parent",
+            "guid": "2b31ca2e-11ff-4f57-8c90-2b9bed743202",
+            "kind": "property"
+        },
+        "component_router-3ab69198-0827-452b-93a4-6c7bb02ae7ae": {
+            "entity": "component_router",
+            "property": "methods_code",
+            "guid": "3ab69198-0827-452b-93a4-6c7bb02ae7ae",
+            "kind": "property"
+        },
+        "component_router-4582a192-d46e-4dd9-9bbd-ee2e2ddd20e5": {
+            "entity": "component_router",
+            "property": "mode_constructor_before_parent",
+            "guid": "4582a192-d46e-4dd9-9bbd-ee2e2ddd20e5",
+            "kind": "property"
+        },
+        "component_router-65544263-3215-4574-a977-dbf8ac2ce72a": {
+            "entity": "component_router",
+            "property": "constructor_before_parent_code",
+            "guid": "65544263-3215-4574-a977-dbf8ac2ce72a",
+            "kind": "property"
+        },
+        "component_router-a411a365-69c8-4f70-a734-25956a9f3393": {
+            "entity": "component_router",
+            "property": "constructor_after_parent_code",
+            "guid": "a411a365-69c8-4f70-a734-25956a9f3393",
+            "kind": "property"
+        },
+        "component_site_views-8e225dcd-4e2b-464b-a9f3-b7d39d67de84": {
+            "entity": "component_site_views",
+            "property": "addsite_views",
+            "guid": "8e225dcd-4e2b-464b-a9f3-b7d39d67de84",
+            "kind": "containment"
+        },
+        "component_updates-1b98fc0a-d58f-4c81-a53f-30106e0c30eb": {
+            "entity": "component_updates",
+            "property": "version_update",
+            "guid": "1b98fc0a-d58f-4c81-a53f-30106e0c30eb",
+            "kind": "containment"
+        },
+        "custom_code-04886e45-7821-40a6-ae2b-2f46c6b45906": {
+            "entity": "custom_code",
+            "property": "component",
+            "guid": "04886e45-7821-40a6-ae2b-2f46c6b45906",
+            "kind": "reference"
+        },
+        "custom_code-176c63c6-65b1-4a91-97f2-db4d1e36911a": {
+            "entity": "custom_code",
+            "property": "comment_type",
+            "guid": "176c63c6-65b1-4a91-97f2-db4d1e36911a",
+            "kind": "property"
+        },
+        "custom_code-3347f841-b8e8-4f52-acbd-0bada696e540": {
+            "entity": "custom_code",
+            "property": "hashendtarget",
+            "guid": "3347f841-b8e8-4f52-acbd-0bada696e540",
+            "kind": "property"
+        },
+        "custom_code-3a3c43e6-18c2-4fc6-aebe-0ed8d5c6416f": {
+            "entity": "custom_code",
+            "property": "function_name",
+            "guid": "3a3c43e6-18c2-4fc6-aebe-0ed8d5c6416f",
+            "kind": "property"
+        },
+        "custom_code-777b846c-f3f4-4eb3-a73a-a460d28976dc": {
+            "entity": "custom_code",
+            "property": "code",
+            "guid": "777b846c-f3f4-4eb3-a73a-a460d28976dc",
+            "kind": "property"
+        },
+        "custom_code-82e196f5-cc38-4045-8be3-c1067b23df72": {
+            "entity": "custom_code",
+            "property": "from_line",
+            "guid": "82e196f5-cc38-4045-8be3-c1067b23df72",
+            "kind": "property"
+        },
+        "custom_code-a6c87660-f1fe-490d-b1c5-9755e6db1e19": {
+            "entity": "custom_code",
+            "property": "joomla_version",
+            "guid": "a6c87660-f1fe-490d-b1c5-9755e6db1e19",
+            "kind": "property"
+        },
+        "custom_code-b4fce451-7c6d-4cf9-8b1c-f8be6dbcec5b": {
+            "entity": "custom_code",
+            "property": "target",
+            "guid": "b4fce451-7c6d-4cf9-8b1c-f8be6dbcec5b",
+            "kind": "property"
+        },
+        "custom_code-b7942a37-45cc-4005-b4b5-e716cbf176f9": {
+            "entity": "custom_code",
+            "property": "path",
+            "guid": "b7942a37-45cc-4005-b4b5-e716cbf176f9",
+            "kind": "property"
+        },
+        "custom_code-d1c48683-2655-4e49-9f13-6b25f2b0a0d0": {
+            "entity": "custom_code",
+            "property": "type",
+            "guid": "d1c48683-2655-4e49-9f13-6b25f2b0a0d0",
+            "kind": "property"
+        },
+        "custom_code-e0272089-9156-409b-8444-61e2e3e755bf": {
+            "entity": "custom_code",
+            "property": "hashtarget",
+            "guid": "e0272089-9156-409b-8444-61e2e3e755bf",
+            "kind": "property"
+        },
+        "custom_code-ebbfce08-7d5a-416a-aad2-b23b78bd926b": {
+            "entity": "custom_code",
+            "property": "to_line",
+            "guid": "ebbfce08-7d5a-416a-aad2-b23b78bd926b",
+            "kind": "property"
+        },
+        "d5aeaa99-9fba-4b67-b850-68e19256520a": {
+            "entity": "joomla_plugin_updates",
+            "property": "joomla_plugin",
+            "guid": "d5aeaa99-9fba-4b67-b850-68e19256520a",
+            "kind": "reference"
+        },
+        "d5d03647-f29e-44a4-9e63-5feb9f4adbae": {
+            "entity": "joomla_component",
+            "property": "add_php_preflight_install",
+            "guid": "d5d03647-f29e-44a4-9e63-5feb9f4adbae",
+            "kind": "property"
+        },
+        "db2835aa-b0c3-4c9a-abe6-5b09568fffda": {
+            "entity": "joomla_component",
+            "property": "add_update_server",
+            "guid": "db2835aa-b0c3-4c9a-abe6-5b09568fffda",
+            "kind": "property"
+        },
+        "dd400eb4-8762-4ab5-bc4e-fa1feacc4dfd": {
+            "entity": "class_property",
+            "property": "comment",
+            "guid": "dd400eb4-8762-4ab5-bc4e-fa1feacc4dfd",
+            "kind": "property"
+        },
+        "dynamic_get-007dc9f8-9b06-4211-83c9-4134b23d6561": {
+            "entity": "dynamic_get",
+            "property": "order",
+            "guid": "007dc9f8-9b06-4211-83c9-4134b23d6561",
+            "kind": "containment"
+        },
+        "dynamic_get-01ae4944-ceba-4c21-a02d-38222e1a3733": {
+            "entity": "dynamic_get",
+            "property": "add_php_after_getitems",
+            "guid": "01ae4944-ceba-4c21-a02d-38222e1a3733",
+            "kind": "property"
+        },
+        "dynamic_get-13637273-b286-42f5-b092-90e507484751": {
+            "entity": "dynamic_get",
+            "property": "plugin_events",
+            "guid": "13637273-b286-42f5-b092-90e507484751",
+            "kind": "structured"
+        },
+        "dynamic_get-14f4d49c-7e54-494e-b103-eaccb6428ee8": {
+            "entity": "dynamic_get",
+            "property": "view_selection",
+            "guid": "14f4d49c-7e54-494e-b103-eaccb6428ee8",
+            "kind": "property"
+        },
+        "dynamic_get-1709c1a3-b26a-4e78-82f9-ff05a08738c9": {
+            "entity": "dynamic_get",
+            "property": "main_source",
+            "guid": "1709c1a3-b26a-4e78-82f9-ff05a08738c9",
+            "kind": "property"
+        },
+        "dynamic_get-1744d5fa-f0fd-4857-ab41-4e855fe7dc60": {
+            "entity": "dynamic_get",
+            "property": "view_table_main",
+            "guid": "1744d5fa-f0fd-4857-ab41-4e855fe7dc60",
+            "kind": "reference"
+        },
+        "dynamic_get-1ae39469-cd74-4d82-84af-fec8af28be61": {
+            "entity": "dynamic_get",
+            "property": "php_after_getitems",
+            "guid": "1ae39469-cd74-4d82-84af-fec8af28be61",
+            "kind": "property"
+        },
+        "dynamic_get-5377a931-8a17-4eed-92dd-8a8808408a5a": {
+            "entity": "dynamic_get",
+            "property": "gettype",
+            "guid": "5377a931-8a17-4eed-92dd-8a8808408a5a",
+            "kind": "property"
+        },
+        "dynamic_get-661c16f9-71be-41e2-8428-efd5509e6291": {
+            "entity": "dynamic_get",
+            "property": "db_selection",
+            "guid": "661c16f9-71be-41e2-8428-efd5509e6291",
+            "kind": "property"
+        },
+        "dynamic_get-6c486f71-abfd-49c7-91e2-165f594fa658": {
+            "entity": "dynamic_get",
+            "property": "getcustom",
+            "guid": "6c486f71-abfd-49c7-91e2-165f594fa658",
+            "kind": "property"
+        },
+        "dynamic_get-6c75d3ff-93aa-493b-b25c-733e78408fa2": {
+            "entity": "dynamic_get",
+            "property": "join_db_table",
+            "guid": "6c75d3ff-93aa-493b-b25c-733e78408fa2",
+            "kind": "containment"
+        },
+        "dynamic_get-6e7bb46d-fda5-46b8-b08e-31a2e6884e24": {
+            "entity": "dynamic_get",
+            "property": "addcalculation",
+            "guid": "6e7bb46d-fda5-46b8-b08e-31a2e6884e24",
+            "kind": "property"
+        },
+        "dynamic_get-71680787-5da5-4ab8-afdf-1e109556743b": {
+            "entity": "dynamic_get",
+            "property": "php_before_getitems",
+            "guid": "71680787-5da5-4ab8-afdf-1e109556743b",
+            "kind": "property"
+        },
+        "dynamic_get-81466df0-3571-45cf-b520-cee2a9f5e03b": {
+            "entity": "dynamic_get",
+            "property": "where",
+            "guid": "81466df0-3571-45cf-b520-cee2a9f5e03b",
+            "kind": "containment"
+        },
+        "dynamic_get-88ffbef3-064c-4f87-997a-30af1c88f2ec": {
+            "entity": "dynamic_get",
+            "property": "php_router_parse",
+            "guid": "88ffbef3-064c-4f87-997a-30af1c88f2ec",
+            "kind": "property"
+        },
+        "dynamic_get-8aba2f06-8fd1-4256-add5-1e233e581315": {
+            "entity": "dynamic_get",
+            "property": "php_custom_get",
+            "guid": "8aba2f06-8fd1-4256-add5-1e233e581315",
+            "kind": "property"
+        },
+        "dynamic_get-9b6768ae-8d6a-461e-9b41-61d49431a401": {
+            "entity": "dynamic_get",
+            "property": "php_calculation",
+            "guid": "9b6768ae-8d6a-461e-9b41-61d49431a401",
+            "kind": "property"
+        },
+        "dynamic_get-b7aaa1d0-4577-46eb-9d09-b4c1104a02a8": {
+            "entity": "dynamic_get",
+            "property": "add_php_before_getitems",
+            "guid": "b7aaa1d0-4577-46eb-9d09-b4c1104a02a8",
+            "kind": "property"
+        },
+        "dynamic_get-b99a8df9-27ce-4502-9f44-863799cd2cc9": {
+            "entity": "dynamic_get",
+            "property": "pagination",
+            "guid": "b99a8df9-27ce-4502-9f44-863799cd2cc9",
+            "kind": "property"
+        },
+        "dynamic_get-bd40a792-2b63-446a-af75-0510f8c7cc2c": {
+            "entity": "dynamic_get",
+            "property": "add_php_before_getitem",
+            "guid": "bd40a792-2b63-446a-af75-0510f8c7cc2c",
+            "kind": "property"
+        },
+        "dynamic_get-bf2293c7-5c8b-4b77-a880-c63ca4777e3e": {
+            "entity": "dynamic_get",
+            "property": "filter",
+            "guid": "bf2293c7-5c8b-4b77-a880-c63ca4777e3e",
+            "kind": "containment"
+        },
+        "dynamic_get-c1754272-da91-4a17-9567-c2566552cdc9": {
+            "entity": "dynamic_get",
+            "property": "add_php_after_getitem",
+            "guid": "c1754272-da91-4a17-9567-c2566552cdc9",
+            "kind": "property"
+        },
+        "dynamic_get-c3bb9074-505a-4085-878b-f7ad3d5522a6": {
+            "entity": "dynamic_get",
+            "property": "php_before_getitem",
+            "guid": "c3bb9074-505a-4085-878b-f7ad3d5522a6",
+            "kind": "property"
+        },
+        "dynamic_get-d4b30bcc-414d-403b-9627-037bcbbd1c6b": {
+            "entity": "dynamic_get",
+            "property": "add_php_router_parse",
+            "guid": "d4b30bcc-414d-403b-9627-037bcbbd1c6b",
+            "kind": "property"
+        },
+        "dynamic_get-f37d69ac-ba75-4b2f-8793-91b77b86751f": {
+            "entity": "dynamic_get",
+            "property": "group",
+            "guid": "f37d69ac-ba75-4b2f-8793-91b77b86751f",
+            "kind": "containment"
+        },
+        "dynamic_get-f73e8499-6914-4b4b-9289-68deddea38b1": {
+            "entity": "dynamic_get",
+            "property": "join_view_table",
+            "guid": "f73e8499-6914-4b4b-9289-68deddea38b1",
+            "kind": "containment"
+        },
+        "dynamic_get-fa2f73d6-8427-47de-abd8-4290da426b49": {
+            "entity": "dynamic_get",
+            "property": "global",
+            "guid": "fa2f73d6-8427-47de-abd8-4290da426b49",
+            "kind": "containment"
+        },
+        "dynamic_get-fbb918ff-70bf-41ee-b1fd-110e38cbdba0": {
+            "entity": "dynamic_get",
+            "property": "select_all",
+            "guid": "fbb918ff-70bf-41ee-b1fd-110e38cbdba0",
+            "kind": "property"
+        },
+        "dynamic_get-fc0dcf64-f6a8-48d7-8ed7-6ecea942cf21": {
+            "entity": "dynamic_get",
+            "property": "php_after_getitem",
+            "guid": "fc0dcf64-f6a8-48d7-8ed7-6ecea942cf21",
+            "kind": "property"
+        },
+        "e268c7be-dc34-40d9-bf2c-5f1897a09f7c": {
+            "entity": "admin_view",
+            "property": "php_controller",
+            "guid": "e268c7be-dc34-40d9-bf2c-5f1897a09f7c",
+            "kind": "property"
+        },
+        "e27df414-cf8a-45c3-bc38-cc48e6146fef": {
+            "entity": "custom_admin_view",
+            "property": "php_view",
+            "guid": "e27df414-cf8a-45c3-bc38-cc48e6146fef",
+            "kind": "property"
+        },
+        "e407f6f1-e4e9-4f23-a8c7-8ad75e14a820": {
+            "entity": "admin_view",
+            "property": "ajax_input",
+            "guid": "e407f6f1-e4e9-4f23-a8c7-8ad75e14a820",
+            "kind": "containment"
+        },
+        "e41e74b2-a265-4269-8ec6-1d890c893798": {
+            "entity": "field",
+            "property": "datatype",
+            "guid": "e41e74b2-a265-4269-8ec6-1d890c893798",
+            "kind": "property"
+        },
+        "e4a3ccf7-e259-4b72-ad4c-216b15d6d4f7": {
+            "entity": "joomla_plugin",
+            "property": "head",
+            "guid": "e4a3ccf7-e259-4b72-ad4c-216b15d6d4f7",
+            "kind": "property"
+        },
+        "e4d3c22b-1297-450b-8108-c389f834e354": {
+            "entity": "admin_view",
+            "property": "php_document",
+            "guid": "e4d3c22b-1297-450b-8108-c389f834e354",
+            "kind": "property"
+        },
+        "e5f50226-6749-4bd3-9aa1-cf3db6ce448d": {
+            "entity": "component_files_folders",
+            "property": "addfilesfullpath",
+            "guid": "e5f50226-6749-4bd3-9aa1-cf3db6ce448d",
+            "kind": "containment"
+        },
+        "e6c263b1-da39-4a73-8585-637dc3a5b8eb": {
+            "entity": "joomla_component",
+            "property": "update_server_url",
+            "guid": "e6c263b1-da39-4a73-8585-637dc3a5b8eb",
+            "kind": "property"
+        },
+        "e76cf555-112a-4021-9a1e-b4ee52d7be8a": {
+            "entity": "joomla_component",
+            "property": "php_method_uninstall",
+            "guid": "e76cf555-112a-4021-9a1e-b4ee52d7be8a",
+            "kind": "property"
+        },
+        "f17742b9-0096-4b03-b981-f0dcd3f7e8c1": {
+            "entity": "joomla_module",
+            "property": "libraries",
+            "guid": "f17742b9-0096-4b03-b981-f0dcd3f7e8c1",
+            "kind": "reference"
+        },
+        "f1deeb63-5df2-45ff-b281-a41d9b2cd122": {
+            "entity": "joomla_module",
+            "property": "add_php_script_construct",
+            "guid": "f1deeb63-5df2-45ff-b281-a41d9b2cd122",
+            "kind": "property"
+        },
+        "f22fd59e-4d06-4578-b0bb-a624b8efd145": {
+            "entity": "joomla_component",
+            "property": "add_sql_uninstall",
+            "guid": "f22fd59e-4d06-4578-b0bb-a624b8efd145",
+            "kind": "property"
+        },
+        "f2581140-5d9c-4c29-b511-e12a826d15da": {
+            "entity": "admin_view",
+            "property": "add_php_getlistquery",
+            "guid": "f2581140-5d9c-4c29-b511-e12a826d15da",
+            "kind": "property"
+        },
+        "f76ffc06-f4c9-417e-8584-bc2f65184d18": {
+            "entity": "custom_admin_view",
+            "property": "add_js_document",
+            "guid": "f76ffc06-f4c9-417e-8584-bc2f65184d18",
+            "kind": "property"
+        },
+        "f962e778-623e-40a8-b7db-88df71fdac51": {
+            "entity": "admin_view",
+            "property": "custom_button",
+            "guid": "f962e778-623e-40a8-b7db-88df71fdac51",
+            "kind": "containment"
+        },
+        "fb4e322b-46c0-47e5-b9eb-70c39456d80d": {
+            "entity": "repository",
+            "property": "addplaceholders",
+            "guid": "fb4e322b-46c0-47e5-b9eb-70c39456d80d",
+            "kind": "containment"
+        },
+        "fc4bc2f3-1a12-4484-88dc-273199fe3b63": {
+            "entity": "joomla_module",
+            "property": "snippet",
+            "guid": "fc4bc2f3-1a12-4484-88dc-273199fe3b63",
+            "kind": "reference"
+        },
+        "fd03122f-8c74-468a-8f8c-704e927c3b65": {
+            "entity": "custom_admin_view",
+            "property": "css_document",
+            "guid": "fd03122f-8c74-468a-8f8c-704e927c3b65",
+            "kind": "property"
+        },
+        "fd7ff7b0-a8e9-476c-8e9d-ac4ca338c589": {
+            "entity": "field",
+            "property": "datalenght_other",
+            "guid": "fd7ff7b0-a8e9-476c-8e9d-ac4ca338c589",
+            "kind": "property"
+        },
+        "fe780ac8-ed30-481c-8700-84472caa0072": {
+            "entity": "component_files_folders",
+            "property": "addfoldersfullpath",
+            "guid": "fe780ac8-ed30-481c-8700-84472caa0072",
+            "kind": "containment"
+        },
+        "ffecfa82-c326-4703-9cc3-69d6f313bd32": {
+            "entity": "custom_admin_view",
+            "property": "php_jview",
+            "guid": "ffecfa82-c326-4703-9cc3-69d6f313bd32",
+            "kind": "property"
+        },
+        "field-0f0ef89c-e305-408d-ac95-6a86efe28c5a": {
+            "entity": "field",
+            "property": "on_save_model_field",
+            "guid": "0f0ef89c-e305-408d-ac95-6a86efe28c5a",
+            "kind": "property"
+        },
+        "field-49a285a3-2c16-4846-9dbf-94c9cc6496c1": {
+            "entity": "field",
+            "property": "initiator_on_save_model",
+            "guid": "49a285a3-2c16-4846-9dbf-94c9cc6496c1",
+            "kind": "property"
+        },
+        "field-83a3c115-1a4f-44a7-9572-e91043acdbaa": {
+            "entity": "field",
+            "property": "xml",
+            "guid": "83a3c115-1a4f-44a7-9572-e91043acdbaa",
+            "kind": "structured"
+        },
+        "field-91a4f538-1383-4ae4-85d8-55ddada7d6cd": {
+            "entity": "field",
+            "property": "fieldtype",
+            "guid": "91a4f538-1383-4ae4-85d8-55ddada7d6cd",
+            "kind": "reference"
+        },
+        "field-9d32c0a5-e010-44f2-8b53-3372c87da08d": {
+            "entity": "field",
+            "property": "initiator_on_get_model",
+            "guid": "9d32c0a5-e010-44f2-8b53-3372c87da08d",
+            "kind": "property"
+        },
+        "field-dc69b6d4-2e6f-4f2d-86d9-0fb6534164ca": {
+            "entity": "field",
+            "property": "on_get_model_field",
+            "guid": "dc69b6d4-2e6f-4f2d-86d9-0fb6534164ca",
+            "kind": "property"
+        },
+        "fieldtype-ddb8f57f-77c8-4cad-a8cb-0cdc799ce4a1": {
+            "entity": "fieldtype",
+            "property": "properties",
+            "guid": "ddb8f57f-77c8-4cad-a8cb-0cdc799ce4a1",
+            "kind": "containment"
+        },
+        "fieldtype-ec2ec4a2-a32f-4407-b318-46b5780774e2": {
+            "entity": "fieldtype",
+            "property": "has_defaults",
+            "guid": "ec2ec4a2-a32f-4407-b318-46b5780774e2",
+            "kind": "property"
+        },
+        "joomla_component-05e16c3f-1f5e-4355-a948-5331546f218c": {
+            "entity": "joomla_component",
+            "property": "emptycontributors",
+            "guid": "05e16c3f-1f5e-4355-a948-5331546f218c",
+            "kind": "property"
+        },
+        "joomla_component-0e5f211c-d6d7-417a-af92-f3e956687f56": {
+            "entity": "joomla_component",
+            "property": "add_menu_prefix",
+            "guid": "0e5f211c-d6d7-417a-af92-f3e956687f56",
+            "kind": "property"
+        },
+        "joomla_component-16a76125-d200-4bbf-aa00-91da3513a8f8": {
+            "entity": "joomla_component",
+            "property": "php_helper_admin",
+            "guid": "16a76125-d200-4bbf-aa00-91da3513a8f8",
+            "kind": "property"
+        },
+        "joomla_component-16ec7ebd-d07a-4134-8537-d7b65bcd8bac": {
+            "entity": "joomla_component",
+            "property": "php_helper_both",
+            "guid": "16ec7ebd-d07a-4134-8537-d7b65bcd8bac",
+            "kind": "property"
+        },
+        "joomla_component-1831e024-aa0c-4fc7-b1e6-77ce4dd4c562": {
+            "entity": "joomla_component",
+            "property": "assets_table_fix",
+            "guid": "1831e024-aa0c-4fc7-b1e6-77ce4dd4c562",
+            "kind": "property"
+        },
+        "joomla_component-2089f202-667a-4fbd-881c-cc0fe1343ce4": {
+            "entity": "joomla_component",
+            "property": "remove_line_breaks",
+            "guid": "2089f202-667a-4fbd-881c-cc0fe1343ce4",
+            "kind": "property"
+        },
+        "joomla_component-288e00d8-7ea3-4bfc-829c-3ab247ca9718": {
+            "entity": "joomla_component",
+            "property": "buildcomp",
+            "guid": "288e00d8-7ea3-4bfc-829c-3ab247ca9718",
+            "kind": "property"
+        },
+        "joomla_component-2a9d2cda-1be7-4ae7-b672-9139a8a62d14": {
+            "entity": "joomla_component",
+            "property": "email",
+            "guid": "2a9d2cda-1be7-4ae7-b672-9139a8a62d14",
+            "kind": "property"
+        },
+        "joomla_component-33c588ca-83b2-419d-b87f-b9f4e5e4ea54": {
+            "entity": "joomla_component",
+            "property": "css_admin",
+            "guid": "33c588ca-83b2-419d-b87f-b9f4e5e4ea54",
+            "kind": "property"
+        },
+        "joomla_component-36fc971f-a446-49ae-94d0-2f270e60bd0b": {
+            "entity": "joomla_component",
+            "property": "dashboard_type",
+            "guid": "36fc971f-a446-49ae-94d0-2f270e60bd0b",
+            "kind": "property"
+        },
+        "joomla_component-3be0d9ca-afd6-47bc-87e5-8cb73e9f5e61": {
+            "entity": "joomla_component",
+            "property": "javascript",
+            "guid": "3be0d9ca-afd6-47bc-87e5-8cb73e9f5e61",
+            "kind": "property"
+        },
+        "joomla_component-4003ab3f-70d8-4092-a11b-b23215844ffa": {
+            "entity": "joomla_component",
+            "property": "image",
+            "guid": "4003ab3f-70d8-4092-a11b-b23215844ffa",
+            "kind": "property"
+        },
+        "joomla_component-46bd236f-7d43-4038-ac40-936dfd18e910": {
+            "entity": "joomla_component",
+            "property": "add_backup_folder_path",
+            "guid": "46bd236f-7d43-4038-ac40-936dfd18e910",
+            "kind": "property"
+        },
+        "joomla_component-508b5e78-c91a-4aaa-b587-000759130d4e": {
+            "entity": "joomla_component",
+            "property": "mvc_versiondate",
+            "guid": "508b5e78-c91a-4aaa-b587-000759130d4e",
+            "kind": "property"
+        },
+        "joomla_component-50d55392-74b6-43e2-9b16-37c7f95a7402": {
+            "entity": "joomla_component",
+            "property": "add_namespace_prefix",
+            "guid": "50d55392-74b6-43e2-9b16-37c7f95a7402",
+            "kind": "property"
+        },
+        "joomla_component-58525d14-8cbf-49fc-8d8e-50a9ba0e846a": {
+            "entity": "joomla_component",
+            "property": "backup_folder_path",
+            "guid": "58525d14-8cbf-49fc-8d8e-50a9ba0e846a",
+            "kind": "property"
+        },
+        "joomla_component-5dabe624-329e-48d6-82cf-1f417df55467": {
+            "entity": "joomla_component",
+            "property": "add_php_helper_both",
+            "guid": "5dabe624-329e-48d6-82cf-1f417df55467",
+            "kind": "property"
+        },
+        "joomla_component-627ec119-f50c-4afc-bfe7-8455a7ace163": {
+            "entity": "joomla_component",
+            "property": "adduikit",
+            "guid": "627ec119-f50c-4afc-bfe7-8455a7ace163",
+            "kind": "property"
+        },
+        "joomla_component-637695d3-7754-492c-bbd0-cfdd7d00adad": {
+            "entity": "joomla_component",
+            "property": "changelog_server_url",
+            "guid": "637695d3-7754-492c-bbd0-cfdd7d00adad",
+            "kind": "property"
+        },
+        "joomla_component-667a2147-05d1-4138-b666-e8a0ce54ffba": {
+            "entity": "joomla_component",
+            "property": "css_site",
+            "guid": "667a2147-05d1-4138-b666-e8a0ce54ffba",
+            "kind": "property"
+        },
+        "joomla_component-763e5bdf-d4d3-449b-bb36-de2623d81540": {
+            "entity": "joomla_component",
+            "property": "jcb_powers_path",
+            "guid": "763e5bdf-d4d3-449b-bb36-de2623d81540",
+            "kind": "property"
+        },
+        "joomla_component-7971c559-0867-44a8-bfea-291881bad311": {
+            "entity": "joomla_component",
+            "property": "menu_prefix",
+            "guid": "7971c559-0867-44a8-bfea-291881bad311",
+            "kind": "property"
+        },
+        "joomla_component-7b181242-b4bc-4261-87cb-6210ec8b5af5": {
+            "entity": "joomla_component",
+            "property": "git_folder_path",
+            "guid": "7b181242-b4bc-4261-87cb-6210ec8b5af5",
+            "kind": "property"
+        },
+        "joomla_component-7d31d363-03b6-4ca7-bbf4-df9a879e3006": {
+            "entity": "joomla_component",
+            "property": "add_javascript",
+            "guid": "7d31d363-03b6-4ca7-bbf4-df9a879e3006",
+            "kind": "property"
+        },
+        "joomla_component-8402731c-4432-4ac9-ab1d-d21611cb67a7": {
+            "entity": "joomla_component",
+            "property": "changelog_server_target",
+            "guid": "8402731c-4432-4ac9-ab1d-d21611cb67a7",
+            "kind": "property"
+        },
+        "joomla_component-8b68326a-0e09-4df9-807e-4c32c3c9600a": {
+            "entity": "joomla_component",
+            "property": "add_site_event",
+            "guid": "8b68326a-0e09-4df9-807e-4c32c3c9600a",
+            "kind": "property"
+        },
+        "joomla_component-8cb26845-73d8-438a-b28a-7a128a63a0d7": {
+            "entity": "joomla_component",
+            "property": "php_method_install",
+            "guid": "8cb26845-73d8-438a-b28a-7a128a63a0d7",
+            "kind": "property"
+        },
+        "joomla_component-8e416ff9-3bd1-4115-a08b-06594978ace6": {
+            "entity": "joomla_component",
+            "property": "addcontributors",
+            "guid": "8e416ff9-3bd1-4115-a08b-06594978ace6",
+            "kind": "containment"
+        },
+        "joomla_component-98ad53ca-0da2-4aab-9a3c-1c7e1ee0a24e": {
+            "entity": "joomla_component",
+            "property": "buildcompsql",
+            "guid": "98ad53ca-0da2-4aab-9a3c-1c7e1ee0a24e",
+            "kind": "property"
+        },
+        "joomla_component-991ec7f9-257a-486c-9453-c6b1c3fd5bf0": {
+            "entity": "joomla_component",
+            "property": "add_placeholders",
+            "guid": "991ec7f9-257a-486c-9453-c6b1c3fd5bf0",
+            "kind": "property"
+        },
+        "joomla_component-9a825342-c423-42d2-85ad-f74ce9625f99": {
+            "entity": "joomla_component",
+            "property": "add_php_method_install",
+            "guid": "9a825342-c423-42d2-85ad-f74ce9625f99",
+            "kind": "property"
+        },
+        "joomla_component-9ae98a1d-cc61-49d4-8f80-b4e1257fce24": {
+            "entity": "joomla_component",
+            "property": "add_powers",
+            "guid": "9ae98a1d-cc61-49d4-8f80-b4e1257fce24",
+            "kind": "property"
+        },
+        "joomla_component-9f474240-eb27-40d7-9512-fbb3acf370d5": {
+            "entity": "joomla_component",
+            "property": "website",
+            "guid": "9f474240-eb27-40d7-9512-fbb3acf370d5",
+            "kind": "property"
+        },
+        "joomla_component-a052df3d-54b4-4da7-a0f6-f18703d1047b": {
+            "entity": "joomla_component",
+            "property": "php_site_event",
+            "guid": "a052df3d-54b4-4da7-a0f6-f18703d1047b",
+            "kind": "property"
+        },
+        "joomla_component-a6c65a43-e305-42c1-bd9d-5db5e4920185": {
+            "entity": "joomla_component",
+            "property": "add_jcb_powers_path",
+            "guid": "a6c65a43-e305-42c1-bd9d-5db5e4920185",
+            "kind": "property"
+        },
+        "joomla_component-a8b0ea74-9315-4f24-be43-836f249645f3": {
+            "entity": "joomla_component",
+            "property": "php_admin_event",
+            "guid": "a8b0ea74-9315-4f24-be43-836f249645f3",
+            "kind": "property"
+        },
+        "joomla_component-abc5e604-4a2b-4f4c-9add-9e371249adf8": {
+            "entity": "joomla_component",
+            "property": "add_php_helper_admin",
+            "guid": "abc5e604-4a2b-4f4c-9add-9e371249adf8",
+            "kind": "property"
+        },
+        "joomla_component-af7b6b08-e8c5-4551-b6e6-cde297e78e40": {
+            "entity": "joomla_component",
+            "property": "name_code",
+            "guid": "af7b6b08-e8c5-4551-b6e6-cde297e78e40",
+            "kind": "property"
+        },
+        "joomla_component-b4013eb9-0716-42a5-a479-6c4b53746cd6": {
+            "entity": "joomla_component",
+            "property": "add_email_helper",
+            "guid": "b4013eb9-0716-42a5-a479-6c4b53746cd6",
+            "kind": "property"
+        },
+        "joomla_component-b607dfed-bb4a-463d-9e14-f1264c67279b": {
+            "entity": "joomla_component",
+            "property": "name",
+            "guid": "b607dfed-bb4a-463d-9e14-f1264c67279b",
+            "kind": "property"
+        },
+        "joomla_component-b659c01d-accd-4049-bd4c-083000740d5a": {
+            "entity": "joomla_component",
+            "property": "bom",
+            "guid": "b659c01d-accd-4049-bd4c-083000740d5a",
+            "kind": "property"
+        },
+        "joomla_component-b742dcb4-0d29-4a4a-88f9-eca218d79a19": {
+            "entity": "joomla_component",
+            "property": "namespace_prefix",
+            "guid": "b742dcb4-0d29-4a4a-88f9-eca218d79a19",
+            "kind": "property"
+        },
+        "joomla_component-c2afae90-c059-4efb-9705-b7cf161b0c2a": {
+            "entity": "joomla_component",
+            "property": "add_css_admin",
+            "guid": "c2afae90-c059-4efb-9705-b7cf161b0c2a",
+            "kind": "property"
+        },
+        "joomla_component-c2ce0b7e-e917-40c0-9c63-016425dd11fd": {
+            "entity": "joomla_component",
+            "property": "number",
+            "guid": "c2ce0b7e-e917-40c0-9c63-016425dd11fd",
+            "kind": "property"
+        },
+        "joomla_component-c5cbf873-d13a-4930-9c99-c8b1f03e1a06": {
+            "entity": "joomla_component",
+            "property": "add_css_site",
+            "guid": "c5cbf873-d13a-4930-9c99-c8b1f03e1a06",
+            "kind": "property"
+        },
+        "joomla_component-cce91031-8bf4-435f-8b20-9224f230061a": {
+            "entity": "joomla_component",
+            "property": "toignore",
+            "guid": "cce91031-8bf4-435f-8b20-9224f230061a",
+            "kind": "property"
+        },
+        "joomla_component-d4241cde-3446-4318-9269-905b7ea929f4": {
+            "entity": "joomla_component",
+            "property": "copyright",
+            "guid": "d4241cde-3446-4318-9269-905b7ea929f4",
+            "kind": "property"
+        },
+        "joomla_component-d4a595fb-2264-4e18-8b80-7affee1a6abf": {
+            "entity": "joomla_component",
+            "property": "author",
+            "guid": "d4a595fb-2264-4e18-8b80-7affee1a6abf",
+            "kind": "property"
+        },
+        "joomla_component-dde96c4d-1528-402a-bdea-96ec481a11ef": {
+            "entity": "joomla_component",
+            "property": "component_version",
+            "guid": "dde96c4d-1528-402a-bdea-96ec481a11ef",
+            "kind": "property"
+        },
+        "joomla_component-e30ca545-0ccd-4925-b34d-96bc27d6a27c": {
+            "entity": "joomla_component",
+            "property": "preferred_joomla_version",
+            "guid": "e30ca545-0ccd-4925-b34d-96bc27d6a27c",
+            "kind": "property"
+        },
+        "joomla_component-e5346711-63a0-45b8-a093-06486959a1d0": {
+            "entity": "joomla_component",
+            "property": "license",
+            "guid": "e5346711-63a0-45b8-a093-06486959a1d0",
+            "kind": "property"
+        },
+        "joomla_component-eac7c528-4764-45e8-8304-4b8701e10915": {
+            "entity": "joomla_component",
+            "property": "add_git_folder_path",
+            "guid": "eac7c528-4764-45e8-8304-4b8701e10915",
+            "kind": "property"
+        },
+        "joomla_component-ec128453-f0a7-4b20-a109-56d85c6ce213": {
+            "entity": "joomla_component",
+            "property": "creatuserhelper",
+            "guid": "ec128453-f0a7-4b20-a109-56d85c6ce213",
+            "kind": "property"
+        },
+        "joomla_component-ecdc0281-fc1b-4643-b9d0-41bf95674959": {
+            "entity": "joomla_component",
+            "property": "addfootable",
+            "guid": "ecdc0281-fc1b-4643-b9d0-41bf95674959",
+            "kind": "property"
+        },
+        "joomla_component-ee10bcf8-50c6-489b-97f8-c0727e73d28b": {
+            "entity": "joomla_component",
+            "property": "add_changelog_server",
+            "guid": "ee10bcf8-50c6-489b-97f8-c0727e73d28b",
+            "kind": "property"
+        },
+        "joomla_component-f114341a-d271-4917-a5eb-8d5acdf0232d": {
+            "entity": "joomla_component",
+            "property": "add_admin_event",
+            "guid": "f114341a-d271-4917-a5eb-8d5acdf0232d",
+            "kind": "property"
+        },
+        "joomla_component-f4134f92-7dc5-4729-9a16-bfaa51de27f9": {
+            "entity": "joomla_component",
+            "property": "php_helper_site",
+            "guid": "f4134f92-7dc5-4729-9a16-bfaa51de27f9",
+            "kind": "property"
+        },
+        "joomla_component-f5e0c377-6689-4f79-9a35-41a1bfc58ba5": {
+            "entity": "joomla_component",
+            "property": "debug_linenr",
+            "guid": "f5e0c377-6689-4f79-9a35-41a1bfc58ba5",
+            "kind": "property"
+        },
+        "joomla_component-f8c2c432-b756-4c67-bfa5-0871e58e55e3": {
+            "entity": "joomla_component",
+            "property": "companyname",
+            "guid": "f8c2c432-b756-4c67-bfa5-0871e58e55e3",
+            "kind": "property"
+        },
+        "joomla_component-ff624860-89db-4465-97f1-962bf09dcc9f": {
+            "entity": "joomla_component",
+            "property": "add_php_helper_site",
+            "guid": "ff624860-89db-4465-97f1-962bf09dcc9f",
+            "kind": "property"
+        },
+        "joomla_component-metadata": {
+            "entity": "joomla_component",
+            "property": "metadata",
+            "guid": null,
+            "kind": "structured"
+        },
+        "joomla_component-metadesc": {
+            "entity": "joomla_component",
+            "property": "metadesc",
+            "guid": null,
+            "kind": "property"
+        },
+        "joomla_component-metakey": {
+            "entity": "joomla_component",
+            "property": "metakey",
+            "guid": null,
+            "kind": "property"
+        },
+        "joomla_module-1be0f2e4-0270-4ef4-8449-369b9dabcf48": {
+            "entity": "joomla_module",
+            "property": "class_helper_header",
+            "guid": "1be0f2e4-0270-4ef4-8449-369b9dabcf48",
+            "kind": "property"
+        },
+        "joomla_module-4982807f-9ad8-47a3-992c-8e18c626394f": {
+            "entity": "joomla_module",
+            "property": "fields",
+            "guid": "4982807f-9ad8-47a3-992c-8e18c626394f",
+            "kind": "containment"
+        },
+        "joomla_module-620c977e-e713-4ce2-ae97-a4a1fbb4c397": {
+            "entity": "joomla_module",
+            "property": "default_header",
+            "guid": "620c977e-e713-4ce2-ae97-a4a1fbb4c397",
+            "kind": "property"
+        },
+        "joomla_module-74126149-0257-4844-956d-8f155181ba98": {
+            "entity": "joomla_module",
+            "property": "class_helper_code",
+            "guid": "74126149-0257-4844-956d-8f155181ba98",
+            "kind": "property"
+        },
+        "joomla_module-88d58023-7ee7-46dc-a13e-064fbb3d8dc1": {
+            "entity": "joomla_module",
+            "property": "target",
+            "guid": "88d58023-7ee7-46dc-a13e-064fbb3d8dc1",
+            "kind": "property"
+        },
+        "joomla_module-a6138fdf-ad70-4ec6-aee7-b3e5fda2e2bb": {
+            "entity": "joomla_module",
+            "property": "mod_code",
+            "guid": "a6138fdf-ad70-4ec6-aee7-b3e5fda2e2bb",
+            "kind": "property"
+        },
+        "joomla_module-c30e704c-2613-44b9-91fa-95595b32180a": {
+            "entity": "joomla_module",
+            "property": "layout_data",
+            "guid": "c30e704c-2613-44b9-91fa-95595b32180a",
+            "kind": "property"
+        },
+        "joomla_module-d0c24d9d-1ff9-425b-bffb-ba0108b6bfc9": {
+            "entity": "joomla_module",
+            "property": "add_default_header",
+            "guid": "d0c24d9d-1ff9-425b-bffb-ba0108b6bfc9",
+            "kind": "property"
+        },
+        "joomla_module-d2d81879-9190-45fd-b2a1-9ea6c0b0c12e": {
+            "entity": "joomla_module",
+            "property": "add_class_helper_header",
+            "guid": "d2d81879-9190-45fd-b2a1-9ea6c0b0c12e",
+            "kind": "property"
+        },
+        "joomla_module-dfb4e6cd-5fb6-4476-9772-f2c8e2143bb6": {
+            "entity": "joomla_module",
+            "property": "module_version",
+            "guid": "dfb4e6cd-5fb6-4476-9772-f2c8e2143bb6",
+            "kind": "property"
+        },
+        "joomla_module-f9b94931-2255-449d-aeab-60bfaa69c449": {
+            "entity": "joomla_module",
+            "property": "add_class_helper",
+            "guid": "f9b94931-2255-449d-aeab-60bfaa69c449",
+            "kind": "property"
+        },
+        "joomla_plugin-1133b764-a578-4159-abfb-bf3452801974": {
+            "entity": "joomla_plugin",
+            "property": "plugin_version",
+            "guid": "1133b764-a578-4159-abfb-bf3452801974",
+            "kind": "property"
+        },
+        "joomla_plugin-6013de6f-f99d-4fa5-b75c-b1973a901e04": {
+            "entity": "joomla_plugin",
+            "property": "fields",
+            "guid": "6013de6f-f99d-4fa5-b75c-b1973a901e04",
+            "kind": "containment"
+        },
+        "joomla_plugin-cc01a6b1-7f18-4452-bfa6-4d64fc595a49": {
+            "entity": "joomla_plugin",
+            "property": "property_selection",
+            "guid": "cc01a6b1-7f18-4452-bfa6-4d64fc595a49",
+            "kind": "containment"
+        },
+        "joomla_plugin-d447ec0f-a7d1-4b3d-b9f8-d1e650583e61": {
+            "entity": "joomla_plugin",
+            "property": "joomla_plugin_group",
+            "guid": "d447ec0f-a7d1-4b3d-b9f8-d1e650583e61",
+            "kind": "reference"
+        },
+        "joomla_plugin-e260d101-177f-4722-9b95-417f650f578e": {
+            "entity": "joomla_plugin",
+            "property": "method_selection",
+            "guid": "e260d101-177f-4722-9b95-417f650f578e",
+            "kind": "containment"
+        },
+        "joomla_power-a1033166-8112-45f9-8af8-c15a53d30c04": {
+            "entity": "joomla_power",
+            "property": "settings",
+            "guid": "a1033166-8112-45f9-8af8-c15a53d30c04",
+            "kind": "containment"
+        },
+        "layout-7c9289e1-b326-4596-9dd8-f6ebe861a0ef": {
+            "entity": "layout",
+            "property": "layout",
+            "guid": "7c9289e1-b326-4596-9dd8-f6ebe861a0ef",
+            "kind": "property"
+        },
+        "library-07c71471-04cd-4217-a63e-4ca97d880950": {
+            "entity": "library",
+            "property": "target",
+            "guid": "07c71471-04cd-4217-a63e-4ca97d880950",
+            "kind": "property"
+        },
+        "library-09b25ca3-6c9f-4b6d-ad80-e0989c221289": {
+            "entity": "library",
+            "property": "description",
+            "guid": "09b25ca3-6c9f-4b6d-ad80-e0989c221289",
+            "kind": "property"
+        },
+        "library-48d69b71-6eba-480a-b17b-c67243f02d06": {
+            "entity": "library",
+            "property": "addconditions",
+            "guid": "48d69b71-6eba-480a-b17b-c67243f02d06",
+            "kind": "containment"
+        },
+        "library-7e1418d5-5515-49f6-99ed-166365b9b963": {
+            "entity": "library",
+            "property": "libraries",
+            "guid": "7e1418d5-5515-49f6-99ed-166365b9b963",
+            "kind": "reference"
+        },
+        "library-b70529a1-30bb-42c0-822f-802c23bd616b": {
+            "entity": "library",
+            "property": "php_setdocument",
+            "guid": "b70529a1-30bb-42c0-822f-802c23bd616b",
+            "kind": "property"
+        },
+        "library-f2940a48-f104-4c11-86ef-ed6456a1211c": {
+            "entity": "library",
+            "property": "type",
+            "guid": "f2940a48-f104-4c11-86ef-ed6456a1211c",
+            "kind": "property"
+        },
+        "placeholder-65b533a8-0d70-44af-a9d1-785983eb4ef3": {
+            "entity": "placeholder",
+            "property": "target",
+            "guid": "65b533a8-0d70-44af-a9d1-785983eb4ef3",
+            "kind": "property"
+        },
+        "placeholder-b14c6496-2aaf-4198-8fc1-cf034525fb91": {
+            "entity": "placeholder",
+            "property": "value",
+            "guid": "b14c6496-2aaf-4198-8fc1-cf034525fb91",
+            "kind": "property"
+        },
+        "power-00157fc5-d94e-4ac0-80fe-7e5ac5c356b5": {
+            "entity": "power",
+            "property": "use_selection",
+            "guid": "00157fc5-d94e-4ac0-80fe-7e5ac5c356b5",
+            "kind": "containment"
+        },
+        "power-1a0ff40c-90bc-472f-a465-8afefb595a6b": {
+            "entity": "power",
+            "property": "extends_custom",
+            "guid": "1a0ff40c-90bc-472f-a465-8afefb595a6b",
+            "kind": "property"
+        },
+        "power-26e695f7-e7fe-47f4-a692-002dcd2df434": {
+            "entity": "power",
+            "property": "power_version",
+            "guid": "26e695f7-e7fe-47f4-a692-002dcd2df434",
+            "kind": "property"
+        },
+        "power-416df962-4468-4665-af1d-da81c9256464": {
+            "entity": "power",
+            "property": "type",
+            "guid": "416df962-4468-4665-af1d-da81c9256464",
+            "kind": "property"
+        },
+        "power-45a7e8c9-6e44-4e0c-b0c5-3055cdb81a12": {
+            "entity": "power",
+            "property": "extendsinterfaces_custom",
+            "guid": "45a7e8c9-6e44-4e0c-b0c5-3055cdb81a12",
+            "kind": "property"
+        },
+        "power-4e23487e-5052-4f04-9352-15c4b75031d8": {
+            "entity": "power",
+            "property": "extendsinterfaces",
+            "guid": "4e23487e-5052-4f04-9352-15c4b75031d8",
+            "kind": "reference"
+        },
+        "power-645ed24e-5159-40a2-bd50-4aa26e625848": {
+            "entity": "power",
+            "property": "method_selection",
+            "guid": "645ed24e-5159-40a2-bd50-4aa26e625848",
+            "kind": "containment"
+        },
+        "power-68dcb3dc-15b2-4357-8c87-f2fb316e9ae0": {
+            "entity": "power",
+            "property": "implements_custom",
+            "guid": "68dcb3dc-15b2-4357-8c87-f2fb316e9ae0",
+            "kind": "property"
+        },
+        "power-82b08f94-4ed2-40cf-a311-e323e69d47b1": {
+            "entity": "power",
+            "property": "implements",
+            "guid": "82b08f94-4ed2-40cf-a311-e323e69d47b1",
+            "kind": "reference"
+        },
+        "power-a015aceb-5024-480c-88ea-fd9e4ad2d9f1": {
+            "entity": "power",
+            "property": "composer",
+            "guid": "a015aceb-5024-480c-88ea-fd9e4ad2d9f1",
+            "kind": "containment"
+        },
+        "power-aa4804ce-9099-4006-b089-d05990461668": {
+            "entity": "power",
+            "property": "licensing_template",
+            "guid": "aa4804ce-9099-4006-b089-d05990461668",
+            "kind": "property"
+        },
+        "power-aeec50c6-9a39-45ff-8210-f5f3aa6a815b": {
+            "entity": "power",
+            "property": "load_selection",
+            "guid": "aeec50c6-9a39-45ff-8210-f5f3aa6a815b",
+            "kind": "containment"
+        },
+        "power-bdd69212-bb69-40b1-8a16-6b665ae94a36": {
+            "entity": "power",
+            "property": "property_selection",
+            "guid": "bdd69212-bb69-40b1-8a16-6b665ae94a36",
+            "kind": "containment"
+        },
+        "power-d42f8ec2-710c-41a9-98b6-b74b19213cdb": {
+            "entity": "power",
+            "property": "extends",
+            "guid": "d42f8ec2-710c-41a9-98b6-b74b19213cdb",
+            "kind": "reference"
+        },
+        "power-d937bf3c-2b58-4df4-a6a5-b497bb7b8245": {
+            "entity": "power",
+            "property": "add_licensing_template",
+            "guid": "d937bf3c-2b58-4df4-a6a5-b497bb7b8245",
+            "kind": "property"
+        },
+        "power-dde8525b-6cce-4922-a7e0-9dcad5622b4e": {
+            "entity": "power",
+            "property": "namespace",
+            "guid": "dde8525b-6cce-4922-a7e0-9dcad5622b4e",
+            "kind": "property"
+        },
+        "repository-0ca15427-abfa-4fac-8ce2-e70e5b8b2c0f": {
+            "entity": "repository",
+            "property": "base",
+            "guid": "0ca15427-abfa-4fac-8ce2-e70e5b8b2c0f",
+            "kind": "property"
+        },
+        "repository-3557698d-cfae-4a57-93fc-6030bac2768a": {
+            "entity": "repository",
+            "property": "type",
+            "guid": "3557698d-cfae-4a57-93fc-6030bac2768a",
+            "kind": "property"
+        },
+        "repository-3dc12b2f-d1c9-4ae4-8573-19a6b7d78083": {
+            "entity": "repository",
+            "property": "author_email",
+            "guid": "3dc12b2f-d1c9-4ae4-8573-19a6b7d78083",
+            "kind": "property"
+        },
+        "repository-4c224b6d-7b6b-4e5d-8df7-b96c26559476": {
+            "entity": "repository",
+            "property": "repository",
+            "guid": "4c224b6d-7b6b-4e5d-8df7-b96c26559476",
+            "kind": "property"
+        },
+        "repository-5e9038cf-bf09-4ec7-aa1d-60df007b96e2": {
+            "entity": "repository",
+            "property": "access_repo",
+            "guid": "5e9038cf-bf09-4ec7-aa1d-60df007b96e2",
+            "kind": "property"
+        },
+        "repository-8a5addab-5545-4c33-bc1a-7aad217e04c6": {
+            "entity": "repository",
+            "property": "write_branch",
+            "guid": "8a5addab-5545-4c33-bc1a-7aad217e04c6",
+            "kind": "property"
+        },
+        "repository-c2bd3a42-bfc9-459f-b134-5302798ed0e4": {
+            "entity": "repository",
+            "property": "author_name",
+            "guid": "c2bd3a42-bfc9-459f-b134-5302798ed0e4",
+            "kind": "property"
+        },
+        "repository-ce236d83-959b-4d1c-a736-b1717bee29bc": {
+            "entity": "repository",
+            "property": "read_branch",
+            "guid": "ce236d83-959b-4d1c-a736-b1717bee29bc",
+            "kind": "property"
+        },
+        "repository-d22126a7-7e85-4a7a-94d0-6ba9ab194772": {
+            "entity": "repository",
+            "property": "target",
+            "guid": "d22126a7-7e85-4a7a-94d0-6ba9ab194772",
+            "kind": "property"
+        },
+        "repository-eaaca317-58c7-4b72-9c20-166c12c04b67": {
+            "entity": "repository",
+            "property": "organisation",
+            "guid": "eaaca317-58c7-4b72-9c20-166c12c04b67",
+            "kind": "property"
+        },
+        "repository-fcbab2f2-51bb-4f44-a5ac-a6266e187522": {
+            "entity": "repository",
+            "property": "username",
+            "guid": "fcbab2f2-51bb-4f44-a5ac-a6266e187522",
+            "kind": "property"
+        },
+        "site_view-29a26946-d7c3-4ea0-be64-8e376d2a7f25": {
+            "entity": "site_view",
+            "property": "button_position",
+            "guid": "29a26946-d7c3-4ea0-be64-8e376d2a7f25",
+            "kind": "property"
+        },
+        "snippet-144a1f95-97d5-42b4-be3e-39f21215780e": {
+            "entity": "snippet",
+            "property": "snippet",
+            "guid": "144a1f95-97d5-42b4-be3e-39f21215780e",
+            "kind": "property"
+        },
+        "snippet-155d8238-a2cf-446c-91a5-c8322ee1d890": {
+            "entity": "snippet",
+            "property": "usage",
+            "guid": "155d8238-a2cf-446c-91a5-c8322ee1d890",
+            "kind": "property"
+        },
+        "snippet-1e0608ea-045b-494b-aac6-060dc76da782": {
+            "entity": "snippet",
+            "property": "contributor_email",
+            "guid": "1e0608ea-045b-494b-aac6-060dc76da782",
+            "kind": "property"
+        },
+        "snippet-3a1db9fd-204e-4693-bcf7-2084d26c1013": {
+            "entity": "snippet",
+            "property": "contributor_website",
+            "guid": "3a1db9fd-204e-4693-bcf7-2084d26c1013",
+            "kind": "property"
+        },
+        "snippet-6803fdeb-c251-4588-85c9-d0e8636d18ab": {
+            "entity": "snippet",
+            "property": "contributor_name",
+            "guid": "6803fdeb-c251-4588-85c9-d0e8636d18ab",
+            "kind": "property"
+        },
+        "snippet-897235b0-5c12-4a93-a424-7d8661dc1c9b": {
+            "entity": "snippet",
+            "property": "library",
+            "guid": "897235b0-5c12-4a93-a424-7d8661dc1c9b",
+            "kind": "reference"
+        },
+        "snippet-9f3472b3-c2b5-4441-a2b1-49065202e22a": {
+            "entity": "snippet",
+            "property": "type",
+            "guid": "9f3472b3-c2b5-4441-a2b1-49065202e22a",
+            "kind": "reference"
+        },
+        "snippet-cef2d060-95cf-409a-92c9-02de0c164640": {
+            "entity": "snippet",
+            "property": "contributor_company",
+            "guid": "cef2d060-95cf-409a-92c9-02de0c164640",
+            "kind": "property"
+        },
+        "snippet-d29d6854-bb4a-4fa2-83a1-5a1b9c9a0eaf": {
+            "entity": "snippet",
+            "property": "url",
+            "guid": "d29d6854-bb4a-4fa2-83a1-5a1b9c9a0eaf",
+            "kind": "property"
+        },
+        "snippet-fc671dc8-a9be-43d9-b42a-671750ad869d": {
+            "entity": "snippet",
+            "property": "heading",
+            "guid": "fc671dc8-a9be-43d9-b42a-671750ad869d",
+            "kind": "property"
+        },
+        "template-7b57c7ca-f4e8-4358-948a-987b1f36b3fb": {
+            "entity": "template",
+            "property": "template",
+            "guid": "7b57c7ca-f4e8-4358-948a-987b1f36b3fb",
+            "kind": "property"
+        },
+        "validation_rule-24ed6b0e-c86c-4131-91a7-5205ac931ad5": {
+            "entity": "validation_rule",
+            "property": "php",
+            "guid": "24ed6b0e-c86c-4131-91a7-5205ac931ad5",
+            "kind": "property"
+        },
+        "validation_rule-9a98c57f-bf01-49b0-91e3-e72e1b9551f1": {
+            "entity": "validation_rule",
+            "property": "name",
+            "guid": "9a98c57f-bf01-49b0-91e3-e72e1b9551f1",
+            "kind": "property"
+        }
+    },
+    "sharedGuids": {
+        "03de1a61-d639-4d48-8ce6-fcf16c8f6270": [
+            "joomla_component.addreadme",
+            "joomla_module.addreadme",
+            "joomla_plugin.addreadme"
+        ],
+        "075b5082-3fb1-46f1-a838-da558b3afb54": [
+            "custom_admin_view.add_javascript_file",
+            "site_view.add_javascript_file"
+        ],
+        "143f8b3d-5b58-4b26-aaad-a5f14a57865b": [
+            "component_files_folders.addfiles",
+            "library_files_folders_urls.addfiles",
+            "joomla_module_files_folders_urls.addfiles",
+            "joomla_plugin_files_folders_urls.addfiles"
+        ],
+        "145966d2-32bf-42a7-8a7b-cc44aa93490d": [
+            "joomla_plugin.main_class_code",
+            "power.main_class_code"
+        ],
+        "14c857e3-e684-49a3-8b34-1cf7448ed0c4": [
+            "custom_admin_view.add_css",
+            "site_view.add_css"
+        ],
+        "18b26be8-1651-4ac3-b8a0-6598e302b192": [
+            "custom_admin_view.main_get",
+            "site_view.main_get"
+        ],
+        "1ad12721-9ee9-4623-98d2-071ba013a373": [
+            "admin_view.css_view",
+            "field.css_view"
+        ],
+        "22a668bc-d169-4346-9929-3819673c67ac": [
+            "joomla_component.add_php_postflight_update",
+            "joomla_module.add_php_postflight_update",
+            "joomla_plugin.add_php_postflight_update"
+        ],
+        "25c87995-f58f-4f6a-8f6b-2e462545bdd6": [
+            "custom_admin_view.javascript_file",
+            "site_view.javascript_file"
+        ],
+        "32564da8-5599-4577-bd93-fd425179612f": [
+            "custom_admin_view.add_php_jview_display",
+            "site_view.add_php_jview_display"
+        ],
+        "34bf9926-34a4-49a3-a29e-b602b1e5f9b2": [
+            "admin_view.javascript_views_footer",
+            "field.javascript_views_footer"
+        ],
+        "365d08ee-fe6e-47c4-b567-a001212f2cb6": [
+            "joomla_component.add_php_preflight_update",
+            "joomla_module.add_php_preflight_update",
+            "joomla_plugin.add_php_preflight_update"
+        ],
+        "3ac1327d-75d6-4a16-913d-ef4fdf54c11c": [
+            "admin_fields.admin_view",
+            "admin_fields_conditions.admin_view",
+            "admin_fields_relations.admin_view",
+            "admin_custom_tabs.admin_view"
+        ],
+        "3b731d0a-3205-4409-a9fd-e74d1db25055": [
+            "admin_view.icon",
+            "custom_admin_view.icon"
+        ],
+        "3bb6d77d-05bf-4447-a6bb-4af197ec9290": [
+            "joomla_module.add_php_preflight_uninstall",
+            "joomla_plugin.add_php_preflight_uninstall"
+        ],
+        "3c1db8b4-65f2-4f6f-8391-5883f564eabe": [
+            "joomla_component.add_php_postflight_install",
+            "joomla_module.add_php_postflight_install",
+            "joomla_plugin.add_php_postflight_install"
+        ],
+        "3ca01651-a5c3-46c3-b7a8-bfb0d9f6e105": [
+            "joomla_component.php_preflight_install",
+            "joomla_module.php_preflight_install",
+            "joomla_plugin.php_preflight_install"
+        ],
+        "46503007-43d9-485f-8cd0-8427a6a8bef2": [
+            "joomla_component.short_description",
+            "admin_view.short_description",
+            "validation_rule.short_description",
+            "fieldtype.short_description"
+        ],
+        "46fa9c1e-5aa3-41ff-8f02-e9a80252ad9f": [
+            "admin_view.add_php_document",
+            "custom_admin_view.add_php_document",
+            "site_view.add_php_document"
+        ],
+        "477832a1-7a25-4774-ad1a-4ff69ed4b374": [
+            "template.alias",
+            "layout.alias"
+        ],
+        "483f2c40-2348-4168-817b-471f5ba96984": [
+            "component_files_folders.addfolders",
+            "library_files_folders_urls.addfolders",
+            "joomla_module_files_folders_urls.addfolders",
+            "joomla_plugin_files_folders_urls.addfolders"
+        ],
+        "48b78ab1-bfb0-44eb-9ec8-4f5cdbf4a32c": [
+            "field.store",
+            "fieldtype.store"
+        ],
+        "4a8003fa-7458-405e-90d3-7728b1af9e86": [
+            "custom_admin_view.add_css_document",
+            "site_view.add_css_document"
+        ],
+        "4ece5fde-e910-467b-abba-5596c9bd994a": [
+            "class_property.joomla_plugin_group",
+            "class_method.joomla_plugin_group"
+        ],
+        "5087f379-710b-4e76-9b9d-86b842933991": [
+            "template.dynamic_get",
+            "layout.dynamic_get"
+        ],
+        "591df1a2-b685-4378-845a-f8a1d1985548": [
+            "component_admin_views.joomla_component",
+            "component_site_views.joomla_component",
+            "component_custom_admin_views.joomla_component",
+            "component_updates.joomla_component",
+            "component_custom_admin_menus.joomla_component",
+            "component_router.joomla_component",
+            "component_config.joomla_component",
+            "component_dashboard.joomla_component",
+            "component_files_folders.joomla_component",
+            "component_placeholders.joomla_component",
+            "component_plugins.joomla_component",
+            "component_modules.joomla_component"
+        ],
+        "5aa57bbe-7b19-4db9-915c-561863458d2b": [
+            "joomla_component.guid",
+            "joomla_module.guid",
+            "joomla_plugin.guid",
+            "joomla_power.guid",
+            "power.guid",
+            "admin_view.guid",
+            "custom_admin_view.guid",
+            "site_view.guid",
+            "template.guid",
+            "layout.guid",
+            "dynamic_get.guid",
+            "class_extends.guid",
+            "class_property.guid",
+            "class_method.guid",
+            "library.guid",
+            "snippet.guid",
+            "field.guid",
+            "fieldtype.guid",
+            "repository.guid",
+            "joomla_plugin_group.guid"
+        ],
+        "5d3d34dd-4876-4c6a-86ab-b4e162f22c08": [
+            "joomla_module.name",
+            "joomla_plugin.name",
+            "power.name",
+            "custom_admin_view.name",
+            "site_view.name",
+            "template.name",
+            "layout.name",
+            "dynamic_get.name",
+            "class_extends.name",
+            "class_property.name",
+            "class_method.name",
+            "library.name",
+            "snippet.name",
+            "field.name",
+            "fieldtype.name",
+            "joomla_plugin_group.name"
+        ],
+        "5e831983-665b-43f2-9786-5e7c9cbb9e96": [
+            "admin_view.php_model",
+            "custom_admin_view.php_model",
+            "site_view.php_model"
+        ],
+        "5eb879c0-f6e3-45b6-b220-cb5131422a83": [
+            "joomla_component.sql",
+            "joomla_module.sql",
+            "joomla_plugin.sql",
+            "admin_view.sql"
+        ],
+        "6049b666-d62b-4791-acd2-4ef414bf29f1": [
+            "admin_view.view_toolbar",
+            "custom_admin_view.view_toolbar",
+            "site_view.view_toolbar"
+        ],
+        "625b65cb-7569-437a-a6dd-b3290c662e18": [
+            "admin_view.add_php_ajax",
+            "custom_admin_view.add_php_ajax",
+            "site_view.add_php_ajax"
+        ],
+        "628147c3-5f93-4a49-a1bc-ac6685e06b64": [
+            "joomla_module.php_preflight_uninstall",
+            "joomla_plugin.php_preflight_uninstall"
+        ],
+        "63d5585f-c9bd-485d-9c1d-4a29a4fbf4b2": [
+            "admin_view.css_views",
+            "field.css_views"
+        ],
+        "63ff758d-a866-4d37-bc2a-a7432bd9bb44": [
+            "field.indexes",
+            "fieldtype.indexes"
+        ],
+        "65341477-33f1-4d58-9b3c-c371168809da": [
+            "joomla_plugin.add_head",
+            "power.add_head"
+        ],
+        "6746d3ba-b120-4918-8bba-2a14260e99c8": [
+            "admin_view.add_css_view",
+            "field.add_css_view"
+        ],
+        "6a3d21ad-7cb1-4456-a623-20aa71ba0b12": [
+            "field.null_switch",
+            "fieldtype.null_switch"
+        ],
+        "6b2277f3-44e1-4bbb-8e55-3315bdba736e": [
+            "field.datadefault_other",
+            "fieldtype.datadefault_other"
+        ],
+        "6ba76a0f-55a4-49ce-911a-0a3f05674bef": [
+            "field.datadefault",
+            "fieldtype.datadefault"
+        ],
+        "6ce6e81e-5cdf-4ea2-83b5-acde779f4297": [
+            "custom_admin_view.add_php_jview",
+            "site_view.add_php_jview"
+        ],
+        "6e214a72-6c96-40c0-abf3-5f09116d3018": [
+            "joomla_module.default",
+            "custom_admin_view.default",
+            "site_view.default"
+        ],
+        "70995b9c-d0a9-4a57-b59b-54d39c379e66": [
+            "admin_view.add_javascript_views_footer",
+            "field.add_javascript_views_footer"
+        ],
+        "70a2d820-64af-4f51-8b1a-522aed9572bf": [
+            "joomla_component.add_php_method_uninstall",
+            "joomla_module.add_php_method_uninstall",
+            "joomla_plugin.add_php_method_uninstall"
+        ],
+        "7222c742-0092-439c-84de-1973e4e2b180": [
+            "class_property.visibility",
+            "class_method.visibility"
+        ],
+        "749a9917-90c3-49c4-9e72-aa33b0683a87": [
+            "joomla_component.description",
+            "joomla_module.description",
+            "joomla_plugin.description",
+            "joomla_power.description",
+            "power.description",
+            "admin_view.description",
+            "snippet.description",
+            "fieldtype.description"
+        ],
+        "79251a06-b217-4b3a-8485-b7286cb15bf6": [
+            "joomla_module_updates.joomla_module",
+            "joomla_module_files_folders_urls.joomla_module"
+        ],
+        "7c652c71-e00e-45ff-8acb-e1bc0344e4c0": [
+            "joomla_component.add_sql",
+            "joomla_module.add_sql",
+            "joomla_plugin.add_sql",
+            "admin_view.add_sql"
+        ],
+        "7d49445c-4e95-4fd5-a2a4-a20bbcd4d812": [
+            "joomla_module_updates.version_update",
+            "joomla_plugin_updates.version_update"
+        ],
+        "7d733ad8-a5bf-4e2f-859d-be1251b7d0f1": [
+            "custom_admin_view.css",
+            "site_view.css"
+        ],
+        "7e059ab7-d79b-4218-9488-6f38d85d17a0": [
+            "class_extends.extension_type",
+            "class_property.extension_type",
+            "class_method.extension_type"
+        ],
+        "83871f4f-e406-416a-845e-a8257a4a34d3": [
+            "custom_admin_view.codename",
+            "site_view.codename"
+        ],
+        "851d8f15-3ce4-42a3-9041-08c943f61cab": [
+            "component_config.addconfig",
+            "library_config.addconfig"
+        ],
+        "87a4b892-c4cb-4032-8511-e18ba8c8c202": [
+            "joomla_component.readme",
+            "joomla_module.readme",
+            "joomla_plugin.readme"
+        ],
+        "8835dfef-4d87-4104-b93c-47c5e02e4acc": [
+            "joomla_module.php_script_construct",
+            "joomla_plugin.php_script_construct"
+        ],
+        "8b09aaf9-546c-4f03-8b1f-3170ba4b5491": [
+            "custom_admin_view.add_php_view",
+            "site_view.add_php_view",
+            "template.add_php_view",
+            "layout.add_php_view"
+        ],
+        "8d837989-4a21-4943-bb4c-4d4abb9a7a55": [
+            "joomla_component.php_postflight_install",
+            "joomla_module.php_postflight_install",
+            "joomla_plugin.php_postflight_install"
+        ],
+        "9405da44-900c-4f7c-823d-734a68f5d6f6": [
+            "admin_view.add_javascript_view_footer",
+            "field.add_javascript_view_footer"
+        ],
+        "956a8d9c-7f14-402f-85c9-7cdc4f3c0969": [
+            "joomla_plugin.class_extends",
+            "joomla_plugin_group.class_extends"
+        ],
+        "96963615-e3bb-4d37-83df-4ad3fca74536": [
+            "custom_admin_view.php_jview_display",
+            "site_view.php_jview_display"
+        ],
+        "9f9b030b-31ba-4ae9-88da-76efd8a140dc": [
+            "joomla_component.php_preflight_update",
+            "joomla_module.php_preflight_update",
+            "joomla_plugin.php_preflight_update"
+        ],
+        "a2098911-926a-42b6-8498-d8a453c34d93": [
+            "admin_view.add_css_views",
+            "field.add_css_views"
+        ],
+        "a5ef0756-5ecd-49ae-a36c-058b90758988": [
+            "custom_admin_view.description",
+            "site_view.description",
+            "template.description",
+            "layout.description"
+        ],
+        "a99c1f40-4b41-4167-ad29-85133375aa7a": [
+            "admin_view.javascript_view_footer",
+            "field.javascript_view_footer"
+        ],
+        "ab222d85-e408-44de-a513-d6aeda48b286": [
+            "admin_view.add_custom_button",
+            "custom_admin_view.add_custom_button",
+            "site_view.add_custom_button"
+        ],
+        "acfe906b-6e61-4f94-ae66-359e4bc3e4cc": [
+            "joomla_component.system_name",
+            "joomla_module.system_name",
+            "joomla_plugin.system_name",
+            "joomla_power.system_name",
+            "power.system_name",
+            "admin_view.system_name",
+            "custom_admin_view.system_name",
+            "site_view.system_name",
+            "custom_code.system_name",
+            "repository.system_name"
+        ],
+        "ade283c3-937e-4502-a040-c69d6ddb3c50": [
+            "joomla_component.php_postflight_update",
+            "joomla_module.php_postflight_update",
+            "joomla_plugin.php_postflight_update"
+        ],
+        "b3ea0d94-1029-41d8-9f6b-bcbec6b715f4": [
+            "field.datalenght",
+            "fieldtype.datalenght"
+        ],
+        "b877b188-693c-43a3-9121-a37a3943d7c1": [
+            "joomla_component.sql_uninstall",
+            "joomla_module.sql_uninstall",
+            "joomla_plugin.sql_uninstall"
+        ],
+        "b9c064cb-4266-4217-95b7-d2956e6bfefb": [
+            "admin_view.php_getlistquery",
+            "dynamic_get.php_getlistquery"
+        ],
+        "b9f98c3d-a93a-4b19-b89e-4c62781f9b99": [
+            "joomla_component.update_server_target",
+            "joomla_module.update_server_target",
+            "joomla_plugin.update_server_target"
+        ],
+        "be1b2132-37bc-4605-93d8-8b0b56b2df9f": [
+            "admin_view.add_view_toolbar",
+            "custom_admin_view.add_view_toolbar",
+            "site_view.add_view_toolbar"
+        ],
+        "bed7693b-ccd1-4803-b065-5e20fac13881": [
+            "joomla_module.custom_get",
+            "custom_admin_view.custom_get",
+            "site_view.custom_get"
+        ],
+        "c3474b9a-4677-4574-bda3-a4865569ac18": [
+            "library_files_folders_urls.addurls",
+            "joomla_module_files_folders_urls.addurls",
+            "joomla_plugin_files_folders_urls.addurls"
+        ],
+        "c37aa662-719c-4ed5-bbf2-e36672a3ce33": [
+            "custom_admin_view.dynamic_get",
+            "site_view.dynamic_get"
+        ],
+        "c6dddec0-c373-4069-bdcc-66acd474b648": [
+            "library_config.library",
+            "library_files_folders_urls.library"
+        ],
+        "c731b5f5-5bd3-4ad3-ac3e-9e0281104121": [
+            "admin_view.php_ajaxmethod",
+            "custom_admin_view.php_ajaxmethod",
+            "site_view.php_ajaxmethod"
+        ],
+        "c7b20fcd-0849-49cc-84c2-0dbb73a19fda": [
+            "custom_admin_view.context",
+            "site_view.context"
+        ],
+        "ccb3cb86-8403-4494-a284-ce1fb782f0af": [
+            "custom_admin_view.js_document",
+            "site_view.js_document"
+        ],
+        "d5aeaa99-9fba-4b67-b850-68e19256520a": [
+            "joomla_plugin_updates.joomla_plugin",
+            "joomla_plugin_files_folders_urls.joomla_plugin"
+        ],
+        "d5d03647-f29e-44a4-9e63-5feb9f4adbae": [
+            "joomla_component.add_php_preflight_install",
+            "joomla_module.add_php_preflight_install",
+            "joomla_plugin.add_php_preflight_install"
+        ],
+        "db2835aa-b0c3-4c9a-abe6-5b09568fffda": [
+            "joomla_component.add_update_server",
+            "joomla_module.add_update_server",
+            "joomla_plugin.add_update_server"
+        ],
+        "dd400eb4-8762-4ab5-bc4e-fa1feacc4dfd": [
+            "class_property.comment",
+            "class_method.comment"
+        ],
+        "e268c7be-dc34-40d9-bf2c-5f1897a09f7c": [
+            "admin_view.php_controller",
+            "custom_admin_view.php_controller",
+            "site_view.php_controller"
+        ],
+        "e27df414-cf8a-45c3-bc38-cc48e6146fef": [
+            "custom_admin_view.php_view",
+            "site_view.php_view",
+            "template.php_view",
+            "layout.php_view"
+        ],
+        "e407f6f1-e4e9-4f23-a8c7-8ad75e14a820": [
+            "admin_view.ajax_input",
+            "custom_admin_view.ajax_input",
+            "site_view.ajax_input"
+        ],
+        "e41e74b2-a265-4269-8ec6-1d890c893798": [
+            "field.datatype",
+            "fieldtype.datatype"
+        ],
+        "e4a3ccf7-e259-4b72-ad4c-216b15d6d4f7": [
+            "joomla_plugin.head",
+            "power.head",
+            "class_extends.head"
+        ],
+        "e4d3c22b-1297-450b-8108-c389f834e354": [
+            "admin_view.php_document",
+            "custom_admin_view.php_document",
+            "site_view.php_document"
+        ],
+        "e5f50226-6749-4bd3-9aa1-cf3db6ce448d": [
+            "component_files_folders.addfilesfullpath",
+            "library_files_folders_urls.addfilesfullpath",
+            "joomla_module_files_folders_urls.addfilesfullpath",
+            "joomla_plugin_files_folders_urls.addfilesfullpath"
+        ],
+        "e6c263b1-da39-4a73-8585-637dc3a5b8eb": [
+            "joomla_component.update_server_url",
+            "joomla_module.update_server_url",
+            "joomla_plugin.update_server_url"
+        ],
+        "e76cf555-112a-4021-9a1e-b4ee52d7be8a": [
+            "joomla_component.php_method_uninstall",
+            "joomla_module.php_method_uninstall",
+            "joomla_plugin.php_method_uninstall"
+        ],
+        "f17742b9-0096-4b03-b981-f0dcd3f7e8c1": [
+            "joomla_module.libraries",
+            "custom_admin_view.libraries",
+            "site_view.libraries",
+            "template.libraries",
+            "layout.libraries"
+        ],
+        "f1deeb63-5df2-45ff-b281-a41d9b2cd122": [
+            "joomla_module.add_php_script_construct",
+            "joomla_plugin.add_php_script_construct"
+        ],
+        "f22fd59e-4d06-4578-b0bb-a624b8efd145": [
+            "joomla_component.add_sql_uninstall",
+            "joomla_module.add_sql_uninstall",
+            "joomla_plugin.add_sql_uninstall"
+        ],
+        "f2581140-5d9c-4c29-b511-e12a826d15da": [
+            "admin_view.add_php_getlistquery",
+            "dynamic_get.add_php_getlistquery"
+        ],
+        "f76ffc06-f4c9-417e-8584-bc2f65184d18": [
+            "custom_admin_view.add_js_document",
+            "site_view.add_js_document"
+        ],
+        "f962e778-623e-40a8-b7db-88df71fdac51": [
+            "admin_view.custom_button",
+            "custom_admin_view.custom_button",
+            "site_view.custom_button"
+        ],
+        "fb4e322b-46c0-47e5-b9eb-70c39456d80d": [
+            "repository.addplaceholders",
+            "component_placeholders.addplaceholders"
+        ],
+        "fc4bc2f3-1a12-4484-88dc-273199fe3b63": [
+            "joomla_module.snippet",
+            "custom_admin_view.snippet",
+            "site_view.snippet",
+            "template.snippet",
+            "layout.snippet"
+        ],
+        "fd03122f-8c74-468a-8f8c-704e927c3b65": [
+            "custom_admin_view.css_document",
+            "site_view.css_document"
+        ],
+        "fd7ff7b0-a8e9-476c-8e9d-ac4ca338c589": [
+            "field.datalenght_other",
+            "fieldtype.datalenght_other"
+        ],
+        "fe780ac8-ed30-481c-8700-84472caa0072": [
+            "component_files_folders.addfoldersfullpath",
+            "library_files_folders_urls.addfoldersfullpath",
+            "joomla_module_files_folders_urls.addfoldersfullpath",
+            "joomla_plugin_files_folders_urls.addfoldersfullpath"
+        ],
+        "ffecfa82-c326-4703-9cc3-69d6f313bd32": [
+            "custom_admin_view.php_jview",
+            "site_view.php_jview"
+        ]
+    },
+    "hoistedInto": {
+        "admin_custom_tabs.admin_view": "jcb-iface-IAdminViewChild",
+        "admin_fields.admin_view": "jcb-iface-IAdminViewChild",
+        "admin_fields_conditions.admin_view": "jcb-iface-IAdminViewChild",
+        "admin_fields_relations.admin_view": "jcb-iface-IAdminViewChild",
+        "admin_view.add_css_view": "jcb-iface-IViewAssets",
+        "admin_view.add_css_views": "jcb-iface-IViewAssets",
+        "admin_view.add_custom_button": "jcb-iface-IInteractiveView",
+        "admin_view.add_javascript_view_footer": "jcb-iface-IViewAssets",
+        "admin_view.add_javascript_views_footer": "jcb-iface-IViewAssets",
+        "admin_view.add_php_ajax": "jcb-iface-IInteractiveView",
+        "admin_view.add_php_document": "jcb-iface-IInteractiveView",
+        "admin_view.add_php_getlistquery": "jcb-iface-IHasListQuery",
+        "admin_view.add_sql": "jcb-iface-IHasSql",
+        "admin_view.add_view_toolbar": "jcb-iface-IInteractiveView",
+        "admin_view.ajax_input": "jcb-iface-IInteractiveView",
+        "admin_view.css_view": "jcb-iface-IViewAssets",
+        "admin_view.css_views": "jcb-iface-IViewAssets",
+        "admin_view.custom_button": "jcb-iface-IInteractiveView",
+        "admin_view.description": "jcb-iface-IDescribed",
+        "admin_view.guid": "jcb-iface-IPortableIdentity",
+        "admin_view.icon": "jcb-iface-IHasIcon",
+        "admin_view.javascript_view_footer": "jcb-iface-IViewAssets",
+        "admin_view.javascript_views_footer": "jcb-iface-IViewAssets",
+        "admin_view.php_ajaxmethod": "jcb-iface-IInteractiveView",
+        "admin_view.php_controller": "jcb-iface-IInteractiveView",
+        "admin_view.php_document": "jcb-iface-IInteractiveView",
+        "admin_view.php_getlistquery": "jcb-iface-IHasListQuery",
+        "admin_view.php_model": "jcb-iface-IInteractiveView",
+        "admin_view.short_description": "jcb-iface-IShortDescribed",
+        "admin_view.sql": "jcb-iface-IHasSql",
+        "admin_view.system_name": "jcb-iface-ISystemNamed",
+        "admin_view.view_toolbar": "jcb-iface-IInteractiveView",
+        "class_extends.extension_type": "jcb-iface-ITargetsExtensionType",
+        "class_extends.guid": "jcb-iface-IPortableIdentity",
+        "class_extends.head": "jcb-iface-IHasHead",
+        "class_extends.name": "jcb-iface-IJcbNamed",
+        "class_method.comment": "jcb-iface-IClassMember",
+        "class_method.extension_type": "jcb-iface-ITargetsExtensionType",
+        "class_method.guid": "jcb-iface-IPortableIdentity",
+        "class_method.joomla_plugin_group": "jcb-iface-IClassMember",
+        "class_method.name": "jcb-iface-IJcbNamed",
+        "class_method.visibility": "jcb-iface-IClassMember",
+        "class_property.comment": "jcb-iface-IClassMember",
+        "class_property.extension_type": "jcb-iface-ITargetsExtensionType",
+        "class_property.guid": "jcb-iface-IPortableIdentity",
+        "class_property.joomla_plugin_group": "jcb-iface-IClassMember",
+        "class_property.name": "jcb-iface-IJcbNamed",
+        "class_property.visibility": "jcb-iface-IClassMember",
+        "component_admin_views.joomla_component": "jcb-iface-IComponentChild",
+        "component_config.addconfig": "jcb-iface-IHasConfigFields",
+        "component_config.joomla_component": "jcb-iface-IComponentChild",
+        "component_custom_admin_menus.joomla_component": "jcb-iface-IComponentChild",
+        "component_custom_admin_views.joomla_component": "jcb-iface-IComponentChild",
+        "component_dashboard.joomla_component": "jcb-iface-IComponentChild",
+        "component_files_folders.addfiles": "jcb-iface-IFilesAndFolders",
+        "component_files_folders.addfilesfullpath": "jcb-iface-IFilesAndFolders",
+        "component_files_folders.addfolders": "jcb-iface-IFilesAndFolders",
+        "component_files_folders.addfoldersfullpath": "jcb-iface-IFilesAndFolders",
+        "component_files_folders.joomla_component": "jcb-iface-IComponentChild",
+        "component_modules.joomla_component": "jcb-iface-IComponentChild",
+        "component_placeholders.addplaceholders": "jcb-iface-IHasPlaceholders",
+        "component_placeholders.joomla_component": "jcb-iface-IComponentChild",
+        "component_plugins.joomla_component": "jcb-iface-IComponentChild",
+        "component_router.joomla_component": "jcb-iface-IComponentChild",
+        "component_site_views.joomla_component": "jcb-iface-IComponentChild",
+        "component_updates.joomla_component": "jcb-iface-IComponentChild",
+        "custom_admin_view.add_css": "jcb-iface-IRenderedView",
+        "custom_admin_view.add_css_document": "jcb-iface-IRenderedView",
+        "custom_admin_view.add_custom_button": "jcb-iface-IInteractiveView",
+        "custom_admin_view.add_javascript_file": "jcb-iface-IRenderedView",
+        "custom_admin_view.add_js_document": "jcb-iface-IRenderedView",
+        "custom_admin_view.add_php_ajax": "jcb-iface-IInteractiveView",
+        "custom_admin_view.add_php_document": "jcb-iface-IInteractiveView",
+        "custom_admin_view.add_php_jview": "jcb-iface-IRenderedView",
+        "custom_admin_view.add_php_jview_display": "jcb-iface-IRenderedView",
+        "custom_admin_view.add_php_view": "jcb-iface-IPhpView",
+        "custom_admin_view.add_view_toolbar": "jcb-iface-IInteractiveView",
+        "custom_admin_view.ajax_input": "jcb-iface-IInteractiveView",
+        "custom_admin_view.codename": "jcb-iface-IRenderedView",
+        "custom_admin_view.context": "jcb-iface-IRenderedView",
+        "custom_admin_view.css": "jcb-iface-IRenderedView",
+        "custom_admin_view.css_document": "jcb-iface-IRenderedView",
+        "custom_admin_view.custom_button": "jcb-iface-IInteractiveView",
+        "custom_admin_view.custom_get": "jcb-iface-IUsesCustomGet",
+        "custom_admin_view.default": "jcb-iface-IUsesCustomGet",
+        "custom_admin_view.description": "jcb-iface-IPhpView",
+        "custom_admin_view.dynamic_get": "jcb-iface-IRenderedView",
+        "custom_admin_view.guid": "jcb-iface-IPortableIdentity",
+        "custom_admin_view.icon": "jcb-iface-IHasIcon",
+        "custom_admin_view.javascript_file": "jcb-iface-IRenderedView",
+        "custom_admin_view.js_document": "jcb-iface-IRenderedView",
+        "custom_admin_view.libraries": "jcb-iface-IUsesLibraries",
+        "custom_admin_view.main_get": "jcb-iface-IRenderedView",
+        "custom_admin_view.name": "jcb-iface-IJcbNamed",
+        "custom_admin_view.php_ajaxmethod": "jcb-iface-IInteractiveView",
+        "custom_admin_view.php_controller": "jcb-iface-IInteractiveView",
+        "custom_admin_view.php_document": "jcb-iface-IInteractiveView",
+        "custom_admin_view.php_jview": "jcb-iface-IRenderedView",
+        "custom_admin_view.php_jview_display": "jcb-iface-IRenderedView",
+        "custom_admin_view.php_model": "jcb-iface-IInteractiveView",
+        "custom_admin_view.php_view": "jcb-iface-IPhpView",
+        "custom_admin_view.snippet": "jcb-iface-IUsesLibraries",
+        "custom_admin_view.system_name": "jcb-iface-ISystemNamed",
+        "custom_admin_view.view_toolbar": "jcb-iface-IInteractiveView",
+        "custom_code.system_name": "jcb-iface-ISystemNamed",
+        "dynamic_get.add_php_getlistquery": "jcb-iface-IHasListQuery",
+        "dynamic_get.guid": "jcb-iface-IPortableIdentity",
+        "dynamic_get.name": "jcb-iface-IJcbNamed",
+        "dynamic_get.php_getlistquery": "jcb-iface-IHasListQuery",
+        "field.add_css_view": "jcb-iface-IViewAssets",
+        "field.add_css_views": "jcb-iface-IViewAssets",
+        "field.add_javascript_view_footer": "jcb-iface-IViewAssets",
+        "field.add_javascript_views_footer": "jcb-iface-IViewAssets",
+        "field.css_view": "jcb-iface-IViewAssets",
+        "field.css_views": "jcb-iface-IViewAssets",
+        "field.datadefault": "jcb-iface-IColumnStorage",
+        "field.datadefault_other": "jcb-iface-IColumnStorage",
+        "field.datalenght": "jcb-iface-IColumnStorage",
+        "field.datalenght_other": "jcb-iface-IColumnStorage",
+        "field.datatype": "jcb-iface-IColumnStorage",
+        "field.guid": "jcb-iface-IPortableIdentity",
+        "field.indexes": "jcb-iface-IColumnStorage",
+        "field.javascript_view_footer": "jcb-iface-IViewAssets",
+        "field.javascript_views_footer": "jcb-iface-IViewAssets",
+        "field.name": "jcb-iface-IJcbNamed",
+        "field.null_switch": "jcb-iface-IColumnStorage",
+        "field.store": "jcb-iface-IColumnStorage",
+        "fieldtype.datadefault": "jcb-iface-IColumnStorage",
+        "fieldtype.datadefault_other": "jcb-iface-IColumnStorage",
+        "fieldtype.datalenght": "jcb-iface-IColumnStorage",
+        "fieldtype.datalenght_other": "jcb-iface-IColumnStorage",
+        "fieldtype.datatype": "jcb-iface-IColumnStorage",
+        "fieldtype.description": "jcb-iface-IDescribed",
+        "fieldtype.guid": "jcb-iface-IPortableIdentity",
+        "fieldtype.indexes": "jcb-iface-IColumnStorage",
+        "fieldtype.name": "jcb-iface-IJcbNamed",
+        "fieldtype.null_switch": "jcb-iface-IColumnStorage",
+        "fieldtype.short_description": "jcb-iface-IShortDescribed",
+        "fieldtype.store": "jcb-iface-IColumnStorage",
+        "joomla_component.add_php_method_uninstall": "jcb-iface-IInstallableExtension",
+        "joomla_component.add_php_postflight_install": "jcb-iface-IInstallableExtension",
+        "joomla_component.add_php_postflight_update": "jcb-iface-IInstallableExtension",
+        "joomla_component.add_php_preflight_install": "jcb-iface-IInstallableExtension",
+        "joomla_component.add_php_preflight_update": "jcb-iface-IInstallableExtension",
+        "joomla_component.add_sql": "jcb-iface-IHasSql",
+        "joomla_component.add_sql_uninstall": "jcb-iface-IInstallableExtension",
+        "joomla_component.add_update_server": "jcb-iface-IInstallableExtension",
+        "joomla_component.addreadme": "jcb-iface-IInstallableExtension",
+        "joomla_component.description": "jcb-iface-IDescribed",
+        "joomla_component.guid": "jcb-iface-IPortableIdentity",
+        "joomla_component.php_method_uninstall": "jcb-iface-IInstallableExtension",
+        "joomla_component.php_postflight_install": "jcb-iface-IInstallableExtension",
+        "joomla_component.php_postflight_update": "jcb-iface-IInstallableExtension",
+        "joomla_component.php_preflight_install": "jcb-iface-IInstallableExtension",
+        "joomla_component.php_preflight_update": "jcb-iface-IInstallableExtension",
+        "joomla_component.readme": "jcb-iface-IInstallableExtension",
+        "joomla_component.short_description": "jcb-iface-IShortDescribed",
+        "joomla_component.sql": "jcb-iface-IHasSql",
+        "joomla_component.sql_uninstall": "jcb-iface-IInstallableExtension",
+        "joomla_component.system_name": "jcb-iface-ISystemNamed",
+        "joomla_component.update_server_target": "jcb-iface-IInstallableExtension",
+        "joomla_component.update_server_url": "jcb-iface-IInstallableExtension",
+        "joomla_module.add_php_method_uninstall": "jcb-iface-IInstallableExtension",
+        "joomla_module.add_php_postflight_install": "jcb-iface-IInstallableExtension",
+        "joomla_module.add_php_postflight_update": "jcb-iface-IInstallableExtension",
+        "joomla_module.add_php_preflight_install": "jcb-iface-IInstallableExtension",
+        "joomla_module.add_php_preflight_uninstall": "jcb-iface-IInstallerScriptExtras",
+        "joomla_module.add_php_preflight_update": "jcb-iface-IInstallableExtension",
+        "joomla_module.add_php_script_construct": "jcb-iface-IInstallerScriptExtras",
+        "joomla_module.add_sql": "jcb-iface-IHasSql",
+        "joomla_module.add_sql_uninstall": "jcb-iface-IInstallableExtension",
+        "joomla_module.add_update_server": "jcb-iface-IInstallableExtension",
+        "joomla_module.addreadme": "jcb-iface-IInstallableExtension",
+        "joomla_module.custom_get": "jcb-iface-IUsesCustomGet",
+        "joomla_module.default": "jcb-iface-IUsesCustomGet",
+        "joomla_module.description": "jcb-iface-IDescribed",
+        "joomla_module.guid": "jcb-iface-IPortableIdentity",
+        "joomla_module.libraries": "jcb-iface-IUsesLibraries",
+        "joomla_module.name": "jcb-iface-IJcbNamed",
+        "joomla_module.php_method_uninstall": "jcb-iface-IInstallableExtension",
+        "joomla_module.php_postflight_install": "jcb-iface-IInstallableExtension",
+        "joomla_module.php_postflight_update": "jcb-iface-IInstallableExtension",
+        "joomla_module.php_preflight_install": "jcb-iface-IInstallableExtension",
+        "joomla_module.php_preflight_uninstall": "jcb-iface-IInstallerScriptExtras",
+        "joomla_module.php_preflight_update": "jcb-iface-IInstallableExtension",
+        "joomla_module.php_script_construct": "jcb-iface-IInstallerScriptExtras",
+        "joomla_module.readme": "jcb-iface-IInstallableExtension",
+        "joomla_module.snippet": "jcb-iface-IUsesLibraries",
+        "joomla_module.sql": "jcb-iface-IHasSql",
+        "joomla_module.sql_uninstall": "jcb-iface-IInstallableExtension",
+        "joomla_module.system_name": "jcb-iface-ISystemNamed",
+        "joomla_module.update_server_target": "jcb-iface-IInstallableExtension",
+        "joomla_module.update_server_url": "jcb-iface-IInstallableExtension",
+        "joomla_module_files_folders_urls.addfiles": "jcb-iface-IFilesAndFolders",
+        "joomla_module_files_folders_urls.addfilesfullpath": "jcb-iface-IFilesAndFolders",
+        "joomla_module_files_folders_urls.addfolders": "jcb-iface-IFilesAndFolders",
+        "joomla_module_files_folders_urls.addfoldersfullpath": "jcb-iface-IFilesAndFolders",
+        "joomla_module_files_folders_urls.addurls": "jcb-iface-IHasUrls",
+        "joomla_module_files_folders_urls.joomla_module": "jcb-iface-IModuleChild",
+        "joomla_module_updates.joomla_module": "jcb-iface-IModuleChild",
+        "joomla_module_updates.version_update": "jcb-iface-IHasVersionUpdates",
+        "joomla_plugin.add_head": "jcb-iface-IClassBody",
+        "joomla_plugin.add_php_method_uninstall": "jcb-iface-IInstallableExtension",
+        "joomla_plugin.add_php_postflight_install": "jcb-iface-IInstallableExtension",
+        "joomla_plugin.add_php_postflight_update": "jcb-iface-IInstallableExtension",
+        "joomla_plugin.add_php_preflight_install": "jcb-iface-IInstallableExtension",
+        "joomla_plugin.add_php_preflight_uninstall": "jcb-iface-IInstallerScriptExtras",
+        "joomla_plugin.add_php_preflight_update": "jcb-iface-IInstallableExtension",
+        "joomla_plugin.add_php_script_construct": "jcb-iface-IInstallerScriptExtras",
+        "joomla_plugin.add_sql": "jcb-iface-IHasSql",
+        "joomla_plugin.add_sql_uninstall": "jcb-iface-IInstallableExtension",
+        "joomla_plugin.add_update_server": "jcb-iface-IInstallableExtension",
+        "joomla_plugin.addreadme": "jcb-iface-IInstallableExtension",
+        "joomla_plugin.class_extends": "jcb-iface-IExtendsClass",
+        "joomla_plugin.description": "jcb-iface-IDescribed",
+        "joomla_plugin.guid": "jcb-iface-IPortableIdentity",
+        "joomla_plugin.head": "jcb-iface-IHasHead",
+        "joomla_plugin.main_class_code": "jcb-iface-IClassBody",
+        "joomla_plugin.name": "jcb-iface-IJcbNamed",
+        "joomla_plugin.php_method_uninstall": "jcb-iface-IInstallableExtension",
+        "joomla_plugin.php_postflight_install": "jcb-iface-IInstallableExtension",
+        "joomla_plugin.php_postflight_update": "jcb-iface-IInstallableExtension",
+        "joomla_plugin.php_preflight_install": "jcb-iface-IInstallableExtension",
+        "joomla_plugin.php_preflight_uninstall": "jcb-iface-IInstallerScriptExtras",
+        "joomla_plugin.php_preflight_update": "jcb-iface-IInstallableExtension",
+        "joomla_plugin.php_script_construct": "jcb-iface-IInstallerScriptExtras",
+        "joomla_plugin.readme": "jcb-iface-IInstallableExtension",
+        "joomla_plugin.sql": "jcb-iface-IHasSql",
+        "joomla_plugin.sql_uninstall": "jcb-iface-IInstallableExtension",
+        "joomla_plugin.system_name": "jcb-iface-ISystemNamed",
+        "joomla_plugin.update_server_target": "jcb-iface-IInstallableExtension",
+        "joomla_plugin.update_server_url": "jcb-iface-IInstallableExtension",
+        "joomla_plugin_files_folders_urls.addfiles": "jcb-iface-IFilesAndFolders",
+        "joomla_plugin_files_folders_urls.addfilesfullpath": "jcb-iface-IFilesAndFolders",
+        "joomla_plugin_files_folders_urls.addfolders": "jcb-iface-IFilesAndFolders",
+        "joomla_plugin_files_folders_urls.addfoldersfullpath": "jcb-iface-IFilesAndFolders",
+        "joomla_plugin_files_folders_urls.addurls": "jcb-iface-IHasUrls",
+        "joomla_plugin_files_folders_urls.joomla_plugin": "jcb-iface-IPluginChild",
+        "joomla_plugin_group.class_extends": "jcb-iface-IExtendsClass",
+        "joomla_plugin_group.guid": "jcb-iface-IPortableIdentity",
+        "joomla_plugin_group.name": "jcb-iface-IJcbNamed",
+        "joomla_plugin_updates.joomla_plugin": "jcb-iface-IPluginChild",
+        "joomla_plugin_updates.version_update": "jcb-iface-IHasVersionUpdates",
+        "joomla_power.description": "jcb-iface-IDescribed",
+        "joomla_power.guid": "jcb-iface-IPortableIdentity",
+        "joomla_power.system_name": "jcb-iface-ISystemNamed",
+        "layout.add_php_view": "jcb-iface-IPhpView",
+        "layout.alias": "jcb-iface-IAliasedPresentation",
+        "layout.description": "jcb-iface-IPhpView",
+        "layout.dynamic_get": "jcb-iface-IAliasedPresentation",
+        "layout.guid": "jcb-iface-IPortableIdentity",
+        "layout.libraries": "jcb-iface-IUsesLibraries",
+        "layout.name": "jcb-iface-IJcbNamed",
+        "layout.php_view": "jcb-iface-IPhpView",
+        "layout.snippet": "jcb-iface-IUsesLibraries",
+        "library.guid": "jcb-iface-IPortableIdentity",
+        "library.name": "jcb-iface-IJcbNamed",
+        "library_config.addconfig": "jcb-iface-IHasConfigFields",
+        "library_config.library": "jcb-iface-ILibraryChild",
+        "library_files_folders_urls.addfiles": "jcb-iface-IFilesAndFolders",
+        "library_files_folders_urls.addfilesfullpath": "jcb-iface-IFilesAndFolders",
+        "library_files_folders_urls.addfolders": "jcb-iface-IFilesAndFolders",
+        "library_files_folders_urls.addfoldersfullpath": "jcb-iface-IFilesAndFolders",
+        "library_files_folders_urls.addurls": "jcb-iface-IHasUrls",
+        "library_files_folders_urls.library": "jcb-iface-ILibraryChild",
+        "power.add_head": "jcb-iface-IClassBody",
+        "power.description": "jcb-iface-IDescribed",
+        "power.guid": "jcb-iface-IPortableIdentity",
+        "power.head": "jcb-iface-IHasHead",
+        "power.main_class_code": "jcb-iface-IClassBody",
+        "power.name": "jcb-iface-IJcbNamed",
+        "power.system_name": "jcb-iface-ISystemNamed",
+        "repository.addplaceholders": "jcb-iface-IHasPlaceholders",
+        "repository.guid": "jcb-iface-IPortableIdentity",
+        "repository.system_name": "jcb-iface-ISystemNamed",
+        "site_view.add_css": "jcb-iface-IRenderedView",
+        "site_view.add_css_document": "jcb-iface-IRenderedView",
+        "site_view.add_custom_button": "jcb-iface-IInteractiveView",
+        "site_view.add_javascript_file": "jcb-iface-IRenderedView",
+        "site_view.add_js_document": "jcb-iface-IRenderedView",
+        "site_view.add_php_ajax": "jcb-iface-IInteractiveView",
+        "site_view.add_php_document": "jcb-iface-IInteractiveView",
+        "site_view.add_php_jview": "jcb-iface-IRenderedView",
+        "site_view.add_php_jview_display": "jcb-iface-IRenderedView",
+        "site_view.add_php_view": "jcb-iface-IPhpView",
+        "site_view.add_view_toolbar": "jcb-iface-IInteractiveView",
+        "site_view.ajax_input": "jcb-iface-IInteractiveView",
+        "site_view.codename": "jcb-iface-IRenderedView",
+        "site_view.context": "jcb-iface-IRenderedView",
+        "site_view.css": "jcb-iface-IRenderedView",
+        "site_view.css_document": "jcb-iface-IRenderedView",
+        "site_view.custom_button": "jcb-iface-IInteractiveView",
+        "site_view.custom_get": "jcb-iface-IUsesCustomGet",
+        "site_view.default": "jcb-iface-IUsesCustomGet",
+        "site_view.description": "jcb-iface-IPhpView",
+        "site_view.dynamic_get": "jcb-iface-IRenderedView",
+        "site_view.guid": "jcb-iface-IPortableIdentity",
+        "site_view.javascript_file": "jcb-iface-IRenderedView",
+        "site_view.js_document": "jcb-iface-IRenderedView",
+        "site_view.libraries": "jcb-iface-IUsesLibraries",
+        "site_view.main_get": "jcb-iface-IRenderedView",
+        "site_view.name": "jcb-iface-IJcbNamed",
+        "site_view.php_ajaxmethod": "jcb-iface-IInteractiveView",
+        "site_view.php_controller": "jcb-iface-IInteractiveView",
+        "site_view.php_document": "jcb-iface-IInteractiveView",
+        "site_view.php_jview": "jcb-iface-IRenderedView",
+        "site_view.php_jview_display": "jcb-iface-IRenderedView",
+        "site_view.php_model": "jcb-iface-IInteractiveView",
+        "site_view.php_view": "jcb-iface-IPhpView",
+        "site_view.snippet": "jcb-iface-IUsesLibraries",
+        "site_view.system_name": "jcb-iface-ISystemNamed",
+        "site_view.view_toolbar": "jcb-iface-IInteractiveView",
+        "snippet.description": "jcb-iface-IDescribed",
+        "snippet.guid": "jcb-iface-IPortableIdentity",
+        "snippet.name": "jcb-iface-IJcbNamed",
+        "template.add_php_view": "jcb-iface-IPhpView",
+        "template.alias": "jcb-iface-IAliasedPresentation",
+        "template.description": "jcb-iface-IPhpView",
+        "template.dynamic_get": "jcb-iface-IAliasedPresentation",
+        "template.guid": "jcb-iface-IPortableIdentity",
+        "template.libraries": "jcb-iface-IUsesLibraries",
+        "template.name": "jcb-iface-IJcbNamed",
+        "template.php_view": "jcb-iface-IPhpView",
+        "template.snippet": "jcb-iface-IUsesLibraries",
+        "validation_rule.short_description": "jcb-iface-IShortDescribed"
+    }
+}

@@ -1,13 +1,11 @@
 {
     "meta": {
         "generator": "jcbinout-metamodel-extractor",
-        "generatorVersion": "0.1.0",
+        "generatorVersion": "0.2.0",
+        "extractedAt": "2026-09-20T12:44:54+00:00",
         "jcbCommit": "bca4a1520484f3e2c2fbd12964a5995b0d058de1",
-        "extractedAt": "2026-09-20T09:38:08+00:00",
-        "sourceHashes": {
-            "Table.php": "c58c8ee2a625c55f2f6869e0a5454d5a480ec539bec2f525610b5149490ef6cf",
-            "Factory.php": "c91ec3fdb21bfbf217f77b8f957e870a935112338415305dc68a8e9fdf92ae55"
-        }
+        "jcbSourcePath": "C:\\wamp\\www\\jcbinout/vendor-jcb",
+        "schemaFingerprint": "c58c8ee2a625c55f2f6869e0a5454d5a480ec539bec2f525610b5149490ef6cf"
     },
     "stats": {
         "entitiesTotal": 51,
@@ -21,21 +19,20 @@
             "secret": 12,
             "structured": 4
         },
+        "enumerations": 18,
+        "enumerationLiterals": 378,
         "diagnosticsBySeverity": {
             "warning": 8,
-            "info": 12,
-            "error": 5
-        },
-        "enumerations": 18,
-        "enumerationLiterals": 378
+            "error": 5,
+            "info": 6
+        }
     },
     "enumerations": {
         "AdminViewMysqlTableCharset": {
             "name": "AdminViewMysqlTableCharset",
             "origin": {
                 "entity": "admin_view",
-                "property": "mysql_table_charset",
-                "source": "admin/forms/admin_view.xml"
+                "property": "mysql_table_charset"
             },
             "allowsEmpty": false,
             "literals": [
@@ -250,8 +247,7 @@
             "name": "AdminViewMysqlTableCollate",
             "origin": {
                 "entity": "admin_view",
-                "property": "mysql_table_collate",
-                "source": "admin/forms/admin_view.xml"
+                "property": "mysql_table_collate"
             },
             "allowsEmpty": false,
             "literals": [
@@ -1371,8 +1367,7 @@
             "name": "AdminViewMysqlTableEngine",
             "origin": {
                 "entity": "admin_view",
-                "property": "mysql_table_engine",
-                "source": "admin/forms/admin_view.xml"
+                "property": "mysql_table_engine"
             },
             "allowsEmpty": false,
             "literals": [
@@ -1407,8 +1402,7 @@
             "name": "AdminViewMysqlTableRowFormat",
             "origin": {
                 "entity": "admin_view",
-                "property": "mysql_table_row_format",
-                "source": "admin/forms/admin_view.xml"
+                "property": "mysql_table_row_format"
             },
             "allowsEmpty": false,
             "literals": [
@@ -1443,8 +1437,7 @@
             "name": "ClassExtendsExtensionType",
             "origin": {
                 "entity": "class_extends",
-                "property": "extension_type",
-                "source": "admin/forms/class_extends.xml"
+                "property": "extension_type"
             },
             "allowsEmpty": true,
             "literals": [
@@ -1474,8 +1467,7 @@
             "name": "ClassMethodExtensionType",
             "origin": {
                 "entity": "class_method",
-                "property": "extension_type",
-                "source": "admin/forms/class_method.xml"
+                "property": "extension_type"
             },
             "allowsEmpty": true,
             "literals": [
@@ -1505,8 +1497,7 @@
             "name": "ClassMethodVisibility",
             "origin": {
                 "entity": "class_method",
-                "property": "visibility",
-                "source": "admin/forms/class_method.xml"
+                "property": "visibility"
             },
             "allowsEmpty": false,
             "literals": [
@@ -1546,8 +1537,7 @@
             "name": "ClassPropertyExtensionType",
             "origin": {
                 "entity": "class_property",
-                "property": "extension_type",
-                "source": "admin/forms/class_property.xml"
+                "property": "extension_type"
             },
             "allowsEmpty": true,
             "literals": [
@@ -1577,8 +1567,7 @@
             "name": "ClassPropertyVisibility",
             "origin": {
                 "entity": "class_property",
-                "property": "visibility",
-                "source": "admin/forms/class_property.xml"
+                "property": "visibility"
             },
             "allowsEmpty": false,
             "literals": [
@@ -1618,8 +1607,7 @@
             "name": "FieldDatadefault",
             "origin": {
                 "entity": "field",
-                "property": "datadefault",
-                "source": "admin/forms/field.xml"
+                "property": "datadefault"
             },
             "allowsEmpty": true,
             "literals": [
@@ -1654,8 +1642,7 @@
             "name": "FieldDatalenght",
             "origin": {
                 "entity": "field",
-                "property": "datalenght",
-                "source": "admin/forms/field.xml"
+                "property": "datalenght"
             },
             "allowsEmpty": true,
             "literals": [
@@ -1725,8 +1712,7 @@
             "name": "FieldDatatype",
             "origin": {
                 "entity": "field",
-                "property": "datatype",
-                "source": "admin/forms/field.xml"
+                "property": "datatype"
             },
             "allowsEmpty": true,
             "literals": [
@@ -1826,8 +1812,7 @@
             "name": "FieldIndexes",
             "origin": {
                 "entity": "field",
-                "property": "indexes",
-                "source": "admin/forms/field.xml"
+                "property": "indexes"
             },
             "allowsEmpty": false,
             "literals": [
@@ -1852,8 +1837,7 @@
             "name": "FieldtypeDatadefault",
             "origin": {
                 "entity": "fieldtype",
-                "property": "datadefault",
-                "source": "admin/forms/fieldtype.xml"
+                "property": "datadefault"
             },
             "allowsEmpty": true,
             "literals": [
@@ -1888,8 +1872,7 @@
             "name": "FieldtypeDatalenght",
             "origin": {
                 "entity": "fieldtype",
-                "property": "datalenght",
-                "source": "admin/forms/fieldtype.xml"
+                "property": "datalenght"
             },
             "allowsEmpty": true,
             "literals": [
@@ -1959,8 +1942,7 @@
             "name": "FieldtypeDatatype",
             "origin": {
                 "entity": "fieldtype",
-                "property": "datatype",
-                "source": "admin/forms/fieldtype.xml"
+                "property": "datatype"
             },
             "allowsEmpty": true,
             "literals": [
@@ -2060,8 +2042,7 @@
             "name": "FieldtypeIndexes",
             "origin": {
                 "entity": "fieldtype",
-                "property": "indexes",
-                "source": "admin/forms/fieldtype.xml"
+                "property": "indexes"
             },
             "allowsEmpty": false,
             "literals": [
@@ -2086,8 +2067,7 @@
             "name": "PowerType",
             "origin": {
                 "entity": "power",
-                "property": "type",
-                "source": "admin/forms/power.xml"
+                "property": "type"
             },
             "allowsEmpty": false,
             "literals": [
@@ -2147,7 +2127,6 @@
                 "indexPath": "index/joomla-component.json",
                 "srcPath": "src/joomla_component",
                 "settingsName": "item.json",
-                "mainReadmePath": "README.md",
                 "children": [
                     "component_admin_views",
                     "component_custom_admin_views",
@@ -2167,15 +2146,7 @@
                     "bom": "compiler"
                 },
                 "folders": [],
-                "titleName": "system_name",
-                "indexHeader": [
-                    "name",
-                    "desc",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "system_name"
             },
             "properties": {
                 "system_name": {
@@ -3953,22 +3924,13 @@
                 "indexPath": "index/joomla-module.json",
                 "srcPath": "src/joomla_module",
                 "settingsName": "item.json",
-                "mainReadmePath": "README_MODULES.md",
                 "children": [
                     "joomla_module_updates",
                     "joomla_module_files_folders_urls"
                 ],
                 "files": [],
                 "folders": [],
-                "titleName": "system_name",
-                "indexHeader": [
-                    "name",
-                    "desc",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "system_name"
             },
             "properties": {
                 "system_name": {
@@ -4855,22 +4817,13 @@
                 "indexPath": "index/joomla-plugin.json",
                 "srcPath": "src/joomla_plugin",
                 "settingsName": "item.json",
-                "mainReadmePath": "README_PLUGINS.md",
                 "children": [
                     "joomla_plugin_updates",
                     "joomla_plugin_files_folders_urls"
                 ],
                 "files": [],
                 "folders": [],
-                "titleName": "system_name",
-                "indexHeader": [
-                    "name",
-                    "desc",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "system_name"
             },
             "properties": {
                 "system_name": {
@@ -5665,24 +5618,14 @@
                 "ignore": [
                     "access"
                 ],
-                "prefixKey": "Joomla---",
-                "suffixKey": "---Power",
                 "guidField": "guid",
                 "indexPath": "index.json",
                 "srcPath": "src",
                 "settingsName": "item.json",
-                "mainReadmePath": "README.md",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "system_name",
-                "indexHeader": [
-                    "name",
-                    "jpk",
-                    "path",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "system_name"
             },
             "properties": {
                 "system_name": {
@@ -5807,26 +5750,14 @@
                     "[[[Component]]]": "Componentbuilder",
                     "[[[component]]]": "componentbuilder"
                 },
-                "prefixKey": "Super---",
-                "suffixKey": "---Power",
                 "guidField": "guid",
                 "indexPath": "super-powers.json",
                 "srcPath": "src",
                 "settingsName": "settings.json",
-                "mainReadmePath": "README.md",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "system_name",
-                "indexHeader": [
-                    "name",
-                    "type",
-                    "namespace",
-                    "spk",
-                    "path",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "system_name"
             },
             "properties": {
                 "system_name": {
@@ -6365,7 +6296,6 @@
                 "indexPath": "index/admin-view.json",
                 "srcPath": "src/admin_view",
                 "settingsName": "item.json",
-                "mainReadmePath": "README_ADMIN_VIEWS.md",
                 "children": [
                     "admin_fields",
                     "admin_fields_relations",
@@ -6378,15 +6308,7 @@
                     "icon_category": "images"
                 },
                 "folders": [],
-                "titleName": "system_name",
-                "indexHeader": [
-                    "name",
-                    "desc",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "system_name"
             },
             "properties": {
                 "system_name": {
@@ -8120,21 +8042,12 @@
                 "indexPath": "index/custom-admin-view.json",
                 "srcPath": "src/custom_admin_view",
                 "settingsName": "item.json",
-                "mainReadmePath": "README_CUSTOM_ADMIN_VIEWS.md",
                 "children": [],
                 "files": [
                     "icon"
                 ],
                 "folders": [],
-                "titleName": "name",
-                "indexHeader": [
-                    "name",
-                    "desc",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "name"
             },
             "properties": {
                 "system_name": {
@@ -8915,19 +8828,10 @@
                 "indexPath": "index/site-view.json",
                 "srcPath": "src/site_view",
                 "settingsName": "item.json",
-                "mainReadmePath": "README_SITE_VIEWS.md",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "name",
-                "indexHeader": [
-                    "name",
-                    "desc",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "name"
             },
             "properties": {
                 "system_name": {
@@ -9709,20 +9613,10 @@
                 "indexPath": "index/template.json",
                 "srcPath": "src/template",
                 "settingsName": "item.json",
-                "mainReadmePath": "README_TEMPLATES.md",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "name",
-                "indexHeader": [
-                    "name",
-                    "desc",
-                    "alias",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "name"
             },
             "properties": {
                 "name": {
@@ -9935,20 +9829,10 @@
                 "indexPath": "index/layout.json",
                 "srcPath": "src/layout",
                 "settingsName": "item.json",
-                "mainReadmePath": "README_LAYOUTS.md",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "name",
-                "indexHeader": [
-                    "name",
-                    "desc",
-                    "alias",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "name"
             },
             "properties": {
                 "name": {
@@ -10160,18 +10044,10 @@
                 "indexPath": "index/dynamic-get.json",
                 "srcPath": "src/dynamic_get",
                 "settingsName": "item.json",
-                "mainReadmePath": "README_DYNAMIC_GETS.md",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "name",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "name"
             },
             "properties": {
                 "name": {
@@ -11007,25 +10883,14 @@
                 "ignore": [
                     "access"
                 ],
-                "prefixKey": "[CUSTOMCODE=",
-                "suffixKey": "]",
                 "guidField": "function_name",
                 "indexPath": "index/custom-code.json",
                 "srcPath": "src/custom_code",
                 "settingsName": "item.json",
-                "mainReadmePath": "README_CUSTOM_CODES.md",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "system_name",
-                "indexHeader": [
-                    "name",
-                    "desc",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "system_name"
             },
             "properties": {
                 "system_name": {
@@ -11285,18 +11150,10 @@
                 "indexPath": "index/class-extends.json",
                 "srcPath": "src/class_extends",
                 "settingsName": "item.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "name",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "name"
             },
             "properties": {
                 "name": {
@@ -11422,18 +11279,10 @@
                 "indexPath": "index/class-property.json",
                 "srcPath": "src/class_property",
                 "settingsName": "item.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "name",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "name"
             },
             "properties": {
                 "name": {
@@ -11596,18 +11445,10 @@
                 "indexPath": "index/class-method.json",
                 "srcPath": "src/class_method",
                 "settingsName": "item.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "name",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "name"
             },
             "properties": {
                 "name": {
@@ -11788,18 +11629,10 @@
                 "indexPath": "index/placeholder.json",
                 "srcPath": "src/placeholder",
                 "settingsName": "item.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "target",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "target"
             },
             "properties": {
                 "target": {
@@ -11871,22 +11704,13 @@
                 "indexPath": "index/library.json",
                 "srcPath": "src/library",
                 "settingsName": "item.json",
-                "mainReadmePath": "README_LIBRARIES.md",
                 "children": [
                     "library_config",
                     "library_files_folders_urls"
                 ],
                 "files": [],
                 "folders": [],
-                "titleName": "name",
-                "indexHeader": [
-                    "name",
-                    "desc",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "name"
             },
             "properties": {
                 "name": {
@@ -12120,19 +11944,10 @@
                 "indexPath": "snippet-index.json",
                 "srcPath": "src",
                 "settingsName": "item.json",
-                "mainReadmePath": "README.md",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "name",
-                "indexHeader": [
-                    "name",
-                    "desc",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "name"
             },
             "properties": {
                 "name": {
@@ -12393,18 +12208,10 @@
                 "indexPath": "index/validation_rule.json",
                 "srcPath": "src/validation_rule",
                 "settingsName": "item.json",
-                "mainReadmePath": "README_VALIDATION_RULE.md",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "name",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "name"
             },
             "properties": {
                 "name": {
@@ -12512,18 +12319,10 @@
                 "indexPath": "index/field.json",
                 "srcPath": "src/field",
                 "settingsName": "item.json",
-                "mainReadmePath": "README_FIELDS.md",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "name",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "name"
             },
             "properties": {
                 "name": {
@@ -13004,19 +12803,10 @@
                 "indexPath": "index.json",
                 "srcPath": "src",
                 "settingsName": "item.json",
-                "mainReadmePath": "README.md",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "name",
-                "indexHeader": [
-                    "name",
-                    "desc",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "name"
             },
             "properties": {
                 "name": {
@@ -13770,18 +13560,10 @@
                 "indexPath": "index.json",
                 "srcPath": "src",
                 "settingsName": "item.json",
-                "mainReadmePath": "README.md",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "system_name",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "system_name"
             },
             "properties": {
                 "system_name": {
@@ -14284,18 +14066,10 @@
                 "indexPath": "index/admin-fields.json",
                 "srcPath": "src/admin_view/children",
                 "settingsName": "admin-fields.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "admin_view",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "admin_view"
             },
             "properties": {
                 "admin_view": {
@@ -14451,18 +14225,10 @@
                 "indexPath": "index/admin-fields-conditions.json",
                 "srcPath": "src/admin_view/children",
                 "settingsName": "admin-fields-conditions.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "admin_view",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "admin_view"
             },
             "properties": {
                 "admin_view": {
@@ -14576,18 +14342,10 @@
                 "indexPath": "index/admin-fields-relations.json",
                 "srcPath": "src/admin_view/children",
                 "settingsName": "admin-fields-relations.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "admin_view",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "admin_view"
             },
             "properties": {
                 "admin_view": {
@@ -14701,18 +14459,10 @@
                 "indexPath": "index/admin-custom-tabs.json",
                 "srcPath": "src/admin_view/children",
                 "settingsName": "admin-custom-tabs.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "admin_view",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "admin_view"
             },
             "properties": {
                 "admin_view": {
@@ -14819,18 +14569,10 @@
                 "indexPath": "index/component-admin-views.json",
                 "srcPath": "src/joomla_component/children",
                 "settingsName": "component-admin-views.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "joomla_component",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "joomla_component"
             },
             "properties": {
                 "joomla_component": {
@@ -15003,18 +14745,10 @@
                 "indexPath": "index/component-site-views.json",
                 "srcPath": "src/joomla_component/children",
                 "settingsName": "component-site-views.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "joomla_component",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "joomla_component"
             },
             "properties": {
                 "joomla_component": {
@@ -15127,18 +14861,10 @@
                 "indexPath": "index/component-custom-admin-views.json",
                 "srcPath": "src/joomla_component/children",
                 "settingsName": "component-custom-admin-views.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "joomla_component",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "joomla_component"
             },
             "properties": {
                 "joomla_component": {
@@ -15271,18 +14997,10 @@
                 "indexPath": "index/component-updates.json",
                 "srcPath": "src/joomla_component/children",
                 "settingsName": "component-updates.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "joomla_component",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "joomla_component"
             },
             "properties": {
                 "joomla_component": {
@@ -15505,20 +15223,12 @@
                 "indexPath": "index/component-custom-admin-menus.json",
                 "srcPath": "src/joomla_component/children",
                 "settingsName": "component-custom-admin-menus.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": {
                     "addcustommenus|icon": "image"
                 },
                 "folders": [],
-                "titleName": "joomla_component",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "joomla_component"
             },
             "properties": {
                 "joomla_component": {
@@ -15643,18 +15353,10 @@
                 "indexPath": "index/component-router.json",
                 "srcPath": "src/joomla_component/children",
                 "settingsName": "component-router.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "joomla_component",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "joomla_component"
             },
             "properties": {
                 "joomla_component": {
@@ -15842,18 +15544,10 @@
                 "indexPath": "index/component-config.json",
                 "srcPath": "src/joomla_component/children",
                 "settingsName": "component-config.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "joomla_component",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "joomla_component"
             },
             "properties": {
                 "joomla_component": {
@@ -15948,18 +15642,10 @@
                 "indexPath": "index/component-dashboard.json",
                 "srcPath": "src/joomla_component/children",
                 "settingsName": "component-dashboard.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "joomla_component",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "joomla_component"
             },
             "properties": {
                 "joomla_component": {
@@ -16071,7 +15757,6 @@
                 "indexPath": "index/component-files-folders.json",
                 "srcPath": "src/joomla_component/children",
                 "settingsName": "component-files-folders.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": {
                     "addfiles|file": "custom",
@@ -16081,14 +15766,7 @@
                     "addfolders|folder": "custom",
                     "addfoldersfullpath|folderpath": "full"
                 },
-                "titleName": "joomla_component",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "joomla_component"
             },
             "properties": {
                 "joomla_component": {
@@ -16301,18 +15979,10 @@
                 "indexPath": "index/component-placeholders.json",
                 "srcPath": "src/joomla_component/children",
                 "settingsName": "component-placeholders.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "joomla_component",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "joomla_component"
             },
             "properties": {
                 "joomla_component": {
@@ -16400,18 +16070,10 @@
                 "indexPath": "index/component-plugins.json",
                 "srcPath": "src/joomla_component/children",
                 "settingsName": "component-plugins.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "joomla_component",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "joomla_component"
             },
             "properties": {
                 "joomla_component": {
@@ -16500,18 +16162,10 @@
                 "indexPath": "index/component-modules.json",
                 "srcPath": "src/joomla_component/children",
                 "settingsName": "component-modules.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "joomla_component",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "joomla_component"
             },
             "properties": {
                 "joomla_component": {
@@ -16674,18 +16328,10 @@
                 "indexPath": "index/library-config.json",
                 "srcPath": "src/library/children",
                 "settingsName": "library-config.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "library",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "library"
             },
             "properties": {
                 "library": {
@@ -16780,7 +16426,6 @@
                 "indexPath": "index/library-files-folders-urls.json",
                 "srcPath": "src/library/children",
                 "settingsName": "library-files-folders-urls.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": {
                     "addfiles|file": "custom",
@@ -16790,14 +16435,7 @@
                     "addfolders|folder": "custom",
                     "addfoldersfullpath|folderpath": "full"
                 },
-                "titleName": "library",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "library"
             },
             "properties": {
                 "library": {
@@ -17043,18 +16681,10 @@
                 "indexPath": "index/joomla-module-updates.json",
                 "srcPath": "src/joomla_module/children",
                 "settingsName": "joomla-module-updates.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "joomla_module",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "joomla_module"
             },
             "properties": {
                 "joomla_module": {
@@ -17148,7 +16778,6 @@
                 "indexPath": "index/joomla-module-files-folders-urls.json",
                 "srcPath": "src/joomla_module/children",
                 "settingsName": "joomla-module-files-folders-urls.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": {
                     "addfiles|file": "custom",
@@ -17158,14 +16787,7 @@
                     "addfolders|folder": "custom",
                     "addfoldersfullpath|folderpath": "full"
                 },
-                "titleName": "joomla_module",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "joomla_module"
             },
             "properties": {
                 "joomla_module": {
@@ -17411,18 +17033,10 @@
                 "indexPath": "index/joomla-plugin-group.json",
                 "srcPath": "src/joomla_plugin_group",
                 "settingsName": "item.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "name",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "name"
             },
             "properties": {
                 "name": {
@@ -17511,18 +17125,10 @@
                 "indexPath": "index/joomla-plugin-updates.json",
                 "srcPath": "src/joomla_plugin/children",
                 "settingsName": "joomla-plugin-updates.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": [],
                 "folders": [],
-                "titleName": "joomla_plugin",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "joomla_plugin"
             },
             "properties": {
                 "joomla_plugin": {
@@ -17616,7 +17222,6 @@
                 "indexPath": "index/joomla-plugin-files-folders-urls.json",
                 "srcPath": "src/joomla_plugin/children",
                 "settingsName": "joomla-plugin-files-folders-urls.json",
-                "mainReadmePath": "",
                 "children": [],
                 "files": {
                     "addfiles|file": "custom",
@@ -17626,14 +17231,7 @@
                     "addfolders|folder": "custom",
                     "addfoldersfullpath|folderpath": "full"
                 },
-                "titleName": "joomla_plugin",
-                "indexHeader": [
-                    "name",
-                    "path",
-                    "settings",
-                    "guid",
-                    "local"
-                ]
+                "titleName": "joomla_plugin"
             },
             "properties": {
                 "joomla_plugin": {
@@ -17870,7 +17468,7 @@
         {
             "severity": "warning",
             "code": "PROPERTY_NO_GUID",
-            "message": "Portable property 'joomla_component.metakey' has no GUID; Phase 2 must synthesise a stable feature key.",
+            "message": "Portable property 'joomla_component.metakey' has no GUID; a stable feature key must be synthesised.",
             "context": {
                 "entity": "joomla_component",
                 "property": "metakey"
@@ -17879,7 +17477,7 @@
         {
             "severity": "warning",
             "code": "PROPERTY_NO_GUID",
-            "message": "Portable property 'joomla_component.metadesc' has no GUID; Phase 2 must synthesise a stable feature key.",
+            "message": "Portable property 'joomla_component.metadesc' has no GUID; a stable feature key must be synthesised.",
             "context": {
                 "entity": "joomla_component",
                 "property": "metadesc"
@@ -17888,16 +17486,7 @@
         {
             "severity": "warning",
             "code": "PROPERTY_NO_GUID",
-            "message": "Portable property 'joomla_component.metadata' has no GUID; Phase 2 must synthesise a stable feature key.",
-            "context": {
-                "entity": "joomla_component",
-                "property": "metadata"
-            }
-        },
-        {
-            "severity": "info",
-            "code": "JSON_NO_SHAPE",
-            "message": "Property 'joomla_component.metadata' is stored as JSON with no declared shape; treated as an opaque blob.",
+            "message": "Portable property 'joomla_component.metadata' has no GUID; a stable feature key must be synthesised.",
             "context": {
                 "entity": "joomla_component",
                 "property": "metadata"
@@ -17914,15 +17503,6 @@
             }
         },
         {
-            "severity": "info",
-            "code": "JSON_NO_SHAPE",
-            "message": "Property 'dynamic_get.plugin_events' is stored as JSON with no declared shape; treated as an opaque blob.",
-            "context": {
-                "entity": "dynamic_get",
-                "property": "plugin_events"
-            }
-        },
-        {
             "severity": "error",
             "code": "LINK_TARGET_UNKNOWN",
             "message": "Property 'library.how' links to unknown entity ''.",
@@ -17930,43 +17510,6 @@
                 "entity": "library",
                 "property": "how",
                 "target": ""
-            }
-        },
-        {
-            "severity": "info",
-            "code": "ENUM_NUMERIC_VALUES",
-            "message": "Enumeration 'FieldIndexes' (field.indexes) has only numeric values; confirm it is a closed set and not a constrained number.",
-            "context": {
-                "entity": "field",
-                "property": "indexes",
-                "values": [
-                    "1",
-                    "2",
-                    "0"
-                ]
-            }
-        },
-        {
-            "severity": "info",
-            "code": "JSON_NO_SHAPE",
-            "message": "Property 'field.xml' is stored as JSON with no declared shape; treated as an opaque blob.",
-            "context": {
-                "entity": "field",
-                "property": "xml"
-            }
-        },
-        {
-            "severity": "info",
-            "code": "ENUM_NUMERIC_VALUES",
-            "message": "Enumeration 'FieldtypeIndexes' (fieldtype.indexes) has only numeric values; confirm it is a closed set and not a constrained number.",
-            "context": {
-                "entity": "fieldtype",
-                "property": "indexes",
-                "values": [
-                    "1",
-                    "2",
-                    "0"
-                ]
             }
         },
         {
@@ -17980,7 +17523,7 @@
         {
             "severity": "warning",
             "code": "PROPERTY_NO_GUID",
-            "message": "Portable property 'language_translation.access' has no GUID; Phase 2 must synthesise a stable feature key.",
+            "message": "Portable property 'language_translation.access' has no GUID; a stable feature key must be synthesised.",
             "context": {
                 "entity": "language_translation",
                 "property": "access"
@@ -17997,7 +17540,7 @@
         {
             "severity": "warning",
             "code": "PROPERTY_NO_GUID",
-            "message": "Portable property 'language.access' has no GUID; Phase 2 must synthesise a stable feature key.",
+            "message": "Portable property 'language.access' has no GUID; a stable feature key must be synthesised.",
             "context": {
                 "entity": "language",
                 "property": "access"
@@ -18014,7 +17557,7 @@
         {
             "severity": "warning",
             "code": "PROPERTY_NO_GUID",
-            "message": "Portable property 'server.access' has no GUID; Phase 2 must synthesise a stable feature key.",
+            "message": "Portable property 'server.access' has no GUID; a stable feature key must be synthesised.",
             "context": {
                 "entity": "server",
                 "property": "access"
@@ -18026,15 +17569,6 @@
             "message": "Entity 'help_document' exists in Table.php but is not in the transport catalogue; it is installation-local and will not appear in a blueprint.",
             "context": {
                 "entity": "help_document"
-            }
-        },
-        {
-            "severity": "info",
-            "code": "JSON_NO_SHAPE",
-            "message": "Property 'help_document.groups' is stored as JSON with no declared shape; treated as an opaque blob.",
-            "context": {
-                "entity": "help_document",
-                "property": "groups"
             }
         },
         {
@@ -18078,7 +17612,7 @@
         {
             "severity": "warning",
             "code": "PROPERTY_NO_GUID",
-            "message": "Portable property 'component_mysql_tweaks.access' has no GUID; Phase 2 must synthesise a stable feature key.",
+            "message": "Portable property 'component_mysql_tweaks.access' has no GUID; a stable feature key must be synthesised.",
             "context": {
                 "entity": "component_mysql_tweaks",
                 "property": "access"
@@ -18095,7 +17629,7 @@
         {
             "severity": "warning",
             "code": "PROPERTY_NO_GUID",
-            "message": "Portable property 'snippet_type.access' has no GUID; Phase 2 must synthesise a stable feature key.",
+            "message": "Portable property 'snippet_type.access' has no GUID; a stable feature key must be synthesised.",
             "context": {
                 "entity": "snippet_type",
                 "property": "access"

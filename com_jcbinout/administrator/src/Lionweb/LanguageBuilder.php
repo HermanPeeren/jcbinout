@@ -1,48 +1,34 @@
 <?php
 /**
- * JcbInOut - Phase 2: LionWeb language definition (M2)
- *
- * Turns the derived metamodel (Phase 1) into a LionWeb language serialisation
- * chunk, so JCB's entity catalogue becomes a first-class, exchangeable
- * language rather than an implicit database schema.
- *
- * Mapping rules (see METAMODEL.md for counts):
- *
- *   portable entity      -> Concept, key = entity name
- *   property             -> Property,    key = the property's JCB GUID
- *   reference (guid)     -> Reference,   key = the property's JCB GUID
- *   subform              -> Containment  + a row Concept (the occurrence)
- *   list                 -> Enumeration harvested from admin/forms/<entity>.xml
- *   reference (local id) -> dropped, not portable between installations
- *   encrypted            -> dropped, installation-local
- *   ignore-listed        -> dropped, outside JCB's own transport projection
- *
- * Usage: php generate-lionweb-language.php <metamodel.json> [out.json]
+ * @package    JcbInOut
+ * @copyright  Copyright (C) 2026 Herman Peeren. All rights reserved.
+ * @license    GNU General Public License version 2 or later
  */
 
-declare(strict_types=1);
+namespace Yepr\Component\Jcbinout\Administrator\Lionweb;
 
-const LW_FORMAT   = '2024.1';
-const M3          = 'LionCore-M3';
-const BUILTINS    = 'LionCore-builtins';
-const LANG_KEY    = 'jcb';
-const LANG_NAME   = 'JCB';
+\defined('_JEXEC') or die;
 
-$metaFile = $argv[1] ?? (__DIR__ . '/../jcb-metamodel.json');
-$outFile  = $argv[2] ?? (__DIR__ . '/../jcb-language.lionweb.json');
-
-$meta = json_decode((string) file_get_contents($metaFile), true);
-
-if (!is_array($meta))
-{
-	fwrite(STDERR, "Cannot read metamodel: {$metaFile}\n");
-	exit(1);
-}
-
-// ---------------------------------------------------------------------------
-
+/**
+ * Builds a LionWeb language (M2) from the derived JCB metamodel.
+ *
+ * A column's GUID in JCB's Table.php is the portable identity of the field
+ * definition that generated it, so one GUID on several entities means one
+ * reusable definition used at several use-sites. That drives two decisions:
+ * enumerations and subform row concepts reached through a single definition
+ * are emitted once, and each shared definition is declared once in an
+ * Interface that every using concept implements - keyed by the bare GUID.
+ *
+ * @since 1.0.0
+ */
 final class LanguageBuilder
 {
+	public const LW_FORMAT = '2024.1';
+	public const M3        = 'LionCore-M3';
+	public const BUILTINS  = 'LionCore-builtins';
+	public const LANG_KEY  = 'jcb';
+	public const LANG_NAME = 'JCB';
+
 	private array $nodes = [];
 	private array $diagnostics = [];
 	private array $conceptIds = [];     // entity/row name => node id
@@ -67,12 +53,12 @@ final class LanguageBuilder
 
 	private function mpM3(string $key): array
 	{
-		return ['language' => M3, 'version' => LW_FORMAT, 'key' => $key];
+		return ['language' => self::M3, 'version' => self::LW_FORMAT, 'key' => $key];
 	}
 
 	private function mpBuiltin(string $key): array
 	{
-		return ['language' => BUILTINS, 'version' => LW_FORMAT, 'key' => $key];
+		return ['language' => self::BUILTINS, 'version' => self::LW_FORMAT, 'key' => $key];
 	}
 
 	private function prop(array $mp, ?string $value): array
@@ -333,23 +319,23 @@ final class LanguageBuilder
 			'jcb-language',
 			$this->mpM3('Language'),
 			array_merge(
-				$this->named(LANG_NAME, LANG_KEY),
+				$this->named(self::LANG_NAME, self::LANG_KEY),
 				[$this->prop($this->mpM3('Language-version'), $version)]
 			),
 			[['containment' => $this->mpM3('Language-entities'), 'children' => $entityNodeIds]],
 			[[
 				'reference' => $this->mpM3('Language-dependsOn'),
-				'targets'   => [['resolveInfo' => BUILTINS,
-					'reference' => BUILTINS . '-' . str_replace('.', '-', LW_FORMAT)]],
+				'targets'   => [['resolveInfo' => self::BUILTINS,
+					'reference' => self::BUILTINS . '-' . str_replace('.', '-', self::LW_FORMAT)]],
 			]],
 			null
 		);
 
 		return [
-			'serializationFormatVersion' => LW_FORMAT,
+			'serializationFormatVersion' => self::LW_FORMAT,
 			'languages'                  => [
-				['key' => M3, 'version' => LW_FORMAT],
-				['key' => BUILTINS, 'version' => LW_FORMAT],
+				['key' => self::M3, 'version' => self::LW_FORMAT],
+				['key' => self::BUILTINS, 'version' => self::LW_FORMAT],
 			],
 			'nodes' => $this->nodes,
 		];
@@ -616,7 +602,7 @@ final class LanguageBuilder
 				[['reference' => $this->mpM3('Property-type'),
 					'targets' => [['resolveInfo' => 'String',
 						'reference' => 'LionCore-builtins-String-'
-							. str_replace('.', '-', LW_FORMAT)]]]],
+							. str_replace('.', '-', self::LW_FORMAT)]]]],
 				$id
 			);
 
@@ -803,7 +789,7 @@ final class LanguageBuilder
 					'resolveInfo' => $datatype,
 					// builtin node ids carry the version: LionCore-builtins-String-2024-1
 					'reference'   => 'LionCore-builtins-' . $datatype . '-'
-						. str_replace('.', '-', LW_FORMAT),
+						. str_replace('.', '-', self::LW_FORMAT),
 				]]]],
 			$conceptId);
 
@@ -922,87 +908,5 @@ final class LanguageBuilder
 		ksort($out);
 
 		return $out;
-	}
-}
-
-// ---------------------------------------------------------------------------
-
-$commit  = $meta['meta']['jcbCommit'] ?? 'unknown';
-$version = substr($commit, 0, 10) . '-1';
-
-$namesFile = dirname($outFile) . '/interface-names.json';
-$ifaceNames = is_file($namesFile)
-	? (json_decode((string) file_get_contents($namesFile), true)['interfaces'] ?? [])
-	: [];
-
-$builder = new LanguageBuilder($meta, $ifaceNames);
-$chunk   = $builder->build($version);
-
-file_put_contents($outFile,
-	json_encode($chunk, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "\n");
-
-// Side-car: the enumeration literal <-> JCB raw value map that Phase 3 needs
-// to translate instance values in both directions.
-$valueMap = [];
-
-foreach ($meta['enumerations'] ?? [] as $ename => $enum)
-{
-	foreach ($enum['literals'] as $lit)
-	{
-		$valueMap[$ename][$lit['name']] = $lit['value'];
-	}
-}
-
-$mapFile = dirname($outFile) . '/jcb-enum-values.json';
-file_put_contents($mapFile,
-	json_encode($valueMap, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "\n");
-
-$counts = [];
-
-foreach ($chunk['nodes'] as $n)
-{
-	$k = $n['classifier']['key'];
-	$counts[$k] = ($counts[$k] ?? 0) + 1;
-}
-
-// Side-car: feature key -> the JCB (entity, property, guid) it stands for.
-// Phase 3 needs this in both directions. It also records where JCB reuses a
-// single GUID for the same logical field across several entities.
-$keyFile = dirname($outFile) . '/jcb-feature-keys.json';
-file_put_contents($keyFile, json_encode([
-	'featureKeys'  => $builder->featureKeys(),
-	'sharedGuids'  => $builder->sharedGuids(),
-	'hoistedInto'  => $builder->hoistedInto(),
-], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "
-");
-
-ksort($counts);
-
-$diags = $builder->diagnostics();
-$bySev = [];
-
-foreach ($diags as $d)
-{
-	$bySev[$d['severity']] = ($bySev[$d['severity']] ?? 0) + 1;
-}
-
-fwrite(STDERR, sprintf(
-	"Wrote %s
-  language: %s v%s
-  nodes: %d %s
-  side-cars: %s, %s
-  shared guids: %d
-  diagnostics: %s
-",
-	$outFile, LANG_KEY, $version, count($chunk['nodes']), json_encode($counts),
-	basename($mapFile), basename($keyFile), count($builder->sharedGuids()),
-	json_encode($bySev ?: ['none' => 0])
-));
-
-foreach ($diags as $d)
-{
-	if ($d['severity'] === 'error')
-	{
-		fwrite(STDERR, "  ERROR [{$d['code']}] {$d['message']}\n");
 	}
 }

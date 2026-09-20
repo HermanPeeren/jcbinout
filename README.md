@@ -1,70 +1,82 @@
 # JcbInOut
 
-LionWeb-compatible import/export for Joomla Component Builder blueprints.
+LionWeb-compatible import and export for Joomla Component Builder blueprints,
+packaged as a Joomla component.
 
 The goal is to move JCB models in and out of a neutral, standard format so they
 can be exchanged with other LionWeb-compatible tooling — including the Exten-gen
 extension generator.
 
+---
+
 ## Status
 
-**Phases 1-2 complete:** JCB's implicit metamodel is explicit, and published as a
-LionWeb language that an independent LionWeb implementation loads.
+**Working today:** a Joomla component that reads the JCB installed on the same
+site, derives an explicit metamodel from it, and publishes that metamodel as a
+LionWeb language. Install it, click *Derive*, click *Build*.
 
-Phases, per the project plan:
+**Not built yet:** the actual import and export of blueprints. That is Phase 3
+onward. Today's component establishes the metamodel those phases need.
 
 | Phase | What | Status |
 |---|---|:---:|
-| 1 | Make the implicit metamodel explicit | done |
-| 2 | LionWeb language definition (M2) | done |
-| 3 | Instance export (M1) | next |
+| 1 | Make JCB's implicit metamodel explicit | **done** |
+| 2 | LionWeb language definition (M2) | **done** |
+| 6a | Joomla component shell, derive + build in the UI | **done** |
+| 3 | Instance export (M1): blueprint to LionWeb | next |
 | 4 | Round-trip against the Hello World fixture | |
-| 5 | Import with initialize/reset policy | |
-| 6 | Package as a Joomla component | |
+| 5 | Import, with initialize/reset policy | |
+| 6b | Export/import UI, progress, diagnostics | |
 | 7 | Exten-gen side | |
 
-## Phase 1 — the derived metamodel
+Phase 6 was originally scheduled last. It moved forward because leaving it late
+meant writing Phase 3 as standalone scripts and porting them afterwards — the
+component shell exists now so export code lands in the right place first time.
 
-JCB has no declared metamodel, but it does have a machine-readable one spread
-across three places:
+### Everything is PHP
+
+No Python, no bash, no external processes. The component runs inside an ordinary
+Joomla request. `tools/cli.php` runs the **same classes** outside Joomla for
+development and regression testing, so there is no second implementation to
+drift.
+
+---
+
+## How it works
+
+JCB has no declared metamodel, but it has a machine-readable one spread across
+three places:
 
 | Source | Holds |
 |---|---|
 | `Componentbuilder/Table.php` | entity properties: name, **stable GUID**, type, store, SQL column, `link` relations |
 | `Componentbuilder/Factory.php` | the canonical portable entity catalogue |
-| `**/Remote/Config.php` | per-entity transport: identifying field, children, `ignore` list, paths |
+| `Remote/Config.php` (per entity) | transport: identifying field, children, `ignore` list, paths |
 
-`bin/extract-metamodel.php` loads those real classes and reads them **by
-reflection** — never by parsing PHP text — so the result tracks JCB upstream
-instead of drifting from it.
+`Metamodel\Extractor` loads those real classes and reads them **by reflection** —
+never by parsing PHP text. Enumeration members are not in `Table.php`; they are
+harvested from JCB's admin form XML and resolved against its language file.
 
-### Results
+Crucially, the component reads **the JCB that is actually installed**, not a copy
+pinned when JcbInOut was built. JCB publishes no schema-compatibility policy, so
+reading the live installation is the only way to stay correct across versions.
+The component records a fingerprint of `Table.php` with each derivation and warns
+when the installed schema has moved on.
 
-- **51** entity types defined, **45** portable (independently matching JCB's own
-  published count of canonical transport types)
+### Results against JCB `bca4a15`
+
+- **51** entity types, **45** portable — independently matching JCB's own
+  published count of canonical transport types
 - **699** properties classified into LionWeb feature kinds
-- **22** occurrence concepts identified — subform rows that carry a reference
-  *plus* use-site settings, i.e. the definition/occurrence split as it actually
-  exists in JCB's data
+- **18** enumerations, **378** literals, harvested from the admin forms
+- **22** occurrence concepts — subform rows carrying a reference *plus* use-site
+  settings, the definition/occurrence split as it exists in data
+- LionWeb language: **1,082 nodes** — 93 concepts, 33 interfaces, 11
+  enumerations, 481 properties, 46 references, 91 containments
 
 Validated against the public Hello World blueprint: **33 payloads, 646 keys,
-19 subform rows, zero unexplained.**
-
-See [METAMODEL.md](METAMODEL.md) for the readable report and
-`jcb-metamodel.json` for the machine-readable output.
-
-## Phase 2 - the LionWeb language
-
-`bin/generate-lionweb-language.php` turns the derived metamodel into a LionWeb
-serialisation chunk: **1,082 nodes** - 93 concepts, 33 interfaces, 11
-enumerations, 481 properties, 46 references, 91 containments.
-
-Validated three ways:
-
-- against the official `serialization.schema.json` (LionWeb 2024.1)
-- structurally: unique ids, resolvable children, parent/containment agreement,
-  single root, every metapointer a real LionCore key
-- **independently**, by loading it in `lionweb-python` with no setup
+19 subform rows, zero unexplained.** The language validates structurally and
+loads in `lionweb-python` with no setup.
 
 ### Shared field definitions
 
@@ -74,96 +86,108 @@ A column's GUID in `Table.php` is not a column id. It is the portable identity
 This is verifiable in the public trace: the Hello World blueprint references
 field `75e830a6-a3a5-4327-9161-3f774a6f1591` from `admin-fields.json`, and the
 generated component's `Helloworld/Table.php` carries that same GUID on its
-`greeting` column (and again in `db.GUID`). JCB is self-generated, so its own
-`Table.php` is the same artifact for its own blueprint.
+`greeting` column. JCB is self-generated, so its own `Table.php` is the same
+artefact for its own blueprint.
 
 So where one GUID appears on several entities, JCB is asserting that those
 columns are **one reusable definition used at several use-sites**. 104 of its
-field definitions are shared that way. The language encodes that directly:
+field definitions are shared that way, and the language encodes it directly:
 
-- **Deduplication.** Enumerations and subform row concepts reached through one
-  definition are the same type, so they are emitted once. This removed 7
-  duplicate enumerations and 21 duplicate row concepts - all verified
-  identical, and all artefacts of naming them after their owning entity.
-- **Interfaces.** Each shared definition is declared once, in an interface that
-  every using concept implements. Because it is declared once, its feature key
-  is the **bare GUID** - the identity JCB actually asserts, with no
-  entity qualification needed.
+- **Deduplication** — enumerations and subform row concepts reached through one
+  definition are the same type, so they are emitted once. Removes 7 duplicate
+  enumerations and 21 duplicate row concepts.
+- **Interfaces** — each shared definition is declared once, in an interface that
+  every using concept implements. Declared once means its feature key is the
+  **bare GUID**, the identity JCB actually asserts.
 
-Clusters are formed from the exact set of entities that share a definition, and
-named in `interface-names.json` - plain data, edit any name freely. The largest:
+Interface names live in `data/interface-names.json`. Plain data — edit freely.
 
 | Interface | Entities | Holds |
 |---|---|---|
-| `IPortableIdentity` | 20 | `guid` - the paper's portable identity, as a type |
-| `IInstallableExtension` | component, module, plugin | install scripts, update server, readme |
+| `IPortableIdentity` | 20 | `guid` |
+| `IInstallableExtension` | component, module, plugin | install scripts, update server |
 | `IRenderedView` | custom_admin_view, site_view | css, js, php_jview, main_get |
-| `IInteractiveView` | admin_view + both custom views | ajax, controller, model, toolbar |
 | `IColumnStorage` | field, fieldtype | datatype, datalenght, indexes, store |
 | `IComponentChild` | 12 `component_*` | back-reference to `joomla_component` |
 
-Features unique to one entity keep an `<entity>-<guid>` key, since LionWeb
-requires feature keys to be unique language-wide.
+---
 
-### Outputs
+## Layout
 
-| File | Purpose |
-|---|---|
-| `jcb-language.lionweb.json` | the LionWeb language (M2) |
-| `jcb-enum-values.json` | enum literal name -> JCB raw value, both directions |
-| `jcb-feature-keys.json` | feature key -> (entity, property, guid), shared-definition map, hoist map |
-| `interface-names.json` | editable names for the 33 shared-definition interfaces |
+```
+com_jcbinout/                     the installable component
+  jcbinout.xml                    manifest
+  administrator/
+    services/provider.php         DI registration
+    src/
+      Extension/                  component entry
+      Controller/                 Display, Metamodel (derive/build/validate)
+      Model/MetamodelModel.php    orchestration, artefact storage
+      View/Metamodel/             status view
+      Jcb/Locator.php             finds and autoloads the installed JCB
+      Metamodel/                  Extractor, Classifier, EnumHarvester, TableAdapter
+      Lionweb/                    LanguageBuilder, Validator
+    tmpl/metamodel/default.php    status view template
+    data/                         reference artefacts, shipped with the package
+    language/en-GB/
+data/                             artefacts generated during development
+tools/
+  cli.php                         dev harness over the component's own classes
+  build.php                       packages the installable zip into dist/
+  report-metamodel.php            renders METAMODEL.md
+tests/fixtures/                   Hello World blueprint, for round-trip tests
+```
 
 ## Usage
 
+### As a component
+
 ```bash
-# 1. vendor the pinned JCB sources
-bin/fetch-jcb-sources.sh
-
-# 2. derive the metamodel
-php bin/extract-metamodel.php vendor-jcb jcb-metamodel.json
-
-# 3. validate it against a real blueprint
-php bin/validate-against-blueprint.php jcb-metamodel.json tests/fixtures/hello-world
-
-# 4. render the readable report
-php bin/report-metamodel.php jcb-metamodel.json METAMODEL.md
-
-# 5. generate the LionWeb language
-php bin/generate-lionweb-language.php jcb-metamodel.json jcb-language.lionweb.json
-
-# 6. validate it (schema + structure + independent implementation)
-python bin/validate-lionweb.py jcb-language.lionweb.json vendor-lionweb
+php tools/build.php
 ```
 
-Phase 2 validation needs Python with `jsonschema` and `lionweb-python`.
+Install `dist/com_jcbinout-0.2.0.zip` on a Joomla site that has JCB, then open
+Components → JcbInOut. The status view reports what it found; the toolbar offers
+*Derive metamodel*, *Build LionWeb language* and *Validate*.
 
-Requires PHP 8.1+. No Joomla installation needed for Phase 1 — the classes load
-standalone.
+### For development, without Joomla
+
+Vendor JCB's sources at the pinned commit:
+
+```bash
+php tools/cli.php fetch
+```
+
+Then derive, build and validate in one go:
+
+```bash
+php tools/cli.php all
+```
+
+Requires PHP 8.1+, plus `ext-zip` for packaging. Nothing else.
+
+---
 
 ## Design notes
 
 **Fidelity target is β-equivalence, not byte equality.** Each entity's `ignore`
-list is honoured, and installation-local values (encrypted credentials, local
-row ids, `access`/`catid`) are excluded. This matches what JCB itself considers
+list is honoured, and installation-local values (encrypted credentials, local row
+ids, `access`/`catid`) are excluded. This matches what JCB itself treats as
 portable.
-
-**Property GUIDs become LionWeb feature keys.** JCB already assigns a stable
-GUID to every column, so both sides can agree on feature identity without a
-negotiated registry, and a renamed column keeps its key.
 
 **Occurrences are reified, never cloned.** A subform row such as
 `admin_fields.addfields[i]` holds a reference to a `field` definition plus its
-roles (title, list, sort, search, order). It becomes its own node, so one
-definition can be referenced from many use sites.
+roles. It becomes its own node, so one definition can be referenced from many
+use-sites.
+
+**Derive live, ship a reference.** The package includes artefacts built against
+JCB `bca4a15` so a fresh install has a baseline to compare against, but the
+component always prefers what it derives from the installed JCB.
 
 ## Pinned versions
 
 | | |
 |---|---|
-| JCB | `bca4a1520484f3e2c2fbd12964a5995b0d058de1` |
+| JCB (development baseline) | `bca4a1520484f3e2c2fbd12964a5995b0d058de1` |
 | Hello World fixture | `5802e7c1d9bfaac005c765ccda830a7d07cd7e12` |
-| LionWeb | 2024.1 (`lionweb-io/specification`) |
-
-JCB publishes no schema-compatibility policy, so the pin plus the fixture
-corpus in CI is the protection against silent format drift.
+| LionWeb | 2024.1 |

@@ -10,3 +10,6 @@
 # Phase 2 encoding experiment output - regenerate with:
 #   python bin/prototype-encodings.py
 /prototypes/
+
+# packaged component
+/dist/

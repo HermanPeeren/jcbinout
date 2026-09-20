@@ -1,0 +1,167 @@
+<?php
+/**
+ * @package    JcbInOut
+ * @copyright  Copyright (C) 2026 Herman Peeren. All rights reserved.
+ * @license    GNU General Public License version 2 or later
+ */
+
+\defined('_JEXEC') or die;
+
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
+
+$status    = $this->status;
+$jcb       = $status['jcb'];
+$metamodel = $status['metamodel'];
+$language  = $status['language'];
+
+$badge = static function (bool $ok, string $yes, string $no): string {
+	return '<span class="badge bg-' . ($ok ? 'success' : 'danger') . '">'
+		. htmlspecialchars($ok ? $yes : $no, ENT_QUOTES, 'UTF-8') . '</span>';
+};
+
+$bytes = static function (int $n): string {
+	return $n > 1048576 ? round($n / 1048576, 1) . ' MB'
+		: ($n > 1024 ? round($n / 1024) . ' KB' : $n . ' B');
+};
+?>
+<form action="<?php echo Route::_('index.php?option=com_jcbinout&view=metamodel'); ?>"
+	method="post" name="adminForm" id="adminForm">
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card mb-3">
+				<div class="card-header">
+					<h2 class="card-title h5 mb-0"><?php echo Text::_('COM_JCBINOUT_JCB_STATUS'); ?></h2>
+				</div>
+				<div class="card-body">
+					<dl class="row mb-0">
+						<dt class="col-sm-5"><?php echo Text::_('COM_JCBINOUT_JCB_INSTALLED'); ?></dt>
+						<dd class="col-sm-7"><?php echo $badge((bool) $jcb['componentInstalled'],
+							Text::_('JYES'), Text::_('JNO')); ?></dd>
+
+						<dt class="col-sm-5"><?php echo Text::_('COM_JCBINOUT_JCB_VERSION'); ?></dt>
+						<dd class="col-sm-7"><?php echo $jcb['version']
+							? htmlspecialchars($jcb['version'], ENT_QUOTES, 'UTF-8')
+							: '<em>' . Text::_('COM_JCBINOUT_UNKNOWN') . '</em>'; ?></dd>
+
+						<dt class="col-sm-5"><?php echo Text::_('COM_JCBINOUT_JCB_CLASSES'); ?></dt>
+						<dd class="col-sm-7"><?php echo $badge((bool) $jcb['classesAvailable'],
+							Text::_('COM_JCBINOUT_READABLE'), Text::_('COM_JCBINOUT_NOT_LOADED')); ?></dd>
+
+						<dt class="col-sm-5"><?php echo Text::_('COM_JCBINOUT_JCB_SOURCE'); ?></dt>
+						<dd class="col-sm-7"><code class="small"><?php echo $jcb['sourcePath']
+							? htmlspecialchars($jcb['sourcePath'], ENT_QUOTES, 'UTF-8')
+							: Text::_('COM_JCBINOUT_NOT_FOUND'); ?></code></dd>
+
+						<dt class="col-sm-5"><?php echo Text::_('COM_JCBINOUT_SCHEMA_FINGERPRINT'); ?></dt>
+						<dd class="col-sm-7"><code class="small"><?php echo $jcb['schemaFingerprint']
+							? substr($jcb['schemaFingerprint'], 0, 16) . '&hellip;'
+							: '&mdash;'; ?></code></dd>
+					</dl>
+
+					<?php if (!$jcb['componentInstalled']) : ?>
+						<div class="alert alert-warning mt-3 mb-0">
+							<?php echo Text::_('COM_JCBINOUT_JCB_REQUIRED'); ?>
+						</div>
+					<?php endif; ?>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="card mb-3">
+				<div class="card-header">
+					<h2 class="card-title h5 mb-0"><?php echo Text::_('COM_JCBINOUT_DERIVED_METAMODEL'); ?></h2>
+				</div>
+				<div class="card-body">
+					<?php if (!$metamodel['info']['exists']) : ?>
+						<p class="mb-0"><?php echo Text::_('COM_JCBINOUT_NOT_DERIVED_YET'); ?></p>
+					<?php else : ?>
+						<?php $s = $metamodel['stats']; ?>
+						<dl class="row mb-0">
+							<dt class="col-sm-6"><?php echo Text::_('COM_JCBINOUT_ENTITY_TYPES'); ?></dt>
+							<dd class="col-sm-6"><?php echo (int) $s['entitiesTotal']; ?>
+								(<?php echo (int) $s['entitiesPortable']; ?>
+								<?php echo Text::_('COM_JCBINOUT_PORTABLE'); ?>)</dd>
+
+							<dt class="col-sm-6"><?php echo Text::_('COM_JCBINOUT_PROPERTIES'); ?></dt>
+							<dd class="col-sm-6"><?php echo (int) $s['propertiesTotal']; ?></dd>
+
+							<dt class="col-sm-6"><?php echo Text::_('COM_JCBINOUT_ENUMERATIONS'); ?></dt>
+							<dd class="col-sm-6"><?php echo (int) $s['enumerations']; ?>
+								(<?php echo (int) $s['enumerationLiterals']; ?>
+								<?php echo Text::_('COM_JCBINOUT_LITERALS'); ?>)</dd>
+
+							<dt class="col-sm-6"><?php echo Text::_('COM_JCBINOUT_DERIVED_AT'); ?></dt>
+							<dd class="col-sm-6"><?php echo htmlspecialchars(
+								(string) $metamodel['info']['modified'], ENT_QUOTES, 'UTF-8'); ?></dd>
+						</dl>
+
+						<?php if ($status['stale'] === true) : ?>
+							<div class="alert alert-warning mt-3 mb-0">
+								<?php echo Text::_('COM_JCBINOUT_STALE'); ?>
+							</div>
+						<?php endif; ?>
+
+						<?php if (!empty($s['byKind'])) : ?>
+							<h3 class="h6 mt-3"><?php echo Text::_('COM_JCBINOUT_BY_KIND'); ?></h3>
+							<ul class="list-inline mb-0">
+								<?php foreach ($s['byKind'] as $kind => $n) : ?>
+									<li class="list-inline-item">
+										<span class="badge bg-secondary">
+											<?php echo htmlspecialchars($kind, ENT_QUOTES, 'UTF-8'); ?>
+											<?php echo (int) $n; ?>
+										</span>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+						<?php endif; ?>
+					<?php endif; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="card mb-3">
+		<div class="card-header">
+			<h2 class="card-title h5 mb-0"><?php echo Text::_('COM_JCBINOUT_LIONWEB_LANGUAGE'); ?></h2>
+		</div>
+		<div class="card-body">
+			<?php if (!$language['info']['exists']) : ?>
+				<p class="mb-0"><?php echo Text::_('COM_JCBINOUT_NOT_BUILT_YET'); ?></p>
+			<?php else : ?>
+				<p>
+					<?php echo Text::sprintf('COM_JCBINOUT_LANGUAGE_SIZE',
+						$bytes((int) $language['info']['size'])); ?>
+					&mdash;
+					<?php echo htmlspecialchars((string) $language['info']['modified'], ENT_QUOTES, 'UTF-8'); ?>
+				</p>
+				<table class="table table-sm w-auto mb-0">
+					<thead>
+						<tr>
+							<th><?php echo Text::_('COM_JCBINOUT_NODE_KIND'); ?></th>
+							<th class="text-end"><?php echo Text::_('COM_JCBINOUT_COUNT'); ?></th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php foreach ($language['census'] ?? [] as $kind => $n) : ?>
+							<tr>
+								<td><?php echo htmlspecialchars($kind, ENT_QUOTES, 'UTF-8'); ?></td>
+								<td class="text-end"><?php echo (int) $n; ?></td>
+							</tr>
+						<?php endforeach; ?>
+						<tr class="fw-bold">
+							<td><?php echo Text::_('COM_JCBINOUT_TOTAL'); ?></td>
+							<td class="text-end"><?php echo array_sum($language['census'] ?? []); ?></td>
+						</tr>
+					</tbody>
+				</table>
+			<?php endif; ?>
+		</div>
+	</div>
+
+	<input type="hidden" name="task" value="">
+	<?php echo HTMLHelper::_('form.token'); ?>
+</form>
