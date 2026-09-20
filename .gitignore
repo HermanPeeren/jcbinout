@@ -1,0 +1,12 @@
+# vendored upstream JCB sources - regenerate with bin/fetch-jcb-sources.sh
+/vendor-jcb/
+
+# extracted fixture tree - regenerate from the tarball
+/tests/fixtures/hello-world/
+
+# vendored LionWeb spec artefacts - refetch from lionweb-io/specification
+/vendor-lionweb/
+
+# Phase 2 encoding experiment output - regenerate with:
+#   python bin/prototype-encodings.py
+/prototypes/
