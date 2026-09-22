@@ -15,6 +15,7 @@ use Joomla\CMS\MVC\Model\BaseDatabaseModel;
 use Yepr\Component\Jcbinout\Administrator\Blueprint\ImportPlanner;
 use Yepr\Component\Jcbinout\Administrator\Blueprint\ImportRun;
 use Yepr\Component\Jcbinout\Administrator\Blueprint\RepositorySource;
+use Yepr\Component\Jcbinout\Administrator\Jcb\DatabaseSource;
 use Yepr\Component\Jcbinout\Administrator\Jcb\LocalStore;
 use Yepr\Component\Jcbinout\Administrator\Jcb\Locator;
 use Yepr\Component\Jcbinout\Administrator\Jcb\Schema;
@@ -354,6 +355,78 @@ class MetamodelModel extends BaseDatabaseModel
 				$store->diagnostics()
 			),
 		];
+	}
+
+	/**
+	 * Export what JCB actually holds, rather than a blueprint pushed to disk.
+	 *
+	 * The same pipeline as {@see exportBlueprint()} from the payloads onward,
+	 * because it is the same pipeline: only where the payloads came from
+	 * differs, and nothing downstream is told.
+	 *
+	 * @param list<string>|null $only Entities to read, or null for all portable ones.
+	 *
+	 * @since 1.0.0
+	 */
+	public function exportInstalled(?array $only = null, ?callable $progress = null): array
+	{
+		$language = $this->artefact(self::LANGUAGE_FILE);
+
+		if ($language === null)
+		{
+			throw new \RuntimeException('Build the LionWeb language before exporting.');
+		}
+
+		$source   = new DatabaseSource(new Schema($this->metamodelOrFail()));
+		$payloads = $source->payloads($only);
+
+		if ($payloads === [])
+		{
+			throw new \RuntimeException(
+				'This JCB holds no portable rows, so there is nothing to export.'
+			);
+		}
+
+		$exporter = new InstanceExporter(
+			new LanguageIndex($language, $this->artefact(self::ENUM_MAP_FILE) ?? [])
+		);
+
+		if ($progress !== null)
+		{
+			$exporter->onProgress($progress);
+		}
+
+		$chunk     = $exporter->export($payloads, $this->installedName());
+		$validator = new Validator();
+
+		if (!$validator->validate($chunk))
+		{
+			throw new \RuntimeException('The exported chunk is not valid: '
+				. implode('; ', array_slice($validator->errors(), 0, 3)));
+		}
+
+		$this->write(self::INSTANCE_FILE, $chunk);
+
+		return [
+			'payloads'    => count($payloads),
+			'counts'      => $source->counts(),
+			'stats'       => $exporter->stats($chunk),
+			'diagnostics' => array_merge($source->diagnostics(), $exporter->diagnostics()),
+		];
+	}
+
+	/**
+	 * What to call a chunk exported from the tables.
+	 *
+	 * A blueprint export is named after the directory it came from; this one
+	 * has no directory, so it is named after the site - which is what somebody
+	 * looking at the file a week later needs to know.
+	 */
+	private function installedName(): string
+	{
+		$site = (string) Factory::getApplication()->get('sitename');
+
+		return $site === '' ? 'installed-jcb' : $site;
 	}
 
 	/**

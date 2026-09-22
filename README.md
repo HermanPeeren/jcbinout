@@ -80,11 +80,34 @@ Validated against the public Hello World blueprint: **33 payloads, 646 keys,
 19 subform rows, zero unexplained.** The language validates structurally and
 loads in `lionweb-python` with no setup.
 
+### Two sides, and which of them is which
+
+A JCB model lives in two places, and they are not the same place. Worth being
+explicit, because "export from JCB" could reasonably mean either:
+
+| | reads | writes |
+|---|---|---|
+| Export blueprint | a blueprint repository on disk | a LionWeb chunk |
+| **Export installed** | **JCB's tables** | a LionWeb chunk |
+| Import | a LionWeb chunk | JCB's tables |
+| *not built* | a LionWeb chunk | a blueprint repository on disk |
+
+A repository is a blueprint somebody has already pushed. Until **Export
+installed** there was no way to export a component still being built in JCB's
+own interface — which is most of them, most of the time.
+
+Both readers produce the same `Payload` objects, and everything downstream
+works on those and is never told which side they came from. That is checkable
+rather than merely intended: the fixture is imported into the dev site, so the
+same models can be read off disk and out of the tables and compared by β. They
+agree on all 33, column for column.
+
 ### Instance export
 
-`Blueprint\RepositorySource` reads a blueprint repository; `Lionweb\LanguageIndex`
-reads the generated language back; `Lionweb\InstanceExporter` turns one into a
-LionWeb instance chunk against the other.
+`Blueprint\RepositorySource` reads a blueprint repository and `Jcb\DatabaseSource`
+reads the tables; `Lionweb\LanguageIndex` reads the generated language back;
+`Lionweb\InstanceExporter` turns payloads into a LionWeb instance chunk against
+the language.
 
 The language is the authority, not the metamodel it came from. Deduplication and
 interface hoisting both change what a column's feature key and type are, so

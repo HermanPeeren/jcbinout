@@ -45,8 +45,34 @@ final class Payload
 	public function nodeId(): string
 	{
 		return $this->isChild
-			? $this->ownerGuid . '--' . str_replace('_', '-', $this->entity)
-			: $this->ownerGuid;
+			? self::legalId($this->ownerGuid) . '--' . str_replace('_', '-', $this->entity)
+			: self::legalId($this->ownerGuid);
+	}
+
+	/**
+	 * An identity LionWeb will accept, which most of them already are.
+	 *
+	 * A LionWeb id is `[a-zA-Z0-9_-]+`, and a GUID is one already - so every
+	 * definition keeps the identity it has and nothing that used to export
+	 * changes. Not every JCB identity is a GUID, though: `placeholder` is
+	 * addressed by its target, and a target reads `[[[COMPANY]]]`, which is
+	 * not a legal id and stops a whole chunk validating.
+	 *
+	 * So an identity that cannot be an id is *encoded* into one rather than
+	 * replaced by one. The readable part is kept for whoever reads the file,
+	 * and a hash of the original is appended so two targets that differ only
+	 * in punctuation stay two nodes.
+	 */
+	private static function legalId(string $identity): string
+	{
+		if ($identity !== '' && preg_match('#^[a-zA-Z0-9_-]+$#', $identity) === 1)
+		{
+			return $identity;
+		}
+
+		$readable = trim((string) preg_replace('#[^a-zA-Z0-9_-]+#', '-', $identity), '-');
+
+		return ($readable === '' ? 'x' : $readable) . '-' . substr(sha1($identity), 0, 12);
 	}
 
 	/** Payload keys that carry design, excluding transport bookkeeping. */

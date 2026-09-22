@@ -94,6 +94,12 @@ php tools/cli.php roundtrip
 npx cypress run
 ```
 
+Assert on `#system-message-container`, through the `messages()` helper, not on
+`.alert`. `cy.get('.alert').invoke('text')` reads only the *first* match, and
+Joomla enqueues messages of its own — the statistics prompt most of all — so a
+spec asserting on a message the component definitely produced fails on the run
+where Joomla got there first.
+
 Specs must survive a second run. The suite writes to the dev site's database and
 leaves the fixture there, so a spec that asserts the plan is all inserts is
 green once and red afterwards — that is a spec testing the database rather than
@@ -162,6 +168,36 @@ on arrival would consume nothing and the run would never end either.
 
 The deadline lives in the writer rather than the planner on purpose: what to
 write is a decision, how long a write takes is not.
+
+### Both sides produce the same payloads
+
+`RepositorySource` reads a blueprint off disk and `DatabaseSource` reads JCB's
+tables, and everything downstream works on `Payload` without being told which.
+So the two have to be indistinguishable, and that is checked rather than hoped
+for: the fixture is imported into the dev site, so the same models can be read
+both ways and compared by β. They agree column for column.
+
+Three things came out of running that comparison for the first time, and none
+of them was visible from a green unit suite:
+
+- **A JSON column holding `''` or `[]` is nothing, not an empty value.** The
+  column's SQL default is `''`, an emptied subform leaves `[]`, and a payload
+  carries `null` for both. In a *text* column `''` is still an empty string —
+  the projection is right to notice that difference, so `Schema::decode()`
+  decides by the column's store.
+- **Ownership is declared, not inferred.** `custom_code`, `placeholder` and
+  `validation_rule` are identified by a natural key rather than a guid and are
+  nobody's children. Reading "no guid" as "owned record" filed them under a
+  parent that does not exist. Ask `Schema::parentOf()`.
+- **Not every JCB identity is a legal LionWeb id.** A `placeholder` is addressed
+  by its target and a target reads `[[[COMPANY]]]`, which no chunk will accept.
+  `Payload::nodeId()` leaves anything already legal alone — every GUID, so
+  nothing that used to export changes — and encodes the rest, keeping a
+  readable stem and appending a hash so two targets differing only in
+  punctuation stay two nodes.
+
+Only the last needed a whole installation to find. One blueprint has no
+placeholders in it.
 
 ### The metamodel owns storage, the language owns design
 

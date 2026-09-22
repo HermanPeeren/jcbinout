@@ -181,6 +181,48 @@ class MetamodelController extends BaseController
 	}
 
 	/**
+	 * Export what this JCB actually holds, rather than a blueprint on disk.
+	 *
+	 * The difference matters: a repository is a blueprint somebody has already
+	 * pushed, so until this there was no way to export a component still being
+	 * built in JCB's own interface.
+	 */
+	public function exportInstalled(): void
+	{
+		Session::checkToken() or jexit(Text::_('JINVALID_TOKEN'));
+
+		/** @var \Yepr\Component\Jcbinout\Administrator\Model\MetamodelModel $model */
+		$model = $this->getModel('Metamodel');
+
+		try
+		{
+			$result = $model->exportInstalled();
+			$stats  = $result['stats'];
+
+			$this->app->enqueueMessage(Text::sprintf(
+				'COM_JCBINOUT_EXPORTED_INSTALLED_SUMMARY',
+				$result['payloads'], count($result['counts']), $stats['nodes'],
+				$stats['properties'], $stats['references']
+			));
+
+			foreach ($result['diagnostics'] as $d)
+			{
+				if (($d['severity'] ?? 'info') !== 'info')
+				{
+					$this->app->enqueueMessage($d['message'],
+						$d['severity'] === 'error' ? 'error' : 'warning');
+				}
+			}
+
+			$this->done(Text::_('COM_JCBINOUT_EXPORT_OK'));
+		}
+		catch (\Throwable $e)
+		{
+			$this->done($e->getMessage(), 'error');
+		}
+	}
+
+	/**
 	 * Show what importing the exported blueprint into this JCB would do.
 	 *
 	 * Planning never writes. The plan is a candidate list, and applying it is a

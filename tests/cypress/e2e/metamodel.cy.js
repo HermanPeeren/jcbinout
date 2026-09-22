@@ -6,6 +6,17 @@
  * fail to find the JCB installed beside it, or write its artefacts somewhere
  * the web server cannot.
  */
+/**
+ * The message area's text, all of it.
+ *
+ * Not `cy.get('.alert').invoke('text')`, which reads only the first match:
+ * Joomla enqueues its own messages - the statistics prompt most of all - and
+ * one of those arriving first made a passing spec fail on a page where the
+ * component had done exactly what was asked.
+ */
+const messages = (options = {}) =>
+  cy.get('#system-message-container', { timeout: 60000, ...options }).invoke('text');
+
 describe('JcbInOut metamodel view', () => {
   beforeEach(() => {
     cy.openJcbInOut('metamodel');
@@ -40,8 +51,7 @@ describe('JcbInOut metamodel view', () => {
 
     // The summary is the point: a green tick that says nothing would not tell
     // us whether 51 entity types or zero were read.
-    cy.get('joomla-alert, .alert', { timeout: 60000 })
-      .invoke('text')
+    messages({ timeout: 60000 })
       .should('match', /entity types/);
 
     cy.contains('Entity types').should('be.visible');
@@ -60,8 +70,7 @@ describe('JcbInOut metamodel view', () => {
 
     cy.get('#toolbar').contains('Build LionWeb language').click();
 
-    cy.get('joomla-alert, .alert', { timeout: 60000 })
-      .invoke('text')
+    messages({ timeout: 60000 })
       .should('match', /nodes:|concepts/);
 
     // The census table is what shows the language actually has shape.
@@ -85,14 +94,12 @@ describe('JcbInOut metamodel view', () => {
 
     cy.get('#toolbar').contains('Export blueprint').click();
 
-    cy.get('joomla-alert, .alert', { timeout: 60000 })
-      .invoke('text')
+    messages({ timeout: 60000 })
       .should('match', /payloads read/);
 
     // 33 payloads is the published size of the fixture; asserting it means a
     // silently truncated walk fails here rather than looking like success.
-    cy.get('joomla-alert, .alert')
-      .invoke('text')
+    messages()
       .should('match', /33 payloads read/);
 
     // Scope to the export card: "Exported" on its own also matches Joomla's
@@ -123,8 +130,7 @@ describe('JcbInOut metamodel view', () => {
     cy.get('#mode').select('initialize');
     cy.get('#toolbar').contains('Plan import').click();
 
-    cy.get('joomla-alert, .alert', { timeout: 60000 })
-      .invoke('text')
+    messages({ timeout: 60000 })
       .should('match', /33 payloads/);
 
     // Scope to the import card: bare text also matches Joomla's <noscript>.
@@ -144,8 +150,7 @@ describe('JcbInOut metamodel view', () => {
 
     cy.get('#toolbar').contains('Apply plan').click();
 
-    cy.get('joomla-alert, .alert', { timeout: 120000 })
-      .invoke('text')
+    messages({ timeout: 120000 })
       .should('match', /row\(s\) written/);
 
     // Planning again now finds the definitions present, and initialize leaves
@@ -153,8 +158,7 @@ describe('JcbInOut metamodel view', () => {
     cy.get('#mode').select('initialize');
     cy.get('#toolbar').contains('Plan import').click();
 
-    cy.get('joomla-alert, .alert', { timeout: 60000 })
-      .invoke('text')
+    messages({ timeout: 60000 })
       .should('match', /0 to insert/);
   });
 
@@ -166,8 +170,7 @@ describe('JcbInOut metamodel view', () => {
     cy.get('#rows').clear().type('10');
     cy.get('#toolbar').contains('Plan import').click();
 
-    cy.get('joomla-alert, .alert', { timeout: 60000 })
-      .invoke('text')
+    messages({ timeout: 60000 })
       .should('match', /33 payloads/);
 
     cy.get('#rows').clear().type('10');
@@ -195,8 +198,7 @@ describe('JcbInOut metamodel view', () => {
     // Let it finish by itself from here, which is what it does unattended.
     cy.get('#toolbar').contains('Continue import').click();
 
-    cy.get('joomla-alert, .alert', { timeout: 120000 })
-      .invoke('text')
+    messages({ timeout: 120000 })
       .should('match', /33 row\(s\) written/);
 
     // And the run is gone, so the ordinary import controls are back.
@@ -204,11 +206,33 @@ describe('JcbInOut metamodel view', () => {
     cy.get('#toolbar').contains('Plan import').should('be.visible');
   });
 
+  it('exports what JCB actually holds, not just a blueprint on disk', () => {
+    // The distinction this exists for: a repository is a blueprint somebody
+    // has already pushed, so until there was this there was no way to export a
+    // component still being built in JCB's own interface.
+    cy.get('#toolbar').contains('Export installed').click();
+
+    messages({ timeout: 120000 })
+      .should('match', /Read \d+ row\(s\) across \d+ entity type\(s\)/);
+
+    // The whole installation, so more than the 33 payloads of the fixture.
+    messages()
+      .then((text) => {
+        const rows = Number(/Read (\d+) row/.exec(text)[1]);
+
+        expect(rows).to.be.greaterThan(33);
+      });
+
+    // And a chunk is on disk afterwards, which is the point of running it.
+    cy.get('#blueprint').closest('.card').within(() => {
+      cy.contains('.badge', 'Exported').should('be.visible');
+    });
+  });
+
   it('validates the built language', () => {
     cy.get('#toolbar').contains('Validate').click();
 
-    cy.get('joomla-alert, .alert', { timeout: 60000 })
-      .invoke('text')
+    messages({ timeout: 60000 })
       .should('match', /valid LionWeb serialisation/i);
   });
 });

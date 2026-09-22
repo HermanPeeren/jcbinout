@@ -115,6 +115,11 @@ class HtmlView extends BaseHtmlView
 
 			$toolbar->standardButton('upload', 'COM_JCBINOUT_EXPORT', 'metamodel.export')
 				->icon('icon-upload');
+
+			// The models this site actually holds, which is the only way to
+			// export a component still being built in JCB's own interface.
+			$toolbar->standardButton('database', 'COM_JCBINOUT_EXPORT_INSTALLED',
+				'metamodel.exportInstalled')->icon('icon-database');
 		}
 
 		if ($this->status['instance']['exists'] ?? false)
