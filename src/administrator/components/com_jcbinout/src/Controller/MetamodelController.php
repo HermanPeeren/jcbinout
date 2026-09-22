@@ -17,6 +17,7 @@ use Joomla\CMS\MVC\Controller\BaseController;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Session\Session;
 use Yepr\Component\Jcbinout\Administrator\Blueprint\ImportPlanner;
+use Yepr\Component\Jcbinout\Administrator\Blueprint\ImportRun;
 
 /**
  * Actions that derive the metamodel and build the LionWeb language.
@@ -225,15 +226,19 @@ class MetamodelController extends BaseController
 	}
 
 	/**
-	 * Write the planned import into JCB's tables.
+	 * Begin writing the planned import into JCB's tables.
+	 *
+	 * A plan of any size is applied in slices, each one its own request, and
+	 * this is the first of them. Not for the progress bar's sake: a blueprint
+	 * big enough to matter will not finish inside one request, and an import is
+	 * not transactional, so the difference between slicing it and not is
+	 * whether anything knows how far it got.
 	 */
 	public function apply(): void
 	{
 		Session::checkToken() or jexit(Text::_('JINVALID_TOKEN'));
 
-		/** @var \Yepr\Component\Jcbinout\Administrator\Model\MetamodelModel $model */
-		$model = $this->getModel('Metamodel');
-		$plan  = $this->session()?->getUserState('com_jcbinout.import.plan');
+		$plan = $this->session()?->getUserState('com_jcbinout.import.plan');
 
 		if (!is_array($plan) || empty($plan['operations']))
 		{
@@ -242,27 +247,114 @@ class MetamodelController extends BaseController
 			return;
 		}
 
+		// The plan described the installation as it was before the write, so it
+		// is spent the moment the first row lands. The run carries on from here.
+		$this->session()?->setUserState('com_jcbinout.import.plan', null);
+
+		// A ceiling the operator asked for, kept with the run so every slice of
+		// this import honours it.
+		$rows = max(0, (int) $this->input->getInt('rows', 0));
+
+		$this->advance(new ImportRun($plan, limit: $rows));
+	}
+
+	/**
+	 * Write the next slice of a run already under way.
+	 */
+	public function step(): void
+	{
+		Session::checkToken() or jexit(Text::_('JINVALID_TOKEN'));
+
+		$run = ImportRun::fromArray($this->session()?->getUserState(ImportRun::STATE_KEY));
+
+		if ($run === null || $run->isFinished())
+		{
+			$this->done(Text::_('COM_JCBINOUT_NO_RUN'), 'warning');
+
+			return;
+		}
+
+		$this->advance($run);
+	}
+
+	/**
+	 * Abandon a run, leaving what it has already written in place.
+	 *
+	 * Which is everything it has written: there is no undo here, and offering
+	 * one that only looked like an undo would be worse than saying so.
+	 */
+	public function cancel(): void
+	{
+		Session::checkToken() or jexit(Text::_('JINVALID_TOKEN'));
+
+		$run = ImportRun::fromArray($this->session()?->getUserState(ImportRun::STATE_KEY));
+
+		$this->session()?->setUserState(ImportRun::STATE_KEY, null);
+
+		$this->done($run === null
+			? Text::_('COM_JCBINOUT_NO_RUN')
+			: Text::sprintf('COM_JCBINOUT_RUN_CANCELLED',
+				$run->position(), $run->total(), $run->counts()['applied']),
+			'warning');
+	}
+
+	/**
+	 * Write one slice and say where that leaves the run.
+	 */
+	private function advance(ImportRun $run): void
+	{
+		/** @var \Yepr\Component\Jcbinout\Administrator\Model\MetamodelModel $model */
+		$model = $this->getModel('Metamodel');
+
 		try
 		{
-			$result = $model->applyImport($plan);
+			// A request killed mid-slice never got to report what it wrote, so
+			// its checkpoint is ahead of the cursor the session kept. Trusting
+			// the cursor instead would write those rows a second time.
+			$checkpoint = $model->readCheckpoint();
 
-			$this->app->enqueueMessage(Text::sprintf(
-				'COM_JCBINOUT_APPLIED_SUMMARY',
-				$result['applied'], $result['skipped'], $result['failed']
-			), $result['failed'] > 0 ? 'warning' : 'message');
+			if ($checkpoint !== null && $checkpoint > $run->position())
+			{
+				$run->checkpoint($checkpoint);
+
+				$this->app->enqueueMessage(
+					Text::sprintf('COM_JCBINOUT_RESUMED_AT', $checkpoint), 'warning');
+			}
+
+			$result = $model->advanceImport($run);
+			$counts = $run->counts();
 
 			foreach (array_slice($result['diagnostics'], 0, 10) as $d)
 			{
 				$this->app->enqueueMessage($d['message'], 'error');
 			}
 
-			// The plan described the installation as it was before the write.
-			$this->session()?->setUserState('com_jcbinout.import.plan', null);
+			if ($run->isFinished())
+			{
+				$this->session()?->setUserState(ImportRun::STATE_KEY, null);
 
-			$this->done(Text::_('COM_JCBINOUT_APPLY_OK'));
+				$this->app->enqueueMessage(Text::sprintf(
+					'COM_JCBINOUT_APPLIED_SUMMARY',
+					$counts['applied'], $counts['skipped'], $counts['failed']
+				), $counts['failed'] > 0 ? 'warning' : 'message');
+
+				$this->done(Text::_('COM_JCBINOUT_APPLY_OK'));
+
+				return;
+			}
+
+			$this->session()?->setUserState(ImportRun::STATE_KEY, $run->toArray());
+
+			$this->done(Text::sprintf('COM_JCBINOUT_APPLY_CONTINUES',
+				$run->position(), $run->total()));
 		}
 		catch (\Throwable $e)
 		{
+			// The run stays where it is: whatever went wrong, the rows already
+			// written are written, and the cursor is the only record of which.
+			$this->session()?->setUserState(
+				ImportRun::STATE_KEY, $run->isFinished() ? null : $run->toArray());
+
 			$this->done($e->getMessage(), 'error');
 		}
 	}

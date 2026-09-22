@@ -28,8 +28,8 @@ applied only on a separate decision.
 | 3 | Instance export (M1): blueprint to LionWeb | **done** |
 | 4 | Round-trip against the Hello World fixture | **done** |
 | 5 | Import into JCB, with initialize/reset policy | **done** |
-| 6b | Progress reporting for large blueprints | next |
-| 7 | Exten-gen side | |
+| 6b | Progress reporting for large blueprints | **done** |
+| 7 | Exten-gen side | next |
 
 Phase 6 was originally scheduled last. It moved forward because leaving it late
 meant writing Phase 3 as standalone scripts and porting them afterwards — the
@@ -163,6 +163,34 @@ installation-local, leaves Joomla's own columns to the writer (which sets them
 on an insert and never touches them on an update), re-encodes values the way JCB
 stores them — 144 base64 columns and 90 JSON ones — and orders the writes so a
 row is written after whatever it points at.
+
+### A long import is sliced
+
+A plan of any size is applied in slices, one request each, with a progress bar
+between them. The bar is the by-product; the point is that a blueprint big
+enough to matter will not finish inside one request, and an import is not
+transactional — so the difference between slicing it and not is whether
+anything knows how far it got.
+
+`Blueprint\ImportRun` holds the cursor and the totals and travels in the
+session. `LocalStore` stops at the next operation boundary once
+`max_execution_time` is 60% spent and reports how many it consumed. It always
+writes at least one operation whatever the deadline says, because a run that
+consumes nothing never ends.
+
+A request can still be killed by something that is not the execution limit, so
+every twenty-fifth write leaves a checkpoint on disk. The next request resumes
+from that rather than from the cursor the session last saw, and rows already in
+JCB are not written a second time.
+
+**Rows per request** caps a slice regardless of time. Leave it at 0 on a host
+you control; set it on a shared one that is short of more than execution time.
+
+The page advances itself, with **Pause** to stop and **Stop import** to abandon
+the run — which leaves what has already been written exactly where it is, because
+there is no undo here and offering something that only looked like one would be
+worse. With no JavaScript at all, **Continue import** does the same thing one
+slice at a time.
 
 Verified against the live dev site: the Hello World blueprint imports into JCB
 6.1.6 as real rows, with `datatype` back to `VARCHAR` from its literal key and

@@ -17,6 +17,8 @@ $metamodel = $status['metamodel'];
 $language  = $status['language'];
 $instance  = $status['instance'] ?? null;
 $plan      = $this->importPlan;
+$run       = $this->importRun;
+$running   = $run !== null && !$run->isFinished();
 
 $badge = static function (bool $ok, string $yes, string $no): string {
 	return '<span class="badge bg-' . ($ok ? 'success' : 'danger') . '">'
@@ -193,6 +195,77 @@ $bytes = static function (int $n): string {
 		</div>
 	</div>
 
+	<?php if ($running) : ?>
+		<?php $counts = $run->counts(); ?>
+		<div class="card mb-3 border-warning">
+			<div class="card-header">
+				<h2 class="card-title h5 mb-0"><?php echo Text::_('COM_JCBINOUT_RUN_IN_PROGRESS'); ?></h2>
+			</div>
+			<div class="card-body">
+				<p><?php echo Text::sprintf('COM_JCBINOUT_RUN_INTRO',
+					htmlspecialchars($run->mode(), ENT_QUOTES, 'UTF-8')); ?></p>
+
+				<div class="progress mb-3" role="progressbar"
+					aria-valuenow="<?php echo $run->percentage(); ?>"
+					aria-valuemin="0" aria-valuemax="100">
+					<div class="progress-bar progress-bar-striped progress-bar-animated"
+						style="width: <?php echo $run->percentage(); ?>%">
+						<?php echo $run->percentage(); ?>%
+					</div>
+				</div>
+
+				<dl class="row mb-0">
+					<dt class="col-sm-3"><?php echo Text::_('COM_JCBINOUT_RUN_POSITION'); ?></dt>
+					<dd class="col-sm-9"><?php echo Text::sprintf('COM_JCBINOUT_RUN_OF',
+						$run->position(), $run->total()); ?></dd>
+
+					<dt class="col-sm-3"><?php echo Text::_('COM_JCBINOUT_RUN_WRITTEN'); ?></dt>
+					<dd class="col-sm-9"><?php echo Text::sprintf('COM_JCBINOUT_RUN_COUNTS',
+						$counts['applied'], $counts['skipped'], $counts['failed']); ?></dd>
+
+					<dt class="col-sm-3"><?php echo Text::_('COM_JCBINOUT_RUN_SLICES'); ?></dt>
+					<dd class="col-sm-9"><?php echo Text::sprintf('COM_JCBINOUT_RUN_SLICES_VALUE',
+						$run->slices(), round($run->elapsed())); ?></dd>
+				</dl>
+
+				<?php if ($run->failures() !== []) : ?>
+					<hr>
+					<p class="mb-1"><strong><?php echo Text::_('COM_JCBINOUT_RUN_FAILURES'); ?></strong></p>
+					<ul class="small mb-0">
+						<?php foreach (array_slice($run->failures(), 0, 10) as $failure) : ?>
+							<li>
+								<code><?php echo htmlspecialchars(
+									$failure['entity'] . ' ' . substr((string) $failure['value'], 0, 18),
+									ENT_QUOTES, 'UTF-8'); ?></code>
+								<?php echo htmlspecialchars((string) $failure['error'], ENT_QUOTES, 'UTF-8'); ?>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+					<?php if ($run->failuresDropped() > 0) : ?>
+						<p class="small mb-0"><?php echo Text::sprintf('COM_JCBINOUT_AND_MORE',
+							$run->failuresDropped()); ?></p>
+					<?php endif; ?>
+				<?php endif; ?>
+
+				<div class="mt-3">
+					<button type="button" class="btn btn-primary"
+						onclick="Joomla.submitform('metamodel.step');">
+						<?php echo Text::_('COM_JCBINOUT_CONTINUE'); ?>
+					</button>
+					<button type="button" class="btn btn-outline-secondary d-none"
+						id="jcbinoutPause">
+						<?php echo Text::_('COM_JCBINOUT_RUN_PAUSE'); ?>
+					</button>
+					<span class="small text-muted ms-2" id="jcbinoutAuto"></span>
+				</div>
+
+				<p class="small text-muted mt-3 mb-0">
+					<?php echo Text::_('COM_JCBINOUT_RUN_MANUAL'); ?>
+				</p>
+			</div>
+		</div>
+	<?php endif; ?>
+
 	<div class="card mb-3">
 		<div class="card-header">
 			<h2 class="card-title h5 mb-0"><?php echo Text::_('COM_JCBINOUT_IMPORT'); ?></h2>
@@ -207,6 +280,13 @@ $bytes = static function (int $n): string {
 					<option value="reset"><?php echo Text::_('COM_JCBINOUT_MODE_RESET'); ?></option>
 				</select>
 				<small class="form-text"><?php echo Text::_('COM_JCBINOUT_IMPORT_MODE_HELP'); ?></small>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label" for="rows"><?php echo Text::_('COM_JCBINOUT_IMPORT_ROWS'); ?></label>
+				<input class="form-control w-auto" type="number" min="0" step="1"
+					id="rows" name="rows" value="0">
+				<small class="form-text"><?php echo Text::_('COM_JCBINOUT_IMPORT_ROWS_HELP'); ?></small>
 			</div>
 
 			<?php if ($plan === null) : ?>
@@ -267,3 +347,57 @@ $bytes = static function (int $n): string {
 	<input type="hidden" name="task" value="">
 	<?php echo HTMLHelper::_('form.token'); ?>
 </form>
+<?php if ($running) : ?>
+	<?php
+	/*
+	 * Carry the run on by itself, so a blueprint that needs forty slices does
+	 * not need forty clicks.
+	 *
+	 * The delay is long enough to call the whole thing off before the next
+	 * request leaves - Pause stops this page advancing, Cancel in the toolbar
+	 * abandons the run - because a loop that reloads the page is a poor place
+	 * to be without a way out. Everything here is a convenience: with no
+	 * JavaScript at all the Continue button does exactly the same thing, one
+	 * slice at a time.
+	 */
+	$this->getDocument()->getWebAssetManager()->addInlineScript(
+		<<<'JS'
+		document.addEventListener('DOMContentLoaded', function () {
+			var pause = document.getElementById('jcbinoutPause'),
+				note  = document.getElementById('jcbinoutAuto'),
+				left  = 3,
+				timer;
+
+			if (!pause || !note || typeof Joomla === 'undefined') {
+				return;
+			}
+
+			pause.classList.remove('d-none');
+
+			timer = window.setInterval(function () {
+				left--;
+
+				if (left > 0) {
+					note.textContent = Joomla.Text._('COM_JCBINOUT_RUN_AUTO')
+						.replace('%d', left);
+
+					return;
+				}
+
+				window.clearInterval(timer);
+				Joomla.submitform('metamodel.step');
+			}, 1000);
+
+			pause.addEventListener('click', function () {
+				window.clearInterval(timer);
+				pause.classList.add('d-none');
+				note.textContent = Joomla.Text._('COM_JCBINOUT_RUN_PAUSED');
+			});
+		});
+		JS
+	);
+
+	Text::script('COM_JCBINOUT_RUN_AUTO');
+	Text::script('COM_JCBINOUT_RUN_PAUSED');
+	?>
+<?php endif; ?>

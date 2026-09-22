@@ -13,6 +13,7 @@ namespace Yepr\Component\Jcbinout\Administrator\Model;
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Model\BaseDatabaseModel;
 use Yepr\Component\Jcbinout\Administrator\Blueprint\ImportPlanner;
+use Yepr\Component\Jcbinout\Administrator\Blueprint\ImportRun;
 use Yepr\Component\Jcbinout\Administrator\Blueprint\RepositorySource;
 use Yepr\Component\Jcbinout\Administrator\Jcb\LocalStore;
 use Yepr\Component\Jcbinout\Administrator\Jcb\Locator;
@@ -356,9 +357,111 @@ class MetamodelModel extends BaseDatabaseModel
 	}
 
 	/**
-	 * Execute a plan against this installation's JCB tables.
+	 * Execute a plan against this installation's JCB tables, all of it.
 	 */
 	public function applyImport(array $plan, ?callable $progress = null): array
+	{
+		$store  = new LocalStore(new Schema($this->metamodelOrFail()));
+		$result = $store->apply($plan, $progress);
+
+		return $result + ['diagnostics' => $store->diagnostics()];
+	}
+
+	/**
+	 * Write the next slice of a run, and give back where it has got to.
+	 *
+	 * The run comes back whether it finished or not; the caller asks it. What
+	 * happens between the store returning and the run being stored again is
+	 * the one place a crash costs more than the checkpoint bounds, which is
+	 * why there is nothing in between.
+	 */
+	public function advanceImport(ImportRun $run): array
+	{
+		$store = new LocalStore(new Schema($this->metamodelOrFail()));
+
+		$from      = $run->position();
+		$checkedTo = $from;
+
+		$result = $store->apply(
+			$run->slice(),
+			// Every write is one JCB will still have if this request is killed
+			// in the next millisecond, so the cursor is kept roughly level with
+			// them on disk. Every twenty-fifth, not every one: the point is to
+			// bound how much a dead request repeats, and repeating twenty-four
+			// inserts is cheap next to a file write per row.
+			function (string $stage, int $done) use ($from, &$checkedTo): void {
+				if ($done % 25 !== 0)
+				{
+					return;
+				}
+
+				$checkedTo = $from + $done;
+
+				$this->writeCheckpoint($checkedTo);
+			},
+			$this->sliceDeadline()
+		);
+
+		$run->record($result);
+
+		$this->clearCheckpoint();
+
+		return $result + ['diagnostics' => $store->diagnostics()];
+	}
+
+	/**
+	 * How far a killed request had got, if one was.
+	 *
+	 * A run resumed after a crash trusts this over its own cursor, because the
+	 * session was written before the slice ran and the checkpoint during it.
+	 */
+	public function readCheckpoint(): ?int
+	{
+		$raw = @file_get_contents($this->checkpointPath());
+
+		return is_string($raw) && is_numeric(trim($raw)) ? (int) trim($raw) : null;
+	}
+
+	private function writeCheckpoint(int $position): void
+	{
+		// A checkpoint that cannot be written is not worth failing an import
+		// over: the run still has its own cursor, and the cost is a larger
+		// replay if this request dies. Nothing else depends on it.
+		@file_put_contents($this->checkpointPath(), (string) $position);
+	}
+
+	private function clearCheckpoint(): void
+	{
+		@unlink($this->checkpointPath());
+	}
+
+	private function checkpointPath(): string
+	{
+		return $this->workPath() . '/import-checkpoint.txt';
+	}
+
+	/**
+	 * When the current slice should stop writing.
+	 *
+	 * Far enough inside `max_execution_time` to leave room for the redirect and
+	 * the page that reports on it. A best effort rather than a guarantee: the
+	 * limit is not the only way a request can be cut short, which is what the
+	 * checkpoint is for. No limit at all - a CLI, or a host that allows it -
+	 * means there is nothing to run out of, so the slice is the whole plan.
+	 */
+	private function sliceDeadline(): ?float
+	{
+		$limit = (int) ini_get('max_execution_time');
+
+		if ($limit <= 0)
+		{
+			return null;
+		}
+
+		return microtime(true) + max(2.0, $limit * 0.6);
+	}
+
+	private function metamodelOrFail(): array
 	{
 		$metamodel = $this->artefact(self::METAMODEL_FILE);
 
@@ -367,10 +470,7 @@ class MetamodelModel extends BaseDatabaseModel
 			throw new \RuntimeException('Derive the metamodel before importing.');
 		}
 
-		$store  = new LocalStore(new Schema($metamodel));
-		$result = $store->apply($plan, $progress);
-
-		return $result + ['diagnostics' => $store->diagnostics()];
+		return $metamodel;
 	}
 
 	private function write(string $file, array $data): void

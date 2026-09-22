@@ -97,18 +97,29 @@ final class LocalStore
 	}
 
 	/**
-	 * Execute a plan.
+	 * Execute a plan, or as much of one as there is time for.
 	 *
 	 * Each operation is its own statement and its own outcome. A failure is
 	 * recorded and the rest continue, because a blueprint half-imported with a
 	 * list of what failed is more use than one abandoned at the first bad row
 	 * with nothing said about the rest.
 	 *
-	 * @param callable|null $progress fn(string $stage, int $done, int $total)
+	 * With a deadline it stops at the next operation boundary once the time is
+	 * spent and says how many it got through, so the caller can come back for
+	 * the rest in another request. The budget is enforced here because this is
+	 * the only thing that knows what a write costs - the planner decides what
+	 * to write, and how long that takes is not a decision.
 	 *
-	 * @return array{applied:int,failed:int,skipped:int,results:list<array>}
+	 * **At least one operation runs per call**, whatever the deadline says. A
+	 * budget already spent on arrival would otherwise consume nothing, and a
+	 * run that consumes nothing never ends.
+	 *
+	 * @param callable|null $progress fn(string $stage, int $done, int $total)
+	 * @param float|null    $deadline A `microtime(true)` after which to stop.
+	 *
+	 * @return array{applied:int,failed:int,skipped:int,consumed:int,results:list<array>}
 	 */
-	public function apply(array $plan, ?callable $progress = null): array
+	public function apply(array $plan, ?callable $progress = null, ?float $deadline = null): array
 	{
 		$operations = $plan['operations'] ?? [];
 		$total      = count($operations);
@@ -124,6 +135,11 @@ final class LocalStore
 
 		foreach ($operations as $operation)
 		{
+			if ($done > 0 && $deadline !== null && microtime(true) >= $deadline)
+			{
+				break;
+			}
+
 			$done++;
 
 			if ($progress !== null)
@@ -163,10 +179,13 @@ final class LocalStore
 		}
 
 		return [
-			'applied' => $applied,
-			'failed'  => $failed,
-			'skipped' => $skipped,
-			'results' => $results,
+			'applied'  => $applied,
+			'failed'   => $failed,
+			'skipped'  => $skipped,
+			// What the caller has to advance by, which is not applied + failed
+			// + skipped once a deadline can cut a slice short.
+			'consumed' => $done,
+			'results'  => $results,
 		];
 	}
 

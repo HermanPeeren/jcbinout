@@ -134,8 +134,13 @@ describe('JcbInOut metamodel view', () => {
 
     cy.get('#toolbar').contains('Apply plan').should('be.visible');
 
-    // The fixture is not in this JCB, so everything plans as an insert.
-    cy.get('table').contains('td', 'insert').should('exist');
+    // Every payload is accounted for, each as an insert or a skip depending on
+    // whether this site has been imported into before. Which it is was asserted
+    // here until the fixture stayed behind from an earlier run and the spec
+    // started failing on the second pass - a green test that needed a fresh
+    // database was testing the database, not the plan.
+    cy.get('table tbody tr').should('have.length.greaterThan', 0);
+    cy.get('table').contains('td', /insert|skip/).should('exist');
 
     cy.get('#toolbar').contains('Apply plan').click();
 
@@ -151,6 +156,52 @@ describe('JcbInOut metamodel view', () => {
     cy.get('joomla-alert, .alert', { timeout: 60000 })
       .invoke('text')
       .should('match', /0 to insert/);
+  });
+
+  it('applies a large import in slices, and says where it has got to', () => {
+    // Everything the previous spec left on disk is still there, so this only
+    // needs a fresh plan. Reset, because the fixture is already imported by
+    // then and initialize would plan nothing to write.
+    cy.get('#mode').select('reset');
+    cy.get('#rows').clear().type('10');
+    cy.get('#toolbar').contains('Plan import').click();
+
+    cy.get('joomla-alert, .alert', { timeout: 60000 })
+      .invoke('text')
+      .should('match', /33 payloads/);
+
+    cy.get('#rows').clear().type('10');
+    cy.get('#toolbar').contains('Apply plan').click();
+
+    // Ten of thirty-three written, so the run is open and says so. Pause first,
+    // or the page advances itself out from under the assertions.
+    cy.contains('#jcbinoutPause', 'Pause', { timeout: 60000 }).click();
+
+    cy.contains('.card', 'Import under way').within(() => {
+      cy.contains('10 of 33 operations').should('be.visible');
+      cy.get('.progress-bar').should('contain.text', '30%');
+    });
+
+    // A run under way is the only thing on offer: planning a second import
+    // over a half-written one would plan against a moving installation.
+    cy.get('#toolbar').contains('Continue import').should('be.visible');
+    cy.get('#toolbar').contains('Stop import').should('be.visible');
+    cy.get('#toolbar').contains('Plan import').should('not.exist');
+
+    cy.get('#toolbar').contains('Continue import').click();
+    cy.contains('#jcbinoutPause', 'Pause', { timeout: 60000 }).click();
+    cy.contains('.card', 'Import under way').should('contain.text', '20 of 33');
+
+    // Let it finish by itself from here, which is what it does unattended.
+    cy.get('#toolbar').contains('Continue import').click();
+
+    cy.get('joomla-alert, .alert', { timeout: 120000 })
+      .invoke('text')
+      .should('match', /33 row\(s\) written/);
+
+    // And the run is gone, so the ordinary import controls are back.
+    cy.contains('.card', 'Import under way').should('not.exist');
+    cy.get('#toolbar').contains('Plan import').should('be.visible');
   });
 
   it('validates the built language', () => {

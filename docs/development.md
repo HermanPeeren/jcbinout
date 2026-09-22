@@ -94,6 +94,12 @@ php tools/cli.php roundtrip
 npx cypress run
 ```
 
+Specs must survive a second run. The suite writes to the dev site's database and
+leaves the fixture there, so a spec that asserts the plan is all inserts is
+green once and red afterwards — that is a spec testing the database rather than
+the plan. Assert what holds whether or not the blueprint has been imported
+before.
+
 Cypress specs live in `tests/cypress/`, with everything else that tests
 something. `cypress.config.js` and `cypress.env.json` stay at the repository
 root, because that is where Cypress looks for them.
@@ -139,6 +145,23 @@ is what makes initialize-versus-reset testable at all — the difference between
 the two modes is entirely a matter of what the plan decides, not of how a row is
 written — and it is what lets the UI show a candidate list before anything is
 touched. If you add a decision, it belongs in the planner.
+
+### A long import is sliced, and the cursor is the record
+
+`ImportRun` is a cursor and a tally, and nothing else — no database, no session,
+no clock. It is handed a slice's outcome and folds it in, which is why the
+arithmetic that decides where a resumed import starts writing is testable at
+all. Get it wrong one way and rows are written twice; the other way and they are
+never written, and neither shows up in a green test of the writer.
+
+Two rules there are load-bearing. The cursor advances by what the writer says it
+**consumed**, not by what it applied, or a failing row would be re-offered on
+every slice and the run would never end. And `LocalStore::apply()` always writes
+**at least one** operation whatever the deadline says, or a budget already spent
+on arrival would consume nothing and the run would never end either.
+
+The deadline lives in the writer rather than the planner on purpose: what to
+write is a decision, how long a write takes is not.
 
 ### The metamodel owns storage, the language owns design
 
@@ -218,13 +241,17 @@ root and the reference artefacts, and nothing from `vendor/`, `node_modules/` or
 
 ## Known limits
 
-- **No progress reporting on a long import.** The callback exists and nothing
-  calls it from the UI; a 33-payload blueprint is instant, a large one will not
-  be.
 - **An import is not transactional.** Each row is its own statement and its own
   outcome, so a failure part-way leaves what was already written in place, with
-  a list of what failed. That is deliberate, but it means a failed import wants
-  reading rather than re-running blindly.
+  a list of what failed. That is deliberate — and it is why a run keeps a cursor
+  — but it means a failed import wants reading rather than re-running blindly.
+- **A slice's counts are lost if its request is killed.** The checkpoint records
+  where the writing got to, not what it did, so a run resumed after a crash
+  resumes in the right place with its applied/failed totals short by up to the
+  24 rows since the last checkpoint. The rows are right; the tally is not.
+- **`max_execution_time` is not the only way a request dies.** The deadline is a
+  best effort against the limit PHP reports. A proxy timeout or the memory limit
+  will still cut a slice short — which the checkpoint covers, at the cost above.
 - **Row node ids are not stable across a round trip.** Definitions keep their
   GUIDs, but subform row ids derive from JCB's row keys, which the importer
   renumbers from zero. Inside β, but it matters if anything starts diffing

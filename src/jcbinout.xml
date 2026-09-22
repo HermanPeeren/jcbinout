@@ -6,8 +6,8 @@
 	<authorUrl>https://yepr.nl</authorUrl>
 	<copyright>Copyright (C) 2026 Herman Peeren. All rights reserved.</copyright>
 	<license>GNU General Public License version 3 or later</license>
-	<version>0.3.0</version>
-	<creationDate>2026-09-20</creationDate>
+	<version>0.4.0</version>
+	<creationDate>2026-09-22</creationDate>
 	<description>COM_JCBINOUT_XML_DESCRIPTION</description>
 	<namespace path="src">Yepr\Component\Jcbinout</namespace>
 

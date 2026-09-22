@@ -16,6 +16,7 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Toolbar\ToolbarHelper;
+use Yepr\Component\Jcbinout\Administrator\Blueprint\ImportRun;
 
 /**
  * @since 1.0.0
@@ -33,6 +34,9 @@ class HtmlView extends BaseHtmlView
 	/** The plan awaiting a decision, if one has been made. */
 	protected ?array $importPlan = null;
 
+	/** The import under way, if one has been started and not finished. */
+	protected ?ImportRun $importRun = null;
+
 	public function display($tpl = null): void
 	{
 		/** @var \Yepr\Component\Jcbinout\Administrator\Model\MetamodelModel $model */
@@ -48,6 +52,9 @@ class HtmlView extends BaseHtmlView
 			: null;
 
 		$this->importPlan = is_array($pending) ? $pending : null;
+		$this->importRun  = $app instanceof CMSApplication
+			? ImportRun::fromArray($app->getUserState(ImportRun::STATE_KEY))
+			: null;
 
 		$this->addToolbar();
 
@@ -70,6 +77,23 @@ class HtmlView extends BaseHtmlView
 		}
 
 		$toolbar = $document->getToolbar();
+
+		// A run under way is the only thing on offer until it is dealt with.
+		// Everything else here reads or rewrites the artefacts the run is in
+		// the middle of applying, and planning a second import over a
+		// half-written one would plan against an installation that is still
+		// changing. Finish it or stop it first.
+		if ($this->importRun !== null && !$this->importRun->isFinished())
+		{
+			$toolbar->standardButton('play', 'COM_JCBINOUT_CONTINUE', 'metamodel.step')
+				->icon('icon-play');
+
+			$toolbar->standardButton('cancel', 'COM_JCBINOUT_CANCEL_RUN', 'metamodel.cancel')
+				->icon('icon-cancel');
+
+			return;
+		}
+
 		$jcbReady = $this->status['jcb']['classesAvailable'] ?? false;
 
 		if ($jcbReady || ($this->status['jcb']['sourcePath'] ?? null) !== null)
