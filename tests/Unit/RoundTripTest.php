@@ -10,6 +10,7 @@ use PHPUnit\Framework\TestCase;
 use Yepr\Component\Jcbinout\Administrator\Blueprint\DesignProjection;
 use Yepr\Component\Jcbinout\Administrator\Blueprint\Payload;
 use Yepr\Component\Jcbinout\Administrator\Blueprint\RepositorySource;
+use Yepr\Component\Jcbinout\Administrator\Jcb\Schema;
 use Yepr\Component\Jcbinout\Administrator\Lionweb\InstanceExporter;
 use Yepr\Component\Jcbinout\Administrator\Lionweb\InstanceImporter;
 use Yepr\Component\Jcbinout\Administrator\Lionweb\LanguageIndex;
@@ -50,6 +51,47 @@ final class RoundTripTest extends TestCase
             ->export(self::$original, 'hello-world');
 
         self::$returned = (new InstanceImporter(self::$index))->import($chunk);
+    }
+
+    /**
+     * An identity that is not a guid comes back as itself.
+     *
+     * A placeholder is addressed by its target, and a target reads
+     * `[[[COMPANY]]]` - not a legal LionWeb node id, so it travels under an
+     * encoding of itself. Reading the identity back off the node id hands JCB
+     * the encoding, and the fixture cannot catch it because it has no
+     * placeholders: found by exporting a whole installation, where eleven of
+     * them came back renamed.
+     */
+    public function testAnIdentityThatIsNotAGuidSurvivesTheRoundTrip(): void
+    {
+        $root      = \dirname(__DIR__, 2);
+        $metamodel = $root . '/data/jcb-metamodel.json';
+
+        if (!is_file($metamodel)) {
+            self::markTestSkipped('No metamodel derived yet. Run: php tools/cli.php all');
+        }
+
+        $schema  = new Schema((array) json_decode((string) file_get_contents($metamodel), true));
+        $target  = '[[[COMPANY]]]';
+        $payload = new Payload(
+            'placeholder',
+            $target,
+            $schema->payloadPath('placeholder', $target),
+            ['target' => $target, 'value' => 'Yepr'],
+            false
+        );
+
+        $chunk = (new InstanceExporter(self::$index))->export([$payload], 'identity');
+
+        // It had to be encoded to travel, or the chunk would not validate.
+        $this->assertNotSame($target, $chunk['nodes'][1]['id'] ?? null);
+
+        $back = (new InstanceImporter(self::$index, $schema))->import($chunk);
+
+        $this->assertCount(1, $back);
+        $this->assertSame($target, $back[0]->ownerGuid, 'and it has to arrive as itself');
+        $this->assertSame($target, $back[0]->data['target']);
     }
 
     public function testDesignSurvivesTheRoundTrip(): void

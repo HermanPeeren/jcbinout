@@ -89,6 +89,58 @@ final class Schema
 		return $this->joomlaColumns;
 	}
 
+	/**
+	 * Where a repository keeps this entity, as its transport config declares.
+	 *
+	 * Not derivable, which is why it is asked for. Most entities sit at
+	 * `src/<entity>`, but `power` is at `src` and keeps its payload in
+	 * `settings.json`, and every owned record is under its parent at
+	 * `src/<parent>/children`. Guessing works for the common case and writes
+	 * the rest somewhere JCB will not look.
+	 */
+	public function srcPath(string $entity): string
+	{
+		$declared = (string) ($this->entities[$entity]['transport']['srcPath'] ?? '');
+
+		return $declared !== '' ? $declared : 'src/' . $entity;
+	}
+
+	/** What the payload file is called - usually `item.json`. */
+	public function settingsName(string $entity): string
+	{
+		$declared = (string) ($this->entities[$entity]['transport']['settingsName'] ?? '');
+
+		return $declared !== '' ? $declared : 'item.json';
+	}
+
+	/** Where the index that locates this entity's payloads lives. */
+	public function indexPath(string $entity): string
+	{
+		$declared = (string) ($this->entities[$entity]['transport']['indexPath'] ?? '');
+
+		return $declared !== '' ? $declared : 'index/' . str_replace('_', '-', $entity) . '.json';
+	}
+
+	/** The column an index entry is titled by, if the entity declares one. */
+	public function titleName(string $entity): ?string
+	{
+		$declared = (string) ($this->entities[$entity]['transport']['titleName'] ?? '');
+
+		return $declared !== '' ? $declared : null;
+	}
+
+	/** The directory one record of this entity occupies. */
+	public function recordPath(string $entity, string $identity): string
+	{
+		return $this->srcPath($entity) . '/' . $identity;
+	}
+
+	/** The payload file for one record, which is what a repository is made of. */
+	public function payloadPath(string $entity, string $identity): string
+	{
+		return $this->recordPath($entity, $identity) . '/' . $this->settingsName($entity);
+	}
+
 	/** Entities this one owns, as declared by its transport config. */
 	public function children(string $entity): array
 	{

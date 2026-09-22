@@ -15,6 +15,7 @@ use Joomla\CMS\MVC\Model\BaseDatabaseModel;
 use Yepr\Component\Jcbinout\Administrator\Blueprint\ImportPlanner;
 use Yepr\Component\Jcbinout\Administrator\Blueprint\ImportRun;
 use Yepr\Component\Jcbinout\Administrator\Blueprint\RepositorySource;
+use Yepr\Component\Jcbinout\Administrator\Blueprint\RepositoryWriter;
 use Yepr\Component\Jcbinout\Administrator\Jcb\DatabaseSource;
 use Yepr\Component\Jcbinout\Administrator\Jcb\LocalStore;
 use Yepr\Component\Jcbinout\Administrator\Jcb\Locator;
@@ -268,7 +269,17 @@ class MetamodelModel extends BaseDatabaseModel
 			throw new \RuntimeException('Build the LionWeb language before exporting.');
 		}
 
-		$source = new RepositorySource($path);
+		// With the metamodel when there is one, so the entities whose layout is
+		// not the obvious one are found too. Without it the reader still works,
+		// on the convention alone - a language can exist before a metamodel has
+		// been derived in this installation, and refusing to export then would
+		// be refusing over something that costs coverage rather than
+		// correctness.
+		$metamodel = $this->artefact(self::METAMODEL_FILE);
+		$source    = new RepositorySource(
+			$path,
+			$metamodel === null ? null : new Schema($metamodel)
+		);
 
 		if (!$source->exists())
 		{
@@ -334,7 +345,7 @@ class MetamodelModel extends BaseDatabaseModel
 		}
 
 		$index    = new LanguageIndex($language, $this->artefact(self::ENUM_MAP_FILE) ?? []);
-		$importer = new InstanceImporter($index);
+		$importer = new InstanceImporter($index, new Schema($metamodel));
 		$payloads = $importer->import($chunk);
 
 		$schema  = new Schema($metamodel);
@@ -427,6 +438,51 @@ class MetamodelModel extends BaseDatabaseModel
 		$site = (string) Factory::getApplication()->get('sitename');
 
 		return $site === '' ? 'installed-jcb' : $site;
+	}
+
+	/**
+	 * Write the exported chunk out as a blueprint repository.
+	 *
+	 * The fourth direction, and the one that puts a model somewhere a person
+	 * can read it: a tree of JSON files to commit to git, rather than rows in a
+	 * database or a chunk only another tool understands.
+	 *
+	 * @since 1.0.0
+	 */
+	public function writeBlueprint(string $path, ?array $chunk = null): array
+	{
+		$chunk ??= $this->artefact(self::INSTANCE_FILE);
+
+		if ($chunk === null)
+		{
+			throw new \RuntimeException('Export a blueprint before writing one.');
+		}
+
+		$language = $this->artefact(self::LANGUAGE_FILE);
+
+		if ($language === null)
+		{
+			throw new \RuntimeException('Build the LionWeb language before writing a blueprint.');
+		}
+
+		if (trim($path) === '')
+		{
+			throw new \RuntimeException('Give a path to write the repository to.');
+		}
+
+		$schema   = new Schema($this->metamodelOrFail());
+		$importer = new InstanceImporter(
+			new LanguageIndex($language, $this->artefact(self::ENUM_MAP_FILE) ?? []),
+			$schema
+		);
+
+		$payloads = $importer->import($chunk);
+		$writer   = new RepositoryWriter($schema);
+		$written  = $writer->writeTo($path, $payloads);
+
+		return $written + [
+			'diagnostics' => array_merge($importer->diagnostics(), $writer->diagnostics()),
+		];
 	}
 
 	/**

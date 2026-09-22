@@ -182,6 +182,13 @@ $bytes = static function (int $n): string {
 				<small class="form-text"><?php echo Text::_('COM_JCBINOUT_BLUEPRINT_PATH_HELP'); ?></small>
 			</div>
 
+			<div class="mb-3">
+				<label class="form-label" for="repository"><?php echo Text::_('COM_JCBINOUT_REPOSITORY_PATH'); ?></label>
+				<input type="text" class="form-control" id="repository" name="repository"
+					value="<?php echo htmlspecialchars($this->defaultRepository, ENT_QUOTES, 'UTF-8'); ?>">
+				<small class="form-text"><?php echo Text::_('COM_JCBINOUT_REPOSITORY_PATH_HELP'); ?></small>
+			</div>
+
 			<?php if ($instance !== null && $instance['exists']) : ?>
 				<p class="mb-0">
 					<span class="badge bg-success"><?php echo Text::_('COM_JCBINOUT_EXPORTED'); ?></span>

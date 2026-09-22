@@ -88,19 +88,31 @@ explicit, because "export from JCB" could reasonably mean either:
 | | reads | writes |
 |---|---|---|
 | Export blueprint | a blueprint repository on disk | a LionWeb chunk |
-| **Export installed** | **JCB's tables** | a LionWeb chunk |
+| Export installed | JCB's tables | a LionWeb chunk |
 | Import | a LionWeb chunk | JCB's tables |
-| *not built* | a LionWeb chunk | a blueprint repository on disk |
+| Write blueprint | a LionWeb chunk | a blueprint repository on disk |
 
-A repository is a blueprint somebody has already pushed. Until **Export
-installed** there was no way to export a component still being built in JCB's
-own interface — which is most of them, most of the time.
+A repository is a blueprint somebody has already pushed. **Export installed**
+is how a component still being built in JCB's own interface gets out — which is
+most of them, most of the time — and **Write blueprint** is how a model that
+arrived as a chunk becomes a tree of JSON files you can read, diff and commit.
 
-Both readers produce the same `Payload` objects, and everything downstream
-works on those and is never told which side they came from. That is checkable
-rather than merely intended: the fixture is imported into the dev site, so the
-same models can be read off disk and out of the tables and compared by β. They
-agree on all 33, column for column.
+Every reader produces the same `Payload` objects and the writer consumes them,
+so nothing in between is ever told which side a model came from. That is
+checkable rather than merely intended, and both halves are checked: the fixture
+is imported into the dev site, so the same models can be read off disk and out
+of the tables and compared by β — they agree on all 33, column for column — and
+the whole installation can be taken out of the tables, through a chunk, onto
+disk and read back, which comes to 600 payloads with no design difference at
+all.
+
+**Four entities cannot go into a repository**, and are declined rather than
+written wrong. `joomla_power`, `snippet`, `fieldtype` and `repository` all
+declare the same layout in JCB's transport config — `src/<guid>/item.json`,
+with three of them naming the same index — so a record of one cannot be told
+from a record of another once it is on disk. That is 223 of the dev site's 824
+records. Writing them anyway would produce a tree that reads back as the wrong
+entity, which is worse than one that is honestly incomplete.
 
 ### Instance export
 

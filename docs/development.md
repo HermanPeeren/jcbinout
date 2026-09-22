@@ -199,6 +199,38 @@ of them was visible from a green unit suite:
 Only the last needed a whole installation to find. One blueprint has no
 placeholders in it.
 
+### Where a record lives is declared, not derived
+
+`srcPath`, `settingsName` and `indexPath` come from JCB's transport config, and
+they are not all the obvious ones. `power` keeps its payload in `settings.json`
+at the root of `src`; every owned record is filed under its parent. Ask
+`Schema::payloadPath()` rather than building a path, on both sides.
+
+Writing the fourth direction is what exposed how far that goes. `RepositorySource`
+found payloads with a regex that assumed `src/<entity>/<guid>/item.json`, so
+five portable entities — 365 of the dev site's 824 records — were invisible to
+it. It now takes an optional `Schema` and looks for the declared patterns too.
+
+And four of those five cannot be written at all: `joomla_power`, `snippet`,
+`fieldtype` and `repository` declare the *same* layout as each other, so a
+record found there cannot be attributed to one of them. Both sides say so —
+`LAYOUT_NOT_DISTINCT` when writing, `AMBIGUOUS_LAYOUT` when reading — and
+neither guesses. If a real JCB repository turns up that holds these, the
+question to answer is how JCB itself tells them apart; the index is the likely
+answer, but three of the four name the same index file.
+
+### The node id is not the identity
+
+`Payload::nodeId()` encodes an identity that is not a legal LionWeb id, so
+`InstanceImporter` must not read the identity back off the id — it takes it
+from the identifying column instead, which needs the `Schema` and is why the
+importer accepts one. Without that, eleven placeholders came back named
+`COMPANY-35db07a3009b` and an import would have written that to JCB as their
+target.
+
+Encoding one way and decoding another is the general shape of this mistake, and
+it passes any test that only exports.
+
 ### The metamodel owns storage, the language owns design
 
 The language says what a column *is*. It says nothing about how JCB writes the

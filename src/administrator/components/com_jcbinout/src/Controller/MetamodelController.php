@@ -223,6 +223,55 @@ class MetamodelController extends BaseController
 	}
 
 	/**
+	 * Write the exported chunk out as a blueprint repository.
+	 *
+	 * The direction that puts a model somewhere a person can read it: a tree of
+	 * JSON files to commit, rather than rows in a database or a chunk only
+	 * another tool understands.
+	 */
+	public function writeBlueprint(): void
+	{
+		Session::checkToken() or jexit(Text::_('JINVALID_TOKEN'));
+
+		/** @var \Yepr\Component\Jcbinout\Administrator\Model\MetamodelModel $model */
+		$model = $this->getModel('Metamodel');
+
+		$path = trim((string) $this->input->getString('repository', ''));
+
+		if ($path === '')
+		{
+			$this->done(Text::_('COM_JCBINOUT_WRITE_NO_PATH'), 'warning');
+
+			return;
+		}
+
+		try
+		{
+			$result = $model->writeBlueprint($path);
+
+			$this->app->enqueueMessage(Text::sprintf(
+				'COM_JCBINOUT_WRITTEN_SUMMARY',
+				$result['payloads'], $result['files'], $result['root']
+			));
+
+			foreach (array_slice($result['diagnostics'], 0, 10) as $d)
+			{
+				if (($d['severity'] ?? 'info') !== 'info')
+				{
+					$this->app->enqueueMessage($d['message'],
+						$d['severity'] === 'error' ? 'error' : 'warning');
+				}
+			}
+
+			$this->done(Text::_('COM_JCBINOUT_WRITE_OK'));
+		}
+		catch (\Throwable $e)
+		{
+			$this->done($e->getMessage(), 'error');
+		}
+	}
+
+	/**
 	 * Show what importing the exported blueprint into this JCB would do.
 	 *
 	 * Planning never writes. The plan is a candidate list, and applying it is a

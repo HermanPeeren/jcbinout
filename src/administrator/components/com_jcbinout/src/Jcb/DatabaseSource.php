@@ -189,18 +189,23 @@ final class DatabaseSource
 			$data[$column] = $this->schema->decode($entity, $column, $value);
 		}
 
-		// An owned record is addressed by its parent, and a repository files it
-		// under that parent rather than under itself. Ownership is declared, not
-		// inferred from the identifier being something other than a guid:
-		// custom_code, placeholder and validation_rule are identified by a
-		// natural key and are nobody's children.
+		// Where a repository would have filed this row. Asked for rather than
+		// built here: the transport config declares it, and an owned record
+		// lives under its parent while `power` lives at the root of `src` and
+		// calls its payload something else entirely.
+		//
+		// Ownership is declared too, and is not the same question as whether
+		// the identifier is a guid: custom_code, placeholder and
+		// validation_rule are identified by a natural key and own nothing.
 		$parent = $this->schema->parentOf($entity);
-		$path   = $parent !== null
-			? 'src/' . $parent . '/children/' . $owner . '/'
-				. str_replace('_', '-', $entity) . '.json'
-			: 'src/' . $entity . '/' . $owner . '/item.json';
 
-		return new Payload($entity, $owner, $path, $data, $parent !== null);
+		return new Payload(
+			$entity,
+			$owner,
+			$this->schema->payloadPath($entity, $owner),
+			$data,
+			$parent !== null
+		);
 	}
 
 	/** How many payloads each entity contributed, for the last read. */

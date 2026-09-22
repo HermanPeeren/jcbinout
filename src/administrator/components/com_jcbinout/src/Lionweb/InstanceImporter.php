@@ -11,6 +11,7 @@ namespace Yepr\Component\Jcbinout\Administrator\Lionweb;
 \defined('_JEXEC') or die;
 
 use Yepr\Component\Jcbinout\Administrator\Blueprint\Payload;
+use Yepr\Component\Jcbinout\Administrator\Jcb\Schema;
 
 /**
  * Turns a LionWeb instance chunk back into JCB blueprint payloads.
@@ -32,9 +33,40 @@ final class InstanceImporter
 	/** @var array<string,array<string,mixed>> node id => node */
 	private array $nodes = [];
 
-	public function __construct(LanguageIndex $index)
+	/**
+	 * The metamodel, when the caller has one.
+	 *
+	 * Only the identifying column is wanted from it, and only for the few
+	 * entities addressed by something other than a guid. Optional because the
+	 * language alone is enough for everything else, and the CLI has no reason
+	 * to load a metamodel to read a chunk.
+	 */
+	private ?Schema $schema;
+
+	public function __construct(LanguageIndex $index, ?Schema $schema = null)
 	{
-		$this->index = $index;
+		$this->index  = $index;
+		$this->schema = $schema;
+	}
+
+	/**
+	 * The identity a payload carries in its own columns, if it carries one.
+	 *
+	 * For everything keyed by a guid this is the node id again and changes
+	 * nothing. For a placeholder, keyed by a target that reads `[[[COMPANY]]]`,
+	 * it is the difference between handing JCB its target and handing it the
+	 * encoding the target travelled under.
+	 */
+	private function identityIn(string $entity, array $columns): ?string
+	{
+		if ($this->schema === null || !$this->schema->knows($entity))
+		{
+			return null;
+		}
+
+		$value = $columns[$this->schema->identifier($entity)] ?? null;
+
+		return is_string($value) && $value !== '' ? $value : null;
 	}
 
 	private function diag(string $severity, string $code, string $message, array $ctx = []): void
@@ -111,10 +143,18 @@ final class InstanceImporter
 	private function definition(array $node): array
 	{
 		$entity = $node['classifier']['key'];
-		$guid   = $node['id'];
 
 		$owned   = [];
 		$columns = $this->columns($node, $entity, $owned);
+
+		// The node id is an addressing convention; the identifying column is
+		// the identity. They are the same string for everything keyed by a
+		// guid, and they are not for the few keyed by a natural key: a
+		// placeholder's target reads `[[[COMPANY]]]`, which no chunk will
+		// accept as an id, so the id it travels under is an encoding of it.
+		// Reading the identity back off the id would hand JCB the encoding.
+		$guid = $this->identityIn($entity, $columns) ?? $node['id'];
+
 		$payloads = [new Payload(
 			$entity,
 			$guid,

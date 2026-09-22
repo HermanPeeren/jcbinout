@@ -31,6 +31,15 @@ class HtmlView extends BaseHtmlView
 	 */
 	protected string $defaultBlueprint = '';
 
+	/**
+	 * Where a written repository would go by default.
+	 *
+	 * Beside the derived artefacts rather than over the shipped fixture, for
+	 * the same reason deriving does not overwrite the reference: a default that
+	 * destroys the thing everything else is compared against is a bad default.
+	 */
+	protected string $defaultRepository = '';
+
 	/** The plan awaiting a decision, if one has been made. */
 	protected ?array $importPlan = null;
 
@@ -44,7 +53,8 @@ class HtmlView extends BaseHtmlView
 		$this->status = $model->getStatus();
 
 		$fixture = JPATH_ADMINISTRATOR . '/components/com_jcbinout/data/hello-world';
-		$this->defaultBlueprint = is_dir($fixture . '/src') ? $fixture : '';
+		$this->defaultBlueprint  = is_dir($fixture . '/src') ? $fixture : '';
+		$this->defaultRepository = $model->workPath() . '/blueprint';
 
 		$app     = Factory::getApplication();
 		$pending = $app instanceof CMSApplication
@@ -126,6 +136,11 @@ class HtmlView extends BaseHtmlView
 		{
 			$toolbar->standardButton('search', 'COM_JCBINOUT_PLAN', 'metamodel.plan')
 				->icon('icon-search');
+
+			// The fourth direction: back out to a tree of files somebody can
+			// read and commit, rather than rows or a chunk.
+			$toolbar->standardButton('folder', 'COM_JCBINOUT_WRITE_BLUEPRINT',
+				'metamodel.writeBlueprint')->icon('icon-folder');
 		}
 
 		// Applying is offered only once there is something to apply, so the
