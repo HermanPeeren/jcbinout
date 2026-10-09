@@ -20,9 +20,18 @@ parameters:
     #
     # JCB is scanned for the same reason: the extractor reflects over its
     # classes, so their signatures have to resolve.
+    #
+    # From vendor-jcb rather than from the site, because that is the copy that
+    # exists everywhere. A development machine has JCB installed under /joomla
+    # and a runner does not, so pointing only at the site resolved these
+    # classes here and left CI reporting `VDM\Joomla\Componentbuilder\Table`
+    # unknown - the analysis passing locally and failing there, which is the
+    # one way a static gate is worse than no gate. `tools/cli.php fetch`
+    # populates it, and CI runs that before this.
     scanDirectories:
         - joomla/libraries
         - joomla/administrator/components
+        - vendor-jcb
 
     # Joomla defines these when an application boots, so they exist at runtime
     # and in no file an analyser reads.
