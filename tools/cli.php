@@ -10,13 +10,14 @@
  * Commands:
  *   php tools/cli.php fetch [commit]   vendor JCB's sources for offline work
  *   php tools/cli.php derive           derive the metamodel
- *   php tools/cli.php build            build the LionWeb language
+ *   php tools/cli.php build [version]  build the LionWeb language
+ *                                      (default: the vendored JCB commit)
  *   php tools/cli.php validate         validate the language
  *   php tools/cli.php export [dir]     export a blueprint to a LionWeb chunk
  *   php tools/cli.php roundtrip [dir]  export, import, and compare the design
  *   php tools/cli.php plan [mode]      what importing would do (no database)
  *   php tools/cli.php report           render METAMODEL.md
- *   php tools/cli.php all              derive, build, validate, report
+ *   php tools/cli.php all [version]    derive, build, validate
  *
  * @package    JcbInOut
  * @copyright  Copyright (C) 2026 Herman Peeren. All rights reserved.
@@ -268,7 +269,7 @@ function cmdDerive(string $jcbSrc, string $formsDir, string $iniFile,
 	return 0;
 }
 
-function cmdBuild(string $data): int
+function cmdBuild(string $data, ?string $version = null): int
 {
 	$meta = readJson($data . '/jcb-metamodel.json');
 
@@ -281,8 +282,12 @@ function cmdBuild(string $data): int
 	$names = readJson($data . '/interface-names.json')['interfaces'] ?? [];
 	$builder = new \Yepr\Component\Jcbinout\Administrator\Lionweb\LanguageBuilder($meta, $names);
 
-	$version = substr((string) ($meta['meta']['jcbCommit'] ?? 'dev'), 0, 10) . '-1';
-	$chunk   = $builder->build($version);
+	// The commit is the exact provenance and so the default. A release number
+	// is what somebody choosing this language in Exten-gen can actually read,
+	// so the caller may name one; the commit stays recorded in the metamodel
+	// either way, which is what makes the two spellings comparable later.
+	$version ??= substr((string) ($meta['meta']['jcbCommit'] ?? 'dev'), 0, 10) . '-1';
+	$chunk     = $builder->build($version);
 
 	writeJson($data . '/jcb-language.lionweb.json', $chunk);
 	writeJson($data . '/jcb-feature-keys.json', [
@@ -606,7 +611,7 @@ switch ($cmd) {
 		exit(cmdDerive($jcbSrc, $formsDir, $iniFile, $vendor, $data));
 
 	case 'build':
-		exit(cmdBuild($data));
+		exit(cmdBuild($data, $argv[2] ?? null));
 
 	case 'validate':
 		exit(cmdValidate($data));
@@ -629,12 +634,23 @@ switch ($cmd) {
 		));
 
 	case 'report':
+		// report-metamodel.php is also a script in its own right and reads its
+		// two paths from $argv. Included from here, $argv[1] is the subcommand
+		// name, so it would look for a file called "report": give it the
+		// arguments it documents instead.
+		$argv = [
+			$argv[0],
+			$argv[2] ?? ($data . '/jcb-metamodel.json'),
+			$argv[3] ?? ($root . '/METAMODEL.md'),
+		];
+		$argc = \count($argv);
+
 		require __DIR__ . '/report-metamodel.php';
 		exit(0);
 
 	case 'all':
 		$rc = cmdDerive($jcbSrc, $formsDir, $iniFile, $vendor, $data);
-		$rc = $rc ?: cmdBuild($data);
+		$rc = $rc ?: cmdBuild($data, $argv[2] ?? null);
 		$rc = $rc ?: cmdValidate($data);
 		exit($rc);
 
