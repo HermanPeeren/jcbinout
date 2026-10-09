@@ -22,6 +22,21 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
 
+      # The fixture tree is git-ignored and regenerated from the tarball beside
+      # it, so a fresh checkout has the archive and not the tree. Three things
+      # below read the blueprint - the round trip, the import plan and the unit
+      # suite - and without this they all stop at "No blueprint at
+      # tests/fixtures/hello-world", which is what every run here did between
+      # 20 September and today.
+      #
+      # --strip-components=1 because the archive's top-level directory is named
+      # after the commit it was taken from rather than hello-world.
+      - name: Extract the Hello World blueprint
+        run: |
+          mkdir -p tests/fixtures/hello-world
+          tar -xzf tests/fixtures/hello-world.tar.gz \
+            -C tests/fixtures/hello-world --strip-components=1
+
       # The metamodel has to be derived before anything can be checked against
       # it. On a runner there is no installed JCB, so the pinned sources are
       # vendored instead - the same ones the development baseline uses.
