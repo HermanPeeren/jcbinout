@@ -231,6 +231,20 @@ function cmdFetch(string $vendor, string $pin): int
 	return 0;
 }
 
+/**
+ * A path said relative to the root it sits under, so it reads the same
+ * wherever the checkout is.
+ */
+function underTheRoot(string $path, string $root): string
+{
+    $root = str_replace(chr(92), '/', (string) (realpath($root) ?: $root));
+    $path = str_replace(chr(92), '/', (string) (realpath($path) ?: $path));
+
+    return $root !== '' && str_starts_with($path, $root . '/')
+        ? substr($path, strlen($root) + 1)
+        : $path;
+}
+
 function cmdDerive(string $jcbSrc, string $formsDir, string $iniFile,
 	string $vendor, string $data): int
 {
@@ -249,9 +263,15 @@ function cmdDerive(string $jcbSrc, string $formsDir, string $iniFile,
 
 	out('Reading JCB from: ' . $jcbSrc . ($live ? '  (installed site)' : '  (vendored)'));
 
+	// Which copy of JCB this came from, in terms that mean the same on another
+	// machine. The absolute path this used to record is true about one laptop
+	// and says nothing about the metamodel - and this document is committed,
+	// so it turned up in every diff. The vendored copy is pinned exactly by
+	// `jcbCommit` beside it; a site's copy is named by where it sits under the
+	// site.
 	$doc = $extractor->document(array_filter([
 		'jcbCommit'         => $live ? null : $pin,
-		'jcbSourcePath'     => $jcbSrc,
+		'jcbSource'         => $live ? underTheRoot($jcbSrc, \dirname($vendor)) : 'vendored',
 		'schemaFingerprint' => is_file($table) ? hash_file('sha256', $table) : null,
 	]));
 

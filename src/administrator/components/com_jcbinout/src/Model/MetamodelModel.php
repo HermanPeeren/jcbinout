@@ -171,7 +171,7 @@ class MetamodelModel extends BaseDatabaseModel
 
 		$document = $extractor->document([
 			'jcbVersion'        => $locator->version(),
-			'jcbSourcePath'     => $locator->findSource(),
+			'jcbSource'         => self::underTheSite($locator->findSource()),
 			'schemaFingerprint' => $locator->schemaFingerprint(),
 			'site'              => Factory::getApplication()->get('sitename'),
 		]);
@@ -179,6 +179,33 @@ class MetamodelModel extends BaseDatabaseModel
 		$this->write(self::METAMODEL_FILE, $document);
 
 		return $document;
+	}
+
+	/**
+	 * Where JCB was found, said in a way that means the same on another machine.
+	 *
+	 * JCB lives in one of three layouts and which one it is worth recording -
+	 * `libraries/vendor_jcb` and `com_componentbuilder/vendor_jcb` are
+	 * different installations and a derivation from each can differ. The
+	 * absolute path in front of that is not: this artefact is committed, and
+	 * `C:\wamp\www\jcbinout/joomla/...` in a repository says something true
+	 * about one laptop and nothing about the metamodel.
+	 *
+	 * @param  ?string  $source  An absolute path, or null when JCB was not found.
+	 */
+	private static function underTheSite(?string $source): ?string
+	{
+		if ($source === null)
+		{
+			return null;
+		}
+
+		$root = str_replace(chr(92), '/', (string) realpath(JPATH_ROOT));
+		$path = str_replace(chr(92), '/', (string) (realpath($source) ?: $source));
+
+		return $root !== '' && str_starts_with($path, $root . '/')
+			? substr($path, \strlen($root) + 1)
+			: $path;
 	}
 
 	/**
