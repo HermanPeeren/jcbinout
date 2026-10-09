@@ -39,6 +39,16 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
 
+      # As in ci.yml, and for the same reason: the fixture tree is git-ignored
+      # and regenerated from the tarball beside it, so a fresh checkout has the
+      # archive and not the tree. The round trip, the import plan and three of
+      # the unit tests all read the blueprint.
+      - name: Extract the Hello World blueprint
+        run: |
+          mkdir -p tests/fixtures/hello-world
+          tar -xzf tests/fixtures/hello-world.tar.gz \
+            -C tests/fixtures/hello-world --strip-components=1
+
       - name: Vendor JCB sources
         run: php tools/cli.php fetch
 
