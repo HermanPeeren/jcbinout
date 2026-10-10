@@ -11,7 +11,7 @@
  *
  * Usage:
  *   php tools/setup-dev-site.php [--db-suffix=jcbinout] [--joomla=6.1.3]
- *                                [--jcb=6.1.6] [--force]
+ *                                [--jcb=6.1.6] [--lifetime=240] [--force]
  *
  * @package    JcbInOut
  * @copyright  Copyright (C) 2026 Herman Peeren. All rights reserved.
@@ -30,6 +30,7 @@ $defaults = [
     'admin-pass' => 'adminadminadmin',
     'admin-mail' => 'herman@yepr.nl',
     'site-name'  => 'JcbInOut dev',
+    'lifetime'   => '240',
 ];
 
 $options = $defaults;
@@ -177,6 +178,43 @@ if ($code !== 0) {
     fail('Joomla installation failed.');
 }
 
+// --- session lifetime --------------------------------------------------------
+
+// Joomla installs with a 15 minute session and the installer has no option for
+// it, so it is set here rather than left for somebody to find in Global
+// Configuration. Fifteen minutes logs you out in the middle of anything slow -
+// a long form, a generation run, a demo in front of an audience - and whatever
+// was in the form goes with it.
+//
+// A warning rather than a failure: a site with the default session is a working
+// site, and refusing to finish over it would be worse than saying so.
+$lifetime = (int) $options['lifetime'];
+
+if ($lifetime > 0) {
+    step("Setting the session lifetime to {$lifetime} minutes");
+
+    $configFile = $joomla . '/configuration.php';
+    $config     = @file_get_contents($configFile);
+
+    if ($config === false) {
+        fwrite(STDERR, "WARNING: cannot read {$configFile}; the session stays at Joomla's default.\n");
+    } else {
+        $patched = preg_replace(
+            '/(public\s+\$lifetime\s*=\s*)\d+(\s*;)/',
+            '${1}' . $lifetime . '${2}',
+            $config,
+            1,
+            $count
+        );
+
+        if ($count !== 1 || $patched === null) {
+            fwrite(STDERR, "WARNING: no \$lifetime found in configuration.php; it stays at Joomla's default.\n");
+        } elseif (file_put_contents($configFile, $patched) === false) {
+            fwrite(STDERR, "WARNING: cannot write {$configFile}; the session stays at Joomla's default.\n");
+        }
+    }
+}
+
 // --- install JCB -------------------------------------------------------------
 
 $jcbVersion = $options['jcb'];
@@ -237,6 +275,7 @@ echo <<<TEXT
   Admin     {$options['admin-user']} / {$options['admin-pass']}
   Database  {$dbName}  (user {$options['db-user']}, prefix {$options['db-prefix']})
   JCB       {$jcbVersion}
+  Session   {$lifetime} minutes
   URL       http://localhost/{$name}/joomla
 
   Next:
