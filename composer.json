@@ -41,7 +41,8 @@
         "cypress-open": "cypress open"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "process-timeout": 0
     },
     "minimum-stability": "stable"
 }
