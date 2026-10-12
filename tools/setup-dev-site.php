@@ -11,7 +11,7 @@
  *
  * Usage:
  *   php tools/setup-dev-site.php [--db-suffix=jcbinout] [--joomla=6.1.3]
- *                                [--jcb=6.1.6] [--lifetime=240] [--force]
+ *                                [--jcb=6.1.6] [--lifetime=240] [--admin-pass=…] [--force]
  *
  * @package    JcbInOut
  * @copyright  Copyright (C) 2026 Herman Peeren. All rights reserved.
@@ -27,7 +27,7 @@ $defaults = [
     'db-pass'    => '',
     'db-prefix'  => 'jcbio_',
     'admin-user' => 'admin',
-    'admin-pass' => 'adminadminadmin',
+    'admin-pass' => '',
     'admin-mail' => 'herman@yepr.nl',
     'site-name'  => 'JcbInOut dev',
     'lifetime'   => '240',
@@ -48,6 +48,20 @@ foreach (array_slice($argv, 1) as $arg) {
     }
 
     fwrite(STDERR, "Unknown option: {$arg}\n");
+    exit(2);
+}
+
+// The admin password is a local test value and is never written into this file:
+// it comes from --admin-pass= or from the git-ignored cypress.env.json, which the
+// browser tests read anyway, so the site and the tests cannot disagree.
+if ($options['admin-pass'] === '') {
+    $env = @json_decode((string) @file_get_contents(dirname(__DIR__) . '/cypress.env.json'), true);
+    $options['admin-pass'] = is_array($env) ? (string) ($env['adminPassword'] ?? '') : '';
+}
+
+if ($options['admin-pass'] === '') {
+    fwrite(STDERR, "No admin password: pass --admin-pass= or fill in cypress.env.json (see cypress.env.json.dist).
+");
     exit(2);
 }
 
@@ -272,7 +286,7 @@ $name = basename($root);
 echo <<<TEXT
 
   Joomla    {$version}   {$joomla}
-  Admin     {$options['admin-user']} / {$options['admin-pass']}
+  Admin     {$options['admin-user']} (password as in cypress.env.json)
   Database  {$dbName}  (user {$options['db-user']}, prefix {$options['db-prefix']})
   JCB       {$jcbVersion}
   Session   {$lifetime} minutes

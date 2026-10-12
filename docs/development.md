@@ -61,7 +61,7 @@ the database name for a different repository.
 
 | | |
 |---|---|
-| Admin | `admin` / `adminadminadmin` |
+| Admin | `admin`, password as in your git-ignored `cypress.env.json` |
 | Database | `jlatest-jcbinout`, user `root`, empty password |
 | URL | http://localhost/jcbinout/joomla |
 

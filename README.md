@@ -313,7 +313,7 @@ cannot tell you.
 | | |
 |---|---|
 | Joomla | 6.1.3, in `/joomla` |
-| Admin | `admin` / `adminadminadmin` |
+| Admin | `admin`, password as in your git-ignored `cypress.env.json` |
 | Database | `jlatest-jcbinout`, user `root`, empty password |
 | JCB | 6.1.6 |
 | URL | http://localhost/jcbinout/joomla |
