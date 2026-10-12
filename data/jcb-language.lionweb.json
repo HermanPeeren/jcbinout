@@ -8,6 +8,10 @@
         {
             "key": "LionCore-builtins",
             "version": "2024.1"
+        },
+        {
+            "key": "yepr-forms",
+            "version": "1"
         }
     ],
     "nodes": [
@@ -10970,8 +10974,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-87a4b892-c4cb-4032-8511-e18ba8c8c202-editor"
+            ],
             "parent": "jcb-iface-IInstallableExtension"
+        },
+        {
+            "id": "jcb-shared-87a4b892-c4cb-4032-8511-e18ba8c8c202-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-87a4b892-c4cb-4032-8511-e18ba8c8c202"
         },
         {
             "id": "jcb-shared-b9f98c3d-a93a-4b19-b89e-4c62781f9b99",
@@ -11074,8 +11102,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-3ca01651-a5c3-46c3-b7a8-bfb0d9f6e105-editor"
+            ],
             "parent": "jcb-iface-IInstallableExtension"
+        },
+        {
+            "id": "jcb-shared-3ca01651-a5c3-46c3-b7a8-bfb0d9f6e105-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-3ca01651-a5c3-46c3-b7a8-bfb0d9f6e105"
         },
         {
             "id": "jcb-shared-9f9b030b-31ba-4ae9-88da-76efd8a140dc",
@@ -11126,8 +11178,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-9f9b030b-31ba-4ae9-88da-76efd8a140dc-editor"
+            ],
             "parent": "jcb-iface-IInstallableExtension"
+        },
+        {
+            "id": "jcb-shared-9f9b030b-31ba-4ae9-88da-76efd8a140dc-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-9f9b030b-31ba-4ae9-88da-76efd8a140dc"
         },
         {
             "id": "jcb-shared-8d837989-4a21-4943-bb4c-4d4abb9a7a55",
@@ -11178,8 +11254,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-8d837989-4a21-4943-bb4c-4d4abb9a7a55-editor"
+            ],
             "parent": "jcb-iface-IInstallableExtension"
+        },
+        {
+            "id": "jcb-shared-8d837989-4a21-4943-bb4c-4d4abb9a7a55-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-8d837989-4a21-4943-bb4c-4d4abb9a7a55"
         },
         {
             "id": "jcb-shared-ade283c3-937e-4502-a040-c69d6ddb3c50",
@@ -11230,8 +11330,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-ade283c3-937e-4502-a040-c69d6ddb3c50-editor"
+            ],
             "parent": "jcb-iface-IInstallableExtension"
+        },
+        {
+            "id": "jcb-shared-ade283c3-937e-4502-a040-c69d6ddb3c50-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-ade283c3-937e-4502-a040-c69d6ddb3c50"
         },
         {
             "id": "jcb-shared-e76cf555-112a-4021-9a1e-b4ee52d7be8a",
@@ -11282,8 +11406,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-e76cf555-112a-4021-9a1e-b4ee52d7be8a-editor"
+            ],
             "parent": "jcb-iface-IInstallableExtension"
+        },
+        {
+            "id": "jcb-shared-e76cf555-112a-4021-9a1e-b4ee52d7be8a-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-e76cf555-112a-4021-9a1e-b4ee52d7be8a"
         },
         {
             "id": "jcb-shared-b877b188-693c-43a3-9121-a37a3943d7c1",
@@ -11334,8 +11482,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-b877b188-693c-43a3-9121-a37a3943d7c1-editor"
+            ],
             "parent": "jcb-iface-IInstallableExtension"
+        },
+        {
+            "id": "jcb-shared-b877b188-693c-43a3-9121-a37a3943d7c1-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-b877b188-693c-43a3-9121-a37a3943d7c1"
         },
         {
             "id": "jcb-shared-03de1a61-d639-4d48-8ce6-fcf16c8f6270",
@@ -11607,8 +11779,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-25c87995-f58f-4f6a-8f6b-2e462545bdd6-editor"
+            ],
             "parent": "jcb-iface-IRenderedView"
+        },
+        {
+            "id": "jcb-shared-25c87995-f58f-4f6a-8f6b-2e462545bdd6-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-25c87995-f58f-4f6a-8f6b-2e462545bdd6"
         },
         {
             "id": "jcb-shared-fd03122f-8c74-468a-8f8c-704e927c3b65",
@@ -11659,8 +11855,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-fd03122f-8c74-468a-8f8c-704e927c3b65-editor"
+            ],
             "parent": "jcb-iface-IRenderedView"
+        },
+        {
+            "id": "jcb-shared-fd03122f-8c74-468a-8f8c-704e927c3b65-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-fd03122f-8c74-468a-8f8c-704e927c3b65"
         },
         {
             "id": "jcb-shared-ccb3cb86-8403-4494-a284-ce1fb782f0af",
@@ -11711,8 +11931,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-ccb3cb86-8403-4494-a284-ce1fb782f0af-editor"
+            ],
             "parent": "jcb-iface-IRenderedView"
+        },
+        {
+            "id": "jcb-shared-ccb3cb86-8403-4494-a284-ce1fb782f0af-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-ccb3cb86-8403-4494-a284-ce1fb782f0af"
         },
         {
             "id": "jcb-shared-32564da8-5599-4577-bd93-fd425179612f",
@@ -12023,8 +12267,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-7d733ad8-a5bf-4e2f-859d-be1251b7d0f1-editor"
+            ],
             "parent": "jcb-iface-IRenderedView"
+        },
+        {
+            "id": "jcb-shared-7d733ad8-a5bf-4e2f-859d-be1251b7d0f1-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-7d733ad8-a5bf-4e2f-859d-be1251b7d0f1"
         },
         {
             "id": "jcb-shared-075b5082-3fb1-46f1-a838-da558b3afb54",
@@ -12291,8 +12559,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-96963615-e3bb-4d37-83df-4ad3fca74536-editor"
+            ],
             "parent": "jcb-iface-IRenderedView"
+        },
+        {
+            "id": "jcb-shared-96963615-e3bb-4d37-83df-4ad3fca74536-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-96963615-e3bb-4d37-83df-4ad3fca74536"
         },
         {
             "id": "jcb-shared-ffecfa82-c326-4703-9cc3-69d6f313bd32",
@@ -12343,8 +12635,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-ffecfa82-c326-4703-9cc3-69d6f313bd32-editor"
+            ],
             "parent": "jcb-iface-IRenderedView"
+        },
+        {
+            "id": "jcb-shared-ffecfa82-c326-4703-9cc3-69d6f313bd32-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-ffecfa82-c326-4703-9cc3-69d6f313bd32"
         },
         {
             "id": "jcb-iface-IRenderedView",
@@ -12511,8 +12827,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-e4d3c22b-1297-450b-8108-c389f834e354-editor"
+            ],
             "parent": "jcb-iface-IInteractiveView"
+        },
+        {
+            "id": "jcb-shared-e4d3c22b-1297-450b-8108-c389f834e354-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-e4d3c22b-1297-450b-8108-c389f834e354"
         },
         {
             "id": "jcb-shared-c731b5f5-5bd3-4ad3-ac3e-9e0281104121",
@@ -12563,8 +12903,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-c731b5f5-5bd3-4ad3-ac3e-9e0281104121-editor"
+            ],
             "parent": "jcb-iface-IInteractiveView"
+        },
+        {
+            "id": "jcb-shared-c731b5f5-5bd3-4ad3-ac3e-9e0281104121-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-c731b5f5-5bd3-4ad3-ac3e-9e0281104121"
         },
         {
             "id": "jcb-shared-ab222d85-e408-44de-a513-d6aeda48b286",
@@ -12727,8 +13091,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-e268c7be-dc34-40d9-bf2c-5f1897a09f7c-editor"
+            ],
             "parent": "jcb-iface-IInteractiveView"
+        },
+        {
+            "id": "jcb-shared-e268c7be-dc34-40d9-bf2c-5f1897a09f7c-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-e268c7be-dc34-40d9-bf2c-5f1897a09f7c"
         },
         {
             "id": "jcb-shared-5e831983-665b-43f2-9786-5e7c9cbb9e96",
@@ -12779,8 +13167,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-5e831983-665b-43f2-9786-5e7c9cbb9e96-editor"
+            ],
             "parent": "jcb-iface-IInteractiveView"
+        },
+        {
+            "id": "jcb-shared-5e831983-665b-43f2-9786-5e7c9cbb9e96-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-5e831983-665b-43f2-9786-5e7c9cbb9e96"
         },
         {
             "id": "jcb-shared-46fa9c1e-5aa3-41ff-8f02-e9a80252ad9f",
@@ -12935,8 +13347,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-6049b666-d62b-4791-acd2-4ef414bf29f1-editor"
+            ],
             "parent": "jcb-iface-IInteractiveView"
+        },
+        {
+            "id": "jcb-shared-6049b666-d62b-4791-acd2-4ef414bf29f1-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-6049b666-d62b-4791-acd2-4ef414bf29f1"
         },
         {
             "id": "jcb-shared-625b65cb-7569-437a-a6dd-b3290c662e18",
@@ -13142,8 +13578,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-1ad12721-9ee9-4623-98d2-071ba013a373-editor"
+            ],
             "parent": "jcb-iface-IViewAssets"
+        },
+        {
+            "id": "jcb-shared-1ad12721-9ee9-4623-98d2-071ba013a373-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-1ad12721-9ee9-4623-98d2-071ba013a373"
         },
         {
             "id": "jcb-shared-a2098911-926a-42b6-8498-d8a453c34d93",
@@ -13246,8 +13706,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-63d5585f-c9bd-485d-9c1d-4a29a4fbf4b2-editor"
+            ],
             "parent": "jcb-iface-IViewAssets"
+        },
+        {
+            "id": "jcb-shared-63d5585f-c9bd-485d-9c1d-4a29a4fbf4b2-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-63d5585f-c9bd-485d-9c1d-4a29a4fbf4b2"
         },
         {
             "id": "jcb-shared-9405da44-900c-4f7c-823d-734a68f5d6f6",
@@ -13350,8 +13834,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-a99c1f40-4b41-4167-ad29-85133375aa7a-editor"
+            ],
             "parent": "jcb-iface-IViewAssets"
+        },
+        {
+            "id": "jcb-shared-a99c1f40-4b41-4167-ad29-85133375aa7a-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-a99c1f40-4b41-4167-ad29-85133375aa7a"
         },
         {
             "id": "jcb-shared-70995b9c-d0a9-4a57-b59b-54d39c379e66",
@@ -13454,8 +13962,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-34bf9926-34a4-49a3-a29e-b602b1e5f9b2-editor"
+            ],
             "parent": "jcb-iface-IViewAssets"
+        },
+        {
+            "id": "jcb-shared-34bf9926-34a4-49a3-a29e-b602b1e5f9b2-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-34bf9926-34a4-49a3-a29e-b602b1e5f9b2"
         },
         {
             "id": "jcb-iface-IViewAssets",
@@ -14070,8 +14602,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-628147c3-5f93-4a49-a1bc-ac6685e06b64-editor"
+            ],
             "parent": "jcb-iface-IInstallerScriptExtras"
+        },
+        {
+            "id": "jcb-shared-628147c3-5f93-4a49-a1bc-ac6685e06b64-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-628147c3-5f93-4a49-a1bc-ac6685e06b64"
         },
         {
             "id": "jcb-shared-f1deeb63-5df2-45ff-b281-a41d9b2cd122",
@@ -14174,8 +14730,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-8835dfef-4d87-4104-b93c-47c5e02e4acc-editor"
+            ],
             "parent": "jcb-iface-IInstallerScriptExtras"
+        },
+        {
+            "id": "jcb-shared-8835dfef-4d87-4104-b93c-47c5e02e4acc-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-8835dfef-4d87-4104-b93c-47c5e02e4acc"
         },
         {
             "id": "jcb-iface-IInstallerScriptExtras",
@@ -14658,8 +15238,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-e27df414-cf8a-45c3-bc38-cc48e6146fef-editor"
+            ],
             "parent": "jcb-iface-IPhpView"
+        },
+        {
+            "id": "jcb-shared-e27df414-cf8a-45c3-bc38-cc48e6146fef-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-e27df414-cf8a-45c3-bc38-cc48e6146fef"
         },
         {
             "id": "jcb-iface-IPhpView",
@@ -14805,8 +15409,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-dd400eb4-8762-4ab5-bc4e-fa1feacc4dfd-editor"
+            ],
             "parent": "jcb-iface-IClassMember"
+        },
+        {
+            "id": "jcb-shared-dd400eb4-8762-4ab5-bc4e-fa1feacc4dfd-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-dd400eb4-8762-4ab5-bc4e-fa1feacc4dfd"
         },
         {
             "id": "jcb-shared-4ece5fde-e910-467b-abba-5596c9bd994a",
@@ -15012,8 +15640,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-5eb879c0-f6e3-45b6-b220-cb5131422a83-editor"
+            ],
             "parent": "jcb-iface-IHasSql"
+        },
+        {
+            "id": "jcb-shared-5eb879c0-f6e3-45b6-b220-cb5131422a83-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-5eb879c0-f6e3-45b6-b220-cb5131422a83"
         },
         {
             "id": "jcb-iface-IHasSql",
@@ -15106,8 +15758,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-6e214a72-6c96-40c0-abf3-5f09116d3018-editor"
+            ],
             "parent": "jcb-iface-IUsesCustomGet"
+        },
+        {
+            "id": "jcb-shared-6e214a72-6c96-40c0-abf3-5f09116d3018-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-6e214a72-6c96-40c0-abf3-5f09116d3018"
         },
         {
             "id": "jcb-shared-bed7693b-ccd1-4803-b065-5e20fac13881",
@@ -15474,8 +16150,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-145966d2-32bf-42a7-8a7b-cc44aa93490d-editor"
+            ],
             "parent": "jcb-iface-IClassBody"
+        },
+        {
+            "id": "jcb-shared-145966d2-32bf-42a7-8a7b-cc44aa93490d-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-145966d2-32bf-42a7-8a7b-cc44aa93490d"
         },
         {
             "id": "jcb-iface-IClassBody",
@@ -15568,8 +16268,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-b9c064cb-4266-4217-95b7-d2956e6bfefb-editor"
+            ],
             "parent": "jcb-iface-IHasListQuery"
+        },
+        {
+            "id": "jcb-shared-b9c064cb-4266-4217-95b7-d2956e6bfefb-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-b9c064cb-4266-4217-95b7-d2956e6bfefb"
         },
         {
             "id": "jcb-shared-f2581140-5d9c-4c29-b511-e12a826d15da",
@@ -16054,8 +16778,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-749a9917-90c3-49c4-9e72-aa33b0683a87-editor"
+            ],
             "parent": "jcb-iface-IDescribed"
+        },
+        {
+            "id": "jcb-shared-749a9917-90c3-49c4-9e72-aa33b0683a87-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-749a9917-90c3-49c4-9e72-aa33b0683a87"
         },
         {
             "id": "jcb-iface-IDescribed",
@@ -16434,8 +17182,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-shared-e4a3ccf7-e259-4b72-ad4c-216b15d6d4f7-editor"
+            ],
             "parent": "jcb-iface-IHasHead"
+        },
+        {
+            "id": "jcb-shared-e4a3ccf7-e259-4b72-ad4c-216b15d6d4f7-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-shared-e4a3ccf7-e259-4b72-ad4c-216b15d6d4f7"
         },
         {
             "id": "jcb-iface-IHasHead",
@@ -17726,8 +18498,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_component-buildcompsql-editor"
+            ],
             "parent": "jcb-joomla_component"
+        },
+        {
+            "id": "jcb-joomla_component-buildcompsql-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_component-buildcompsql"
         },
         {
             "id": "jcb-joomla_component-jcb_powers_path",
@@ -18298,8 +19094,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_component-license-editor"
+            ],
             "parent": "jcb-joomla_component"
+        },
+        {
+            "id": "jcb-joomla_component-license-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_component-license"
         },
         {
             "id": "jcb-joomla_component-add_css_admin",
@@ -18662,8 +19482,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_component-copyright-editor"
+            ],
             "parent": "jcb-joomla_component"
+        },
+        {
+            "id": "jcb-joomla_component-copyright-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_component-copyright"
         },
         {
             "id": "jcb-joomla_component-preferred_joomla_version",
@@ -19078,8 +19922,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_component-javascript-editor"
+            ],
             "parent": "jcb-joomla_component"
+        },
+        {
+            "id": "jcb-joomla_component-javascript-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_component-javascript"
         },
         {
             "id": "jcb-joomla_component-css_admin",
@@ -19130,8 +19998,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_component-css_admin-editor"
+            ],
             "parent": "jcb-joomla_component"
+        },
+        {
+            "id": "jcb-joomla_component-css_admin-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_component-css_admin"
         },
         {
             "id": "jcb-joomla_component-add_menu_prefix",
@@ -19234,8 +20126,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_component-css_site-editor"
+            ],
             "parent": "jcb-joomla_component"
+        },
+        {
+            "id": "jcb-joomla_component-css_site-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_component-css_site"
         },
         {
             "id": "jcb-joomla_component-menu_prefix",
@@ -19502,8 +20418,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_component-php_method_install-editor"
+            ],
             "parent": "jcb-joomla_component"
+        },
+        {
+            "id": "jcb-joomla_component-php_method_install-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_component-php_method_install"
         },
         {
             "id": "jcb-joomla_component-number",
@@ -20022,8 +20962,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_component-php_helper_both-editor"
+            ],
             "parent": "jcb-joomla_component"
+        },
+        {
+            "id": "jcb-joomla_component-php_helper_both-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_component-php_helper_both"
         },
         {
             "id": "jcb-joomla_component-add_changelog_server",
@@ -20230,8 +21194,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_component-php_helper_admin-editor"
+            ],
             "parent": "jcb-joomla_component"
+        },
+        {
+            "id": "jcb-joomla_component-php_helper_admin-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_component-php_helper_admin"
         },
         {
             "id": "jcb-joomla_component-add_admin_event",
@@ -20334,8 +21322,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_component-php_admin_event-editor"
+            ],
             "parent": "jcb-joomla_component"
+        },
+        {
+            "id": "jcb-joomla_component-php_admin_event-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_component-php_admin_event"
         },
         {
             "id": "jcb-joomla_component-add_php_helper_site",
@@ -20438,8 +21450,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_component-php_helper_site-editor"
+            ],
             "parent": "jcb-joomla_component"
+        },
+        {
+            "id": "jcb-joomla_component-php_helper_site-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_component-php_helper_site"
         },
         {
             "id": "jcb-joomla_component-add_site_event",
@@ -20594,8 +21630,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_component-php_site_event-editor"
+            ],
             "parent": "jcb-joomla_component"
+        },
+        {
+            "id": "jcb-joomla_component-php_site_event-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_component-php_site_event"
         },
         {
             "id": "jcb-joomla_component-add_javascript",
@@ -20750,8 +21810,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_component-metakey-editor"
+            ],
             "parent": "jcb-joomla_component"
+        },
+        {
+            "id": "jcb-joomla_component-metakey-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_component-metakey"
         },
         {
             "id": "jcb-joomla_component-metadesc",
@@ -20802,8 +21886,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_component-metadesc-editor"
+            ],
             "parent": "jcb-joomla_component"
+        },
+        {
+            "id": "jcb-joomla_component-metadesc-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_component-metadesc"
         },
         {
             "id": "jcb-joomla_component-metadata",
@@ -22217,8 +23325,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_module-default_header-editor"
+            ],
             "parent": "jcb-joomla_module"
+        },
+        {
+            "id": "jcb-joomla_module-default_header-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_module-default_header"
         },
         {
             "id": "jcb-joomla_module-add_default_header",
@@ -22373,8 +23505,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_module-layout_data-editor"
+            ],
             "parent": "jcb-joomla_module"
+        },
+        {
+            "id": "jcb-joomla_module-layout_data-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_module-layout_data"
         },
         {
             "id": "jcb-joomla_module-mod_code",
@@ -22425,8 +23581,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_module-mod_code-editor"
+            ],
             "parent": "jcb-joomla_module"
+        },
+        {
+            "id": "jcb-joomla_module-mod_code-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_module-mod_code"
         },
         {
             "id": "jcb-joomla_module-add_class_helper",
@@ -22581,8 +23761,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_module-class_helper_header-editor"
+            ],
             "parent": "jcb-joomla_module"
+        },
+        {
+            "id": "jcb-joomla_module-class_helper_header-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_module-class_helper_header"
         },
         {
             "id": "jcb-joomla_module-class_helper_code",
@@ -22633,8 +23837,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-joomla_module-class_helper_code-editor"
+            ],
             "parent": "jcb-joomla_module"
+        },
+        {
+            "id": "jcb-joomla_module-class_helper_code-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-joomla_module-class_helper_code"
         },
         {
             "id": "jcb-joomla_module-fields",
@@ -25382,8 +26610,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-power-licensing_template-editor"
+            ],
             "parent": "jcb-power"
+        },
+        {
+            "id": "jcb-power-licensing_template-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-power-licensing_template"
         },
         {
             "id": "jcb-power-extendsinterfaces_custom",
@@ -26843,8 +28095,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_postsavehook-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_postsavehook-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_postsavehook"
         },
         {
             "id": "jcb-admin_view-php_before_save",
@@ -26895,8 +28171,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_before_save-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_before_save-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_before_save"
         },
         {
             "id": "jcb-admin_view-php_getitems",
@@ -26947,8 +28247,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_getitems-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_getitems-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_getitems"
         },
         {
             "id": "jcb-admin_view-source",
@@ -27051,8 +28375,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_batchmove-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_batchmove-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_batchmove"
         },
         {
             "id": "jcb-admin_view-add_fadein",
@@ -27259,8 +28607,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_allowedit-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_allowedit-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_allowedit"
         },
         {
             "id": "jcb-admin_view-php_after_delete",
@@ -27311,8 +28683,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_after_delete-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_after_delete-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_after_delete"
         },
         {
             "id": "jcb-admin_view-php_after_cancel",
@@ -27363,8 +28759,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_after_cancel-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_after_cancel-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_after_cancel"
         },
         {
             "id": "jcb-admin_view-type",
@@ -27467,8 +28887,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_after_publish-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_after_publish-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_after_publish"
         },
         {
             "id": "jcb-admin_view-mysql_table_charset",
@@ -27683,8 +29127,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_getitem-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_getitem-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_getitem"
         },
         {
             "id": "jcb-admin_view-php_getitems_after_all",
@@ -27735,8 +29203,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_getitems_after_all-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_getitems_after_all-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_getitems_after_all"
         },
         {
             "id": "jcb-admin_view-addtabs",
@@ -27847,8 +29339,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_getform-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_getform-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_getform"
         },
         {
             "id": "jcb-admin_view-php_save",
@@ -27899,8 +29415,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_save-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_save-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_save"
         },
         {
             "id": "jcb-admin_view-php_allowadd",
@@ -27951,8 +29491,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_allowadd-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_allowadd-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_allowadd"
         },
         {
             "id": "jcb-admin_view-addlinked_views",
@@ -28063,8 +29627,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_before_cancel-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_before_cancel-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_before_cancel"
         },
         {
             "id": "jcb-admin_view-php_batchcopy",
@@ -28115,8 +29703,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_batchcopy-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_batchcopy-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_batchcopy"
         },
         {
             "id": "jcb-admin_view-alias_builder_type",
@@ -28219,8 +29831,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_before_publish-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_before_publish-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_before_publish"
         },
         {
             "id": "jcb-admin_view-php_before_delete",
@@ -28271,8 +29907,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_before_delete-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_before_delete-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_before_delete"
         },
         {
             "id": "jcb-admin_view-mysql_table_row_format",
@@ -28791,8 +30451,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-javascript_view_file-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-javascript_view_file-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-javascript_view_file"
         },
         {
             "id": "jcb-admin_view-add_php_postsavehook",
@@ -29103,8 +30787,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-javascript_views_file-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-javascript_views_file-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-javascript_views_file"
         },
         {
             "id": "jcb-admin_view-add_php_after_cancel",
@@ -29519,8 +31227,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_controller_list-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_controller_list-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_controller_list"
         },
         {
             "id": "jcb-admin_view-php_model_list",
@@ -29571,8 +31303,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-php_model_list-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-php_model_list-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-php_model_list"
         },
         {
             "id": "jcb-admin_view-mysql_table_engine",
@@ -29779,8 +31535,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-admin_view-views_toolbar-editor"
+            ],
             "parent": "jcb-admin_view"
+        },
+        {
+            "id": "jcb-admin_view-views_toolbar-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-admin_view-views_toolbar"
         },
         {
             "id": "jcb-admin_view-child-admin_fields",
@@ -31635,8 +33415,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-AdminViewAddtablesRow-sourcemap-editor"
+            ],
             "parent": "jcb-AdminViewAddtablesRow"
+        },
+        {
+            "id": "jcb-AdminViewAddtablesRow-sourcemap-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-AdminViewAddtablesRow-sourcemap"
         },
         {
             "id": "jcb-AdminViewAddtablesRow",
@@ -31997,8 +33801,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-template-template-editor"
+            ],
             "parent": "jcb-template"
+        },
+        {
+            "id": "jcb-template-template-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-template-template"
         },
         {
             "id": "jcb-template",
@@ -32136,8 +33964,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-layout-layout-editor"
+            ],
             "parent": "jcb-layout"
+        },
+        {
+            "id": "jcb-layout-layout-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-layout-layout"
         },
         {
             "id": "jcb-layout",
@@ -32379,8 +34231,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-dynamic_get-php_calculation-editor"
+            ],
             "parent": "jcb-dynamic_get"
+        },
+        {
+            "id": "jcb-dynamic_get-php_calculation-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-dynamic_get-php_calculation"
         },
         {
             "id": "jcb-dynamic_get-php_router_parse",
@@ -32431,8 +34307,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-dynamic_get-php_router_parse-editor"
+            ],
             "parent": "jcb-dynamic_get"
+        },
+        {
+            "id": "jcb-dynamic_get-php_router_parse-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-dynamic_get-php_router_parse"
         },
         {
             "id": "jcb-dynamic_get-add_php_after_getitems",
@@ -32587,8 +34487,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-dynamic_get-view_selection-editor"
+            ],
             "parent": "jcb-dynamic_get"
+        },
+        {
+            "id": "jcb-dynamic_get-view_selection-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-dynamic_get-view_selection"
         },
         {
             "id": "jcb-dynamic_get-add_php_before_getitems",
@@ -32795,8 +34719,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-dynamic_get-php_custom_get-editor"
+            ],
             "parent": "jcb-dynamic_get"
+        },
+        {
+            "id": "jcb-dynamic_get-php_custom_get-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-dynamic_get-php_custom_get"
         },
         {
             "id": "jcb-dynamic_get-plugin_events",
@@ -32899,8 +34847,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-dynamic_get-db_selection-editor"
+            ],
             "parent": "jcb-dynamic_get"
+        },
+        {
+            "id": "jcb-dynamic_get-db_selection-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-dynamic_get-db_selection"
         },
         {
             "id": "jcb-dynamic_get-view_table_main",
@@ -33123,8 +35095,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-dynamic_get-php_before_getitem-editor"
+            ],
             "parent": "jcb-dynamic_get"
+        },
+        {
+            "id": "jcb-dynamic_get-php_before_getitem-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-dynamic_get-php_before_getitem"
         },
         {
             "id": "jcb-dynamic_get-getcustom",
@@ -33227,8 +35223,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-dynamic_get-php_after_getitem-editor"
+            ],
             "parent": "jcb-dynamic_get"
+        },
+        {
+            "id": "jcb-dynamic_get-php_after_getitem-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-dynamic_get-php_after_getitem"
         },
         {
             "id": "jcb-dynamic_get-pagination",
@@ -33331,8 +35351,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-dynamic_get-php_before_getitems-editor"
+            ],
             "parent": "jcb-dynamic_get"
+        },
+        {
+            "id": "jcb-dynamic_get-php_before_getitems-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-dynamic_get-php_before_getitems"
         },
         {
             "id": "jcb-dynamic_get-filter",
@@ -33443,8 +35487,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-dynamic_get-php_after_getitems-editor"
+            ],
             "parent": "jcb-dynamic_get"
+        },
+        {
+            "id": "jcb-dynamic_get-php_after_getitems-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-dynamic_get-php_after_getitems"
         },
         {
             "id": "jcb-dynamic_get-where",
@@ -34318,8 +36386,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-DynamicGetJoinDbTableRow-selection-editor"
+            ],
             "parent": "jcb-DynamicGetJoinDbTableRow"
+        },
+        {
+            "id": "jcb-DynamicGetJoinDbTableRow-selection-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-DynamicGetJoinDbTableRow-selection"
         },
         {
             "id": "jcb-DynamicGetJoinDbTableRow",
@@ -35881,8 +37973,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-DynamicGetJoinViewTableRow-selection-editor"
+            ],
             "parent": "jcb-DynamicGetJoinViewTableRow"
+        },
+        {
+            "id": "jcb-DynamicGetJoinViewTableRow-selection-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-DynamicGetJoinViewTableRow-selection"
         },
         {
             "id": "jcb-DynamicGetJoinViewTableRow",
@@ -36309,8 +38425,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-custom_code-code-editor"
+            ],
             "parent": "jcb-custom_code"
+        },
+        {
+            "id": "jcb-custom_code-code-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-custom_code-code"
         },
         {
             "id": "jcb-custom_code-hashendtarget",
@@ -36711,8 +38851,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-class_extends-comment-editor"
+            ],
             "parent": "jcb-class_extends"
+        },
+        {
+            "id": "jcb-class_extends-comment-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-class_extends-comment"
         },
         {
             "id": "jcb-class_extends",
@@ -36846,8 +39010,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-class_property-default-editor"
+            ],
             "parent": "jcb-class_property"
+        },
+        {
+            "id": "jcb-class_property-default-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-class_property-default"
         },
         {
             "id": "jcb-class_property",
@@ -36981,8 +39169,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-class_method-code-editor"
+            ],
             "parent": "jcb-class_method"
+        },
+        {
+            "id": "jcb-class_method-code-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-class_method-code"
         },
         {
             "id": "jcb-class_method-arguments",
@@ -37221,8 +39433,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-placeholder-value-editor"
+            ],
             "parent": "jcb-placeholder"
+        },
+        {
+            "id": "jcb-placeholder-value-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-placeholder-value"
         },
         {
             "id": "jcb-placeholder",
@@ -37547,8 +39783,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-library-php_setdocument-editor"
+            ],
             "parent": "jcb-library"
+        },
+        {
+            "id": "jcb-library-php_setdocument-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-library-php_setdocument"
         },
         {
             "id": "jcb-library-addconditions",
@@ -38129,8 +40389,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-LibraryAddconditionsRow-field_options-editor"
+            ],
             "parent": "jcb-LibraryAddconditionsRow"
+        },
+        {
+            "id": "jcb-LibraryAddconditionsRow-field_options-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-LibraryAddconditionsRow-field_options"
         },
         {
             "id": "jcb-LibraryAddconditionsRow",
@@ -38615,8 +40899,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-snippet-snippet-editor"
+            ],
             "parent": "jcb-snippet"
+        },
+        {
+            "id": "jcb-snippet-snippet-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-snippet-snippet"
         },
         {
             "id": "jcb-snippet-usage",
@@ -38667,8 +40975,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-snippet-usage-editor"
+            ],
             "parent": "jcb-snippet"
+        },
+        {
+            "id": "jcb-snippet-usage-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-snippet-usage"
         },
         {
             "id": "jcb-snippet",
@@ -38858,8 +41190,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-validation_rule-php-editor"
+            ],
             "parent": "jcb-validation_rule"
+        },
+        {
+            "id": "jcb-validation_rule-php-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-validation_rule-php"
         },
         {
             "id": "jcb-validation_rule",
@@ -39042,8 +41398,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-field-on_get_model_field-editor"
+            ],
             "parent": "jcb-field"
+        },
+        {
+            "id": "jcb-field-on_get_model_field-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-field-on_get_model_field"
         },
         {
             "id": "jcb-field-on_save_model_field",
@@ -39094,8 +41474,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-field-on_save_model_field-editor"
+            ],
             "parent": "jcb-field"
+        },
+        {
+            "id": "jcb-field-on_save_model_field-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-field-on_save_model_field"
         },
         {
             "id": "jcb-field-initiator_on_get_model",
@@ -39146,8 +41550,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-field-initiator_on_get_model-editor"
+            ],
             "parent": "jcb-field"
+        },
+        {
+            "id": "jcb-field-initiator_on_get_model-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-field-initiator_on_get_model"
         },
         {
             "id": "jcb-field-xml",
@@ -39198,8 +41626,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-field-xml-editor"
+            ],
             "parent": "jcb-field"
+        },
+        {
+            "id": "jcb-field-xml-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-field-xml"
         },
         {
             "id": "jcb-field-initiator_on_save_model",
@@ -39250,8 +41702,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-field-initiator_on_save_model-editor"
+            ],
             "parent": "jcb-field"
+        },
+        {
+            "id": "jcb-field-initiator_on_save_model-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-field-initiator_on_save_model"
         },
         {
             "id": "jcb-field",
@@ -39642,8 +42118,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-FieldtypePropertiesRow-example-editor"
+            ],
             "parent": "jcb-FieldtypePropertiesRow"
+        },
+        {
+            "id": "jcb-FieldtypePropertiesRow-example-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-FieldtypePropertiesRow-example"
         },
         {
             "id": "jcb-FieldtypePropertiesRow-adjustable",
@@ -39850,8 +42350,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-FieldtypePropertiesRow-description-editor"
+            ],
             "parent": "jcb-FieldtypePropertiesRow"
+        },
+        {
+            "id": "jcb-FieldtypePropertiesRow-description-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-FieldtypePropertiesRow-description"
         },
         {
             "id": "jcb-FieldtypePropertiesRow",
@@ -40677,8 +43201,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-ComponentPlaceholdersAddplaceholdersRow-value-editor"
+            ],
             "parent": "jcb-ComponentPlaceholdersAddplaceholdersRow"
+        },
+        {
+            "id": "jcb-ComponentPlaceholdersAddplaceholdersRow-value-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-ComponentPlaceholdersAddplaceholdersRow-value"
         },
         {
             "id": "jcb-ComponentPlaceholdersAddplaceholdersRow",
@@ -42078,8 +44626,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-AdminFieldsConditionsAddconditionsRow-match_options-editor"
+            ],
             "parent": "jcb-AdminFieldsConditionsAddconditionsRow"
+        },
+        {
+            "id": "jcb-AdminFieldsConditionsAddconditionsRow-match_options-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-AdminFieldsConditionsAddconditionsRow-match_options"
         },
         {
             "id": "jcb-AdminFieldsConditionsAddconditionsRow",
@@ -42599,8 +45171,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-AdminFieldsRelationsAddrelationsRow-set-editor"
+            ],
             "parent": "jcb-AdminFieldsRelationsAddrelationsRow"
+        },
+        {
+            "id": "jcb-AdminFieldsRelationsAddrelationsRow-set-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-AdminFieldsRelationsAddrelationsRow-set"
         },
         {
             "id": "jcb-AdminFieldsRelationsAddrelationsRow",
@@ -43052,8 +45648,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-AdminCustomTabsTabsRow-html-editor"
+            ],
             "parent": "jcb-AdminCustomTabsTabsRow"
+        },
+        {
+            "id": "jcb-AdminCustomTabsTabsRow-html-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-AdminCustomTabsTabsRow-html"
         },
         {
             "id": "jcb-AdminCustomTabsTabsRow",
@@ -45592,8 +48212,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-ComponentUpdatesVersionUpdateRow-mysql-editor"
+            ],
             "parent": "jcb-ComponentUpdatesVersionUpdateRow"
+        },
+        {
+            "id": "jcb-ComponentUpdatesVersionUpdateRow-mysql-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-ComponentUpdatesVersionUpdateRow-mysql"
         },
         {
             "id": "jcb-ComponentUpdatesVersionUpdateRow-url",
@@ -45956,8 +48600,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-ComponentUpdatesVersionUpdateRow-change_log-editor"
+            ],
             "parent": "jcb-ComponentUpdatesVersionUpdateRow"
+        },
+        {
+            "id": "jcb-ComponentUpdatesVersionUpdateRow-change_log-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-ComponentUpdatesVersionUpdateRow-change_log"
         },
         {
             "id": "jcb-ComponentUpdatesVersionUpdateRow-update_client",
@@ -46901,8 +49569,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-component_router-methods_code-editor"
+            ],
             "parent": "jcb-component_router"
+        },
+        {
+            "id": "jcb-component_router-methods_code-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-component_router-methods_code"
         },
         {
             "id": "jcb-component_router-constructor_after_parent_code",
@@ -46953,8 +49645,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-component_router-constructor_after_parent_code-editor"
+            ],
             "parent": "jcb-component_router"
+        },
+        {
+            "id": "jcb-component_router-constructor_after_parent_code-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-component_router-constructor_after_parent_code"
         },
         {
             "id": "jcb-component_router-constructor_before_parent_manual",
@@ -47065,8 +49781,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-component_router-constructor_before_parent_code-editor"
+            ],
             "parent": "jcb-component_router"
+        },
+        {
+            "id": "jcb-component_router-constructor_before_parent_code-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "code"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-component_router-constructor_before_parent_code"
         },
         {
             "id": "jcb-component_router",
@@ -47444,8 +50184,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-ComponentConfigAddconfigRow-custom_value-editor"
+            ],
             "parent": "jcb-ComponentConfigAddconfigRow"
+        },
+        {
+            "id": "jcb-ComponentConfigAddconfigRow-custom_value-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-ComponentConfigAddconfigRow-custom_value"
         },
         {
             "id": "jcb-ComponentConfigAddconfigRow-tabname",
@@ -47667,8 +50431,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-component_dashboard-php_dashboard_methods-editor"
+            ],
             "parent": "jcb-component_dashboard"
+        },
+        {
+            "id": "jcb-component_dashboard-php_dashboard_methods-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-component_dashboard-php_dashboard_methods"
         },
         {
             "id": "jcb-component_dashboard",
@@ -47895,8 +50683,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-ComponentDashboardDashboardTabRow-html-editor"
+            ],
             "parent": "jcb-ComponentDashboardDashboardTabRow"
+        },
+        {
+            "id": "jcb-ComponentDashboardDashboardTabRow-html-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-ComponentDashboardDashboardTabRow-html"
         },
         {
             "id": "jcb-ComponentDashboardDashboardTabRow",
@@ -50051,8 +52863,32 @@
                     ]
                 }
             ],
-            "annotations": [],
+            "annotations": [
+                "jcb-JoomlaModuleUpdatesVersionUpdateRow-mysql-editor"
+            ],
             "parent": "jcb-JoomlaModuleUpdatesVersionUpdateRow"
+        },
+        {
+            "id": "jcb-JoomlaModuleUpdatesVersionUpdateRow-mysql-editor",
+            "classifier": {
+                "language": "yepr-forms",
+                "version": "1",
+                "key": "yepr-forms-Editor"
+            },
+            "properties": [
+                {
+                    "property": {
+                        "language": "yepr-forms",
+                        "version": "1",
+                        "key": "yepr-forms-Editor-value"
+                    },
+                    "value": "text"
+                }
+            ],
+            "containments": [],
+            "references": [],
+            "annotations": [],
+            "parent": "jcb-JoomlaModuleUpdatesVersionUpdateRow-mysql"
         },
         {
             "id": "jcb-JoomlaModuleUpdatesVersionUpdateRow-url",
