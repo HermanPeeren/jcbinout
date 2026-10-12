@@ -333,8 +333,10 @@ function cmdBuild(string $data, ?string $version = null): int
 		$diags[$d['severity']] = ($diags[$d['severity']] ?? 0) + 1;
 	}
 
-	out(sprintf("Built LionWeb language\n  version: %s\n  nodes: %d %s\n  diagnostics: %s",
-		$version, count($chunk['nodes']), json_encode($census), json_encode($diags ?: ['none' => 0])));
+	out(sprintf("Built LionWeb language\n  version: %s\n  nodes: %d %s\n  editors: %s\n  diagnostics: %s",
+		$version, count($chunk['nodes']), json_encode($census),
+		json_encode(array_count_values($builder->editors()) ?: ['none' => 0]),
+		json_encode($diags ?: ['none' => 0])));
 
 	foreach ($builder->diagnostics() as $d) {
 		if ($d['severity'] === 'error') {

@@ -30,6 +30,20 @@ final class LanguageBuilder
 	public const LANG_KEY  = 'jcb';
 	public const LANG_NAME = 'JCB';
 
+	/**
+	 * How a String property says it is edited over several lines. LionCore M3
+	 * has no word for it, so it travels as an annotation on the Property node,
+	 * from a small language of the generator family's. The keys are Meta-gen's
+	 * (`Lionweb\EditorAnnotation`), which reads them when it imports this
+	 * language and generates a textarea for each marked property.
+	 */
+	public const EDITOR_LANG       = 'yepr-forms';
+	public const EDITOR_VERSION    = '1';
+	public const EDITOR_ANNOTATION = 'yepr-forms-Editor';
+	public const EDITOR_VALUE      = 'yepr-forms-Editor-value';
+	public const EDITOR_TEXT       = 'text';
+	public const EDITOR_CODE       = 'code';
+
 	private array $nodes = [];
 	private array $diagnostics = [];
 	private array $conceptIds = [];     // entity/row name => node id
@@ -42,6 +56,7 @@ final class LanguageBuilder
 	private array $hoisted = [];        // "entity.property" => interface node id
 	private array $implementsOf = [];   // entity => [interface node id, ...]
 	private array $ifaceNames = [];     // signature => configured name
+	private array $editors = [];        // feature key => text|code
 
 	public function __construct(private array $meta, array $ifaceNames = [])
 	{
@@ -60,6 +75,11 @@ final class LanguageBuilder
 		return ['language' => self::BUILTINS, 'version' => self::LW_FORMAT, 'key' => $key];
 	}
 
+	private function mpEditor(string $key): array
+	{
+		return ['language' => self::EDITOR_LANG, 'version' => self::EDITOR_VERSION, 'key' => $key];
+	}
+
 	private function prop(array $mp, ?string $value): array
 	{
 		return ['property' => $mp, 'value' => $value];
@@ -75,7 +95,7 @@ final class LanguageBuilder
 
 	/** Every node must carry all seven members, even when empty. */
 	private function node(string $id, array $classifier, array $properties,
-		array $containments, array $references, ?string $parent): void
+		array $containments, array $references, ?string $parent, array $annotations = []): void
 	{
 		$this->nodes[] = [
 			'id'           => $id,
@@ -83,7 +103,7 @@ final class LanguageBuilder
 			'properties'   => $properties,
 			'containments' => $containments,
 			'references'   => $references,
-			'annotations'  => [],
+			'annotations'  => $annotations,
 			'parent'       => $parent,
 		];
 	}
@@ -333,13 +353,22 @@ final class LanguageBuilder
 			null
 		);
 
+		$languages = [
+			['key' => self::M3, 'version' => self::LW_FORMAT],
+			['key' => self::BUILTINS, 'version' => self::LW_FORMAT],
+		];
+
+		// Only named when used: a language with no multi-line property is the
+		// same chunk it was before editor annotations existed.
+		if ($this->editors !== [])
+		{
+			$languages[] = ['key' => self::EDITOR_LANG, 'version' => self::EDITOR_VERSION];
+		}
+
 		return [
 			'serializationFormatVersion' => self::LW_FORMAT,
-			'languages'                  => [
-				['key' => self::M3, 'version' => self::LW_FORMAT],
-				['key' => self::BUILTINS, 'version' => self::LW_FORMAT],
-			],
-			'nodes' => $this->nodes,
+			'languages'                  => $languages,
+			'nodes'                      => $this->nodes,
 		];
 	}
 
@@ -594,21 +623,8 @@ final class LanguageBuilder
 			}
 
 			// Row settings have no declared datatype; String is the safe carrier.
-			$this->node(
-				$featureId,
-				$this->mpM3('Property'),
-				array_merge($this->named($fname, $key), [
-					$this->prop($this->mpM3('Feature-optional'), 'true'),
-				]),
-				[],
-				[['reference' => $this->mpM3('Property-type'),
-					'targets' => [['resolveInfo' => 'String',
-						'reference' => 'LionCore-builtins-String-'
-							. str_replace('.', '-', self::LW_FORMAT)]]]],
-				$id
-			);
-
-			$features[] = $featureId;
+			$features[] = $this->emitPlainProperty($featureId, $id, $fname, $key, 'String', 'true',
+				self::editorFor($f));
 		}
 
 		$this->node(
@@ -714,7 +730,8 @@ final class LanguageBuilder
 					"Subform '{$entity}.{$pname}' has no row shape; emitted as a String property "
 					. '(lossy: structure is not modelled).');
 
-				return $this->emitPlainProperty($id, $conceptId, $pname, $key, 'String', $optional);
+				return $this->emitPlainProperty($id, $conceptId, $pname, $key, 'String', $optional,
+					self::editorFor($p));
 			}
 
 			$this->node($id, $this->mpM3('Containment'),
@@ -735,7 +752,8 @@ final class LanguageBuilder
 			$this->diag('info', 'JSON_AS_STRING',
 				"Property '{$entity}.{$pname}' is an unshaped JSON blob; carried as String.");
 
-			return $this->emitPlainProperty($id, $conceptId, $pname, $key, 'String', $optional);
+			return $this->emitPlainProperty($id, $conceptId, $pname, $key, 'String', $optional,
+				self::editorFor($p));
 		}
 
 		// Plain property: builtin primitive or a harvested enumeration.
@@ -748,7 +766,8 @@ final class LanguageBuilder
 				$this->diag('error', 'ENUM_MISSING',
 					"Property '{$entity}.{$pname}' names enumeration '{$ename}' which was not emitted.");
 
-				return $this->emitPlainProperty($id, $conceptId, $pname, $key, 'String', $optional);
+				return $this->emitPlainProperty($id, $conceptId, $pname, $key, 'String', $optional,
+					self::editorFor($p));
 			}
 
 			$this->node($id, $this->mpM3('Property'),
@@ -770,12 +789,48 @@ final class LanguageBuilder
 			$datatype = 'String';
 		}
 
-		return $this->emitPlainProperty($id, $conceptId, $pname, $key, $datatype, $optional);
+		return $this->emitPlainProperty($id, $conceptId, $pname, $key, $datatype, $optional,
+			self::editorFor($p));
+	}
+
+	/**
+	 * How JCB edits a column, as the editor annotation's value: `code` behind
+	 * its code editor and for a hidden field over a TEXT column (a field's raw
+	 * `xml`), `text` behind a textarea, and null for everything one line long.
+	 *
+	 * Decided from JCB's widget rather than the column: a TEXT column behind a
+	 * text box holds no line breaks, and every multi-line value of JCB's demo
+	 * blueprint sits behind one of these three.
+	 */
+	public static function editorFor(array $p): ?string
+	{
+		$widget = $p['jcbType'] ?? null;
+
+		if ($widget === 'editor')
+		{
+			return self::EDITOR_CODE;
+		}
+
+		if ($widget === 'textarea')
+		{
+			return self::EDITOR_TEXT;
+		}
+
+		if ($widget === 'hidden'
+			&& in_array(strtoupper((string) ($p['db']['type'] ?? '')), ['TEXT', 'MEDIUMTEXT'], true))
+		{
+			return self::EDITOR_CODE;
+		}
+
+		return null;
 	}
 
 	private function emitPlainProperty(string $id, string $conceptId, string $pname,
-		string $key, string $datatype, string $optional): string
+		string $key, string $datatype, string $optional, ?string $editor = null): string
 	{
+		// Only a String runs over lines; a number marked multi-line keeps its input.
+		$annotationId = $editor !== null && $datatype === 'String' ? $id . '-editor' : null;
+
 		$this->node($id, $this->mpM3('Property'),
 			array_merge($this->named($pname, $key), [
 				$this->prop($this->mpM3('Feature-optional'), $optional),
@@ -788,9 +843,28 @@ final class LanguageBuilder
 					'reference'   => 'LionCore-builtins-' . $datatype . '-'
 						. str_replace('.', '-', self::LW_FORMAT),
 				]]]],
-			$conceptId);
+			$conceptId,
+			$annotationId !== null ? [$annotationId] : []);
+
+		if ($annotationId !== null)
+		{
+			$this->emitEditorAnnotation($annotationId, $id, (string) $editor);
+			$this->editors[$key] = $editor;
+		}
 
 		return $id;
+	}
+
+	/**
+	 * The annotation node, in exactly the shape Meta-gen's
+	 * `EditorAnnotation::node()` spells out: its parent is the Property node,
+	 * which lists it in `annotations`.
+	 */
+	private function emitEditorAnnotation(string $id, string $propertyNodeId, string $editor): void
+	{
+		$this->node($id, $this->mpEditor(self::EDITOR_ANNOTATION),
+			[$this->prop($this->mpEditor(self::EDITOR_VALUE), $editor)],
+			[], [], $propertyNodeId);
 	}
 
 	// -- partition -----------------------------------------------------------
@@ -859,6 +933,14 @@ final class LanguageBuilder
 	public function diagnostics(): array
 	{
 		return $this->diagnostics;
+	}
+
+	/** feature key => `text` or `code`, for every property annotated. */
+	public function editors(): array
+	{
+		ksort($this->editors);
+
+		return $this->editors;
 	}
 
 	public function featureKeys(): array

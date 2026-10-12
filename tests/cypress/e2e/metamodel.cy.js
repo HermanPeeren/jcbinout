@@ -77,6 +77,10 @@ describe('JcbInOut metamodel view', () => {
     cy.contains('LionWeb language').should('be.visible');
     cy.contains('td', 'Concept').should('be.visible');
     cy.contains('td', 'Interface').should('be.visible');
+
+    // JCB's editor and textarea fields are marked as running over lines, so
+    // Meta-gen generates textareas for them rather than one-line text boxes.
+    cy.contains('td', 'yepr-forms-Editor').should('be.visible');
   });
 
   it('exports a blueprint as a LionWeb instance', () => {

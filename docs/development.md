@@ -280,6 +280,42 @@ Reading them as Boolean destroyed the value. Nor is every radio numeric —
 `add_namespace_prefix` is a radio on `CHAR(1)` whose default is `''`.
 `Classifier` decides from the SQL column, which is the only thing that knows.
 
+### A property that runs over lines says so
+
+Whether a value is edited over several lines is the one thing that *does*
+follow the widget. A String holding PHP looks exactly like a String holding a
+title, and a form that gives both a text box loses every line break of the PHP
+on a browser save — 868 values of JCB's demo blueprint in Exten-gen.
+
+LionCore M3 has no word for it, so `LanguageBuilder` writes it the way LionWeb
+lets anything be said about a node its metamodel does not cover: an annotation
+on the Property node. The keys are Meta-gen's (`Lionweb\EditorAnnotation`,
+which reads them on import and generates the textareas):
+
+```
+language   yepr-forms, version 1          (in the chunk's languages, only when used)
+annotation yepr-forms-Editor              parent: the Property node, listed in its annotations
+property   yepr-forms-Editor-value        "text" or "code"
+```
+
+`LanguageBuilder::editorFor()` decides from the metamodel's `jcbType`:
+`editor` is `code`, `hidden` over a `TEXT` or `MEDIUMTEXT` column (a field's raw
+`xml`) is `code`, `textarea` is `text`, and everything else carries no
+annotation, which means one line. Subform row fields follow the same rule. Only
+a String is annotated: a textarea over an integer keeps its input.
+
+JCB's 6.2.0 language gets 118: 78 `code` and 40 `text`. A shared field
+definition is declared once on its interface, so it is annotated once there —
+28 of the `code` and 4 of the `text` annotations sit on interfaces.
+`EditorAnnotationTest` pins those counts and checks the node against a copy of
+`EditorAnnotation::node()`, so a change of shape on either side fails here.
+
+A reader that does not know `yepr-forms` is unaffected: `LanguageIndex` and the
+library's `LionCoreLanguage` both walk features through containments, and an
+annotation is not contained, so they read the same language as before. The
+language version stays JCB's release (6.2.0) — what the annotations change is
+how the language is edited, not what it is.
+
 ### What the round trip compares
 
 `DesignProjection` computes β, the portable design projection — not byte
